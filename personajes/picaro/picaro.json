@@ -1,0 +1,158 @@
+{
+  "cartas": [
+    {
+      "id": "darius-nocturno",
+      "tipo": "personaje",
+      "nombre": "Darius Nocturno",
+      "raza": "Elfo Vampiro",
+      "clase": "Picaro",
+      "descripcion": "Darius Nocturno es un elfo vampiro con rasgos afilados y ojos brillantes que revelan su naturaleza depredadora. Viste con elegancia, combinando una camisa blanca con volantes, un chaleco bordado y un abrigo largo. En su mano sostiene un estoque ornamentado, y un collar con una gema carmesí adorna su cuello, símbolo de su linaje vampírico.",
+      "reglas": [
+        "Los picaros no pueden portar un escudo.",
+        "Los picaros suman +1 a todas sus tiradas de destreza (abrir cofres y robar).",
+        "Los elfos vampiro pueden revivir a un aliado derrotado en combate: pierden 2 puntos de vida y el aliado vuelve con 2 puntos de vida. Solo pueden hacerlo una vez por cada tablero de mazmorra."
+      ],
+      "armas": [
+        "Espada corta",
+        "Daga"
+      ],
+      "tiene_ilustracion": true
+    },
+    {
+      "id": "lyria-nocturna",
+      "tipo": "personaje",
+      "nombre": "Lyria Nocturna",
+      "raza": "Elfa Vampiro",
+      "clase": "Picaro",
+      "descripcion": "Lyria Sombra Nocturna es una elfa vampira de piel pálida y rasgos afilados, que emana un aura misteriosa y peligrosa. Su cabello largo y blanco contrasta con su atuendo oscuro y gótico. Viste un corsé de cuero combinado con una capa roja, lo que la hace tanto seductora como intimidante. Sus orejas largas y puntiagudas sobresalen de su cabello, destacando su herencia élfica.",
+      "reglas": [
+        "Los picaros no pueden portar un escudo.",
+        "Los picaros suman +1 a su tirada de inicio de combate para decidir quién ataca primero.",
+        "Los picaros suman +1 a todas sus tiradas de destreza (abrir cofres y robar).",
+        "Los elfos vampiro pueden revivir a un aliado derrotado en combate: pierden 2 puntos de vida y el aliado vuelve con 2 puntos de vida. Solo pueden hacerlo una vez por cada tablero de mazmorra."
+      ],
+      "armas": [
+        "Daga",
+        "Puñal"
+      ],
+      "tiene_ilustracion": true
+    },
+    {
+      "id": "robar-nivel-2",
+      "tipo": "habilidad",
+      "nombre": "ROBAR",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Sombra",
+          "valor": 2,
+          "icono": "daga",
+          "subtitulo": "Ataque con daga"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Puñalada Veloz",
+          "valor": 3,
+          "icono": "daga",
+          "subtitulo": "Ataque con daga"
+        }
+      ],
+      "descripcion": "Utilizando tus habilidades de sigilo y destreza, puedes despojar a tus enemigos de monedas o bebidas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Saquear Bolsillos",
+          "valor": 2,
+          "icono": "bebida",
+          "subtitulo": "Robo bebida"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Engaño Maestro",
+          "valor": 2,
+          "icono": "moneda",
+          "subtitulo": "Robo moneda"
+        }
+      ]
+    },
+    {
+      "id": "robar-nivel-1",
+      "tipo": "habilidad",
+      "nombre": "ROBAR",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Ataque Furtivo",
+          "valor": 1,
+          "icono": "daga",
+          "subtitulo": "Ataque con daga"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Puñalada Veloz",
+          "valor": 2,
+          "icono": "daga",
+          "subtitulo": "Ataque con daga"
+        }
+      ],
+      "descripcion": "Utilizando tus habilidades de sigilo y destreza, puedes despojar a tus enemigos de monedas o bebidas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Toque Sutil",
+          "valor": 1,
+          "icono": "bebida",
+          "subtitulo": "Robo bebida"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Hurto Sutil",
+          "valor": 1,
+          "icono": "moneda",
+          "subtitulo": "Robo moneda"
+        }
+      ]
+    },
+    {
+      "id": "sangre-de-vida",
+      "tipo": "habilidad",
+      "nombre": "Sangre de Vida",
+      "descripcion": "Una vez por cada tablero de mazmorra y estando en combate, puedes utilizar esta habilidad para consumir la sangre de un aliado y recuperar hasta un máximo de 6 puntos de salud (esto hará que tu aliado pierda 3 puntos de salud), o de un enemigo cercano y ganar 3 puntos de vida.",
+      "tiene_ilustracion": true,
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "nombre": "Mordida Dolorosa",
+          "valor": 3,
+          "icono": "mordida",
+          "subtitulo": "Mordida a enemigo"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Mordida Dolorosa",
+          "valor": 6,
+          "icono": "mordida",
+          "subtitulo": "Mordida a aliado"
+        }
+      ]
+    },
+    {
+      "id": "el-bandido",
+      "tipo": "habilidad",
+      "nombre": "El Bandido",
+      "nombre_habilidad": "Sombra de Sangre",
+      "descripcion": "El pícaro vampiro elfo se desliza en las sombras, utilizando su agilidad sobrenatural y su sed de sangre para ejecutar un robo perfecto. Al activar esta habilidad, el pícaro se vuelve casi invisible, moviéndose con una velocidad y sigilo inhumanos. Una vez por cada tablero de mazmorra y estando fuera de combate, puedes robar 2 monedas a un NPC.",
+      "tiene_ilustracion": true
+    }
+  ]
+}

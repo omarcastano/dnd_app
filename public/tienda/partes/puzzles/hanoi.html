@@ -1,0 +1,29 @@
+<div id="view-hanoi" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Torres de Hanoi</h3>
+  <div class="rob-description">
+    Mueve todos los anillos de la Torre 1 a la Torre 3 siguiendo estas reglas:<br><br>
+    • Solo puedes mover un anillo a la vez.<br>
+    • Puedes mover un anillo de cualquier torre a cualquier otra.<br>
+    • Nunca puedes poner un anillo grande sobre uno más pequeño.<br>
+    Consejo: con N anillos necesitas 2^N − 1 movimientos mínimo.
+  </div>
+  <div id="hanoiContainer" class="hanoi-container">
+    <div class="hanoi-tower">
+      <div class="hanoi-base">Torre 1</div>
+      <div id="hanoiTower1" class="hanoi-stack"></div>
+    </div>
+    <div class="hanoi-tower">
+      <div class="hanoi-base">Torre 2</div>
+      <div id="hanoiTower2" class="hanoi-stack"></div>
+    </div>
+    <div class="hanoi-tower">
+      <div class="hanoi-base">Torre 3</div>
+      <div id="hanoiTower3" class="hanoi-stack"></div>
+    </div>
+  </div>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="hanoiReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="hanoiMessage"></div>
+</div>

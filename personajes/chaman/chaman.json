@@ -1,0 +1,169 @@
+{
+  "cartas": [
+    {
+      "id": "zarak-piedravieja",
+      "tipo": "personaje",
+      "nombre": "Zarak Piedravieja",
+      "raza": "Trol",
+      "clase": "Chamán",
+      "descripcion": "Zarak Piedravieja es un trol chamán de piel gris azulada, colmillos que le sobresalen de la mandíbula y cicatrices rituales que brillan con un tenue resplandor verde. Según las leyendas de su tribu, los trols se petrificaron en las montañas al amanecer, y solo quien habla con los espíritus puede devolverlos a la vida.",
+      "reglas": [
+        "Los chamanes pueden portar un escudo.",
+        "Los trols regeneran 1 punto de vida al inicio de cada ronda."
+      ],
+      "armas": [
+        "Maza",
+                "Hacha corta"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/zarak-piedravieja.webp"
+    },
+    {
+      "id": "nekwa-piedravieja",
+      "tipo": "personaje",
+      "nombre": "Nekwa Piedravieja",
+      "raza": "Trol",
+      "clase": "Chamana",
+      "descripcion": "Nekwa Piedravieja es la chamana de la tribu, una trol de melena de musgo y ojos amarillos que brillan en la oscuridad. Desde niña habló con los ancestros en sueños, y desde entonces camina con un pie en el mundo de los vivos y otro en el de los espíritus. Porta un tambor de piel de oso y sonajas hechas con dientes de dragón; cada golpe de su ritmo convoca a los espíritus de la tribu en plena batalla.",
+      "reglas": [
+        "Los chamanes pueden portar un escudo.",
+        "Los trols regeneran 1 punto de vida al inicio de cada ronda."
+      ],
+      "armas": [
+        "Daga",
+                "Puñal"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/nekwa-piedravieja.webp"
+    },
+    {
+      "id": "canto-totemico-nivel-2",
+      "tipo": "habilidad",
+      "nombre": "CANTO TOTÉMICO",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Lanza de Espíritu",
+          "valor": 2,
+          "icono": "magia",
+          "subtitulo": "Ataque mágico",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-2/lanza-de-espiritu.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Rayo Totémico",
+          "valor": 3,
+          "icono": "magia",
+          "subtitulo": "Ataque mágico",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-2/rayo-totemico.webp"
+        }
+      ],
+      "descripcion": "El chamán entona un canto ancestral que cura 1 punto de vida a un aliado o a ti mismo al inicio de cada ronda durante 3 o 4 rondas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Canto Sanador",
+          "valor": 3,
+          "icono": "sanacion",
+          "subtitulo": "Conjuro de sanación",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-2/canto-sanador.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Bendición Totémica",
+          "valor": 4,
+          "icono": "sanacion",
+          "subtitulo": "Conjuro de sanación",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-2/bendicion-del-totem.webp"
+        }
+      ]
+    },
+    {
+      "id": "canto-totemico-nivel-1",
+      "tipo": "habilidad",
+      "nombre": "CANTO TOTÉMICO",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Lanza de Espíritu",
+          "valor": 1,
+          "icono": "magia",
+          "subtitulo": "Ataque mágico",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-1/lanza-de-espiritu.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Rayo Totémico",
+          "valor": 2,
+          "icono": "magia",
+          "subtitulo": "Ataque mágico",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-1/rayo-totemico.webp"
+        }
+      ],
+      "descripcion": "El chamán entona un canto ancestral que cura 1 punto de vida a un aliado o a ti mismo al inicio de cada ronda durante 2 o 3 rondas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Canto Sanador",
+          "valor": 2,
+          "icono": "sanacion",
+          "subtitulo": "Conjuro de sanación",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-1/canto-sanador.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Bendición Totémica",
+          "valor": 3,
+          "icono": "sanacion",
+          "subtitulo": "Conjuro de sanación",
+          "icono_imagen": "imagenes/habilidades/canto-totemico-nivel-1/bendicion-del-totem.webp"
+        }
+      ]
+    },
+    {
+      "id": "piel-de-piedra",
+      "tipo": "habilidad",
+      "nombre": "Piel de Piedra",
+      "descripcion": "Una vez por cada tablero de mazmorra y estando en combate, el trol endurece su piel hasta parecer granito. Hasta el final de esta batalla, reduce en la cantidad indicada el daño que recibe de cada ataque.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/piel-de-piedra.webp",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "nombre": "Corteza Pétrea",
+          "valor": 1,
+          "icono": "escudo",
+          "subtitulo": "Reducir daño",
+          "icono_imagen": "imagenes/habilidades/piel-de-piedra/corteza-petrea.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Piel de Granito",
+          "valor": 2,
+          "icono": "escudo",
+          "subtitulo": "Reducir daño",
+          "icono_imagen": "imagenes/habilidades/piel-de-piedra/piel-de-granito.webp"
+        }
+      ]
+    },
+    {
+      "id": "nekwa",
+      "tipo": "habilidad",
+      "nombre": "Nekwa",
+      "nombre_habilidad": "Danza de los Espíritus",
+      "descripcion": "Una vez por cada tablero de mazmorra y estando en combate, la chamana inicia una danza ritual que invoca a los espíritus ancestrales. Hasta el final de esta batalla, cada compañero de combate puede volver a tirar una vez el d20 cuando falle un ataque.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/nekwa.webp"
+    }
+  ]
+}

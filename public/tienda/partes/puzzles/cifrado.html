@@ -1,0 +1,27 @@
+<div id="view-cipher" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Cifrado César</h3>
+  <div class="rob-description">
+    Un cifrado César desplaza cada letra un número fijo de posiciones en el alfabeto. Intenta descifrar el mensaje moviendo el deslizador hasta que tenga sentido.
+  </div>
+  <div id="cipherContainer">
+    <div class="cipher-display">
+      <div class="cipher-label">Cifrado:</div>
+      <div id="cipherText" class="cipher-text"></div>
+    </div>
+    <div class="cipher-shift">
+      <label for="cipherShift">Desplazamiento:</label>
+      <input id="cipherShift" type="range" min="1" max="25" value="1">
+      <span id="cipherShiftValue">1</span>
+    </div>
+    <div class="cipher-display">
+      <div class="cipher-label">Descifrado:</div>
+      <div id="decryptedText" class="cipher-text"></div>
+    </div>
+  </div>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="cipherCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="cipherReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="cipherMessage"></div>
+</div>

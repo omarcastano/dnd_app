@@ -1,0 +1,14 @@
+<div id="view-nonogram" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Nonograma</h3>
+  <div class="rob-description">
+    Pinta celdas para cumplir las pistas de cada fila (a la izquierda) y de cada columna (arriba).<br><br>
+    Cada numero es un bloque de celdas pintadas seguidas. Entre bloques debe haber al menos una celda vacia. Por ejemplo, "1 2" significa un bloque de 1 y luego otro de 2.
+  </div>
+  <table id="nonoBoard" class="puzzle-table"></table>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="nonoCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="nonoReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="nonoMessage"></div>
+</div>

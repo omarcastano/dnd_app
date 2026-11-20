@@ -1,0 +1,16 @@
+<div id="view-galaxies" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Galaxias</h3>
+  <div class="rob-description">
+    Divide el tablero en galaxias. Toca un punto para elegir su galaxia y luego toca celdas para agregarlas. Toca otra vez una celda de esa galaxia para quitarla.<br><br>
+    • Cada galaxia tiene un solo punto.<br>
+    • Cada galaxia es continua.<br>
+    • Cada galaxia es simetrica alrededor de su punto: cada celda tiene su par exacto al otro lado.
+  </div>
+  <table id="galaxyBoard" class="puzzle-table"></table>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="galaxyCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="galaxyReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="galaxyMessage"></div>
+</div>

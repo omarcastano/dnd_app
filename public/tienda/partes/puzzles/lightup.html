@@ -1,0 +1,16 @@
+<div id="view-lightup" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Light Up</h3>
+  <div class="rob-description">
+    Pon bombillas en celdas blancas para iluminar todas las celdas blancas:<br><br>
+    • Una bombilla ilumina su fila y su columna hasta llegar a un bloque negro.<br>
+    • Dos bombillas no pueden iluminarse entre si.<br>
+    • Un bloque negro con numero tiene exactamente ese numero de bombillas junto a el (arriba, abajo, izquierda o derecha).
+  </div>
+  <table id="lightBoard" class="puzzle-table"></table>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="lightCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="lightReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="lightMessage"></div>
+</div>

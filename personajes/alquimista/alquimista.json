@@ -1,0 +1,160 @@
+{
+  "cartas": [
+    {
+      "id": "tibbin-engranaje",
+      "tipo": "personaje",
+      "nombre": "Tibbin Engranaje",
+      "raza": "Gnomo",
+      "clase": "Alquimista",
+      "descripcion": "Tibbin Engranaje es un gnomo alquimista de barba chamuscada y gafas de cristal ahumado. Pasa sus días mezclando polvos y líquidos en matraces de colores, y sus bolsillos siempre guardan una bomba o una pócima por si acaso. Los mineros de la montaña dicen que los gnomos son los culpables de los minerales venenosos que no dan plata. El cobalto, por ejemplo, toma su nombre de 'kobelt', un término minero ligado a Kobel, un gnomo travieso de las minas. Tibbin acepta el cargo con orgullo.",
+      "reglas": [
+        "Los alquimistas no pueden portar un escudo.",
+        "Los alquimistas suman +1 al daño de sus bombas.",
+        "Los gnomos pueden tirar 2d20 al esquivar un ataque y quedarse con el mejor resultado."
+      ],
+      "armas": [
+        "Hacha corta",
+                "Puñal"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/tibbin-engranaje.webp"
+    },
+    {
+      "id": "pipa-chispaluz",
+      "tipo": "personaje",
+      "nombre": "Pipa Chispaluz",
+      "raza": "Gnoma",
+      "clase": "Alquimista",
+      "descripcion": "Pipa Chispaluz es la inventora más temida del laboratorio subterráneo. Su melena rojiza siempre huele a pólvora y sus manos tienen cicatrices de pequeñas explosiones que nunca le han quitado la sonrisa. Lleva gafas de aumento sujetas a un casco de minero y un morral lleno de bombas de cristal, cada una etiquetada con una calavera y una sonrisa torcida. Dice que la alquimia es un arte, pero reconoce que su obra maestra es la que hace volar la puerta de un enemigo.",
+      "reglas": [
+        "Los alquimistas no pueden portar un escudo.",
+        "Los alquimistas suman +1 al daño de sus bombas.",
+        "Los gnomos pueden tirar 2d20 al esquivar un ataque y quedarse con el mejor resultado."
+      ],
+      "armas": [
+        "Arco (a dos manos)"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/pipa-chispaluz.webp"
+    },
+    {
+      "id": "bomba-de-kobelt-nivel-2",
+      "tipo": "habilidad",
+      "nombre": "BOMBA DE KOBELT",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Frasco Ácido",
+          "valor": 2,
+          "icono": "bomba",
+          "subtitulo": "Ataque con bomba"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Granada de Cobalto",
+          "valor": 3,
+          "icono": "bomba",
+          "subtitulo": "Ataque con bomba"
+        }
+      ],
+      "descripcion": "El alquimista marca al enemigo con polvo de cobalto: durante 2 o 3 rondas, cada ataque que reciba inflige 1 punto de daño adicional.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Polvo Corrosivo",
+          "valor": 2,
+          "icono": "bomba",
+          "subtitulo": "Marcar enemigo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Vapor de Kobelt",
+          "valor": 3,
+          "icono": "bomba",
+          "subtitulo": "Marcar enemigo"
+        }
+      ]
+    },
+    {
+      "id": "bomba-de-kobelt-nivel-1",
+      "tipo": "habilidad",
+      "nombre": "BOMBA DE KOBELT",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Frasco Ácido",
+          "valor": 1,
+          "icono": "bomba",
+          "subtitulo": "Ataque con bomba"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Granada de Cobalto",
+          "valor": 2,
+          "icono": "bomba",
+          "subtitulo": "Ataque con bomba"
+        }
+      ],
+      "descripcion": "El alquimista marca al enemigo con polvo de cobalto: durante 1 o 2 rondas, cada ataque que reciba inflige 1 punto de daño adicional.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Polvo Corrosivo",
+          "valor": 1,
+          "icono": "bomba",
+          "subtitulo": "Marcar enemigo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Vapor de Kobelt",
+          "valor": 2,
+          "icono": "bomba",
+          "subtitulo": "Marcar enemigo"
+        }
+      ]
+    },
+    {
+      "id": "cortina-de-humo",
+      "tipo": "habilidad",
+      "nombre": "Cortina de Humo",
+      "descripcion": "Una vez por cada tablero de mazmorra y estando en combate, el alquimista lanza una bomba de humo que cubre el campo de batalla. Los enemigos afectados no pueden atacar durante 1 o 2 rondas, según el resultado de la tirada.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/cortina-de-humo.webp",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "nombre": "Nube Ciega",
+          "valor": 1,
+          "icono": "bomba",
+          "subtitulo": "Cegar enemigo"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Pantalla Espesa",
+          "valor": 2,
+          "icono": "bomba",
+          "subtitulo": "Cegar enemigo"
+        }
+      ]
+    },
+    {
+      "id": "tibbin",
+      "tipo": "habilidad",
+      "nombre": "Tibbin",
+      "nombre_habilidad": "Reacción en Cadena",
+      "descripcion": "Una vez por cada tablero de mazmorra y estando en combate, el alquimista activa una reacción en cadena. Hasta el final de esta batalla, cada enemigo marcado por BOMBA DE KOBELT que sea derrotado explota y causa 1 punto de daño a todos los enemigos que estén a su alrededor.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/tibbin.webp"
+    }
+  ]
+}

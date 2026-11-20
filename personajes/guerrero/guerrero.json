@@ -1,0 +1,263 @@
+{
+  "cartas": [
+    {
+      "id": "durotan-frostwolf",
+      "tipo": "personaje",
+      "nombre": "Durotan Frostwolf",
+      "raza": "Orco",
+      "clase": "Guerrero",
+      "descripcion": "Durotan Frostwolf es un imponente orco guerrero, conocido tanto por su destreza en combate como por su capacidad para resistir los ataques más feroces. Su piel verde y musculosa refleja años de batallas y entrenamiento. Viste una armadura desgastada por la guerra, adornada con pieles y placas metálicas que le otorgan una apariencia tanto protectora como intimidante. Su cabello oscuro está estilizado de manera que demuestra su preparación constante para la batalla.",
+      "reglas": [
+        "Los guerreros pueden portar un escudo.",
+        "Los orcos suman +1 al daño de sus ataques cuerpo a cuerpo."
+      ],
+      "armas": [
+        "Espada larga",
+                "Hacha corta"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/durotan-frostwolf.webp"
+    },
+    {
+      "id": "draka-frostwolf",
+      "tipo": "personaje",
+      "nombre": "Draka Frostwolf",
+      "raza": "Orco",
+      "clase": "Guerrera",
+      "descripcion": "Draka Frostwolf es un imponente orco guerrero, conocido tanto por su destreza en combate como por su capacidad para resistir los ataques más feroces. Su armadura robusta, adornada con huesos y pieles, refleja su conexión con la naturaleza salvaje y su vida en los clanes orcos. Los protectores de hombros y la coraza que lleva no solo ofrecen una defensa formidable, sino que también intimidan a sus enemigos.",
+      "reglas": [
+        "Los guerreros pueden portar un escudo.",
+        "Los orcos suman +1 al daño de sus ataques cuerpo a cuerpo."
+      ],
+      "armas": [
+        "Espada corta",
+                "Maza"
+      ],
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/draka-frostwolf.webp"
+    },
+    {
+      "id": "muro-viviente-nivel-2",
+      "tipo": "habilidad",
+      "nombre": "MURO VIVIENTE",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Torbellino de Hachas",
+          "valor": 1,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-2/torbellino-de-hachas.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Corte Salvaje",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-2/corte-salvaje.webp"
+        }
+      ],
+      "descripcion": "Cuando el personaje lleva un escudo, puede provocar a los enemigos para que lo ataquen durante 2 o 3 rondas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Desafío Atronador",
+          "valor": 2,
+          "icono": "provocar",
+          "subtitulo": "Provocar enemigo",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-2/desafio-atronador.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Llamada al Odio",
+          "valor": 3,
+          "icono": "provocar",
+          "subtitulo": "Provocar enemigo",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-2/llamada-al-odio.webp"
+        }
+      ]
+    },
+    {
+      "id": "muro-viviente-nivel-1",
+      "tipo": "habilidad",
+      "nombre": "MURO VIVIENTE",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Brutal",
+          "valor": 1,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-1/golpe-brutal.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Frenético",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-1/ataque-frenetico.webp"
+        }
+      ],
+      "descripcion": "Cuando el personaje lleva un escudo, puede provocar a los enemigos para que lo ataquen durante 1 o 2 rondas.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Escudo Guardián",
+          "valor": 1,
+          "icono": "provocar",
+          "subtitulo": "Provocar enemigo",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-1/escudo-guardian.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Muro Protector",
+          "valor": 2,
+          "icono": "provocar",
+          "subtitulo": "Provocar enemigo",
+          "icono_imagen": "imagenes/habilidades/muro-viviente-nivel-1/muro-protector.webp"
+        }
+      ]
+    },
+    {
+      "id": "embate-bimano-nivel-2",
+      "tipo": "habilidad",
+      "nombre": "EMBATE BIMANO",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Torbellino de Hachas",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-2/torbellino-de-hachas.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Corte Salvaje",
+          "valor": 3,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-2/corte-salvaje.webp"
+        }
+      ],
+      "descripcion": "Cuando el personaje porta dos armas, una en cada mano, puedes agregar un +1 a los siguientes dos ataques.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Golpe de dos Hachas",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-2/golpe-de-dos-hachas.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Furia de dos Manos",
+          "valor": 3,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-2/furia-de-dos-manos.webp"
+        }
+      ]
+    },
+    {
+      "id": "embate-bimano-nivel-1",
+      "tipo": "habilidad",
+      "nombre": "EMBATE BIMANO",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Brutal",
+          "valor": 1,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-1/golpe-brutal.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Frenético",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-1/ataque-frenetico.webp"
+        }
+      ],
+      "descripcion": "Cuando el personaje porta dos armas, una en cada mano, puedes agregar un +1 a los siguientes ataques.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Corte Dual",
+          "valor": 1,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-1/corte-dual.webp"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Ataque Gemelo",
+          "valor": 2,
+          "icono": "arma",
+          "subtitulo": "Ataque con arma",
+          "icono_imagen": "imagenes/habilidades/embate-bimano-nivel-1/ataque-gemelo.webp"
+        }
+      ]
+    },
+    {
+      "id": "muralla-de-carne",
+      "tipo": "habilidad",
+      "nombre": "Muralla de Carne",
+      "descripcion": "Muralla de Carne es el reflejo de la determinación del Guerrero, quien se erige como un baluarte infranqueable entre sus aliados y las hordas enemigas. Una vez por cada tablero de mazmorra y portando un escudo, el Guerrero Tanque multiplica sus puntos de vida x2 o por x3 hasta el final del tablero de mazmorra.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/muralla-de-carne.webp",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "nombre": "Bastión de Carne",
+          "valor": "x2",
+          "icono": "escudo",
+          "subtitulo": "Duplica salud",
+          "icono_imagen": "imagenes/habilidades/muralla-de-carne/bastion-de-carne.webp"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Escudo Viviente",
+          "valor": "x3",
+          "icono": "escudo",
+          "subtitulo": "Triplica salud",
+          "icono_imagen": "imagenes/habilidades/muralla-de-carne/escudo-viviente.webp"
+        }
+      ]
+    },
+    {
+      "id": "garrosh",
+      "tipo": "habilidad",
+      "nombre": "Garrosh",
+      "nombre_habilidad": "Grito Infernal",
+      "descripcion": "Una vez por cada tablero de mazmorra, el guerrero orco puede desatar un poderoso grito que resuena a través de las paredes de la mazmorra. Este grito, cargado con la furia y el poder ancestral de su raza, infunde un vigor renovado en sus aliados. Todos los compañeros de combate del guerrero orco reciben un aumento de +1 en sus ataques hasta el final del combate. Este grito no solo eleva la moral, sino que también despierta un instinto de lucha feroz.",
+      "tiene_ilustracion": true,
+      "imagen": "imagenes/garrosh.webp"
+    }
+  ]
+}

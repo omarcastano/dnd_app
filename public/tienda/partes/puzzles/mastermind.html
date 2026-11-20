@@ -1,0 +1,16 @@
+<div id="view-mastermind" class="puzzle-view">
+  <button class="puzzle-btn puzzle-back" onclick="closePuzzle()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+  <h3 class="puzzle-title">Mastermind</h3>
+  <div class="rob-description">
+    Adivina el código secreto de 4 colores. Despues de cada intento recibiras pistas:<br><br>
+    • Un circulo NEGRO: un color esta en posicion correcta.<br>
+    • Un circulo BLANCO: un color esta en el codigo pero en posicion incorrecta.<br>
+    Intentos ilimitados.
+  </div>
+  <div id="mastermindBoard"></div>
+  <div class="puzzle-actions">
+    <button class="puzzle-btn" id="mastermindCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="mastermindReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+  </div>
+  <div class="puzzle-message" id="mastermindMessage"></div>
+</div>
