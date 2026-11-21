@@ -159,3 +159,7 @@ body.visor-abierto { overflow: hidden; }
 .tab-heroes.active .heroes.con-clase .clase.activa h2 { position: static; }
 .heroes.con-clase .paso, .heroes.con-clase .resumen, .heroes.con-clase .contador { scroll-margin-top: 8px; }
 body:has(.tab-heroes.active .heroes.con-clase) .tabs { position: relative; }
+/* La clase debe ser más alta que la pantalla: así el scroll alcanza para dejar las pestañas y el título arriba y la carta en primer plano */
+.heroes.con-clase .clase.activa { min-height: calc(100svh + 70px); }
+/* Dentro de una clase el botón Admin tampoco se queda fijo: se va con el scroll junto a las pestañas */
+body:has(.tab-heroes.active .heroes.con-clase) .admin-corner { position: absolute; }
