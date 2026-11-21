@@ -1,3 +1,0 @@
-/* Pestaña Héroes: el catálogo de personajes ocupa todo el ancho dentro de un iframe */
-.tab-heroes { max-width: none; padding: 0 0 20px; }
-.heroes-marco { display: block; width: 100%; height: calc(100vh - 140px); min-height: 560px; border: 0; background: #0d1610; }

@@ -18,7 +18,7 @@ audio:
 check:
 	python3 public/personajes/validar.py $(CLASE)
 
-# Catálogo de cartas de todas las clases (sin caché): http://localhost:8081
+# Sitio completo sin caché (pestaña Héroes = catálogo de cartas): http://localhost:8081
 catalogo:
 	python3 public/personajes/servidor.py 8081
 

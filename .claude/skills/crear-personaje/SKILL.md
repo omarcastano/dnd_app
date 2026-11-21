@@ -1,6 +1,6 @@
 ---
 name: crear-personaje
-description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, efectos, registro en el catálogo `public/personajes/index.html`), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
+description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, efectos, registro en el catálogo (pestaña Héroes)), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
 ---
 
 # Crear una clase de personaje
@@ -102,7 +102,7 @@ python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato 
 Cada valor de `efecto` en `seleccion` necesita una función en `efectos.js` (ver `references/efectos.md`, con los patrones del druida: partículas, aura, tema de pantalla final y ambiente). Tema/paleta acorde a la temática de cada poder.
 1. Crear `public/personajes/clases/<clase>/{<clase>.json,efectos.js,efectos.css,imagenes/...}`.
 2. Registrar en `public/personajes/clases.json`: añadir `{ "id": "<clase>", "efectos": true }` (mantén el resto).
-3. No tocar `public/personajes/index.html` ni `app/`: el catálogo carga cada clase de `clases.json` y permite elegir personajes desde ahí.
+3. No tocar `public/index.html` ni `app/`: el catálogo carga cada clase de `clases.json` y permite elegir personajes desde ahí.
 
 ## 5. Textos que no caben (referencia: Bastión Sagrado del Paladín)
 Las cartas miden 306×572 px y recortan lo que sobra. **Regla: si un texto no cabe, que sea scrollable; no lo recortes ni lo acortes si perdería claridad** (se prioriza la explicación clara de las habilidades). Patrón ya iterado en el paladín: en *Bastión Sagrado* la descripción larga hace scroll **solo en su párrafo** (`.bloque.especial .desc-p { max-height: 5.4em; overflow-y: auto; scrollbar-width: thin }` en `public/personajes/app/cartas.css`), mientras los ataques y las filas de la tabla quedan siempre visibles y nada se solapa. Imítalo: scrollea **el párrafo largo**, no la carta entera ni las filas.

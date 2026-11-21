@@ -33,15 +33,16 @@ export function temaDe(efectos) {
 const motas = (n) => Array.from({ length: n }, () =>
   `<i style="left:${rnd(0, 100)}%;--s:${rnd(3, 8).toFixed(1)}px;--dx:${rnd(-50, 50).toFixed(0)}px;--t:${rnd(7, 15).toFixed(1)}s;--r:${(-rnd(0, 15)).toFixed(1)}s"></i>`).join('');
 
-// Fondo y partículas flotantes (clase `tema-<tema>` en el body y capa `.ambiente-<tema>`). Sin tema: fondo normal.
+// Fondo y partículas flotantes (clase `tema-<tema>` en `.heroes` y capa `.ambiente-<tema>`). Sin tema: fondo normal.
 export function ponerAmbiente(tema) {
-  document.querySelector('.ambiente')?.remove();
-  [...document.body.classList].filter((c) => c.startsWith('tema-')).forEach((c) => document.body.classList.remove(c));
+  const raiz = document.querySelector('.heroes');
+  raiz.querySelector('.ambiente')?.remove();
+  [...raiz.classList].filter((c) => c.startsWith('tema-')).forEach((c) => raiz.classList.remove(c));
   if (!tema) return;
-  document.body.classList.add(`tema-${tema}`);
+  raiz.classList.add(`tema-${tema}`);
   const capa = document.createElement('div');
   capa.className = `ambiente ambiente-${tema}`;
   capa.setAttribute('aria-hidden', 'true');
   capa.innerHTML = motas(36);
-  document.body.prepend(capa);
+  raiz.prepend(capa);
 }

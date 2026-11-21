@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Servidor de desarrollo del catálogo: como http.server pero sin caché (siempre ves el último cambio, también en el celular).
+"""Servidor de desarrollo del sitio: como http.server pero sin caché (siempre ves el último cambio, también en el celular).
 Uso: python3 public/personajes/servidor.py [puerto]"""
 import sys
 from functools import partial
@@ -14,6 +14,6 @@ class SinCache(SimpleHTTPRequestHandler):
 
 
 puerto = int(sys.argv[1]) if len(sys.argv) > 1 else 8081
-raiz = Path(__file__).resolve().parent
-print(f'Catálogo en http://localhost:{puerto}')
+raiz = Path(__file__).resolve().parent.parent  # public/: el catálogo es la pestaña Héroes de index.html
+print(f'Sitio (pestaña Héroes) en http://localhost:{puerto}')
 ThreadingHTTPServer(('', puerto), partial(SinCache, directory=str(raiz))).serve_forever()

@@ -2,7 +2,7 @@
    Estética: grimorio / manuscrito iluminado. Pergamino, verde bosque profundo, oro envejecido, tipografía con serifa. */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap");
 
-:root, .hoja-p {
+.heroes, .hoja-p {
   --bosque: #12271a; --bosque-2: #1d3a28; --musgo: #2f5a3a;
   --oro: #d4af5a; --oro-claro: #f2dc9b; --oro-oscuro: #8a6a2a;
   --pergamino: #f1e6c7; --pergamino-2: #e2d1a2; --tinta: #2a1d0e; --tinta-suave: #5a4630;

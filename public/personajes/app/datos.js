@@ -12,7 +12,9 @@ export const ETIQUETAS = {
 };
 export const TIPOS = ['personaje', 'tabla', 'ilustrada'];
 
-export const rutaClase = (id) => `clases/${id}/`;
+// Rutas absolutas desde este módulo: valen igual desde cualquier página que lo cargue
+export const RAIZ = new URL('../', import.meta.url);
+export const rutaClase = (id) => new URL(`clases/${id}/`, RAIZ).href;
 
 function normalizarFila(f, base) {
   if (!f.nombre) return f;

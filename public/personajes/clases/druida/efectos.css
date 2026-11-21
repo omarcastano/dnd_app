@@ -26,8 +26,8 @@
 @keyframes ef-zarpa { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
 
 /* Temas de la pantalla final */
-body.catalogo.tema-salvaje { background: radial-gradient(120% 60% at 50% 0%, #8a2a10 0%, #3a0f08 45%, #1a0705 100%) fixed; }
-body.catalogo.tema-sanador { background: radial-gradient(120% 60% at 50% 0%, #2a8a4a 0%, #0f3a22 45%, #06170e 100%) fixed; }
-body.tema-salvaje .barra, body.tema-sanador .barra { background: #0a0604dd; }
+.heroes.tema-salvaje { background: radial-gradient(120% 60% at 50% 0%, #8a2a10 0%, #3a0f08 45%, #1a0705 100%) fixed; }
+.heroes.tema-sanador { background: radial-gradient(120% 60% at 50% 0%, #2a8a4a 0%, #0f3a22 45%, #06170e 100%) fixed; }
+.heroes.tema-salvaje .barra, .heroes.tema-sanador .barra { background: #0a0604dd; }
 .ambiente-salvaje i { background: #ff6a2a; box-shadow: 0 0 10px 3px #e01e00; }
 .ambiente-sanador i { background: #b6ffc4; box-shadow: 0 0 10px 3px #3be072; }

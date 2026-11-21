@@ -28,10 +28,10 @@
 @keyframes ef-pal-escudo { 0% { transform: scale(.2); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
 
 /* Temas de la pantalla final */
-body.catalogo.tema-castigo { background: radial-gradient(120% 60% at 50% 0%, #9a5a10 0%, #3a2008 45%, #1a0f05 100%) fixed; }
-body.catalogo.tema-sagrado { background: radial-gradient(120% 60% at 50% 0%, #b8962e 0%, #4a3a12 45%, #1a1405 100%) fixed; }
-body.catalogo.tema-egida { background: radial-gradient(120% 60% at 50% 0%, #3a5a8a 0%, #162338 45%, #080d16 100%) fixed; }
-body.tema-castigo .barra, body.tema-sagrado .barra, body.tema-egida .barra { background: #0a0604dd; }
+.heroes.tema-castigo { background: radial-gradient(120% 60% at 50% 0%, #9a5a10 0%, #3a2008 45%, #1a0f05 100%) fixed; }
+.heroes.tema-sagrado { background: radial-gradient(120% 60% at 50% 0%, #b8962e 0%, #4a3a12 45%, #1a1405 100%) fixed; }
+.heroes.tema-egida { background: radial-gradient(120% 60% at 50% 0%, #3a5a8a 0%, #162338 45%, #080d16 100%) fixed; }
+.heroes.tema-castigo .barra, .heroes.tema-sagrado .barra, .heroes.tema-egida .barra { background: #0a0604dd; }
 .ambiente-castigo i { background: #ffc040; box-shadow: 0 0 10px 3px #ff8a1a; }
 .ambiente-sagrado i { background: #fff6c8; box-shadow: 0 0 10px 3px #ffd24a; }
 .ambiente-egida i { background: #dcebff; box-shadow: 0 0 10px 3px #6aa8ff; }

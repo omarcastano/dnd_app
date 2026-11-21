@@ -1,9 +1,9 @@
-/* Catálogo pensado para móvil: una carta a la vez, deslizando de lado (scroll-snap). En pantallas grandes se muestran en rejilla. */
-* { box-sizing: border-box; margin: 0; }
-html { -webkit-text-size-adjust: 100%; }
-body.catalogo { font-family: Georgia, serif; color: #fff; background: radial-gradient(120% 60% at 50% 0%, #24402c 0%, #12201a 70%) fixed; min-height: 100vh; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
+/* Pestaña «Héroes» (contenedor .heroes dentro de index.html). Catálogo pensado para móvil: una carta a la vez, deslizando de lado (scroll-snap). En pantallas grandes se muestran en rejilla. */
+.tab-heroes { max-width: none; padding: 0; }
+.heroes { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; background: radial-gradient(120% 60% at 50% 0%, #24402c 0%, #12201a 70%) fixed; min-height: 100vh; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
+.heroes * { box-sizing: border-box; }
 
-.barra { position: sticky; top: 0; z-index: 10; background: #0d1610ee; backdrop-filter: blur(6px); padding: 10px 16px; padding-top: calc(10px + env(safe-area-inset-top)); display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #8a6a2a88; }
+.barra { position: relative; z-index: 10; background: #0d1610ee; backdrop-filter: blur(6px); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #8a6a2a88; }
 .barra h1 { font-family: "Cinzel", Georgia, serif; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; white-space: nowrap; }
 .barra nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
 .barra nav::-webkit-scrollbar { display: none; }
@@ -83,16 +83,16 @@ body.catalogo { font-family: Georgia, serif; color: #fff; background: radial-gra
 @keyframes ef-entra { from { opacity: 0; } }
 
 /* Ambiente de la pantalla final (fondo y partículas según la elección) */
-body.catalogo { transition: background .8s; }
-#catalogo { position: relative; z-index: 1; }
+.heroes { transition: background .8s; }
+#heroes-catalogo { position: relative; z-index: 1; }
 .ambiente { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .ambiente i { position: absolute; bottom: -12px; width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; animation: amb-sube var(--t) linear var(--r) infinite; }
 @keyframes amb-sube { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: .9; } 85% { opacity: .6; } 100% { transform: translate(var(--dx), -105vh); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .ambiente { display: none; } }
 
 /* Selección de personaje: fondo negro, rayos de luz dorados que giran, latido de luz y polvo dorado ascendente */
-body.catalogo.tema-seleccion { background: #000; }
-body.tema-seleccion .barra { background: #000000dd; }
+.heroes.tema-seleccion { background: #000; }
+.heroes.tema-seleccion .barra { background: #000000dd; }
 .ambiente-seleccion::before { content: ''; position: absolute; left: 50%; top: 42%; width: 220vmax; height: 220vmax; margin: -110vmax 0 0 -110vmax;
   background: repeating-conic-gradient(from 0deg, #d4af5a22 0deg 6deg, transparent 6deg 24deg);
   -webkit-mask: radial-gradient(circle, #000 0%, transparent 38%); mask: radial-gradient(circle, #000 0%, transparent 38%);
@@ -105,9 +105,9 @@ body.tema-seleccion .barra { background: #000000dd; }
 @keyframes amb-latido { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
 
 /* ===== Elegir clase: scroll vertical entre clases; al elegir algo, solo queda esa clase ===== */
-body.con-clase .clase:not(.activa) { display: none; }
+.heroes.con-clase .clase:not(.activa) { display: none; }
 .clase { min-height: calc(100dvh - 60px); scroll-snap-align: start; scroll-snap-stop: always; }
-html { scroll-snap-type: y proximity; }
-html:has(body.con-clase) { scroll-snap-type: none; }
+html:has(.tab-heroes.active) { scroll-snap-type: y proximity; }
+html:has(.heroes.con-clase) { scroll-snap-type: none; }
 .atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
 .atras[hidden], .barra nav[hidden] { display: none; }

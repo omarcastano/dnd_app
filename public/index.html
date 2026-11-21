@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="tienda/css/tablas.css">
 <link rel="stylesheet" href="tienda/css/robo.css">
 <link rel="stylesheet" href="tienda/css/pie.css">
-<link rel="stylesheet" href="tienda/css/heroes.css">
+<link rel="stylesheet" href="personajes/app/cartas.css">
+<link rel="stylesheet" href="personajes/app/catalogo.css">
 <link rel="stylesheet" href="tienda/css/responsive.css">
 </head>
 <body>
@@ -53,9 +54,9 @@
   <div data-parte="botin.html"></div>
 </div>
 
-<!-- TAB: Héroes (catálogo de personajes, en su propio iframe para aislar estilos y scripts) -->
+<!-- TAB: Héroes (catálogo de personajes; código en personajes/app/) -->
 <div id="tab-heroes" class="tab-content tab-heroes">
-  <iframe class="heroes-marco" src="personajes/index.html" title="Elige tu héroe" loading="lazy"></iframe>
+  <div data-parte="heroes.html"></div>
 </div>
 
 <!-- TAB: Puzzles (Tents) -->
