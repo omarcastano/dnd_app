@@ -1,14 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="La taberna de D&D: tienda, cofres y puzzles" />
-    <meta http-equiv="refresh" content="0; url=dungeons_and_dragons.html" />
-    <title>D&D - La Taberna</title>
-    <script>location.replace('dungeons_and_dragons.html');</script>
-  </head>
-  <body>
-    <a href="dungeons_and_dragons.html">Entrar a la taberna</a>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&D - La Taberna</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="tienda/estilos.css">
+</head>
+<body>
+
+<div data-parte="admin.html"></div>
+
+<div data-parte="cabecera.html"></div>
+
+<!-- TAB: Tienda -->
+<div id="tab-shop" class="tab-content active">
+  <div data-parte="tienda.html"></div>
+</div>
+
+<!-- TAB: Cofres de Botin -->
+<div id="tab-loot" class="tab-content">
+  <div data-parte="cofres.html"></div>
+</div>
+
+<!-- TAB: Robo al Tabernero -->
+<div id="tab-rob" class="tab-content">
+  <div data-parte="robo.html"></div>
+</div>
+
+<!-- TAB: Zonas (escalado de enemigos por calabozo) -->
+<div id="tab-zonas" class="tab-content">
+  <div data-parte="zonas.html"></div>
+</div>
+
+<!-- TAB: Botin de bichos (caja al derrotar un bicho) -->
+<div id="tab-botin" class="tab-content">
+  <div data-parte="botin.html"></div>
+</div>
+
+<!-- TAB: Puzzles (Tents) -->
+<div id="tab-puzzles" class="tab-content">
+  <div data-parte="puzzles/cabecera.html"></div>
+
+  <div data-parte="puzzles/menu.html"></div>
+
+  <div data-parte="puzzles/tents.html"></div>
+
+  <div data-parte="puzzles/hitori.html"></div>
+
+  <div data-parte="puzzles/lightup.html"></div>
+
+  <div data-parte="puzzles/lightsout.html"></div>
+
+  <div data-parte="puzzles/nonograma.html"></div>
+
+  <div data-parte="puzzles/galaxias.html"></div>
+
+  <div data-parte="puzzles/starbattle.html"></div>
+
+  <div data-parte="puzzles/hanoi.html"></div>
+
+  <div data-parte="puzzles/mastermind.html"></div>
+
+  <div data-parte="puzzles/cifrado.html"></div>
+
+  <div data-parte="puzzles/pie.html"></div>
+</div>
+
+<script type="module" src="tienda/js/main.js"></script>
+
+</body>
 </html>
