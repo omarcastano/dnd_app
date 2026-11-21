@@ -110,9 +110,8 @@
 
 /* ===== Elegir clase: scroll vertical entre clases; al elegir algo, solo queda esa clase ===== */
 .heroes.con-clase .clase:not(.activa) { display: none; }
-.clase { min-height: calc(100dvh - 60px); scroll-snap-align: start; scroll-snap-stop: always; }
-html:has(.tab-heroes.active) { scroll-snap-type: y proximity; }
-html:has(.heroes.con-clase) { scroll-snap-type: none; }
+.clase { min-height: calc(100dvh - 60px); }
+/* Sin scroll-snap vertical: las clases son más altas que la pantalla y el snap devolvía la vista al inicio, ocultando «Elegir» */
 .atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
 .atras[hidden], .barra nav[hidden] { display: none; }
 
