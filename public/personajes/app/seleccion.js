@@ -2,7 +2,7 @@
 // La elección se recuerda en este dispositivo (localStorage); si no está disponible, simplemente no se guarda.
 import { esc } from './util.js';
 import { carasDeCarta, esperarImagenes } from './cartas.js';
-import { activarContador, ajustarEscala } from './carrusel.js?v=8';
+import { activarContador, ajustarEscala } from './carrusel.js?v=9';
 import { reproducirEfecto, temaDe, ponerAmbiente } from './efectos.js';
 
 // Portada de una opción con niveles (Forma Salvaje, Sanación): retrato + nombre + descripción. Es la primera cara del volteo.

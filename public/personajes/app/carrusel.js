@@ -25,7 +25,7 @@ export function ajustarEscala(forzar = false) {
   const caja = ops?.querySelector('.opcion-caja');
   const carta = caja?.querySelector('.carta-sel');
   if (caja && carta) {
-    const tabs = document.querySelector('.heroes.con-clase') ? 0 : (document.querySelector('.tabs')?.offsetHeight ?? 0); // en una clase las pestañas se van con el scroll
+    const tabs = document.querySelector('.tab-heroes.active') ? 0 : (document.querySelector('.tabs')?.offsetHeight ?? 0); // en una clase las pestañas se van con el scroll
     const seccion = ops.closest('.clase') ?? ops.closest('.contenido') ?? ops.parentElement;
     const arriba = ops.getBoundingClientRect().top - seccion.getBoundingClientRect().top;
     const abajo = caja.getBoundingClientRect().height - carta.getBoundingClientRect().height + (ops.closest('.paso')?.querySelector('.btn-sec')?.offsetHeight ?? 0);

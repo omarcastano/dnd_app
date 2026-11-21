@@ -1,7 +1,7 @@
 // Pestaña «Héroes»: catálogo de clases dentro de index.html (partes/heroes.html). `initHeroes()` se registra en MODULOS de main.js.
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
-import { mostrarCartas, ajustarEscala } from './carrusel.js?v=8';
+import { mostrarCartas, ajustarEscala } from './carrusel.js?v=9';
 import { iniciarSeleccion } from './seleccion.js?v=4';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
@@ -70,6 +70,11 @@ async function montar() {
   addEventListener('resize', () => ajustarEscala(), { signal });
   ajustarEscala(true);
   raiz.addEventListener('heroes:reiniciar', reiniciar, { signal });
+  // Al abrir la pestaña Héroes la vista baja hasta la carta: las pestañas del sitio quedan arriba, se ven solo si subes
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-tab="heroes"]')) return;
+    setTimeout(() => { ajustarEscala(true); (raiz.querySelector('.clase.activa .paso, .clase.activa .contador') ?? raiz.querySelector('.clase'))?.scrollIntoView({ block: 'start', behavior: 'instant' }); }, 60);
+  }, { signal });
   try {
     const clases = await (await fetch(new URL('clases.json', RAIZ), { cache: 'no-cache' })).json();
     nav.innerHTML = clases.map(({ id }) => `<a href="#${esc(id)}">${esc(id)}</a>`).join('');
