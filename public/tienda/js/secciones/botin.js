@@ -1,4 +1,4 @@
-import { randomOf } from "./utilidades.js";
+import { randomOf } from "../nucleo/utilidades.js";
 
 const ITEMS_BOTIN = {
   moneda: { icono: "coins", color: "#d4a54a", singular: "moneda", plural: "monedas" },

@@ -1,0 +1,148 @@
+/* Botin de bichos */
+.loot-box-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.loot-box {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  border: 3px solid #5a3a1a;
+  background: linear-gradient(135deg, #d4a54a 0%, #8a5a1a 100%);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  color: #2a1a0a;
+  font-size: 3.2rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.loot-box:active { transform: scale(0.95); }
+
+.loot-box i { display: inline-block; animation: loot-float 2s ease-in-out infinite; }
+
+.loot-box.shaking { animation: loot-shake 0.5s ease; }
+
+.chest-select-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.chest-select { opacity: 0.6; }
+.chest-select.active { opacity: 1; box-shadow: 0 0 0 2px #e8d5b0; }
+
+.chest-panel { display: none; }
+.chest-panel.active { display: block; }
+
+.chest-panel table { display: none; }
+
+.chest-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: #d4a54a;
+  cursor: pointer;
+}
+
+.loot-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: loot-pop 0.5s ease;
+}
+
+.loot-big-icon i { font-size: 4.5rem; }
+
+.loot-big-icon svg { width: 90px; height: 90px; }
+
+@keyframes loot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes loot-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-3deg); }
+  40% { transform: translateX(6px) rotate(3deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes loot-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12) rotate(-4deg); }
+  100% { transform: scale(1); }
+}
+
+.loot-result {
+  min-height: 60px;
+  text-align: center;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.2rem;
+  color: #d4a54a;
+}
+
+.card-content {
+  padding: 0 16px 16px;
+  border-top: 1px solid #3a2810;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #b8a888;
+  margin-top: 12px;
+  margin-bottom: 14px;
+}
+
+.card-effect {
+  background: rgba(80, 50, 20, 0.3);
+  border-left: 3px solid #d4a54a;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e0c890;
+}
+
+.card-effect strong {
+  color: #d4a54a;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.effect-positive { border-left-color: #6a9a4a; }
+.effect-negative { border-left-color: #c0392b; }
+.effect-mixed { border-left-color: #d4a54a; }
+
+.tab-subtitle {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.tab-subtitle h2 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.4rem;
+  color: #d4a54a;
+  text-shadow: 0 2px 8px rgba(180, 120, 40, 0.5);
+  margin-bottom: 4px;
+}
+
+.tab-subtitle p {
+  font-style: italic;
+  color: #a08860;
+  font-size: 0.9rem;
+}
+

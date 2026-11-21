@@ -1,4 +1,4 @@
-import { gridOf, setPuzzleMsg } from "../utilidades.js";
+import { gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const nonoSolution = [
   [0, 0, 1, 0, 0],

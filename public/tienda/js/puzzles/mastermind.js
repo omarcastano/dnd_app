@@ -1,4 +1,4 @@
-import { setPuzzleMsg } from "../utilidades.js";
+import { setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const mastermindColors = ["empty", "red", "blue", "green", "yellow", "white", "purple", "orange"];
 let mastermindState = {

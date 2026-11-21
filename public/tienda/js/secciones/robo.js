@@ -1,4 +1,4 @@
-import { tablaLoot } from "./utilidades.js";
+import { tablaLoot } from "../nucleo/utilidades.js";
 
 const ROBO = [
   { tirada: "1 – 16", resultado: "Te descubren", estilo: "color:#e8a0a0;" },

@@ -1,4 +1,4 @@
-import { tablaLoot } from "./utilidades.js";
+import { tablaLoot } from "../nucleo/utilidades.js";
 import { botinHtml } from "./botin.js";
 
 const RANGOS_COFRE = [[1, 8], [9, 13], [14, 17], [18, 19], [20, 20]];

@@ -1,4 +1,4 @@
-import { directions, gridOf, setPuzzleMsg } from "../utilidades.js";
+import { directions, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const galaxyDots = [[0, 0], [0, 4], [4, 0], [4, 4], [2, 2], [0, 2], [2, 0], [1, 1], [2, 4], [1, 3], [3, 3], [3, 1], [4, 2]];
 let galaxyAssign = gridOf(5, 5, -1);

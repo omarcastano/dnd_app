@@ -6,11 +6,10 @@ Sitio estático de la taberna de D&D: tienda, cofres, robo, zonas, botín y puzz
 
 ```
 DandD/
-├─ personajes/      # Datos de personajes (JSON) e ilustraciones (imagenes/) por clase. Sin vista por ahora; no se publican
+├─ personajes/      # WIP (borrador): JSON e ilustraciones por clase. Faltan imágenes; no se publica
 ├─ public/          # Raíz del sitio publicado
-│  ├─ index.html    # Redirige a la taberna (dungeons_and_dragons.html)
-│  ├─ dungeons_and_dragons.html
-│  └─ tienda/       # Tienda de la taberna (estilos.css, js/, partes/)
+│  ├─ index.html    # La taberna (entrada directa)
+│  └─ tienda/       # css/ (por sección), js/ (nucleo, datos, secciones, puzzles), partes/
 └─ narracion/       # Generador de audio con edge-tts (se ejecuta en la PC)
 ```
 

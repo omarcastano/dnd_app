@@ -1,4 +1,4 @@
-import { setPuzzleMsg } from "../utilidades.js";
+import { setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const cipherMessages = [
   "El dios dormido despierta en las ruinas",

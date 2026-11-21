@@ -1,4 +1,4 @@
-import { directions, gridOf, setPuzzleMsg } from "../utilidades.js";
+import { directions, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const hitoriValues = [
   [3, 3, 1, 2, 4],

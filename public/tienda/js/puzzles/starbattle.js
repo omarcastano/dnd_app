@@ -1,4 +1,4 @@
-import { gridOf, setPuzzleMsg } from "../utilidades.js";
+import { gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const starRegions = [
   [0, 0, 0, 1, 1],

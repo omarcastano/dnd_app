@@ -1,0 +1,15 @@
+/* Footer */
+.tab-footer {
+  text-align: center;
+  padding: 20px 16px;
+  border-top: 1px solid #3a2810;
+  margin-top: 16px;
+}
+
+.tab-footer p {
+  font-style: italic;
+  color: #7a6a4a;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+

@@ -1,5 +1,5 @@
-import { setPuzzleMsg } from "./utilidades.js";
-import { puzzleCodes } from "./puzzles/menu.js";
+import { setPuzzleMsg } from "../nucleo/utilidades.js";
+import { puzzleCodes } from "../datos/puzzles.js";
 
 const ADMIN_PASSWORD = "defare123";
 

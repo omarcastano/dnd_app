@@ -1,4 +1,4 @@
-import { copyGrid, directions, gridOf, setPuzzleMsg } from "../utilidades.js";
+import { copyGrid, directions, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 let lightsState = gridOf(5, 5, false);
 let lightsStart = gridOf(5, 5, false);

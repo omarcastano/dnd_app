@@ -1,4 +1,4 @@
-import { directions, gridOf, setPuzzleMsg } from "../utilidades.js";
+import { directions, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
 
 const lightLayout = [
   ["W", "W", "W", "3", "W"],

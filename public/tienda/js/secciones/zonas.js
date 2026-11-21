@@ -1,4 +1,4 @@
-import { tablaLoot } from "./utilidades.js";
+import { tablaLoot } from "../nucleo/utilidades.js";
 
 const ZONAS = [
   ["#1", "Todos los monstruos", "0", "0", "0", "0"],

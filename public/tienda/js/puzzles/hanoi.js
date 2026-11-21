@@ -1,4 +1,4 @@
-import { setPuzzleMsg } from "../utilidades.js";
+import { setPuzzleMsg } from "../nucleo/utilidades.js";
 
 let hanoiState = {
   towers: [

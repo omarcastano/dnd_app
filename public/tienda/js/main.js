@@ -1,12 +1,12 @@
-import { switchTab } from "./navegacion.js";
-import { initTienda } from "./tienda.js";
-import { initCofres } from "./cofres.js";
-import { initRobo } from "./robo.js";
-import { initZonas } from "./zonas.js";
-import { initBotin } from "./botin.js";
-import { initAdmin } from "./admin.js";
-import { initTablas } from "./tablas.js";
-import { closePuzzle } from "./puzzles/vistas.js";
+import { cargarPartes } from "./nucleo/partes.js";
+import { initNavegacion } from "./nucleo/navegacion.js";
+import { initTienda } from "./secciones/tienda.js";
+import { initCofres } from "./secciones/cofres.js";
+import { initRobo } from "./secciones/robo.js";
+import { initZonas } from "./secciones/zonas.js";
+import { initBotin } from "./secciones/botin.js";
+import { initAdmin } from "./secciones/admin.js";
+import { initTablas } from "./secciones/tablas.js";
 import { initMenu } from "./puzzles/menu.js";
 import { initTents } from "./puzzles/tents.js";
 import { initHitori } from "./puzzles/hitori.js";
@@ -19,25 +19,14 @@ import { initHanoi } from "./puzzles/hanoi.js";
 import { initMastermind } from "./puzzles/mastermind.js";
 import { initCipher } from "./puzzles/cifrado.js";
 
-// Los botones del HTML usan onclick inline, así que estas funciones deben ser globales.
-window.switchTab = switchTab;
-window.closePuzzle = closePuzzle;
-
-async function cargarPartes() {
-  const huecos = [...document.querySelectorAll("[data-parte]")];
-  const textos = await Promise.all(huecos.map(async hueco => {
-    const respuesta = await fetch(new URL(`../partes/${hueco.dataset.parte}`, import.meta.url));
-    if (!respuesta.ok) {
-      throw new Error(`No se pudo cargar ${hueco.dataset.parte} (${respuesta.status}).`);
-    }
-    return respuesta.text();
-  }));
-  huecos.forEach((hueco, i) => {
-    const plantilla = document.createElement("template");
-    plantilla.innerHTML = textos[i];
-    hueco.replaceWith(plantilla.content);
-  });
-}
+// Se ejecutan en orden una vez cargadas las partes HTML. initTablas va al final: envuelve las tablas ya generadas.
+const MODULOS = [
+  initNavegacion,
+  initTienda, initCofres, initRobo, initZonas, initBotin, initAdmin,
+  initMenu, initTents, initHitori, initLightUp, initLightsOut, initNonograma,
+  initGalaxias, initStarBattle, initHanoi, initMastermind, initCipher,
+  initTablas
+];
 
 async function iniciar() {
   try {
@@ -49,25 +38,7 @@ async function iniciar() {
     document.body.prepend(aviso);
     return;
   }
-
-  initTienda();
-  initCofres();
-  initRobo();
-  initZonas();
-  initBotin();
-  initMenu();
-  initTents();
-  initHitori();
-  initLightUp();
-  initLightsOut();
-  initNonograma();
-  initGalaxias();
-  initStarBattle();
-  initAdmin();
-  initHanoi();
-  initMastermind();
-  initCipher();
-  initTablas();
+  MODULOS.forEach(iniciarModulo => iniciarModulo());
 }
 
 iniciar();

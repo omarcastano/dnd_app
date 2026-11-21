@@ -1,0 +1,145 @@
+/* Rob mechanic */
+.rob-description {
+  background: linear-gradient(135deg, #2a1a0a 0%, #1e1208 100%);
+  border: 1px solid #4a3018;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #b8a888;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.rob-warning {
+  background: rgba(192, 57, 43, 0.15);
+  border: 1px solid #c0392b;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e8a0a0;
+}
+
+.rob-warning strong {
+  color: #c0392b;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Tabernero boss card — Figma replica */
+.boss-card {
+  background: #2d2d2d;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  border: 2px solid #444;
+}
+
+.boss-card-header {
+  background: #6b2a2a;
+  text-align: center;
+  padding: 12px 16px;
+  border-bottom: 3px solid #4a1c1c;
+}
+
+.boss-card-header h3 {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.4rem;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.boss-card-quote {
+  background: #6b2a2a;
+  margin: 12px;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #f0d0d0;
+}
+
+.boss-card-stats {
+  padding: 8px 12px 12px;
+}
+
+.boss-stat-row {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #3a3a3a;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.boss-stat-row:last-child { margin-bottom: 0; }
+
+.boss-stat-dice {
+  width: 40px;
+  height: 40px;
+  background: #2d2d2d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.boss-stat-dice i {
+  font-size: 1.2rem;
+  color: #d4a54a;
+}
+
+.boss-stat-roll {
+  font-family: 'MedievalSharp', cursive;
+  color: #fff;
+  font-size: 1rem;
+  min-width: 36px;
+}
+
+.boss-stat-name {
+  flex: 1;
+  color: #e8e8e8;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.boss-stat-dmg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.boss-stat-dmg-num {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.boss-stat-dmg-icon {
+  width: 30px;
+  height: 30px;
+  background: #d45a6a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boss-stat-dmg-icon i {
+  font-size: 0.75rem;
+  color: #fff;
+}
+
