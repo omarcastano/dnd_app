@@ -10,7 +10,7 @@
 .barra a { flex: none; color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; text-transform: capitalize; min-height: 36px; display: inline-flex; align-items: center; }
 .barra a:active { background: #d4af5a33; }
 
-.clase { padding: 16px 0 8px; scroll-margin-top: 64px; }
+.clase { padding: 16px 0 8px; scroll-margin-top: 80px; /* deja libres las pestañas fijas del sitio */ }
 .clase h2 { font-family: "Cinzel", Georgia, serif; text-transform: capitalize; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; padding: 0 16px; }
 .estado { font-weight: 400; font-size: 12px; opacity: .7; margin: 2px 16px 0; }
 .estado.alerta { color: #ffd37a; opacity: 1; }

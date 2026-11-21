@@ -44,7 +44,6 @@ export async function initHeroes() {
     nav.insertAdjacentHTML('afterend', `<a href="#" class="atras" hidden>← ¿Quién eres?</a>`);
     // Una sola clase visible a la vez: el hash (#paladin) la elige; sin hash se vuelve a la lista. "Atrás" del navegador funciona igual.
     const atras = raiz.querySelector('.atras');
-    let prev = null;
     history.replaceState(null, '', location.pathname + location.search); // siempre se arranca en la lista, aunque la URL traiga #clase
     const mostrarVista = () => {
       const id = decodeURIComponent(location.hash.slice(1));
@@ -53,14 +52,18 @@ export async function initHeroes() {
       atras.hidden = !activa;
       nav.hidden = !!activa;
       raiz.querySelectorAll('.clase').forEach((s) => s.classList.toggle('activa', s.id === activa));
-      if (!activa || !prev) scrollTo(0, 0);
-      prev = activa;
+      // Al ocultarse las otras clases la página se acorta y el navegador recoloca el scroll: se deja la vista en el inicio de la clase elegida (o arriba al volver a la lista)
+      if (activa) raiz.querySelector('.clase.activa')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      else scrollTo({ top: 0, behavior: 'instant' });
     };
     addEventListener('hashchange', mostrarVista);
     // Al elegir algo en una clase (en fase de captura, antes de que el asistente redibuje) se queda solo esa clase
     catalogo.addEventListener('click', (e) => {
       const seccion = e.target.closest('.clase');
-      if (seccion && e.target.closest('[data-elegir]') && !raiz.classList.contains('con-clase')) location.hash = seccion.id;
+      if (seccion && e.target.closest('[data-elegir]') && !raiz.classList.contains('con-clase')) {
+          history.pushState(null, '', `#${seccion.id}`); // pushState (no location.hash) para que el navegador no salte al ancla
+          mostrarVista();
+        }
     }, true);
     await Promise.all(clases.map((c) => cargar(catalogo, c)));
     mostrarVista();
