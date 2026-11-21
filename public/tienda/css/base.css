@@ -258,3 +258,6 @@ body::after {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* Etiqueta con la versión de la app (se sube a mano en index.html en cada iteración) */
+.version-app { position: absolute; top: 3px; left: 6px; z-index: 200; font: 600 10px/1 system-ui, sans-serif; letter-spacing: .05em; color: var(--oro-claro); opacity: .8; background: #000a; padding: 2px 5px; border-radius: 4px; pointer-events: none; }
