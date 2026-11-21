@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Valida las clases de personajes (esquema, referencias e imágenes). Uso: python3 personajes/validar.py [clase ...]
+"""Valida las clases de personajes (esquema, referencias e imágenes). Uso: python3 public/personajes/validar.py [clase ...]
 
 Errores (exit 1): JSON roto, campos obligatorios, ids repetidos o inexistentes, tipos desconocidos, clases mal registradas.
 Avisos: imágenes que faltan (borrador) o que nadie usa.

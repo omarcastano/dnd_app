@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Servidor de desarrollo del catálogo: como http.server pero sin caché (siempre ves el último cambio, también en el celular).
-Uso: python3 personajes/servidor.py [puerto]"""
+Uso: python3 public/personajes/servidor.py [puerto]"""
 import sys
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
