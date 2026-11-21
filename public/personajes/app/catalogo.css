@@ -115,7 +115,7 @@
 /* Móvil, lista de clases: se pasa de una a otra como páginas (1/2, 2/2) con snap vertical, sin scroll libre. Alto con svh = estable aunque la barra del navegador se oculte */
 @media (max-width: 760px) {
   html:has(.tab-heroes.active .heroes:not(.con-clase) .clase) { scroll-snap-type: y mandatory; }
-  .tab-heroes.active .heroes:not(.con-clase) .clase { height: calc(100svh - 60px); min-height: 0; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; scroll-margin-top: 56px; }
+  .tab-heroes.active .heroes:not(.con-clase) .clase { min-height: calc(100svh - 60px); scroll-snap-align: start; scroll-snap-stop: always; scroll-margin-top: 56px; }
   .tab-heroes.active .heroes:not(.con-clase) .pagina-clases { display: block; position: fixed; right: 12px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 20; padding: 6px 12px; border-radius: 999px; background: #000c; border: 1px solid #d4af5a; color: #f2dc9b; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .15em; pointer-events: none; }
 }
 /* Sin scroll-snap vertical: las clases son más altas que la pantalla y el snap devolvía la vista al inicio, ocultando «Elegir» */
@@ -154,3 +154,8 @@ body.visor-abierto { overflow: hidden; }
 .heroes.con-clase .clase.activa { scroll-margin-top: var(--tabs-h, 44px); padding-top: 0; }
 .heroes.con-clase .clase.activa h2 { position: sticky; top: var(--tabs-h, 44px); z-index: 25; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #000c; }
 .heroes.con-clase .clase.activa h2 .atras { padding: 6px 12px; font-family: system-ui, sans-serif; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+
+/* Dentro de una clase (pasos y resultado): las pestañas y el título no se quedan fijos; se ven al subir con el scroll y la carta tiene todo el foco */
+.tab-heroes.active .heroes.con-clase .clase.activa h2 { position: static; }
+.heroes.con-clase .paso, .heroes.con-clase .resumen, .heroes.con-clase .contador { scroll-margin-top: 8px; }
+body:has(.tab-heroes.active .heroes.con-clase) .tabs { position: relative; }

@@ -1,8 +1,8 @@
 // Pestaña «Héroes»: catálogo de clases dentro de index.html (partes/heroes.html). `initHeroes()` se registra en MODULOS de main.js.
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
-import { mostrarCartas, ajustarEscala } from './carrusel.js?v=6';
-import { iniciarSeleccion } from './seleccion.js?v=2';
+import { mostrarCartas, ajustarEscala } from './carrusel.js?v=8';
+import { iniciarSeleccion } from './seleccion.js?v=4';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
 import { atenderNarracion } from './narracion.js';
@@ -50,7 +50,7 @@ function reiniciar() {
   document.body.classList.remove('visor-abierto');
   const raiz = document.querySelector('.heroes');
   raiz.querySelectorAll('.ambiente, .atras, .pagina-clases').forEach((v) => v.remove());
-  [...raiz.classList].filter((c) => c.startsWith('tema-') || c === 'con-clase').forEach((c) => raiz.classList.remove(c));
+  [...raiz.classList].filter((c) => c.startsWith('tema-') || c === 'con-clase' || c === 'con-resultado').forEach((c) => raiz.classList.remove(c));
   document.getElementById('heroes-nav').innerHTML = '';
   document.getElementById('heroes-nav').hidden = false;
   document.getElementById('heroes-catalogo').innerHTML = '';
@@ -88,7 +88,7 @@ async function montar() {
       raiz.querySelectorAll('.clase').forEach((s) => s.classList.toggle('activa', s.id === activa));
       (raiz.querySelector('.clase.activa h2') ?? raiz.querySelector('.barra')).append(atras); // en la clase, el botón va en la fila del título
       // Al ocultarse las otras clases la página se acorta y el navegador recoloca el scroll: se deja la vista en el inicio de la clase elegida (o arriba al volver a la lista)
-      if (activa) raiz.querySelector('.clase.activa')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+      if (activa) (raiz.querySelector('.clase.activa .paso') ?? raiz.querySelector('.clase.activa'))?.scrollIntoView({ block: 'start', behavior: 'instant' });
       else scrollTo({ top: 0, behavior: 'instant' });
     };
     addEventListener('hashchange', mostrarVista, { signal });

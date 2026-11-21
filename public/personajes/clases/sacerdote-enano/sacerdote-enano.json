@@ -2,13 +2,12 @@
   "clase": {
     "nombre": "Sacerdote Enano",
     "reglas": [
-      "Los sacerdotes no pueden usar armas de 2 manos.",
+      "Los sacerdotes no pueden usar armaduras ni escudo.",
       "Una vez por turno, un sacerdote puede pasar una runa de resguardo activa a otro aliado, que conserva las rondas que le quedaban."
     ],
     "armas": [
       "Maza",
-      "Hacha corta",
-      "Escudo"
+      "Daga"
     ]
   },
   "cartas": [
@@ -17,7 +16,7 @@
       "tipo": "personaje",
       "nombre": "Durgan Piedraviva",
       "raza": "Enano",
-      "descripcion": "Enano de barba trenzada y yelmo con runas doradas, vestido con cota de malla bajo un hábito gris. Su maza y su escudo grabado de runas guardan a sus aliados de todo mal.",
+      "descripcion": "Enano de larga barba trenzada y túnica sacerdotal gris con runas doradas, sin armadura. Con una maza en una mano, su magia de piedra y luz protege y sana a sus aliados.",
       "narracion": "narraciones/durgan-piedraviva.mp3",
       "reglas_raza": [
         "Los enanos no pueden ser empujados ni derribados por los enemigos.",
@@ -29,7 +28,7 @@
       "tipo": "personaje",
       "nombre": "Helga Piedraviva",
       "raza": "Enana",
-      "descripcion": "Enana de trenzas pelirrojas y mirada serena, con cota de malla y túnica de piedra gris. Con su maza y su escudo rúnico levanta barreras que mantienen en pie a sus compañeros.",
+      "descripcion": "Enana de trenzas pelirrojas y túnica de lana gris con bordados rúnicos, sin armadura. Con una maza en la mano, teje conjuros de piedra y luz que cuidan de sus compañeros.",
       "narracion": "narraciones/helga-piedraviva.mp3",
       "reglas_raza": [
         "Los enanos no pueden ser empujados ni derribados por los enemigos.",
@@ -195,7 +194,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Grabas una runa protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si el aliado porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -230,7 +229,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Grabas una runa protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si el aliado porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -263,14 +262,14 @@
       "tipo": "ilustrada",
       "nombre": "Altar Ancestral",
       "nombre_habilidad": "Altar Ancestral",
-      "descripcion": "El sacerdote clava su maza en el suelo y erige un altar de piedra bendita. Una vez por cada tablero de mazmorra y solo durante una batalla, durante 3 rondas todos los aliados (incluido tú) recuperan 1 punto de vida al inicio de cada ronda. No afecta a no-muertos ni constructos."
+      "descripcion": "El sacerdote alza las manos y hace surgir un altar de piedra bendita. Una vez por cada tablero de mazmorra y solo durante una batalla, durante 3 rondas todos los aliados (incluido tú) recuperan 1 punto de vida al inicio de cada ronda. No afecta a no-muertos ni constructos."
     },
     {
       "id": "sentencia-del-yunque",
       "tipo": "ilustrada",
       "nombre": "Sentencia del Yunque",
       "nombre_habilidad": "Sentencia del Yunque",
-      "descripcion": "El sacerdote descarga su maza como un yunque desde el cielo. Una vez por cada tablero de mazmorra y solo durante una batalla, elige a un enemigo: queda aturdido y pierde su siguiente ataque."
+      "descripcion": "El sacerdote invoca un yunque de luz que cae del cielo. Una vez por cada tablero de mazmorra y solo durante una batalla, elige a un enemigo: queda aturdido y pierde su siguiente ataque."
     }
   ],
   "seleccion": [

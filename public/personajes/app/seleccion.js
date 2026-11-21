@@ -2,7 +2,7 @@
 // La elección se recuerda en este dispositivo (localStorage); si no está disponible, simplemente no se guarda.
 import { esc } from './util.js';
 import { carasDeCarta, esperarImagenes } from './cartas.js';
-import { activarContador, ajustarEscala } from './carrusel.js?v=6';
+import { activarContador, ajustarEscala } from './carrusel.js?v=8';
 import { reproducirEfecto, temaDe, ponerAmbiente } from './efectos.js';
 
 // Portada de una opción con niveles (Forma Salvaje, Sanación): retrato + nombre + descripción. Es la primera cara del volteo.
@@ -67,6 +67,7 @@ export function iniciarSeleccion(contenedor, datos) {
 
   function paso(i) {
     ponerAmbiente('seleccion');
+    contenedor.closest('.heroes')?.classList.remove('con-resultado');
     const p = pasos[i];
     const caras = p.opciones.map((o) => carasDeOpcion(o, porId, datos.etiquetas));
     contenedor.innerHTML = `
@@ -79,7 +80,7 @@ export function iniciarSeleccion(contenedor, datos) {
         ${i ? '<button type="button" class="btn-sec" data-atras>← Atrás</button>' : ''}
       </div>`;
     const opciones = contenedor.querySelector('.opciones');
-    
+    if (contenedor.closest('.heroes')?.classList.contains('con-clase')) contenedor.querySelector('.paso').scrollIntoView({ block: 'start', behavior: 'instant' });
     const elegir = async (k) => {
       if (p.opciones[k].efecto) await reproducirEfecto(p.opciones[k].efecto);
       indices.length = i;
@@ -105,6 +106,7 @@ export function iniciarSeleccion(contenedor, datos) {
 
   async function resultado(desplazar = true) {
     const sel = elegidas();
+    contenedor.closest('.heroes')?.classList.add('con-resultado');
     ponerAmbiente(temaDe(sel.map((o) => o.efecto)));
     // Tres tarjetas volteables: personaje (frente/dorso), poder (nivel 1/nivel 2) y don
     const caras = sel.map((o) => o.cartas.map((id) => porId.get(id)).filter(Boolean).flatMap((c) => carasDeCarta(c, datos.etiquetas)));
@@ -127,7 +129,7 @@ export function iniciarSeleccion(contenedor, datos) {
     activarContador(contenedor.querySelector('.contador'), opciones);
     ajustarEscala(true);
     await esperarImagenes(opciones);
-    if (desplazar) contenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (desplazar) contenedor.querySelector('.contador')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); // las pestañas y el título quedan arriba; el foco es la carta
   }
 
   const previa = recordada();

@@ -9,7 +9,13 @@ export function ajustarEscala(forzar = false) {
   if (!forzar && anchoPrev && innerWidth === anchoPrev && Math.abs(innerHeight - altoPrev) < 150) return;
   anchoPrev = innerWidth; altoPrev = innerHeight;
   const raiz = document.documentElement.style;
-  const escala = Math.min(1, (innerWidth - 40) / 306, (innerHeight - 190) / 572);
+  // Alto estable: el de la ventana con la barra del navegador visible (svh), igual que el contenedor de la lista; así la carta nunca se pasa de su caja
+  const sonda = document.createElement('div');
+  sonda.style.cssText = 'position:fixed;visibility:hidden;width:0;height:100svh';
+  document.body.append(sonda);
+  const alto0 = Math.min(innerHeight, sonda.offsetHeight || innerHeight);
+  sonda.remove();
+  const escala = Math.min(1, (innerWidth - 40) / 306, (alto0 - 190) / 572);
   raiz.setProperty('--escala', Math.max(escala, 0.5).toFixed(3));
   const movil = innerWidth <= 760;
   const porAncho = Math.min(1.4, (innerWidth - 32) / 306);
@@ -19,12 +25,12 @@ export function ajustarEscala(forzar = false) {
   const caja = ops?.querySelector('.opcion-caja');
   const carta = caja?.querySelector('.carta-sel');
   if (caja && carta) {
-    const tabs = document.querySelector('.tabs')?.offsetHeight ?? 0;
+    const tabs = document.querySelector('.heroes.con-clase') ? 0 : (document.querySelector('.tabs')?.offsetHeight ?? 0); // en una clase las pestañas se van con el scroll
     const seccion = ops.closest('.clase') ?? ops.closest('.contenido') ?? ops.parentElement;
     const arriba = ops.getBoundingClientRect().top - seccion.getBoundingClientRect().top;
     const abajo = caja.getBoundingClientRect().height - carta.getBoundingClientRect().height + (ops.closest('.paso')?.querySelector('.btn-sec')?.offsetHeight ?? 0);
-    alto = (innerHeight - tabs - arriba - abajo - 36) / 572;
-  } else alto = movil ? (innerHeight - 350) / 572 : Math.max((innerHeight - 250) / 572, 0.9);
+    alto = (alto0 - tabs - arriba - abajo - 16) / 572;
+  } else alto = movil ? (alto0 - 350) / 572 : Math.max((alto0 - 250) / 572, 0.9);
   raiz.setProperty('--escala-sel', Math.max(Math.min(porAncho, alto), 0.4).toFixed(3));
 }
 
