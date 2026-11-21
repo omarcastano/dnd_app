@@ -114,7 +114,7 @@ export function iniciarSeleccion(contenedor, datos) {
       </div>
       <div class="contador"></div>
       <div class="opciones">${sel.map((o, k) => tarjetaOpcion(o, k, caras[k], false)).join('')}</div>`;
-    contenedor.querySelector('[data-reiniciar]').addEventListener('click', () => { indices.length = 0; olvidar(); paso(0); });
+    contenedor.querySelector('[data-reiniciar]').addEventListener('click', (e) => { indices.length = 0; olvidar(); e.target.dispatchEvent(new CustomEvent('heroes:reiniciar', { bubbles: true })); });
     const opciones = contenedor.querySelector('.opciones');
     opciones.addEventListener('click', (e) => {
       const v = e.target.closest('.volteo.gira');

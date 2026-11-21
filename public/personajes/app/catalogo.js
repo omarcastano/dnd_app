@@ -2,12 +2,15 @@
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
 import { mostrarCartas, ajustarEscala } from './carrusel.js?v=6';
-import { iniciarSeleccion } from './seleccion.js';
+import { iniciarSeleccion } from './seleccion.js?v=2';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
 import { atenderNarracion } from './narracion.js';
 
+const efectosCargados = new Set();
 async function cargarEfectos(id) {
+  if (efectosCargados.has(id)) return;
+  efectosCargados.add(id);
   const css = document.createElement('link');
   css.rel = 'stylesheet';
   css.href = `${rutaClase(id)}efectos.css`;
@@ -33,31 +36,62 @@ async function cargar(catalogo, { id, efectos }) {
   }
 }
 
-export async function initHeroes() {
+// Reinicio total: se olvidan las elecciones guardadas y se vuelve a montar toda la pestaña desde cero
+let montaje = null;
+function olvidarTodo() {
+  try {
+    Object.keys(localStorage).filter((k) => /^taberna:.+:seleccion$/.test(k)).forEach((k) => localStorage.removeItem(k));
+  } catch {}
+}
+function reiniciar() {
+  montaje?.abort();
+  olvidarTodo();
+  document.querySelectorAll('.visor, .efecto').forEach((v) => v.remove());
+  document.body.classList.remove('visor-abierto');
+  const raiz = document.querySelector('.heroes');
+  raiz.querySelectorAll('.ambiente, .atras, .pagina-clases').forEach((v) => v.remove());
+  [...raiz.classList].filter((c) => c.startsWith('tema-') || c === 'con-clase').forEach((c) => raiz.classList.remove(c));
+  document.getElementById('heroes-nav').innerHTML = '';
+  document.getElementById('heroes-nav').hidden = false;
+  document.getElementById('heroes-catalogo').innerHTML = '';
+  history.replaceState(null, '', location.pathname + location.search);
+  scrollTo({ top: 0, behavior: 'instant' });
+  return montar();
+}
+
+export const initHeroes = () => montar();
+
+async function montar() {
+  montaje = new AbortController();
+  const { signal } = montaje;
   const raiz = document.querySelector('.heroes');
   const nav = document.getElementById('heroes-nav');
   const catalogo = document.getElementById('heroes-catalogo');
-  addEventListener('resize', () => ajustarEscala());
-  ajustarEscala();
+  addEventListener('resize', () => ajustarEscala(), { signal });
+  ajustarEscala(true);
+  raiz.addEventListener('heroes:reiniciar', reiniciar, { signal });
   try {
     const clases = await (await fetch(new URL('clases.json', RAIZ), { cache: 'no-cache' })).json();
     nav.innerHTML = clases.map(({ id }) => `<a href="#${esc(id)}">${esc(id)}</a>`).join('');
     nav.insertAdjacentHTML('afterend', `<a href="#" class="atras" hidden>← ¿Quién eres?</a>`);
     // Una sola clase visible a la vez: el hash (#paladin) la elige; sin hash se vuelve a la lista. "Atrás" del navegador funciona igual.
     const atras = raiz.querySelector('.atras');
+    atras.addEventListener('click', (e) => { e.preventDefault(); reiniciar(); }, { signal });
     history.replaceState(null, '', location.pathname + location.search); // siempre se arranca en la lista, aunque la URL traiga #clase
     const mostrarVista = () => {
+      document.documentElement.style.setProperty('--tabs-h', `${document.querySelector('.tabs')?.offsetHeight ?? 44}px`);
       const id = decodeURIComponent(location.hash.slice(1));
       const activa = clases.some((c) => c.id === id) ? id : null;
       raiz.classList.toggle('con-clase', !!activa);
       atras.hidden = !activa;
       nav.hidden = !!activa;
       raiz.querySelectorAll('.clase').forEach((s) => s.classList.toggle('activa', s.id === activa));
+      (raiz.querySelector('.clase.activa h2') ?? raiz.querySelector('.barra')).append(atras); // en la clase, el botón va en la fila del título
       // Al ocultarse las otras clases la página se acorta y el navegador recoloca el scroll: se deja la vista en el inicio de la clase elegida (o arriba al volver a la lista)
       if (activa) raiz.querySelector('.clase.activa')?.scrollIntoView({ block: 'start', behavior: 'instant' });
       else scrollTo({ top: 0, behavior: 'instant' });
     };
-    addEventListener('hashchange', mostrarVista);
+    addEventListener('hashchange', mostrarVista, { signal });
     // Texto que no cabe en la carta: al tocarlo se abre completo en una ventana (el scroll interno falla en Chrome móvil)
     raiz.addEventListener('click', (e) => {
       if (atenderNarracion(e)) return;
@@ -76,7 +110,7 @@ export async function initHeroes() {
       addEventListener('keydown', tecla);
       document.body.classList.add('visor-abierto');
       document.body.append(visor);
-    }, true);
+    }, { capture: true, signal });
     // Al elegir algo en una clase (en fase de captura, antes de que el asistente redibuje) se queda solo esa clase
     catalogo.addEventListener('click', (e) => {
       const seccion = e.target.closest('.clase');
@@ -84,8 +118,9 @@ export async function initHeroes() {
           history.pushState(null, '', `#${seccion.id}`); // pushState (no location.hash) para que el navegador no salte al ancla
           mostrarVista();
         }
-    }, true);
+    }, { capture: true, signal });
     await Promise.all(clases.map((c) => cargar(catalogo, c)));
+    if (signal.aborted) return;
     mostrarVista();
     ajustarEscala(true);
     // Contador vertical «1 / N» entre clases (solo móvil, en la lista)
@@ -99,7 +134,7 @@ export async function initHeroes() {
       secciones.forEach((s, i) => { const r = s.getBoundingClientRect(); const d = Math.abs((r.top + r.bottom) / 2 - centro); if (d < dist) { dist = d; mejor = i; } });
       pagina.textContent = `${mejor + 1} / ${secciones.length}`;
     };
-    addEventListener('scroll', pintar, { passive: true });
+    addEventListener('scroll', pintar, { passive: true, signal });
     pintar();
   } catch (e) {
     console.error(e);

@@ -148,3 +148,9 @@ body.visor-abierto { overflow: hidden; }
   .paso h3 { margin: 0 0 2px; }
   .paso .progreso { margin-top: 0; }
 }
+
+/* En la selección de una clase el título «La Taberna» sobra; el botón «¿Quién eres?» va dentro del título de la clase (misma fila, pegado bajo las pestañas) */
+.heroes.con-clase .barra { display: none; }
+.heroes.con-clase .clase.activa { scroll-margin-top: var(--tabs-h, 44px); padding-top: 0; }
+.heroes.con-clase .clase.activa h2 { position: sticky; top: var(--tabs-h, 44px); z-index: 25; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #000c; }
+.heroes.con-clase .clase.activa h2 .atras { padding: 6px 12px; font-family: system-ui, sans-serif; letter-spacing: 0; text-transform: none; white-space: nowrap; }
