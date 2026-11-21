@@ -57,6 +57,20 @@ export async function initHeroes() {
       else scrollTo({ top: 0, behavior: 'instant' });
     };
     addEventListener('hashchange', mostrarVista);
+    // Texto que no cabe en la carta: al tocarlo se abre completo en una ventana (el scroll interno falla en Chrome móvil)
+    raiz.addEventListener('click', (e) => {
+      if (e.target.closest('.visor')) return;
+      const caja = e.target.closest('.bloque.desc, .bloque.especial, .pergamino');
+      if (!caja) return;
+      const corta = [caja, ...caja.querySelectorAll('.desc-p')].some((x) => x.scrollHeight > x.clientHeight + 1);
+      if (!corta) return;
+      e.stopPropagation(); // que no voltee la carta
+      const visor = document.createElement('div');
+      visor.className = 'visor';
+      visor.innerHTML = `<div class="visor-caja ${caja.className}">${caja.innerHTML}</div><button class="btn-pri visor-cerrar" type="button">Cerrar</button>`;
+      visor.addEventListener('click', (ev) => { if (ev.target === visor || ev.target.closest('.visor-cerrar')) visor.remove(); });
+      raiz.append(visor);
+    }, true);
     // Al elegir algo en una clase (en fase de captura, antes de que el asistente redibuje) se queda solo esa clase
     catalogo.addEventListener('click', (e) => {
       const seccion = e.target.closest('.clase');

@@ -115,3 +115,8 @@ html:has(.tab-heroes.active) { scroll-snap-type: y proximity; }
 html:has(.heroes.con-clase) { scroll-snap-type: none; }
 .atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
 .atras[hidden], .barra nav[hidden] { display: none; }
+
+/* Ventana con el texto completo de una carta (se abre al tocar un texto recortado) */
+.heroes .visor { position: fixed; inset: 0; z-index: 100; background: #000c; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 16px; box-sizing: border-box; }
+.heroes .visor-caja { display: block; flex: none; width: min(100%, 420px); max-height: none; overflow: visible; margin: auto 0 0; padding: 16px 18px; box-sizing: border-box; font-size: 17px; }
+.heroes .visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 28px; }
