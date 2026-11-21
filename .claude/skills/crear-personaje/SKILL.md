@@ -11,7 +11,7 @@ Hay **dos clases de referencia** ya iteradas; léelas siempre (JSON, `efectos.js
 Toda clase nueva replica su estructura, cantidad de cartas y convención de imágenes. No inventes otro esquema. Idioma: todo en español (ids, textos); archivos y ids en kebab-case sin tildes.
 
 ## 1. Entrada y datos de partida
-El usuario da **(a)** una descripción detallada o **(b)** una imagen de referencia (ruta). En el caso (b) mira la imagen con Read y escribe tú la descripción (rasgos, ropa, colores, objeto/arma, temática). Pide solo lo que falte y no puedas decidir con criterio propio: nombre de la clase, raza(s), temática de los 2 poderes y de los 2 dones. Si dejan libertad, propón todo coherente y avanza.
+El usuario da **(a)** una descripción detallada o **(b)** una imagen de referencia (ruta). En el caso (b) mira la imagen con Read y escribe tú la descripción (rasgos, ropa, colores, objeto/arma, temática). Pide solo lo que falte (y comprueba las armas contra la tienda, sección 1c) y no puedas decidir con criterio propio: nombre de la clase, raza(s), temática de los 2 poderes y de los 2 dones. Si dejan libertad, propón todo coherente y avanza.
 
 ## 1b. Variante de tres roles (referencia: Paladín)
 Por defecto la clase tiene **2 poderes y 2 dones** (Druida). Si el usuario pide **tres roles** (tanque / sanador / DPS u otra terna), o la descripción lo implica, sigue el **Paladín** (`clases/paladin/paladin.json`): **un rol = un poder (niveles 1 y 2)** y el paso 2 pasa a ser "Elige tu poder" con 3 opciones. Hay **3 dones** (el paladín: *Plegaria de Resurrección* con tabla d20, *Égida Inquebrantable* y *Furia Divina* con `nombre_habilidad` y sin tabla). Todo lo demás es igual:
@@ -34,13 +34,27 @@ Cómo se diferencian los roles en el paladín (copia el patrón):
 - Los 4 ataques básicos son iguales en los 3 roles, con subtítulo "Ataque básico" (en el druida, al ser conjuros, "Conjuro de ataque"). La carta del personaje incluye `reglas_raza` (paladín: humanos repiten un d20 fallido).
 Si los roles son otros, aplica la misma lógica según su función. El catálogo ya admite 3 opciones por paso (carrusel); no hay que tocar código.
 
+## 1c. Armas: solo las de la tienda (regla obligatoria)
+Las armas que puede usar un personaje son **únicamente las que se venden en la tienda** (`public/index.html` → datos en `public/tienda/js/datos/tienda.js`, grupo `"Armas"`). **No inventes armas** (ni "martillo rúnico", "katana", etc.). Lee la lista actual del archivo cada vez (puede cambiar):
+```bash
+sed -n '/name: "Armas"/,/items:/p' public/tienda/js/datos/tienda.js     # nombre, unidades, precio, daño (+), manos
+```
+Hoy: Espada corta (1 mano, +1), Espada larga (1, +2), Alabarda (2, +3), Espada doble (2, +3), Puñal (1, +1), Daga (1, +1), Arco (2, +2), Hacha corta (1, +1), Maza (1, +2). Reglas de la tienda: máximo 2 armas, una por mano; las de 2 manos ocupan ambas. El **Escudo** no es arma: está en el grupo "Armaduras" (también de la tienda).
+- `clase.armas` (**las que hagan sentido, no hay máximo**: 2, 3, 4… según la temática; el "máximo 2" de la tienda es lo que se *lleva a la vez*, no cuántas puede usar la clase) y cualquier mención de armas en `clase.reglas`, descripciones de personaje, habilidades y dones salen **solo de esa lista**, con el nombre exacto de la tienda. Elige las que encajen con la temática y el rol (el pícaro: Daga/Puñal; el arquero: Arco…). Si una de las dos es de 2 manos, la otra no puede ser usada a la vez: acláralo en `reglas` o elige dos de 1 mano.
+- Una clase puede incluir además el escudo (Armaduras) si encaja. Si la temática pide algo que no está en la tienda (p. ej. un libro de conjuros, un martillo), **no lo pongas como arma**: usa la más cercana de la tienda (Maza por martillo) o pregunta al usuario, y dilo en el resumen.
+- Los retratos y dones: pinta al personaje **empuñando esas armas** (prompt con "holding a short sword", "a mace", etc.) para que la imagen coincida con la carta.
+- Los números de daño de habilidades y el "Daño (+)" del arma no se contradicen: las habilidades no deben duplicar ni anular lo que ya da el arma.
+
+### Sin topes artificiales en armas, habilidades de clase y de raza
+Los ejemplos del druida y el paladín tienen 2 de cada, pero **no es un límite**. `clase.armas`, `clase.reglas` y `reglas_raza` pueden tener las entradas que hagan sentido para el personaje (un guerrero puede usar 5 armas; una raza puede tener 3 habilidades). No rellenes por cuota ni recortes por cuota: cada entrada debe aportar algo y ser clara. Si hay muchas, el scroll del dorso (sección 5) las contiene. Los topes de 2 que sí aplican son otros (2 ataques básicos por nivel, 2 habilidades especiales por poder y nivel).
+
 ## 2. Estructura obligatoria (idéntica al druida)
 Parte de `references/plantilla.json` (copia fiel del esquema del druida con marcadores). Resultado en `personajes/clases/<clase>/<clase>.json`:
 
 | Elemento | Cantidad | Detalle |
 |---|---|---|
-| `clase` | 1 | `nombre`, `reglas` (2 frases: una restricción y una bonificación), `armas` (2) |
-| Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` de la raza), con `descripcion` física breve |
+| `clase` | 1 | `nombre`, `reglas` (habilidades de clase: normalmente una restricción y una bonificación, **pero no hay tope**; las que hagan sentido), `armas` (**de la tienda**, ver 1c; **sin tope de 2**) |
+| Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` = habilidades de raza, **las que hagan sentido, sin tope de 2**), con `descripcion` física breve |
 | Cartas `tabla` | 4 | 2 poderes × niveles 1 y 2. id `<poder>-nivel-<n>` |
 | Cartas `ilustrada` | 2 | Los 2 dones. Uno con `tabla` d20 (1-11 nada / 12+ efecto, "una vez por tablero de mazmorra"); el otro con `nombre_habilidad` y sin tabla |
 | `seleccion` | 3 pasos | "¿Quién eres?" (Hombre/Mujer) → "Elige tu poder" (2 opciones, `portada: true`, cartas nivel-1 y nivel-2) → "Elige tu don" (2 opciones) |
@@ -98,6 +112,7 @@ Ya hay scroll en: la descripción de las cartas de poder (patrón anterior), `.p
 3. Reducir texto solo si es redundante; nunca a costa de dejar la habilidad ambigua.
 
 ## 6. Verificación (obligatoria)
+- Armas: cada entrada de `clase.armas` figura en `tienda.js` (grupo "Armas") o en "Armaduras" si es el escudo.
 - `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen" ni "imagen sin usar").
 - `revisar_desbordes.py <clase>`: 0 problemas (sección 5).
 - `make catalogo` → http://localhost:8081: ver que la clase aparece, cartas con imágenes, la selección de 3 pasos funciona y los efectos se disparan (haz un recorrido con navegador si hay herramienta disponible).

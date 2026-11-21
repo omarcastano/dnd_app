@@ -6,8 +6,8 @@
       "Los paladines suman +1 a sus tiradas para curar."
     ],
     "armas": [
-      "Martillo de guerra",
-      "Escudo sagrado"
+      "Maza",
+      "Espada corta"
     ]
   },
   "cartas": [
@@ -16,7 +16,7 @@
       "tipo": "personaje",
       "nombre": "Aldric Valorian",
       "raza": "Humano",
-      "descripcion": "Humano de pelo corto castaño y barba recortada, con armadura plateada y dorada, capa blanca, escudo sagrado y martillo de guerra.",
+      "descripcion": "Humano de pelo corto castaño y barba recortada, con armadura plateada y dorada, capa blanca, escudo sagrado y maza.",
       "reglas_raza": [
         "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
       ]
@@ -26,7 +26,7 @@
       "tipo": "personaje",
       "nombre": "Elara Valorian",
       "raza": "Humana",
-      "descripcion": "Humana de larga trenza castaña, con armadura plateada y dorada, capa blanca, escudo sagrado y martillo de guerra.",
+      "descripcion": "Humana de larga trenza castaña, con armadura plateada y dorada, capa blanca, escudo sagrado y maza.",
       "reglas_raza": [
         "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
       ]

@@ -40,21 +40,28 @@ async function cargar({ id, efectos }) {
 
 try {
   const clases = await (await fetch('clases.json', { cache: 'no-cache' })).json();
-  nav.hidden = true;
-  catalogo.insertAdjacentHTML('beforebegin', `<a href="#" class="atras" hidden>← ¿Quién eres?</a>`);
-  catalogo.insertAdjacentHTML('afterbegin', `<section id="elegir" aria-label="¿Quién eres?">${clases.map(({ id }) =>
-    `<a class="panel-clase" href="#${esc(id)}"><span class="pregunta">¿Quién eres?</span><strong>${esc(id)}</strong><span class="entrar">Elegir ${esc(id)}</span></a>`).join('')}</section>`);
+  nav.innerHTML = clases.map(({ id }) => `<a href="#${esc(id)}">${esc(id)}</a>`).join('');
+  nav.insertAdjacentHTML('afterend', `<a href="#" class="atras" hidden>← ¿Quién eres?</a>`);
   // Una sola clase visible a la vez: el hash (#paladin) la elige; sin hash se vuelve a la lista. "Atrás" del navegador funciona igual.
   const atras = document.querySelector('.atras');
+  let prev = null;
+  history.replaceState(null, '', location.pathname + location.search); // siempre se arranca en la lista, aunque la URL traiga #clase
   const mostrarVista = () => {
     const id = decodeURIComponent(location.hash.slice(1));
     const activa = clases.some((c) => c.id === id) ? id : null;
     document.body.classList.toggle('con-clase', !!activa);
     atras.hidden = !activa;
+    nav.hidden = !!activa;
     document.querySelectorAll('.clase').forEach((s) => s.classList.toggle('activa', s.id === activa));
-    scrollTo(0, 0);
+    if (!activa || !prev) scrollTo(0, 0);
+    prev = activa;
   };
   addEventListener('hashchange', mostrarVista);
+  // Al elegir algo en una clase (en fase de captura, antes de que el asistente redibuje) se queda solo esa clase
+  catalogo.addEventListener('click', (e) => {
+    const seccion = e.target.closest('.clase');
+    if (seccion && e.target.closest('[data-elegir]') && !document.body.classList.contains('con-clase')) location.hash = seccion.id;
+  }, true);
   await Promise.all(clases.map(cargar));
   mostrarVista();
 } catch (e) {
