@@ -1,88 +1,260 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+/* Base: paleta, tipografía, atmósfera, cabecera y pestañas.
+   Las fuentes se cargan desde index.html. */
+
+:root {
+  /* Fondos: piedra de mazmorra y madera de taberna */
+  --noche: #0d0805;
+  --madera: #1a1109;
+  --madera-2: #271a0e;
+  --cuero: #3a2615;
+  --hierro: #4a3a2a;
+
+  /* Papel y tinta */
+  --pergamino: #e8d8b0;
+  --pergamino-2: #d6c08a;
+  --tinta: #2b1a0c;
+  --tinta-tenue: #5b4326;
+
+  /* Texto sobre fondo oscuro */
+  --texto: #e6d3a8;
+  --texto-tenue: #a38d63;
+  --texto-apagado: #7a6845;
+
+  /* Metales y gemas (los íconos usan estas variables) */
+  --oro: #d9a93f;
+  --oro-claro: #f2d27a;
+  --oro-oscuro: #8a6420;
+  --sangre: #b3342a;
+  --sangre-claro: #e0928a;
+  --rubi: #d0453b;
+  --hielo: #6fa0d0;
+  --esmeralda: #82a85c;
+  --arcano: #a77bc9;
+  --cobre: #c4783a;
+  --acero: #8d98a0;
+
+  --fuente-titulo: 'Cinzel Decorative', 'Cinzel', serif;
+  --fuente-encabezado: 'Cinzel', Georgia, serif;
+  --fuente-sabor: 'IM Fell English', 'EB Garamond', Georgia, serif;
+  --fuente-texto: 'EB Garamond', Georgia, serif;
+
+  --sombra-carta: 0 6px 18px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(242, 210, 122, 0.08);
+  --ruido: url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Crimson Text', Georgia, serif;
-  background-color: #1a1008;
+  font-family: var(--fuente-texto);
+  font-size: 1.08rem;
+  background-color: var(--noche);
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(120, 70, 20, 0.3) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  color: #e8d5b0;
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(217, 140, 50, 0.28) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 120%, rgba(120, 30, 20, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, #1a1009 0%, #0d0805 100%);
+  background-attachment: fixed;
+  color: var(--texto);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-header {
+/* Grano de piedra + viñeta: da profundidad de mazmorra */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--ruido);
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#ambiente {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+::selection { background: var(--oro-oscuro); color: var(--pergamino); }
+
+/* ---------- Cabecera: el letrero de la taberna ---------- */
+.cabecera {
+  position: relative;
+  z-index: 3;
   text-align: center;
-  padding: 24px 16px 16px;
-  border-bottom: 2px solid #5a3a1a;
+  padding: 34px 16px 18px;
   flex-shrink: 0;
 }
 
-header h1 {
-  font-family: 'MedievalSharp', cursive;
-  font-size: 2rem;
-  color: #d4a54a;
-  text-shadow: 0 2px 8px rgba(180, 120, 40, 0.5);
-  letter-spacing: 2px;
+.cabecera-sobre {
+  font-family: var(--fuente-encabezado);
+  font-size: 0.78rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--texto-tenue);
 }
 
-header p {
+.cabecera h1 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 7vw, 3.2rem);
+  max-width: 14ch;
+  margin-inline: auto;
+  text-wrap: balance;
+  line-height: 1.1;
+  margin: 6px auto 2px;
+  background: linear-gradient(180deg, var(--oro-claro) 0%, var(--oro) 45%, var(--oro-oscuro) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.8)) drop-shadow(0 0 18px rgba(217, 140, 50, 0.45));
+  animation: antorcha 4s ease-in-out infinite;
+}
+
+.cabecera-lema {
+  font-family: var(--fuente-sabor);
   font-style: italic;
-  color: #a08860;
-  margin-top: 6px;
-  font-size: 0.95rem;
+  color: var(--texto-tenue);
+  font-size: 1.1rem;
 }
 
+/* Divisor ornamental: línea – dado – línea */
+.adorno {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 12px auto 10px;
+  max-width: 340px;
+  color: var(--oro);
+}
+
+.adorno span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--oro-oscuro) 40%, var(--oro));
+}
+
+.adorno span:last-child { transform: scaleX(-1); }
+
+.adorno i { font-size: 1.1rem; filter: drop-shadow(0 0 6px rgba(217, 169, 63, 0.7)); }
+
+@keyframes antorcha {
+  0%, 100% { filter: drop-shadow(0 2px 0 rgba(0,0,0,.8)) drop-shadow(0 0 16px rgba(217,140,50,.4)); }
+  45% { filter: drop-shadow(0 2px 0 rgba(0,0,0,.8)) drop-shadow(0 0 26px rgba(240,160,60,.65)); }
+  70% { filter: drop-shadow(0 2px 0 rgba(0,0,0,.8)) drop-shadow(0 0 20px rgba(217,140,50,.5)); }
+}
+
+/* ---------- Pestañas: tablones de madera con remaches ---------- */
 .tabs {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
   flex-shrink: 0;
-  border-bottom: 2px solid #5a3a1a;
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto;
+  background:
+    var(--ruido),
+    linear-gradient(180deg, #34210f 0%, #1f130a 100%);
+  background-blend-mode: soft-light, normal;
+  border-top: 2px solid var(--oro-oscuro);
+  border-bottom: 3px solid #0a0603;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(242, 210, 122, 0.18);
 }
 
 .tab-btn {
   flex: 1;
-  padding: 14px 8px;
-  background: #1a1008;
+  padding: 10px 4px 9px;
+  background: transparent;
   border: none;
-  color: #6a5a40;
-  font-family: 'MedievalSharp', cursive;
-  font-size: 1.1rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.55);
+  box-shadow: 1px 0 0 rgba(242, 210, 122, 0.06);
+  color: var(--texto-apagado);
+  font-family: var(--fuente-encabezado);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.25s, background 0.25s, text-shadow 0.25s;
   position: relative;
 }
 
+.tab-btn:last-child { border-right: none; }
+
+.tab-btn:hover { color: var(--texto); }
+
+.tab-btn:focus-visible { outline: 2px solid var(--oro); outline-offset: -4px; }
+
 .tab-btn.active {
-  color: #d4a54a;
-  background: #2a1a0a;
+  color: var(--oro-claro);
+  text-shadow: 0 0 10px rgba(217, 169, 63, 0.7);
+  background: radial-gradient(ellipse at 50% 100%, rgba(217, 140, 50, 0.28) 0%, transparent 75%);
 }
 
 .tab-btn.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 20%;
-  right: 20%;
-  height: 2px;
-  background: #d4a54a;
+  bottom: 0;
+  left: 18%;
+  right: 18%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--oro-claro), transparent);
+  box-shadow: 0 0 10px var(--oro);
 }
 
 .tab-icon {
   display: block;
-  font-size: 1.3rem;
-  margin-bottom: 2px;
+  font-size: 1.35rem;
+  margin-bottom: 3px;
+  color: inherit;
+  transition: transform 0.25s;
 }
 
+.tab-btn.active .tab-icon { transform: translateY(-1px) scale(1.12); }
+
+/* ---------- Contenido ---------- */
 .tab-content {
+  position: relative;
+  z-index: 3;
   flex: 1;
-  overflow-y: auto;
-  padding: 16px;
-  padding-bottom: 80px;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 22px 16px 80px;
   display: none;
 }
 
-.tab-content.active { display: block; }
+.tab-content.active {
+  display: block;
+  animation: aparecer 0.4s ease both;
+}
 
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}

@@ -82,7 +82,7 @@ function renderLight() {
       if (v !== "W") {
         html += `<td class="puzzle-cell wall">${v === "B" ? "" : v}</td>`;
       } else {
-        const bulb = lightBulbs[r][c] ? '<i class="fa-solid fa-lightbulb" style="color:#f5d76e"></i>' : "";
+        const bulb = lightBulbs[r][c] ? '<i class="fa-solid fa-lightbulb" style="color:var(--oro-claro)"></i>' : "";
         html += `<td class="puzzle-cell${lit[r][c] ? " lit" : ""}" data-r="${r}" data-c="${c}">${bulb}</td>`;
       }
     }

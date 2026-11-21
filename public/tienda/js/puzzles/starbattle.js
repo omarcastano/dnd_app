@@ -15,7 +15,7 @@ function renderStars() {
   for (let r = 0; r < 5; r++) {
     html += "<tr>";
     for (let c = 0; c < 5; c++) {
-      const star = starState[r][c] ? '<i class="fa-solid fa-star" style="color:#f5d76e"></i>' : "";
+      const star = starState[r][c] ? '<i class="fa-solid fa-star" style="color:var(--oro-claro)"></i>' : "";
       html += `<td class="puzzle-cell" style="background:${starColors[starRegions[r][c]]}" data-r="${r}" data-c="${c}">${star}</td>`;
     }
     html += "</tr>";

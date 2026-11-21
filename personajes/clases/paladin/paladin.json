@@ -1,0 +1,384 @@
+{
+  "clase": {
+    "nombre": "Paladín",
+    "reglas": [
+      "Los paladines no pueden usar armas a distancia.",
+      "Los paladines suman +1 a sus tiradas para curar."
+    ],
+    "armas": [
+      "Martillo de guerra",
+      "Escudo sagrado"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "aldric-valorian",
+      "tipo": "personaje",
+      "nombre": "Aldric Valorian",
+      "raza": "Humano",
+      "descripcion": "Humano de pelo corto castaño y barba recortada, con armadura plateada y dorada, capa blanca, escudo sagrado y martillo de guerra.",
+      "reglas_raza": [
+        "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
+      ]
+    },
+    {
+      "id": "elara-valorian",
+      "tipo": "personaje",
+      "nombre": "Elara Valorian",
+      "raza": "Humana",
+      "descripcion": "Humana de larga trenza castaña, con armadura plateada y dorada, capa blanca, escudo sagrado y martillo de guerra.",
+      "reglas_raza": [
+        "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
+      ]
+    },
+    {
+      "id": "castigo-divino-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Castigo Divino",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Radiante",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Martillazo Sagrado",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al invocar la furia de la luz, tu arma se envuelve en fuego sagrado y castigas a los enemigos con golpes devastadores.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Martillo del Alba",
+          "valor": 3,
+          "subtitulo": "Ataque especial"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Juicio Final",
+          "valor": 4,
+          "subtitulo": "Ataque especial"
+        }
+      ]
+    },
+    {
+      "id": "castigo-divino-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Castigo Divino",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe de Martillo",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Estocada Sagrada",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al invocar la furia de la luz, tu arma se envuelve en fuego sagrado y castigas a los enemigos con golpes devastadores.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Castigo Sagrado",
+          "valor": 2,
+          "subtitulo": "Ataque especial"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Cólera Celestial",
+          "valor": 3,
+          "subtitulo": "Ataque especial"
+        }
+      ]
+    },
+    {
+      "id": "luz-sanadora-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Luz Sanadora",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Radiante",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Martillazo Sagrado",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Bendición Radiante",
+          "valor": 2,
+          "subtitulo": "Conjuro de sanación"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Luz Redentora",
+          "valor": 3,
+          "subtitulo": "Conjuro de sanación"
+        }
+      ]
+    },
+    {
+      "id": "luz-sanadora-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Luz Sanadora",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe de Martillo",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Estocada Sagrada",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Imposición de Manos",
+          "valor": 1,
+          "subtitulo": "Conjuro de sanación"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Plegaria Sanadora",
+          "valor": 2,
+          "subtitulo": "Conjuro de sanación"
+        }
+      ]
+    },
+    {
+      "id": "bastion-sagrado-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Bastión Sagrado",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe Radiante",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Martillazo Sagrado",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Guardia Celestial",
+          "valor": 2,
+          "subtitulo": "Conjuro de protección"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Muro Sagrado",
+          "valor": 3,
+          "subtitulo": "Conjuro de protección"
+        }
+      ]
+    },
+    {
+      "id": "bastion-sagrado-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Bastión Sagrado",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Golpe de Martillo",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Estocada Sagrada",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Escudo de Fe",
+          "valor": 1,
+          "subtitulo": "Conjuro de protección"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Coraza de Luz",
+          "valor": 2,
+          "subtitulo": "Conjuro de protección"
+        }
+      ]
+    },
+    {
+      "id": "plegaria-de-resurreccion",
+      "tipo": "ilustrada",
+      "nombre": "Plegaria de Resurrección",
+      "descripcion": "El paladín se arrodilla junto a un aliado caído y ruega a los dioses por su regreso. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, un aliado caído regresa a la vida con la mitad de sus puntos de vida.",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "12+",
+          "resultado": "Un aliado caído revive con la mitad de sus puntos de vida"
+        }
+      ]
+    },
+    {
+      "id": "egida-inquebrantable",
+      "tipo": "ilustrada",
+      "nombre": "Égida Inquebrantable",
+      "nombre_habilidad": "Égida Inquebrantable",
+      "descripcion": "El paladín planta su escudo sagrado en el suelo y una cúpula de luz cubre a todo el grupo. Una vez por cada tablero de mazmorra y solo durante una batalla, hasta que termine la siguiente ronda de ataques enemigos, todos los aliados (incluido tú) reciben la mitad del daño de cada ataque (redondeado hacia abajo) y los enemigos que te ataquen a ti sufren 1 de daño sagrado."
+    },
+    {
+      "id": "furia-divina",
+      "tipo": "ilustrada",
+      "nombre": "Furia Divina",
+      "nombre_habilidad": "Furia Divina",
+      "descripcion": "El paladín se envuelve en fuego sagrado y sus golpes arden con la ira de los dioses. Una vez por cada tablero de mazmorra y solo durante una batalla, los ataques que inflijas hacen el doble de daño a tus enemigos."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Aldric Valorian",
+          "cartas": [
+            "aldric-valorian"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Elara Valorian",
+          "cartas": [
+            "elara-valorian"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Castigo Divino",
+          "efecto": "castigo",
+          "detalle": "Golpea a tus enemigos con fuego sagrado",
+          "cartas": [
+            "castigo-divino-nivel-1",
+            "castigo-divino-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Luz Sanadora",
+          "efecto": "luz",
+          "detalle": "Restaura vida a tus compañeros o a ti",
+          "cartas": [
+            "luz-sanadora-nivel-1",
+            "luz-sanadora-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Bastión Sagrado",
+          "efecto": "egida",
+          "detalle": "Reduce el próximo golpe que reciba un aliado o tú",
+          "cartas": [
+            "bastion-sagrado-nivel-1",
+            "bastion-sagrado-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Plegaria de Resurrección",
+          "efecto": "resurreccion",
+          "detalle": "Devuelve la vida a un aliado caído",
+          "cartas": [
+            "plegaria-de-resurreccion"
+          ]
+        },
+        {
+          "etiqueta": "Égida Inquebrantable",
+          "efecto": "egida",
+          "detalle": "Todo el grupo recibe la mitad del daño una ronda",
+          "cartas": [
+            "egida-inquebrantable"
+          ]
+        },
+        {
+          "etiqueta": "Furia Divina",
+          "efecto": "castigo",
+          "detalle": "Duplica el daño de tus ataques",
+          "cartas": [
+            "furia-divina"
+          ]
+        }
+      ]
+    }
+  ]
+}

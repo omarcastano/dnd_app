@@ -2,10 +2,10 @@ PORT ?= 8080
 VENV := narracion/.venv
 PY := $(VENV)/bin/python
 
-.PHONY: run audio-setup audio check
+.PHONY: run audio-setup audio check cartas catalogo
 
 run:
-	npx --yes serve -l $(PORT) public
+	python3 -m http.server $(PORT) -d public
 
 audio-setup:
 	python3 -m venv $(VENV)
@@ -14,6 +14,14 @@ audio-setup:
 audio:
 	$(PY) narracion/generar_audio.py $(ARGS)
 
-# Valida que todos los JSON de personajes sean sintácticamente correctos
+# Valida las clases de personajes: esquema, referencias entre cartas y selección, imágenes (make check CLASE=druida para una sola)
 check:
-	@for f in personajes/*/*.json; do python3 -m json.tool "$$f" >/dev/null && echo "ok  $$f" || exit 1; done
+	python3 personajes/validar.py $(CLASE)
+
+# Catálogo de cartas de todas las clases (sin caché): http://localhost:8081
+catalogo:
+	python3 personajes/servidor.py 8081
+
+# (LEGACY: diseño y esquema antiguos, ya no compatible con personajes/clases/) Exporta las cartas a PDF
+cartas:
+	personajes/legacy/exportar.sh $(CLASE)

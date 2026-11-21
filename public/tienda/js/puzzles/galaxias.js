@@ -23,7 +23,7 @@ function renderGalaxy() {
       const dot = galaxyDotIndex(r, c);
       const selected = dot >= 0 && dot === galaxySelected ? " selected" : "";
       const style = k >= 0 ? ` style="background:hsl(${(k * 47) % 360}, 55%, 35%)"` : "";
-      const icon = dot >= 0 ? '<i class="fa-solid fa-circle" style="color:#f5d76e"></i>' : "";
+      const icon = dot >= 0 ? '<i class="fa-solid fa-circle" style="color:var(--oro-claro)"></i>' : "";
       html += `<td class="puzzle-cell${selected}"${style} data-r="${r}" data-c="${c}">${icon}</td>`;
     }
     html += "</tr>";

@@ -1,0 +1,281 @@
+{
+  "clase": {
+    "nombre": "Clase Ejemplo",
+    "reglas": [
+      "Regla de la clase 1.",
+      "Regla de la clase 2."
+    ],
+    "armas": [
+      "Arma 1",
+      "Arma 2"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "nombre-hombre",
+      "tipo": "personaje",
+      "nombre": "Nombre Hombre",
+      "raza": "Raza",
+      "descripcion": "Descripción física breve.",
+      "reglas_raza": [
+        "Regla de raza."
+      ]
+    },
+    {
+      "id": "nombre-mujer",
+      "tipo": "personaje",
+      "nombre": "Nombre Mujer",
+      "raza": "Raza",
+      "descripcion": "Descripción física breve.",
+      "reglas_raza": [
+        "Regla de raza."
+      ]
+    },
+    {
+      "id": "poder-uno-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Poder Uno",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Ataque Básico Tres",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Básico Cuatro",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Descripción del poder 1.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Habilidad 1B",
+          "valor": 3,
+          "subtitulo": "Ataque especial"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Habilidad 2B",
+          "valor": 4,
+          "subtitulo": "Ataque especial"
+        }
+      ]
+    },
+    {
+      "id": "poder-uno-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Poder Uno",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Ataque Básico Uno",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Básico Dos",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Descripción del poder 1.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Habilidad 1A",
+          "valor": 2,
+          "subtitulo": "Ataque especial"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Habilidad 2A",
+          "valor": 3,
+          "subtitulo": "Ataque especial"
+        }
+      ]
+    },
+    {
+      "id": "poder-dos-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Poder Dos",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Ataque Básico Tres",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Básico Cuatro",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Descripción del poder 2.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Habilidad 3B",
+          "valor": 2,
+          "subtitulo": "Conjuro de apoyo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Habilidad 4B",
+          "valor": 3,
+          "subtitulo": "Conjuro de apoyo"
+        }
+      ]
+    },
+    {
+      "id": "poder-dos-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Poder Dos",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Ataque Básico Uno",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Ataque Básico Dos",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Descripción del poder 2.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Habilidad 3A",
+          "valor": 1,
+          "subtitulo": "Conjuro de apoyo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Habilidad 4A",
+          "valor": 2,
+          "subtitulo": "Conjuro de apoyo"
+        }
+      ]
+    },
+    {
+      "id": "don-uno",
+      "tipo": "ilustrada",
+      "nombre": "Don Uno",
+      "descripcion": "Descripción del don (una vez por tablero de mazmorra...).",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "12+",
+          "resultado": "Resultado del don"
+        }
+      ]
+    },
+    {
+      "id": "don-dos",
+      "tipo": "ilustrada",
+      "nombre": "Don Dos",
+      "nombre_habilidad": "Nombre de la Habilidad",
+      "descripcion": "Descripción del don sin tabla."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Nombre Hombre",
+          "cartas": [
+            "nombre-hombre"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Nombre Mujer",
+          "cartas": [
+            "nombre-mujer"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Poder Uno",
+          "efecto": "efecto-uno",
+          "detalle": "Frase corta",
+          "cartas": [
+            "poder-uno-nivel-1",
+            "poder-uno-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Poder Dos",
+          "efecto": "efecto-dos",
+          "detalle": "Frase corta",
+          "cartas": [
+            "poder-dos-nivel-1",
+            "poder-dos-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Don Uno",
+          "efecto": "efecto-uno",
+          "detalle": "Frase corta",
+          "cartas": [
+            "don-uno"
+          ]
+        },
+        {
+          "etiqueta": "Don Dos",
+          "efecto": "efecto-dos",
+          "detalle": "Frase corta",
+          "cartas": [
+            "don-dos"
+          ]
+        }
+      ]
+    }
+  ]
+}

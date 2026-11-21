@@ -83,7 +83,7 @@ function renderCofres() {
         <div class="loot-result">Haz clic en la caja</div>
       </div>
       ${tablaLoot(
-        ['<th><i class="fa-solid fa-dice-d20" style="color:#e74c3c"></i> Tirada</th>', "<th>Botin</th>"],
+        ['<th><i class="fa-solid fa-dice-d20" style="color:var(--rubi)"></i> Tirada</th>', "<th>Botín</th>"],
         RANGOS_COFRE.map(([min, max], f) => `
           <tr>
             <td class="roll-cell" data-min="${min}" data-max="${max}">${min === max ? min : `${min} – ${max}`}</td>

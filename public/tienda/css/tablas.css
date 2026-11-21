@@ -1,57 +1,76 @@
-/* Loot & rob tables */
+/* Tablas: pergaminos clavados al tablón.
+   Dentro del pergamino se oscurecen las gemas/metales para que se lean sobre papel. */
 .loot-table {
+  --oro: #7a4e0a;
+  --oro-claro: #5e3a05;
+  --sangre: #8e241f;
+  --rubi: #a52d24;
+  --hielo: #2e6194;
+  --esmeralda: #44692a;
+  --arcano: #6d4590;
+  --cobre: #8f4f1b;
+  --acero: #4d5961;
+
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  color: #1c1006;
+  background: #f3e7c6;
+  border: 2px solid #5a3d1a;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55), inset 0 0 28px rgba(150, 100, 30, 0.18);
 }
 
 .loot-table thead th {
-  background: #3a2510;
-  color: #d4a54a;
-  font-family: 'MedievalSharp', cursive;
-  font-size: 1rem;
-  padding: 12px 14px;
+  background: linear-gradient(180deg, #5b3a17, #3f2710);
+  color: var(--oro-claro-tabla, #f2d27a);
+  font-family: var(--fuente-encabezado);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 11px 14px;
   text-align: left;
-  letter-spacing: 1px;
-  border-bottom: 2px solid #5a3a1a;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #20130a;
 }
 
-.loot-table tbody tr {
-  background: linear-gradient(135deg, #2a1a0a 0%, #1e1208 100%);
-  transition: background 0.2s;
-}
+.loot-table thead th i { color: #f2d27a !important; }
 
-.loot-table tbody tr:active { background: #3a2510; }
+.loot-table tbody tr { transition: background 0.2s; }
+.loot-table tbody tr:nth-child(even) { background: rgba(160, 110, 40, 0.1); }
+.loot-table tbody tr:hover { background: rgba(160, 110, 40, 0.2); }
 
 .loot-table tbody tr:not(:last-child) td {
-  border-bottom: 1px solid #3a2810;
+  border-bottom: 1px dashed rgba(91, 67, 38, 0.3);
 }
 
 .loot-table td {
-  padding: 12px 14px;
-  font-size: 0.92rem;
-  line-height: 1.5;
+  padding: 11px 10px;
+  font-size: 1.05rem;
+  line-height: 1.45;
   vertical-align: top;
 }
 
 .loot-table .roll-cell {
-  font-family: 'MedievalSharp', cursive;
-  color: #d4a54a;
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  color: var(--sangre);
   font-size: 1.05rem;
   white-space: nowrap;
-  width: 60px;
+  width: 70px;
   text-align: center;
 }
 
-.loot-table .loot-cell { color: #b8a888; }
-.loot-table .loot-cell i { margin-right: 3px; }
+.loot-table .loot-cell { color: #1c1006; font-weight: 500; }
+.loot-table .loot-cell i { margin-right: 4px; }
 
 .loot-table .num-cell { text-align: center; }
 
-.table-scroll { overflow-x: auto; }
+.table-scroll { overflow-x: auto; padding-bottom: 6px; }
 
-.table-scroll .loot-table { min-width: 560px; }
+#zonasTabla .loot-table { min-width: 520px; }
+.food-table td, .food-table th { padding-left: 8px; padding-right: 8px; }
+.food-table thead th { font-size: 0.72rem; letter-spacing: 0.04em; }
 
+.table-scroll { scrollbar-color: var(--oro-oscuro) var(--madera); scrollbar-width: thin; }

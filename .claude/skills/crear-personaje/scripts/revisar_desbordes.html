@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><base href="/personajes/">
+<link rel="stylesheet" href="app/cartas.css">
+<style>body{margin:0;display:flex;flex-wrap:wrap;gap:8px} #resultado{display:none}</style></head>
+<body><pre id="resultado"></pre>
+<script type="module">
+// Dibuja todas las caras de una clase y mide si algún texto se desborda o queda recortado. Resultado en #resultado (JSON).
+import { normalizar } from '/personajes/app/datos.js';
+import { carasDeCarta } from '/personajes/app/cartas.js';
+const id = new URLSearchParams(location.search).get('clase');
+const problemas = [];
+// ¿algún ancestro (sin llegar a la carta) hace scroll? Entonces el desborde de este elemento es aceptable
+const dentroDeScroll = (el, raiz) => { for (let a = el.parentElement; a && a !== raiz; a = a.parentElement) if (['auto', 'scroll'].includes(getComputedStyle(a).overflowY)) return true; return false; };
+// px que el contenido se sale de su caja por arriba o abajo (scrollHeight no ve el desborde superior de cajas centradas)
+const sobraAlto = (el) => {
+  const r = el.getBoundingClientRect();
+  return Math.max(el.scrollHeight - el.clientHeight, ...[...el.children].map((h) => { const q = h.getBoundingClientRect(); return Math.max(q.bottom - r.bottom, r.top - q.top); }));
+};
+try {
+  const d = normalizar(id, await (await fetch(`clases/${id}/${id}.json`)).json());
+  await document.fonts.ready;
+  for (const c of d.cartas) {
+    carasDeCarta(c, d.etiquetas).forEach((html, i) => {
+      const t = document.createElement('div'); t.innerHTML = html; document.body.append(t);
+      const cara = t.firstElementChild;
+      const donde = (el) => `${c.id} cara ${i + 1} · ${el.className || el.tagName.toLowerCase()}`;
+      // contenedores cuyo contenido no cabe (alto) y textos recortados por el ancho
+      for (const el of cara.querySelectorAll('.pergamino, .cuerpo-p, .bloque, .desc-p, .descripcion-dorso, .placa, .pie-p, .fila-p, .quien'))
+        { const sobra = sobraAlto(el), oy = getComputedStyle(el).overflowY;
+          if (sobra > 1 && oy !== 'auto' && oy !== 'scroll' && !dentroDeScroll(el, cara)) problemas.push({ carta: c.id, donde: donde(el), sobra_px: Math.round(sobra), texto: el.textContent.trim().slice(0, 50) }); }
+      for (const el of cara.querySelectorAll('.nombre-carta, .placa h3, .quien b, .quien em, .nombre-habilidad, .linaje, .linaje-pie'))
+        if (el.scrollWidth > el.clientWidth + 1) problemas.push({ carta: c.id, donde: donde(el), sobra_px: el.scrollWidth - el.clientWidth, texto: el.textContent.trim().slice(0, 50) });
+      // contenido que se sale de la carta
+      const r = cara.getBoundingClientRect();
+      for (const el of cara.querySelectorAll('*')) {
+        const q = el.getBoundingClientRect();
+        if (q.width && el.closest('.esquina') == null && !dentroDeScroll(el, cara) && (q.bottom > r.bottom + 1 || q.right > r.right + 1))
+          { problemas.push({ carta: c.id, donde: donde(el), sobra_px: Math.round(Math.max(q.bottom - r.bottom, q.right - r.right)) }); break; }
+      }
+    });
+  }
+} catch (e) { problemas.push({ error: String(e) }); }
+document.getElementById('resultado').textContent = JSON.stringify({ clase: id, problemas });
+document.title = 'listo';
+</script></body></html>

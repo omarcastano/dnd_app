@@ -22,9 +22,9 @@ function renderPuzzle() {
     html += `<tr><td class="clue">${puzzle.rowClues[r]}</td>`;
     for (let c = 0; c < n; c++) {
       if (isTree(r, c)) {
-        html += '<td class="puzzle-cell tree"><i class="fa-solid fa-star" style="color:#d4a54a"></i></td>';
+        html += '<td class="puzzle-cell tree"><i class="fa-solid fa-star" style="color:var(--oro)"></i></td>';
       } else {
-        const coin = puzzleBoard[r][c] ? '<i class="fa-solid fa-coins" style="color:#d4a54a"></i>' : "";
+        const coin = puzzleBoard[r][c] ? '<i class="fa-solid fa-coins" style="color:var(--oro)"></i>' : "";
         html += `<td class="puzzle-cell" data-r="${r}" data-c="${c}">${coin}</td>`;
       }
     }

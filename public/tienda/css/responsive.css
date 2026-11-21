@@ -1,15 +1,25 @@
 @media (max-width: 600px) {
-  header h1 {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
+  body { font-size: 1.02rem; }
+
+  .cabecera { padding-top: 40px; }
+  .cabecera-sobre { letter-spacing: 0.3em; }
 
   .tab-btn {
-    font-size: 0.95rem;
-    padding: 12px 4px;
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+    padding: 9px 2px 8px;
   }
 
-  .card-header {
-    padding: 12px;
-  }
+  .tab-icon { font-size: 1.15rem; }
+
+  .tab-content { padding: 18px 12px 80px; }
+
+  .card-header { padding: 12px; }
+  .card-icon { width: 36px; height: 36px; font-size: 1.05rem; }
+  .card-name { font-size: 1rem; }
+  .card-content { padding: 0 14px 16px; }
+
+  .rob-description { padding: 16px; }
+
+  .loot-box { width: 130px; height: 130px; }
 }

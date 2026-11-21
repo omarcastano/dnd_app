@@ -16,7 +16,7 @@ function groupCard(group) {
         <span class="card-name">${group.name}</span>
       </div>
       <div class="card-meta">
-        <span class="expand-icon">▼</span>
+        <span class="expand-icon"><i class="fa-solid fa-chevron-down"></i></span>
       </div>
     </div>
     <div class="card-body">

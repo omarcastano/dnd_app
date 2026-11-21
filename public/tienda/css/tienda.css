@@ -1,44 +1,70 @@
-/* Shop cards */
+/* Tarjetas de la taberna: cuero oscuro con filo dorado */
 .card {
-  background: linear-gradient(135deg, #2a1a0a 0%, #1e1208 100%);
-  border: 1px solid #4a3018;
-  border-radius: 12px;
+  position: relative;
+  background:
+    var(--ruido),
+    linear-gradient(145deg, var(--madera-2) 0%, var(--madera) 100%);
+  background-blend-mode: soft-light, normal;
+  border: 1px solid var(--hierro);
+  border-radius: 6px;
   margin-bottom: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  transition: border-color 0.2s;
+  box-shadow: var(--sombra-carta);
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
 
-.card:active { border-color: #d4a54a; }
+/* Marco interior dorado, como el de un grimorio */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(217, 169, 63, 0.28);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.card:hover,
+.card.open {
+  border-color: var(--oro-oscuro);
+  box-shadow: var(--sombra-carta), 0 0 22px rgba(217, 140, 50, 0.12);
+}
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 16px;
+  padding: 16px 18px;
   cursor: pointer;
 }
 
 .card-title-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   flex: 1;
   min-width: 0;
 }
 
 .card-icon {
-  font-size: 1.4rem;
   flex-shrink: 0;
-  width: 36px;
-  text-align: center;
-  color: #d4a54a;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  color: var(--oro);
+  background: radial-gradient(circle at 35% 30%, #4a3118, #1a1009);
+  border: 1px solid var(--oro-oscuro);
+  border-radius: 50%;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7), 0 0 10px rgba(217, 169, 63, 0.15);
 }
 
 .card-name {
-  font-family: 'MedievalSharp', cursive;
-  font-size: 1.2rem;
-  color: #d4a54a;
+  font-family: var(--fuente-encabezado);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--oro);
 }
 
 .card-meta {
@@ -50,48 +76,49 @@
 }
 
 .card-price {
-  background: #3a2510;
-  color: #d4a54a;
-  padding: 4px 10px;
+  background: linear-gradient(180deg, #3d2a12, #28190a);
+  color: var(--oro-claro);
+  padding: 3px 12px;
   border-radius: 20px;
+  font-family: var(--fuente-encabezado);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
-  border: 1px solid #5a3a1a;
+  border: 1px solid var(--oro-oscuro);
 }
 
 .card-stock {
-  font-size: 0.8rem;
-  color: #8a7a60;
+  font-size: 0.85rem;
+  color: var(--texto-tenue);
   white-space: nowrap;
 }
 
-.stock-low { color: #c0392b; }
-.stock-med { color: #d4a54a; }
-.stock-high { color: #6a9a4a; }
+.stock-low { color: var(--rubi); }
+.stock-med { color: var(--oro); }
+.stock-high { color: var(--esmeralda); }
 
 .expand-icon {
-  color: #6a5a40;
-  font-size: 0.8rem;
-  transition: transform 0.3s;
+  color: var(--oro-oscuro);
+  font-size: 0.85rem;
+  transition: transform 0.3s, color 0.3s;
   margin-left: 8px;
 }
 
-.card.open .expand-icon { transform: rotate(180deg); }
+.card-header:hover .expand-icon { color: var(--oro); }
+.card.open .expand-icon { transform: rotate(180deg); color: var(--oro); }
 
 .card-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.4s ease;
 }
 
 .card.open .card-body { max-height: 500px; }
-
 .card.group-card.open .card-body { max-height: 1200px; }
 
 .item-row {
   padding: 14px 0;
-  border-top: 1px solid #3a2810;
+  border-top: 1px solid rgba(217, 169, 63, 0.15);
 }
 
 .item-row:first-child { border-top: none; }
@@ -107,17 +134,22 @@
 
 .food-table .num-cell { text-align: right; }
 
+/* Cartel de la taberna */
 .sell-banner {
+  position: relative;
   text-align: center;
-  margin-bottom: 18px;
-  padding: 14px 16px;
-  background: rgba(212, 165, 74, 0.15);
-  border: 2px solid #d4a54a;
-  border-radius: 12px;
-  font-family: 'MedievalSharp', cursive;
-  font-size: 1.25rem;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background:
+    var(--ruido),
+    linear-gradient(180deg, #3a2410 0%, #24160a 100%);
+  background-blend-mode: soft-light, normal;
+  border: 2px solid var(--oro-oscuro);
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px #120b05, 0 0 0 4px var(--hierro), var(--sombra-carta);
+  font-family: var(--fuente-sabor);
+  font-style: italic;
+  font-size: 1.2rem;
   line-height: 1.4;
-  color: #d4a54a;
-  letter-spacing: 1px;
+  color: var(--oro-claro);
 }
-

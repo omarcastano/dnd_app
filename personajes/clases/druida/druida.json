@@ -1,0 +1,281 @@
+{
+  "clase": {
+    "nombre": "Druida",
+    "reglas": [
+      "Los druidas no pueden portar escudo.",
+      "Los druidas suman +1 a sus tiradas para lanzar conjuros."
+    ],
+    "armas": [
+      "Bastón",
+      "Libro de conjuros"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "eldan-galadriel",
+      "tipo": "personaje",
+      "nombre": "Eldan Galadriel",
+      "raza": "Elfo del Bosque",
+      "descripcion": "Elfo de largos cabellos blancos y barba, con bastón intrincado, capa y pergaminos.",
+      "reglas_raza": [
+        "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
+      ]
+    },
+    {
+      "id": "selene-galadriel",
+      "tipo": "personaje",
+      "nombre": "Selene Galadriel",
+      "raza": "Elfa del Bosque",
+      "descripcion": "Elfa etérea de túnicas verdes con hojas y enredaderas; porta un bastón con orbe brillante.",
+      "reglas_raza": [
+        "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
+      ]
+    },
+    {
+      "id": "forma-salvaje-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Forma Salvaje",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Rayo de Luna",
+          "valor": 2,
+          "subtitulo": "Conjuro de ataque"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Llama Sagrada",
+          "valor": 3,
+          "subtitulo": "Conjuro de ataque"
+        }
+      ],
+      "descripcion": "Al canalizar la energía de la naturaleza, tomas la forma de una fuerte bestia que te permite luchar cuerpo a cuerpo.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Zarpazo Veloz",
+          "valor": 3,
+          "subtitulo": "Ataque con garras"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Pisotón de Tierra",
+          "valor": 4,
+          "subtitulo": "Ataque con garras"
+        }
+      ]
+    },
+    {
+      "id": "forma-salvaje-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Forma Salvaje",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Llamarada Solar",
+          "valor": 1,
+          "subtitulo": "Conjuro de ataque"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Explosión de Espinas",
+          "valor": 2,
+          "subtitulo": "Conjuro de ataque"
+        }
+      ],
+      "descripcion": "Al canalizar la energía de la naturaleza, tomas la forma de una fuerte bestia que te permite luchar cuerpo a cuerpo.",
+      "tabla": [
+        {
+          "rango_d20": "1-14",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "15-18",
+          "nombre": "Mordida Feroz",
+          "valor": 2,
+          "subtitulo": "Ataque con garras"
+        },
+        {
+          "rango_d20": "19+",
+          "nombre": "Embate de la Bestia",
+          "valor": 3,
+          "subtitulo": "Ataque con garras"
+        }
+      ]
+    },
+    {
+      "id": "sanacion-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Sanación",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Rayo de Luna",
+          "valor": 2,
+          "subtitulo": "Conjuro de ataque"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Llama Sagrada",
+          "valor": 3,
+          "subtitulo": "Conjuro de ataque"
+        }
+      ],
+      "descripcion": "Al canalizar la energía de la naturaleza, puedes restaurar puntos de vida a uno de tus compañeros o a ti mismo.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Viento Sanador",
+          "valor": 2,
+          "subtitulo": "Conjuro de sanación"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Aura de Sanación",
+          "valor": 3,
+          "subtitulo": "Conjuro de sanación"
+        }
+      ]
+    },
+    {
+      "id": "sanacion-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Sanación",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5+",
+          "nombre": "Llamarada Solar",
+          "valor": 1,
+          "subtitulo": "Conjuro de ataque"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Explosión de Espinas",
+          "valor": 2,
+          "subtitulo": "Conjuro de ataque"
+        }
+      ],
+      "descripcion": "Al canalizar la energía de la naturaleza, puedes restaurar puntos de vida a uno de tus compañeros o a ti mismo.",
+      "tabla": [
+        {
+          "rango_d20": "1-10",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "11-16",
+          "nombre": "Sanación Menor",
+          "valor": 1,
+          "subtitulo": "Conjuro de sanación"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Toque Curativo",
+          "valor": 2,
+          "subtitulo": "Conjuro de sanación"
+        }
+      ]
+    },
+    {
+      "id": "instinto-salvaje",
+      "tipo": "ilustrada",
+      "nombre": "Instinto Salvaje",
+      "descripcion": "Esta habilidad permite al druida elfo transformarse mágicamente en una poderosa bestia que duplica su poder de ataque. Una vez por cada tablero de mazmorra y solo durante una batalla, puedes convertirte en una poderosa bestia parda, lo que hará que los ataques infligidos en tu forma salvaje hagan el doble de daño a tus enemigos.",
+      "tabla": [
+        {
+          "rango_d20": "1-11",
+          "resultado": "No ocurre nada"
+        },
+        {
+          "rango_d20": "12+",
+          "resultado": "Te conviertes en una bestia"
+        }
+      ]
+    },
+    {
+      "id": "el-curandero",
+      "tipo": "ilustrada",
+      "nombre": "El Curandero",
+      "nombre_habilidad": "Sanación Natural",
+      "descripcion": "Este poderoso hechizo canaliza la energía vital de la naturaleza para curar a todos los aliados dentro de un radio de 60 metros. El druida elfo invoca el poder de los antiguos bosques, haciendo que una suave luz verde emane del suelo y envuelva a sus compañeros. Una vez por cada tablero de mazmorra, cada aliado recupera una cantidad de puntos de vida igual a 1d4. Este hechizo no tiene efecto sobre no-muertos o constructos, ya que su magia está profundamente ligada a la vida y la naturaleza."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Eldan Galadriel",
+          "cartas": [
+            "eldan-galadriel"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Selene Galadriel",
+          "cartas": [
+            "selene-galadriel"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Forma Salvaje",
+          "efecto": "garras",
+          "detalle": "Conviértete en bestia y lucha cuerpo a cuerpo",
+          "cartas": [
+            "forma-salvaje-nivel-1",
+            "forma-salvaje-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Sanación",
+          "efecto": "sanacion",
+          "detalle": "Restaura vida a tus compañeros o a ti",
+          "cartas": [
+            "sanacion-nivel-1",
+            "sanacion-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Instinto Salvaje",
+          "efecto": "garras",
+          "detalle": "Duplica tu poder de ataque como bestia",
+          "cartas": [
+            "instinto-salvaje"
+          ]
+        },
+        {
+          "etiqueta": "El Curandero",
+          "efecto": "curandero",
+          "detalle": "Cura a todos los aliados cercanos",
+          "cartas": [
+            "el-curandero"
+          ]
+        }
+      ]
+    }
+  ]
+}

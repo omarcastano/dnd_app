@@ -1,15 +1,24 @@
-/* Footer */
+/* Pie de cada sección */
 .tab-footer {
   text-align: center;
-  padding: 20px 16px;
-  border-top: 1px solid #3a2810;
-  margin-top: 16px;
+  padding: 22px 16px 8px;
+  margin-top: 26px;
+  position: relative;
+}
+
+.tab-footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  max-width: 240px;
+  margin: 0 auto 18px;
+  background: linear-gradient(90deg, transparent, var(--oro-oscuro), transparent);
 }
 
 .tab-footer p {
+  font-family: var(--fuente-sabor);
   font-style: italic;
-  color: #7a6a4a;
-  font-size: 0.9rem;
+  color: var(--texto-apagado);
+  font-size: 1.02rem;
   line-height: 1.5;
 }
-

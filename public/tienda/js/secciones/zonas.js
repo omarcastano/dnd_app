@@ -19,8 +19,8 @@ export function initZonas() {
     [
       '<th class="num-cell">Calabozo</th>',
       "<th>Aplica para</th>",
-      '<th class="num-cell"><i class="fa-solid fa-dice-d20" style="color:#6a9a4a"></i> Dado de ataque</th>',
-      '<th class="num-cell">Dano adicional</th>',
+      '<th class="num-cell"><i class="fa-solid fa-dice-d20" style="color:var(--esmeralda)"></i> Dado de ataque</th>',
+      '<th class="num-cell">Daño adicional</th>',
       '<th class="num-cell">Vida adicional (4 jugadores)</th>',
       '<th class="num-cell">Vida adicional (5 jugadores)</th>'
     ],

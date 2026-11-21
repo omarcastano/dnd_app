@@ -20,7 +20,7 @@ export function initAdmin() {
   document.getElementById("adminLogin").addEventListener("click", () => {
     const password = document.getElementById("adminPassword").value;
     if (password !== ADMIN_PASSWORD) {
-      setPuzzleMsg("adminMessage", "Contrasena incorrecta.");
+      setPuzzleMsg("adminMessage", "Contraseña incorrecta.");
       document.getElementById("adminContent").style.display = "none";
       return;
     }

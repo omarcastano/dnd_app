@@ -1,0 +1,70 @@
+@font-face { font-family: "Inter"; src: url("fuentes/Inter.ttf") format("truetype"); font-weight: 100 900; }
+
+:root { --fondo: #5f8943; --verde: #206c30; --blanco: #fff; --ancho: 306px; --alto: 572px; }
+* { box-sizing: border-box; margin: 0; }
+body { background: #333; font-family: "Inter", Arial, sans-serif; color: var(--blanco); font-weight: 700; }
+.hoja { display: flex; flex-wrap: wrap; gap: 16px; padding: 16px; justify-content: center; }
+
+/* Medidas tomadas del diseño original (Figma), en px de carta de 306×572 */
+.carta { width: var(--ancho); height: var(--alto); background: var(--fondo); padding: 30px 26px 78px; display: flex; flex-direction: column; gap: 2px; }
+.caja { background: var(--verde); border: 5px solid var(--blanco); border-radius: 18px; overflow: hidden; }
+
+.titulo { flex: none; height: 44px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.ilustrada .titulo { height: 58px; }
+.retrato { flex: none; height: 307px; padding: 0; }
+.retrato img, .banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.banner { flex: none; height: 100px; padding: 0; }
+.pie { flex: none; height: 82px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 20px; line-height: 1.15; }
+
+/* Dorso del personaje: texto centrado en vertical */
+.texto { flex: none; height: 307px; display: flex; flex-direction: column; justify-content: center; padding: 0 9px; font-size: 13px; line-height: 16px; }
+.texto h4 { font-size: 13px; margin-top: 16px; }
+.texto h4:first-child { margin-top: 0; }
+.texto ul { padding-left: 19px; }
+
+/* Paneles de habilidad */
+.panel { flex: none; padding: 0 7px; display: flex; flex-direction: column; justify-content: center; }
+.panel.ataques { height: 144px; padding: 10px 7px; }
+.ataques + .central { margin-top: -2px; }
+.central { flex: none; align-items: stretch; text-align: center; padding: 7px 7px 0; }
+.central h3 { font-size: 15px; line-height: 22px; }
+.central p { font-size: 12px; line-height: 14px; font-weight: 500; padding: 4px 6px 16px; }
+.tabla .central { height: 318px; justify-content: flex-start; }
+.ilustrada .central { padding: 8px 6px; justify-content: center; }
+.ilustrada .central p { padding: 0; font-size: 12px; }
+.ilustrada.larga .central { height: 275px; justify-content: flex-start; padding-top: 12px; }
+.ilustrada.larga .central h3 { font-size: 20px; margin-bottom: 8px; }
+
+/* Fila: [dado + rango] [nombre / subtítulo] [valor + icono]. Anclada por los lados: dado a la izquierda, icono a la derecha,
+   ambos con el mismo hueco al borde y centrados en vertical. Las dos píldoras miden lo mismo (75×35). */
+.fila { position: relative; display: flex; align-items: center; min-height: 56px; padding: 0 77px; text-align: center; font-size: 15px; }
+/* Filas sin valor (resultado de tabla): solo reservan sitio para el icono, si lo hay */
+.fila:not(:has(.valor)) { padding-right: 44px; }
+.fila:not(:has(.ico)) { padding-right: 0; }
+.rango, .valor { position: absolute; top: 50%; transform: translateY(-50%); width: 75px; height: 35px; display: flex; align-items: center; justify-content: center; background: var(--blanco); color: #111; border-radius: 18px; white-space: nowrap; }
+.rango { left: 0; padding: 0 2px 0 39px; font-size: 13px; letter-spacing: -.01em; }
+.rango .txt { flex: 1; min-width: 0; text-align: center; overflow: hidden; }
+/* Anillo negro con halo blanco (box-shadow) que sobresale de la píldora */
+.d20, .ico { position: absolute; top: 50%; width: 32px; height: 32px; margin-top: -16px; background: var(--blanco); border: 2px solid #111; border-radius: 50%; box-shadow: 0 0 0 4px var(--blanco); }
+.d20 { left: 0; display: flex; align-items: center; justify-content: center; }
+.d20 img { width: 25px; height: 25px; object-fit: contain; }
+
+.nombre { flex: 1; min-width: 0; line-height: 14px; font-size: 13px; padding: 0 3px; text-wrap: balance; }
+.nombre small { display: block; margin-top: 4px; text-wrap: nowrap; white-space: nowrap; font-size: 9px; font-weight: 400; }
+.nulo { flex: 1; font-size: 14px; text-wrap: balance; }
+
+.valor { right: 0; padding: 0 37px 0 0; font-size: 17px; }
+.ico { right: 0; padding: 2px; }
+.ico svg { width: 100%; height: 100%; }
+
+/* Las cartas ilustradas terminan en la misma línea que las de tabla (30 + 144 + 2 + 318 = 494px) */
+.ilustrada > .caja:last-child { flex: 1 1 0; height: auto; min-height: 0; }
+.personaje > .retrato, .personaje > .texto { flex: 1 1 0; height: auto; min-height: 0; }
+.nivel { margin: auto -7px 0; flex: none; height: 30px; display: flex; align-items: center; justify-content: center; background: var(--fondo); font-size: 15px; }
+
+@page { size: A4; margin: 10mm 13.5mm; }
+@media print {
+  body { background: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hoja { display: grid; grid-template-columns: repeat(3, 229.5px); grid-auto-rows: 429px; gap: 0; padding: 0; justify-content: start; }
+  .carta { zoom: .75; break-inside: avoid; }
+}

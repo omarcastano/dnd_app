@@ -1,0 +1,118 @@
+/* Catálogo pensado para móvil: una carta a la vez, deslizando de lado (scroll-snap). En pantallas grandes se muestran en rejilla. */
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body.catalogo { font-family: Georgia, serif; color: #fff; background: radial-gradient(120% 60% at 50% 0%, #24402c 0%, #12201a 70%) fixed; min-height: 100vh; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
+
+.barra { position: sticky; top: 0; z-index: 10; background: #0d1610ee; backdrop-filter: blur(6px); padding: 10px 16px; padding-top: calc(10px + env(safe-area-inset-top)); display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #8a6a2a88; }
+.barra h1 { font-family: "Cinzel", Georgia, serif; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; white-space: nowrap; }
+.barra nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.barra nav::-webkit-scrollbar { display: none; }
+.barra a { flex: none; color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; text-transform: capitalize; min-height: 36px; display: inline-flex; align-items: center; }
+.barra a:active { background: #d4af5a33; }
+
+.clase { padding: 16px 0 8px; scroll-margin-top: 64px; }
+.clase h2 { font-family: "Cinzel", Georgia, serif; text-transform: capitalize; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; padding: 0 16px; }
+.estado { font-weight: 400; font-size: 12px; opacity: .7; margin: 2px 16px 0; }
+.estado.alerta { color: #ffd37a; opacity: 1; }
+
+/* Contador y pista de deslizamiento */
+.contador { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px 0; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .2em; color: #d4af5a; }
+.puntos { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.puntos i { width: 7px; height: 7px; border-radius: 50%; background: #d4af5a44; transition: .2s; }
+.puntos i.activo { background: #f2dc9b; transform: scale(1.35); }
+
+/* Móvil: carrusel horizontal. La carta se escala (variable --escala, la calcula carrusel.js) para caber en pantalla */
+@media (max-width: 760px) {
+  .hoja-p { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 14px calc((100vw - 306px * var(--escala, 1)) / 2) 18px; scroll-padding: 0 calc((100vw - 306px * var(--escala, 1)) / 2); -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .hoja-p::-webkit-scrollbar { display: none; }
+  .hoja-p .carta-p { zoom: var(--escala, 1); scroll-snap-align: center; scroll-snap-stop: always; }
+}
+/* Pantallas grandes: rejilla con margen */
+@media (min-width: 761px) {
+  .clase { padding-left: 24px; padding-right: 24px; }
+  .hoja-p { padding-left: 0; padding-right: 0; }
+  .contador { display: none; }
+}
+
+/* ===== Asistente de selección ===== */
+.paso, .resumen { padding: 8px 16px 0; text-align: center; }
+.progreso { font-family: "Cinzel", Georgia, serif; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af5a; margin-top: 6px; }
+.paso h3 { font-family: "Cinzel", Georgia, serif; font-size: 22px; letter-spacing: .06em; color: #f2dc9b; margin: 6px 0 16px; }
+.btn-sec { all: unset; cursor: pointer; display: inline-block; margin-top: 18px; padding: 10px 18px; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 14px; }
+.btn-sec:active { background: #d4af5a33; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0 10px; }
+.chips span { padding: 5px 12px; border-radius: 999px; background: #d4af5a22; border: 1px solid #d4af5a; color: #f2dc9b; font-size: 13px; }
+.resumen .btn-sec { margin-top: 0; }
+
+/* Opciones de la selección: son las propias cartas (cartas.css), una tras otra. Botón "Elegir" debajo */
+.ayuda { font-size: 13px; opacity: .75; margin-bottom: 4px; }
+.opciones { display: flex; flex-wrap: nowrap; justify-content: safe center; overflow-x: auto; gap: 24px; padding: 8px 8px 12px; margin: 0 auto; }
+.opcion-caja { flex: none; width: calc(306px * var(--escala-sel, 1)); display: flex; flex-direction: column; gap: 12px; }
+.btn-pri { all: unset; cursor: pointer; text-align: center; padding: 12px 14px; border-radius: 999px; background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-family: "Cinzel", Georgia, serif; font-weight: 700; letter-spacing: .06em; font-size: 14px; box-shadow: 0 3px 10px #0006; }
+.btn-pri:active { filter: brightness(.9); transform: scale(.98); }
+.btn-pri:focus-visible { outline: 3px solid #f2dc9b; outline-offset: 2px; }
+@media (max-width: 760px) {
+  .paso { padding: 8px 0 0; }
+  .paso > .progreso, .paso > h3, .paso > .ayuda, .paso > .btn-sec { padding: 0 16px; }
+  .opciones { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 8px calc((100vw - 306px * var(--escala-sel, 1)) / 2) 8px; scrollbar-width: none; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+  .opciones::-webkit-scrollbar { display: none; }
+  .opcion-caja { scroll-snap-align: center; scroll-snap-stop: always; }
+  .paso .contador { display: flex; }
+}
+.carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
+/* Volteo 3D: frente y dorso de la misma opción */
+.volteo { width: 306px; height: 572px; perspective: 1400px; }
+.volteo.gira { cursor: pointer; }
+.volteo-in { position: relative; width: 100%; height: 100%; transition: transform .6s cubic-bezier(.4, .2, .2, 1); transform-style: preserve-3d; transform: rotateY(calc(var(--giro, 0) * 180deg)); }
+
+.cara { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.cara.dorso { transform: rotateY(180deg); }
+.pista-voltear { text-align: center; font-size: 13px; color: #d4af5a; opacity: .85; margin: -2px 0 0; }
+@media (prefers-reduced-motion: reduce) { .volteo-in { transition: none; } }
+
+/* Portada de las opciones con niveles */
+.carta-p.portada { align-items: center; text-align: center; justify-content: flex-start; gap: 6px; padding-top: 40px; }
+.icono-portada { width: 150px; height: 150px; margin: 36px 0 10px; display: grid; place-items: center; border-radius: 50%;
+  background: radial-gradient(circle, #2f5a3a 0%, #12271a 75%); box-shadow: 0 0 0 2px var(--oro), 0 0 28px #d4af5a44; }
+.icono-portada img { width: 90px; height: 90px; }
+.detalle-portada { font-size: 17px; line-height: 1.35; color: var(--pergamino); padding: 0 10px; }
+
+/* Animaciones de elección (efectos.js) */
+.efecto { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; animation: ef-entra .3s ease-out both; }
+.efecto.sale { opacity: 0; transition: opacity .4s; }
+@keyframes ef-entra { from { opacity: 0; } }
+
+/* Ambiente de la pantalla final (fondo y partículas según la elección) */
+body.catalogo { transition: background .8s; }
+#catalogo { position: relative; z-index: 1; }
+.ambiente { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.ambiente i { position: absolute; bottom: -12px; width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; animation: amb-sube var(--t) linear var(--r) infinite; }
+@keyframes amb-sube { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: .9; } 85% { opacity: .6; } 100% { transform: translate(var(--dx), -105vh); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ambiente { display: none; } }
+
+/* Selección de personaje: fondo negro, rayos de luz dorados que giran, latido de luz y polvo dorado ascendente */
+body.catalogo.tema-seleccion { background: #000; }
+body.tema-seleccion .barra { background: #000000dd; }
+.ambiente-seleccion::before { content: ''; position: absolute; left: 50%; top: 42%; width: 220vmax; height: 220vmax; margin: -110vmax 0 0 -110vmax;
+  background: repeating-conic-gradient(from 0deg, #d4af5a22 0deg 6deg, transparent 6deg 24deg);
+  -webkit-mask: radial-gradient(circle, #000 0%, transparent 38%); mask: radial-gradient(circle, #000 0%, transparent 38%);
+  animation: amb-gira 90s linear infinite; }
+.ambiente-seleccion::after { content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 42%, #d4af5a33 0%, #8a6a2a14 30%, transparent 60%), radial-gradient(circle at 50% 50%, transparent 55%, #000 100%);
+  animation: amb-latido 5s ease-in-out infinite; }
+.ambiente-seleccion i { background: #ffe9a8; box-shadow: 0 0 10px 3px #d4af5a; }
+@keyframes amb-gira { to { transform: rotate(360deg); } }
+@keyframes amb-latido { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* ===== Elegir clase: scroll vertical entre clases; al elegir, solo se ve esa clase ===== */
+.clase { display: none; }
+.clase.activa { display: block; }
+body.con-clase #elegir { display: none; }
+.atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
+.atras[hidden] { display: none; }
+html { scroll-snap-type: y proximity; }
+html:has(body.con-clase) { scroll-snap-type: none; }
+.panel-clase { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; min-height: calc(100dvh - 60px); scroll-snap-align: start; scroll-snap-stop: always; text-decoration: none; text-align: center; }
+.panel-clase .pregunta { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #d4af5a; }
+.panel-clase strong { font-family: "Cinzel", Georgia, serif; font-size: 44px; letter-spacing: .1em; text-transform: capitalize; color: #f2dc9b; }
+.panel-clase .entrar { padding: 12px 22px; border-radius: 999px; background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-family: "Cinzel", Georgia, serif; font-weight: 700; }

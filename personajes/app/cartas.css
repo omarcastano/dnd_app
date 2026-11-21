@@ -1,0 +1,111 @@
+/* Diseño vigente de las cartas. El diseño antiguo está en ../legacy/ (cartas.css).
+   Estética: grimorio / manuscrito iluminado. Pergamino, verde bosque profundo, oro envejecido, tipografía con serifa. */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap");
+
+:root, .hoja-p {
+  --bosque: #12271a; --bosque-2: #1d3a28; --musgo: #2f5a3a;
+  --oro: #d4af5a; --oro-claro: #f2dc9b; --oro-oscuro: #8a6a2a;
+  --pergamino: #f1e6c7; --pergamino-2: #e2d1a2; --tinta: #2a1d0e; --tinta-suave: #5a4630;
+  --titulo: "Cinzel", "Trajan Pro", Georgia, serif; --texto: "EB Garamond", Georgia, "Times New Roman", serif;
+}
+.hoja-p { display: flex; flex-wrap: wrap; gap: 24px; padding: 12px 0; justify-content: flex-start; }
+
+.carta-p {
+  position: relative; width: 306px; height: 572px; flex: none; overflow: hidden;
+  display: flex; flex-direction: column; padding: 26px 24px 28px; gap: 10px;
+  color: var(--tinta); font-family: var(--texto); font-size: 14px; line-height: 1.3; font-weight: 400;
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, #2a5236 0%, transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.015) 0 2px, transparent 2px 6px),
+    var(--bosque);
+  box-shadow: 0 0 0 2px #0b1710, 0 10px 24px rgba(0,0,0,.55);
+}
+/* Marco dorado doble con esquinas de rombo */
+.carta-p::before { content: ''; position: absolute; inset: 8px; border: 2px solid var(--oro); border-radius: 11px; pointer-events: none; z-index: 5;
+  box-shadow: inset 0 0 0 3px var(--bosque), inset 0 0 0 4px var(--oro-oscuro); }
+.esquina { position: absolute; width: 14px; height: 14px; background: var(--oro); transform: rotate(45deg); z-index: 7; box-shadow: 0 0 0 2px var(--bosque); }
+.esquina.a { top: 1px; left: 1px; } .esquina.b { top: 1px; right: 1px; } .esquina.c { bottom: 1px; left: 1px; } .esquina.d { bottom: 1px; right: 1px; }
+
+/* Placa de título */
+.placa { flex: none; position: relative; text-align: center; padding: 6px 8px 8px; }
+.placa h3, .nombre-carta { margin: 0; font-family: var(--titulo); font-weight: 900; font-size: 21px; letter-spacing: .08em; text-transform: uppercase; line-height: 1.1;
+  color: var(--oro-claro); text-shadow: 0 2px 0 #000a, 0 0 10px #d4af5a55; }
+.placa .nivel-p { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; font-family: var(--titulo); font-size: 10px; letter-spacing: .3em; color: var(--oro); }
+.placa .nivel-p::before, .placa .nivel-p::after { content: ''; width: 26px; height: 1px; background: linear-gradient(90deg, transparent, var(--oro)); }
+.placa .nivel-p::after { transform: scaleX(-1); }
+
+/* Divisor ornamental */
+.divisor { display: flex; align-items: center; gap: 8px; color: var(--oro); font-size: 9px; margin: 6px 0; }
+.divisor::before, .divisor::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--oro)); }
+.divisor::after { transform: scaleX(-1); }
+.divisor i { font-style: normal; }
+
+/* ===== Personaje · frente ===== */
+.carta-p.personaje { padding: 0; }
+.retrato-p { position: absolute; inset: 14px; border-radius: 8px; overflow: hidden; background: var(--bosque-2); }
+.retrato-p img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.retrato-p::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(8,18,12,.97) 0%, rgba(8,18,12,.8) 24%, transparent 48%), radial-gradient(circle at 50% 40%, transparent 55%, rgba(0,0,0,.35) 100%); }
+.pie-p { position: absolute; left: 22px; right: 22px; bottom: 24px; z-index: 4; text-align: center; }
+.pie-p .nombre-carta { font-size: 25px; }
+.linaje { font-family: var(--titulo); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--pergamino); opacity: .92; }
+.linaje b { color: var(--oro); font-weight: 700; padding: 0 4px; }
+
+/* ===== Personaje · dorso ===== */
+.pergamino { flex: 1 1 0; min-height: 0; position: relative; border-radius: 8px; padding: 16px 16px 10px; overflow: hidden;
+  background: radial-gradient(ellipse at 30% 10%, #fbf3d9 0%, var(--pergamino) 45%, var(--pergamino-2) 100%);
+  box-shadow: inset 0 0 22px rgba(120,80,20,.35), inset 0 0 0 1px #a98a4a; display: flex; flex-direction: column; justify-content: center; }
+.pergamino h4 { font-family: var(--titulo); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--oro-oscuro); margin: 0; display: flex; align-items: center; gap: 6px; }
+.pergamino h4::before { content: '◆'; font-size: 7px; }
+.pergamino ul { list-style: none; padding: 0; margin: 4px 0 0; }
+.pergamino li { font-size: 14.5px; line-height: 1.25; padding: 2px 0 2px 14px; position: relative; }
+.pergamino li::before { content: '❧'; position: absolute; left: 0; color: var(--musgo); font-size: 11px; top: 3px; }
+.pergamino section + section { margin-top: 10px; padding-top: 9px; border-top: 1px dashed #a98a4a88; }
+.linaje-pie { flex: none; text-align: center; font-family: var(--titulo); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--oro); }
+
+/* ===== Habilidades ===== */
+.cuerpo-p { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.bloque { border-radius: 8px; padding: 8px 10px; background: radial-gradient(ellipse at 30% 0%, #fbf3d9, var(--pergamino) 50%, var(--pergamino-2)); box-shadow: inset 0 0 14px rgba(120,80,20,.3), inset 0 0 0 1px #a98a4a; }
+.bloque > h5 { font-family: var(--titulo); font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--oro-oscuro); text-align: center; margin: 0 0 4px; }
+.desc-p { margin: 0; font-style: italic; font-size: 14px; line-height: 1.28; text-align: center; color: var(--tinta); padding: 2px 6px; }
+.bloque.desc { display: flex; align-items: center; justify-content: center; flex: 1 1 0; min-height: 0; }
+
+/* Fila: [hexágono d20] [icono + nombre] [medallón de valor] */
+.fila-p { display: grid; grid-template-columns: 54px 1fr 40px; align-items: center; gap: 8px; padding: 5px 0; }
+.fila-p + .fila-p { border-top: 1px solid #a98a4a66; }
+.hex { position: relative; width: 54px; height: 38px; display: grid; place-items: center; font-family: var(--titulo); font-weight: 700; font-size: 13px; color: var(--tinta);
+  background: linear-gradient(160deg, var(--oro-claro), var(--oro) 55%, var(--oro-oscuro)); clip-path: polygon(14% 0, 86% 0, 100% 50%, 86% 100%, 14% 100%, 0 50%); }
+.hex::before { content: ''; position: absolute; inset: 2px; background: var(--pergamino); clip-path: polygon(14% 0, 86% 0, 100% 50%, 86% 100%, 14% 100%, 0 50%); }
+.hex span { position: relative; z-index: 1; line-height: 1; text-align: center; }
+.hex small { display: block; font-size: 6.5px; letter-spacing: .2em; color: var(--oro-oscuro); margin-bottom: 2px; }
+.quien { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.ico-p { flex: none; width: 28px; height: 28px; padding: 3px; border-radius: 50%; background: radial-gradient(circle, #fffbea, #ead9a6); box-shadow: 0 0 0 1px var(--oro-oscuro); }
+.ico-p img { width: 100%; height: 100%; display: block; border-radius: 50%; object-fit: cover; }
+.quien b { display: block; font-family: var(--titulo); font-size: 12px; line-height: 1.1; font-weight: 700; color: var(--tinta); letter-spacing: .02em; }
+.quien em { display: block; font-size: 11.5px; color: var(--tinta-suave); line-height: 1.1; margin-top: 1px; }
+.valor-p { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titulo); font-weight: 900; font-size: 19px; color: var(--oro-claro);
+  background: radial-gradient(circle at 35% 30%, var(--musgo), var(--bosque)); box-shadow: 0 0 0 2px var(--oro), 0 0 0 4px var(--pergamino), 0 0 0 5px var(--oro-oscuro); justify-self: center; }
+.fila-p.nulo-p .quien { font-style: italic; color: var(--tinta-suave); font-size: 14px; }
+.fila-p.nulo-p .hex { filter: saturate(.4) brightness(.95); }
+.fila-p.sin-valor { grid-template-columns: 54px 1fr; }
+
+/* ===== Habilidad ilustrada ===== */
+.banner-p { flex: none; height: 104px; border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 0 0 1px var(--oro-oscuro); background: var(--bosque-2); }
+.banner-p img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.banner-p::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 18px rgba(0,0,0,.5); pointer-events: none; }
+.carta-p.ilustrada .bloque.desc { flex-direction: column; }
+.nombre-habilidad { font-family: var(--titulo); font-weight: 700; font-size: 17px; letter-spacing: .06em; text-align: center; color: var(--musgo); margin-bottom: 6px; }
+.carta-p.ilustrada .desc-p { font-size: 13.5px; line-height: 1.25; }
+
+.sin-imagen img { display: none; }
+.retrato-p.sin-imagen::after, .banner-p.sin-imagen::after { content: 'Falta imagen'; position: absolute; inset: 0; display: grid; place-items: center; color: var(--oro); font-family: var(--titulo); font-size: 11px; letter-spacing: .2em; z-index: 2; }
+
+
+.descripcion-dorso { margin: 0; font-style: italic; font-size: 16.5px; line-height: 1.3; text-align: center; color: var(--tinta); }
+.bloque.especial { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+.bloque.especial .desc-p { margin-bottom: 6px; padding-bottom: 8px; border-bottom: 1px solid #a98a4a66; max-height: 5.4em; overflow-y: auto; scrollbar-width: thin; }
+
+/* Texto que no cabe: se hace scroll (nunca se recorta ni se pisa otro bloque). `safe center` evita que lo centrado pierda su parte superior. */
+.pergamino, .bloque.desc, .cuerpo-p { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #a98a4a transparent; justify-content: safe center; }
+.cuerpo-p { justify-content: flex-start; }

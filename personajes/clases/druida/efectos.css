@@ -1,0 +1,33 @@
+/* Efectos y ambientes de la clase Druida (cargado por catalogo.js según clases.json) */
+.efecto .aura { position: absolute; left: 50%; top: 50%; width: 140vmax; height: 140vmax; margin: -70vmax 0 0 -70vmax; border-radius: 50%;
+  background: radial-gradient(circle, #7dff9a66 0%, #3bd16a33 25%, transparent 55%); animation: ef-aura 2.1s ease-out both; }
+@keyframes ef-aura { 0% { transform: scale(.1); opacity: 0; } 35% { opacity: 1; } 100% { transform: scale(1); opacity: .5; } }
+.efecto .anillo { position: absolute; left: 50%; top: 50%; width: 40vmin; height: 40vmin; margin: -20vmin 0 0 -20vmin; border-radius: 50%;
+  border: 3px solid #9dffb0; box-shadow: 0 0 30px #5cf08a, inset 0 0 30px #5cf08a; animation: ef-anillo 1.6s ease-out both; }
+.efecto .anillo.a2 { animation-delay: .5s; }
+@keyframes ef-anillo { from { transform: scale(.2); opacity: 1; } to { transform: scale(3); opacity: 0; } }
+.efecto .hoja { position: absolute; top: -30px; width: 18px; height: 28px; border-radius: 0 100% 0 100%; opacity: 0;
+  animation: ef-hoja var(--t) ease-in var(--r) both; }
+@keyframes ef-hoja { 0% { transform: translate(0, 0) rotate(0); opacity: 0; } 10% { opacity: .95; }
+  100% { transform: translate(var(--dx), 110vh) rotate(var(--rot)); opacity: .9; } }
+.efecto .chispa { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #d8ffe0; box-shadow: 0 0 10px 3px #6dff95; opacity: 0;
+  animation: ef-chispa var(--t) ease-out var(--r) both; }
+@keyframes ef-chispa { 0% { transform: translateY(0) scale(.4); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(-40vh) scale(1.2); opacity: 0; } }
+
+.efecto .halo-oso { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #ff9a3c55 0%, #8a4a1c33 35%, transparent 65%); animation: ef-aura 2s ease-out both; }
+.efecto .brasa { position: absolute; bottom: -10px; width: 6px; height: 6px; border-radius: 50%; background: #ffb030; box-shadow: 0 0 10px 3px #ff5a1a; opacity: 0;
+  animation: ef-brasa var(--t) ease-out var(--r) both; }
+@keyframes ef-brasa { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), -90vh); opacity: 0; } }
+.efecto .zarpa { position: absolute; top: 10%; left: 50%; width: 10px; height: 80vh; border-radius: 50%; background: linear-gradient(#fff, #ffb25c 40%, #c9772e);
+  box-shadow: 0 0 18px #ff8a2a; opacity: 0; transform-origin: top; animation: ef-zarpa .5s ease-out both; }
+.zarpa.z1 { margin-left: -60px; transform: rotate(-22deg); animation-delay: .2s; }
+.zarpa.z2 { margin-left: -5px; animation-delay: .32s; }
+.zarpa.z3 { margin-left: 50px; animation-delay: .44s; }
+@keyframes ef-zarpa { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
+
+/* Temas de la pantalla final */
+body.catalogo.tema-salvaje { background: radial-gradient(120% 60% at 50% 0%, #8a2a10 0%, #3a0f08 45%, #1a0705 100%) fixed; }
+body.catalogo.tema-sanador { background: radial-gradient(120% 60% at 50% 0%, #2a8a4a 0%, #0f3a22 45%, #06170e 100%) fixed; }
+body.tema-salvaje .barra, body.tema-sanador .barra { background: #0a0604dd; }
+.ambiente-salvaje i { background: #ff6a2a; box-shadow: 0 0 10px 3px #e01e00; }
+.ambiente-sanador i { background: #b6ffc4; box-shadow: 0 0 10px 3px #3be072; }

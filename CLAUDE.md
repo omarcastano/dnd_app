@@ -11,9 +11,11 @@ Sitio estático en español, sin build. `public/` es la raíz publicada; `person
 - Nada de `onclick` inline ni globales en `window`: el HTML usa atributos `data-*` (`data-tab`, `data-cerrar-puzzle`, `data-alternar-tarjeta`) y `nucleo/navegacion.js` / cada módulo los atiende por delegación de eventos.
 - Para añadir un módulo: crear `initX()` y registrarlo en `MODULOS` de `main.js`.
 - Imágenes en `.webp`, nombres en kebab-case sin tildes.
-- Cartas de personaje: `personajes/<clase>/<clase>.json` con lista `cartas`, imágenes en `imagenes/`.
+- Cartas de personaje: `personajes/clases/<clase>/<clase>.json` (bloque `clase` + `cartas` con `tipo` personaje/tabla/ilustrada + `seleccion`), imágenes en `imagenes/` por convención de nombre (`<id>.webp`). Clases registradas en `personajes/clases.json`. Código en `personajes/app/` (`datos.js` aplica las convenciones, `cartas.js`+`cartas.css` dibujan, `seleccion.js`, `carrusel.js`, `efectos.js` motor genérico; los efectos propios de una clase viven en su carpeta). `personajes/legacy/` es el diseño y esquema antiguos, incompatible con el actual.
+- **Para crear una clase nueva usar la plantilla `personajes/plantilla/`** (`plantilla.json` + `LEEME.md` con tipos de carta, convenciones y pasos). Copiarla a `clases/<clase>/` y registrarla en `clases.json`; no es una clase real.
 
 ## Comandos
 - `make run` — servidor local (puerto `PORT=8080`)
-- `make check` — valida los JSON de personajes
+- `make check` — valida personajes (esquema, referencias, imágenes); `CLASE=x` para una sola
+- `make catalogo` — catálogo de cartas en http://localhost:8081 (sin caché)
 - `make audio-setup` / `make audio ARGS="..."` — narración
