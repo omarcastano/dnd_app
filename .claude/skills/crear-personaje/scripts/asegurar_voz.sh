@@ -34,7 +34,7 @@ fi
 if command -v nvidia-smi >/dev/null; then
   libre=$(nvidia-smi --query-gpu=memory.total,memory.used --format=csv,noheader,nounits | awk -F', ' 'NR==1{print $1-$2}')
   if [ "${libre:-99999}" -lt 6000 ]; then
-    echo "Solo hay ${libre} MiB de VRAM libre (hacen falta ~6000). Apaga ComfyUI: kill \$(pgrep -f '[m]ain.py --listen 127.0.0.1') y reintenta."; exit 4
+    echo "Solo hay ${libre} MiB de VRAM libre (hacen falta ~6000). Apaga ComfyUI con bash .claude/skills/crear-personaje/scripts/parar_comfyui.sh y reintenta."; exit 4
   fi
 fi
 echo "Motor de voz listo (Qwen3-TTS + voz de narracion/voz/)"

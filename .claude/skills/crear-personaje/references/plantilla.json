@@ -17,6 +17,7 @@
       "nombre": "Nombre Hombre",
       "raza": "Raza",
       "descripcion": "Descripción física breve.",
+      "narracion": "narraciones/nombre-hombre.mp3",
       "reglas_raza": [
         "Regla de raza."
       ]
@@ -27,6 +28,7 @@
       "nombre": "Nombre Mujer",
       "raza": "Raza",
       "descripcion": "Descripción física breve.",
+      "narracion": "narraciones/nombre-mujer.mp3",
       "reglas_raza": [
         "Regla de raza."
       ]

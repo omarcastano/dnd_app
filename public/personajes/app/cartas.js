@@ -6,8 +6,7 @@ const ROMANOS = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
 const ESQUINAS = '<i class="esquina a"></i><i class="esquina b"></i><i class="esquina c"></i><i class="esquina d"></i>';
 const DIVISOR = '<div class="divisor"><i>◆</i></div>';
 // Divisor del frente con un medallón ▶/❚❚ en el centro cuando la carta tiene narración (iconos SVG: quedan centrados en cualquier estado)
-const MEDALLON = (ruta) => `<div class="divisor divisor-narracion"><button type="button" class="btn-narracion" data-narracion="${esc(ruta)}" aria-label="Escuchar la narración" title="Escuchar la narración">
-  <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12l10-6z"/></svg><svg class="ico-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.6v13H7zM13.4 5.5H17v13h-3.6z"/></svg></button></div>`;
+const MEDALLON = (ruta) => `<div class="divisor divisor-narracion"><button type="button" class="btn-narracion" data-narracion="${esc(ruta)}" aria-label="Escuchar la narración"><span class="nar-icono"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1l13 7-13 7z"/></svg><span class="nar-ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span><span class="nar-play">Escuchar</span><span class="nar-pausa">Pausar</span></button></div>`;
 const lista = (xs) => `<ul>${xs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 const img = (src, alt = '') => (src ? `<img src="${src}" alt="${esc(alt)}">` : '');
 

@@ -1,7 +1,7 @@
 // Pestaña «Héroes»: catálogo de clases dentro de index.html (partes/heroes.html). `initHeroes()` se registra en MODULOS de main.js.
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
-import { mostrarCartas, ajustarEscala } from './carrusel.js?v=3';
+import { mostrarCartas, ajustarEscala } from './carrusel.js?v=4';
 import { iniciarSeleccion } from './seleccion.js';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
@@ -70,8 +70,12 @@ export async function initHeroes() {
       const visor = document.createElement('div');
       visor.className = 'visor';
       visor.innerHTML = `<div class="visor-caja ${caja.className}">${caja.innerHTML}</div><button class="btn-pri visor-cerrar" type="button">Cerrar</button>`;
-      visor.addEventListener('click', (ev) => { if (ev.target === visor || ev.target.closest('.visor-cerrar')) visor.remove(); });
-      raiz.append(visor);
+      const cerrar = () => { visor.remove(); document.body.classList.remove('visor-abierto'); removeEventListener('keydown', tecla); };
+      const tecla = (ev) => { if (ev.key === 'Escape') cerrar(); };
+      visor.addEventListener('click', (ev) => { if (ev.target === visor || ev.target.closest('.visor-cerrar')) cerrar(); });
+      addEventListener('keydown', tecla);
+      document.body.classList.add('visor-abierto');
+      document.body.append(visor);
     }, true);
     // Al elegir algo en una clase (en fase de captura, antes de que el asistente redibuje) se queda solo esa clase
     catalogo.addEventListener('click', (e) => {
@@ -83,6 +87,19 @@ export async function initHeroes() {
     }, true);
     await Promise.all(clases.map((c) => cargar(catalogo, c)));
     mostrarVista();
+    // Contador vertical «1 / N» entre clases (solo móvil, en la lista)
+    const pagina = document.createElement('div');
+    pagina.className = 'pagina-clases';
+    raiz.append(pagina);
+    const secciones = [...catalogo.querySelectorAll('.clase')];
+    const pintar = () => {
+      const centro = innerHeight / 2;
+      let mejor = 0, dist = Infinity;
+      secciones.forEach((s, i) => { const r = s.getBoundingClientRect(); const d = Math.abs((r.top + r.bottom) / 2 - centro); if (d < dist) { dist = d; mejor = i; } });
+      pagina.textContent = `${mejor + 1} / ${secciones.length}`;
+    };
+    addEventListener('scroll', pintar, { passive: true });
+    pintar();
   } catch (e) {
     console.error(e);
     catalogo.innerHTML = '<p class="estado alerta">No se pudo cargar clases.json</p>';

@@ -2,7 +2,12 @@
 import { renderizarCartas, esperarImagenes } from './cartas.js';
 
 // Escala de la carta (306×572) para que quepa en el ancho y el alto de la pantalla
+let anchoPrev = 0, altoPrev = 0;
 export function ajustarEscala() {
+  // En móvil la barra del navegador aparece/desaparece al hacer scroll y cambia innerHeight: sin este filtro las cartas «saltan» de tamaño.
+  // Solo se recalcula si cambia el ancho (giro de pantalla) o el alto cambia de verdad (>150px).
+  if (anchoPrev && innerWidth === anchoPrev && Math.abs(innerHeight - altoPrev) < 150) return;
+  anchoPrev = innerWidth; altoPrev = innerHeight;
   const raiz = document.documentElement.style;
   const escala = Math.min(1, (innerWidth - 40) / 306, (innerHeight - 190) / 572);
   raiz.setProperty('--escala', Math.max(escala, 0.5).toFixed(3));

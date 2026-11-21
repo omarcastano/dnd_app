@@ -111,11 +111,29 @@
 /* ===== Elegir clase: scroll vertical entre clases; al elegir algo, solo queda esa clase ===== */
 .heroes.con-clase .clase:not(.activa) { display: none; }
 .clase { min-height: calc(100dvh - 60px); }
+.pagina-clases { display: none; }
+/* Móvil, lista de clases: se pasa de una a otra como páginas (1/2, 2/2) con snap vertical, sin scroll libre. Alto con svh = estable aunque la barra del navegador se oculte */
+@media (max-width: 760px) {
+  html:has(.tab-heroes.active .heroes:not(.con-clase) .clase) { scroll-snap-type: y mandatory; }
+  .tab-heroes.active .heroes:not(.con-clase) .clase { height: calc(100svh - 60px); min-height: 0; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; scroll-margin-top: 56px; }
+  .tab-heroes.active .heroes:not(.con-clase) .pagina-clases { display: block; position: fixed; right: 12px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 20; padding: 6px 12px; border-radius: 999px; background: #000c; border: 1px solid #d4af5a; color: #f2dc9b; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .15em; pointer-events: none; }
+}
 /* Sin scroll-snap vertical: las clases son más altas que la pantalla y el snap devolvía la vista al inicio, ocultando «Elegir» */
 .atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
 .atras[hidden], .barra nav[hidden] { display: none; }
 
 /* Ventana con el texto completo de una carta (se abre al tocar un texto recortado) */
-.heroes .visor { position: fixed; inset: 0; z-index: 100; background: #000c; overflow-y: auto; -webkit-overflow-scrolling: touch; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 16px; box-sizing: border-box; }
-.heroes .visor-caja { display: block; flex: none; width: min(100%, 420px); max-height: none; overflow: visible; margin: auto 0 0; padding: 16px 18px; box-sizing: border-box; font-size: 17px; }
-.heroes .visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 28px; }
+/* El visor cuelga de <body> (no de .heroes): así ningún ancestro con transform/animación/zoom desplaza el `fixed` */
+.visor { --bosque: #12271a; --bosque-2: #1d3a28; --musgo: #2f5a3a; --oro: #d4af5a; --oro-claro: #f2dc9b; --oro-oscuro: #8a6a2a; --pergamino: #f1e6c7; --pergamino-2: #e2d1a2; --tinta: #2a1d0e; --tinta-suave: #5a4630;
+  --titulo: "Cinzel", Georgia, serif; --texto: "EB Garamond", Georgia, serif;
+  position: fixed; inset: 0; z-index: 1000; background: #000d; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; display: flex; flex-direction: column; align-items: center; padding: 20px 14px calc(20px + env(safe-area-inset-bottom)); box-sizing: border-box; color: var(--tinta); font-family: var(--texto); line-height: 1.35; }
+.visor * { box-sizing: border-box; }
+.visor-caja { display: block !important; flex: none !important; width: min(100%, 460px); height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; margin: auto 0 14px; padding: 18px 20px; font-size: 18px; }
+.visor-caja li, .visor-caja p { font-size: 1em; }
+.visor-caja h4, .visor-caja h5 { font-size: .75em; }
+.visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 32px; position: sticky; bottom: 0; }
+body.visor-abierto { overflow: hidden; }
+/* Texto legible sobre el pergamino: el sitio fuerza letra clara en p/li/span, aquí va tinta oscura */
+.visor-caja, .visor-caja p, .visor-caja li, .visor-caja span, .visor-caja div, .visor-caja b, .visor-caja i, .visor-caja em, .visor-caja strong { color: var(--tinta) !important; text-shadow: none !important; }
+.visor-caja h4, .visor-caja h5 { color: var(--oro-oscuro) !important; text-shadow: none !important; }
+.visor-caja li::before { color: var(--musgo) !important; }

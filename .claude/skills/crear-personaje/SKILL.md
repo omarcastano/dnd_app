@@ -10,6 +10,14 @@ Hay **dos clases de referencia** ya iteradas; léelas siempre (JSON, `efectos.js
 - **Paladín** (`public/personajes/clases/paladin/`): referencia de **3 roles** (tanque / sanador / DPS), de descripciones claras y de texto largo con scroll (24 imágenes).
 Toda clase nueva replica su estructura, cantidad de cartas y convención de imágenes. No inventes otro esquema. Idioma: todo en español (ids, textos); archivos y ids en kebab-case sin tildes.
 
+## Flujo de trabajo (orden obligatorio)
+1. Datos de partida (sección 1) y JSON de la clase (sección 2), con la `descripcion` final de las 2 cartas de personaje: **esa descripción es el texto de la narración**, así que debe quedar definitiva *antes* de generar el audio.
+2. **Etapa de imágenes** (sección 3): asegura ComfyUI, genera **todas** las imágenes y, al terminar, **apágalo** con `bash .claude/skills/crear-personaje/scripts/parar_comfyui.sh`.
+3. **Etapa de audio** (sección 3b, obligatoria; solo con ComfyUI apagado): genera un mp3 por cada carta de personaje. El audio se enlaza en el JSON (`narracion`) y se reproduce desde el medallón ▶ del frente de la carta.
+4. Efectos y registro en `clases.json` (sección 4), desbordes (sección 5) y verificación (sección 6).
+**Imágenes y audio van siempre por separado, nunca a la vez: los dos modelos no caben juntos en la GPU de 12 GB** (medido: con SDXL cargado en ComfyUI la GPU está en ~9,2 GB y quedan ~3 GB libres; el audio necesita ~6 GB). Una etapa, se libera la GPU, la otra. No arranques ComfyUI mientras generas audios, ni lances audios mientras ComfyUI esté encendido.
+No des la clase por terminada sin sus 2 narraciones: una carta de personaje sin audio es una clase incompleta.
+
 ## 0. Entorno y modelos locales (imágenes y audio)
 **Dependencias de Python: un único `pyproject.toml` en la raíz del repo** (+ `uv.lock`), con `uv` y un solo `.venv/` (`make setup` = `uv sync --all-groups`). Nunca `pip install` global, `requirements.txt` sueltos ni otro `.toml` (tampoco en `~/ia`). **Sin forzar versiones**: nada de `override-dependencies` ni pins artificiales; si hay que añadir un paquete, prueba `uv lock` en una copia y descártalo si no resuelve de forma natural (Chatterbox se descartó así: exige `torch 2.6` y ComfyUI usa `2.11`). Grupos: base (`edge-tts`, `pedalboard`), `imagenes` (ComfyUI) y `voces` (`qwen-tts`).
 
@@ -21,8 +29,8 @@ Toda clase nueva replica su estructura, cantidad de cartas y convención de imá
 | Si falta algo | sale con código 2 → **pregunta al usuario** (descargas grandes) y reejecuta con `--instalar` | igual: código 2 → pregunta y `--instalar` |
 | Generar | `scripts/generar_imagen.py` (sección 3) | `make audio ARGS="..."` (sección 3b) |
 
-Protocolo (para imágenes y audio): **antes de generar, ejecuta el script `asegurar_*` correspondiente**; es idempotente (si ya está listo no hace nada). Códigos de `asegurar_comfyui.sh`: 0 listo, 2 falta algo instalable, 3 faltan `git`/`uv`, 4-6 falló el clonado/entorno/descarga, 7 no respondió a tiempo. De `asegurar_voz.sh`: 0 listo, 2 falta algo instalable, 3 falta la voz de referencia (`narracion/voz/narradora.wav` + `.txt`, la aporta el repo; no se instala), 4 poca VRAM libre, 5 falló la instalación. Ante un fallo lee el mensaje y el log (`~/ia/comfyui.log`) y corrige la causa; no te saltes la generación ni cambies de modelo ni uses servicios externos.
-- **La GPU (12 GB) es compartida**: ComfyUI con SDXL cargado ocupa gran parte. Orden recomendado: primero todas las imágenes; luego apaga ComfyUI (`kill $(pgrep -f '[m]ain.py --listen 127.0.0.1')`) y genera los audios. `asegurar_voz.sh` avisa (código 4) si queda poca VRAM libre.
+Protocolo (para imágenes y audio): **antes de generar, ejecuta el script `asegurar_*` correspondiente**; es idempotente (si ya está listo no hace nada). Scripts de `scripts/`: `asegurar_comfyui.sh`, `parar_comfyui.sh` y `asegurar_voz.sh`. Códigos de `asegurar_comfyui.sh`: 0 listo, 2 falta algo instalable, 3 faltan `git`/`uv`, 4-6 falló el clonado/entorno/descarga, 7 no respondió a tiempo. De `asegurar_voz.sh`: 0 listo, 2 falta algo instalable, 3 falta la voz de referencia (`narracion/voz/narradora.wav` + `.txt`, la aporta el repo; no se instala), 4 poca VRAM libre, 5 falló la instalación. Ante un fallo lee el mensaje y el log (`~/ia/comfyui.log`) y corrige la causa; no te saltes la generación ni cambies de modelo ni uses servicios externos.
+- **Imágenes y audio nunca a la vez (GPU de 12 GB)**: ComfyUI es un servidor que **mantiene SDXL cargado en la GPU mientras esté encendido** (~9 GB en uso medidos, ~3 GB libres); el audio es un proceso que carga Qwen3-TTS (~6 GB), genera y termina (libera la GPU solo). Por eso: primero la etapa de imágenes completa, luego `bash .claude/skills/crear-personaje/scripts/parar_comfyui.sh` (apaga ComfyUI, espera a que la GPU quede libre y muestra la VRAM; idempotente), luego la etapa de audio. `asegurar_voz.sh` se niega a seguir (código 4) si hay menos de ~6 GB libres, y te dice que ejecutes `parar_comfyui.sh`. Si necesitas más imágenes después de los audios, vuelve a ejecutar `asegurar_comfyui.sh` (el audio ya habrá terminado y liberado la GPU). Usa siempre estos scripts para apagar ComfyUI: no uses `pkill -f` con el nombre del proceso (puede matar tu propia shell).
 - El primer arranque de ComfyUI tras `make setup` puede tardar varios minutos; `asegurar_comfyui.sh` espera hasta 3 min (código 7 = no respondió a tiempo, pero puede seguir cargando: reejecuta el script). `generar_imagen.py` usa siempre el puerto 8188: no cambies `PUERTO`.
 - Avisos que **no** son errores: ComfyUI "PYTORCH CUDA VERSION BELOW 13.0" (se usa cu128 a propósito por el driver) y Qwen3-TTS "SoX could not be found" / "flash-attn is not installed".
 - Esta skill cubre **imagen y audio**; no hay ningún modelo de vídeo desplegado.
@@ -71,7 +79,7 @@ Parte de `references/plantilla.json` (copia fiel del esquema del druida con marc
 | Elemento | Cantidad | Detalle |
 |---|---|---|
 | `clase` | 1 | `nombre`, `reglas` (habilidades de clase: normalmente una restricción y una bonificación, **pero no hay tope**; las que hagan sentido), `armas` (**de la tienda**, ver 1c; **sin tope de 2**) |
-| Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` = habilidades de raza, **las que hagan sentido, sin tope de 2**), con `descripcion` física breve |
+| Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` = habilidades de raza, **las que hagan sentido, sin tope de 2**), con `descripcion` (~160-180 caracteres, ver 3b) **y `narracion`** (el mp3 de esa descripción, sección 3b) |
 | Cartas `tabla` | 4 | 2 poderes × niveles 1 y 2. id `<poder>-nivel-<n>` |
 | Cartas `ilustrada` | 2 | Los 2 dones. Uno con `tabla` d20 (1-11 nada / 12+ efecto, "una vez por tablero de mazmorra"); el otro con `nombre_habilidad` y sin tabla |
 | `seleccion` | 3 pasos | "¿Quién eres?" (Hombre/Mujer) → "Elige tu poder" (2 opciones, `portada: true`, cartas nivel-1 y nivel-2) → "Elige tu don" (2 opciones) |
@@ -115,17 +123,17 @@ python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato 
 - Revisa con Read al menos los retratos, las portadas y 3-4 iconos. Rehaz con otra semilla los que tengan texto, manos mal, o iconos demasiado detallados (simplifica el prompt: "a single X, minimal").
 - Prompts de iconos: sujeto + una palabra de color de la clase, p. ej. `a crescent moon and a star`, `a bear claw swipe`, `a glowing leaf heart`. Mantén una paleta común por clase (añade `green and cream palette`) para que el set parezca uno.
 
-## 3b. Narraciones de audio (cartas de personaje)
-Cada carta `personaje` (hombre y mujer) lleva una narración: el audio narra su `descripcion` y se enlaza en el JSON (`"narracion": "narraciones/<id>.mp3"`, ruta relativa a la clase; `app/datos.js` la resuelve y `make check` comprueba que exista).
+## 3b. Narraciones de audio (obligatorio en las cartas de personaje)
+**Siempre que crees un personaje hay que generar su audio.** Cada carta `personaje` (hombre y mujer) lleva una narración: el audio narra su `descripcion` (el detalle del personaje) y se enlaza en el JSON (`"narracion": "narraciones/<id>.mp3"`, ruta relativa a la clase; `app/datos.js` la resuelve y `make check` comprueba que exista). **En la carta**, `app/cartas.js` dibuja con ese campo un medallón dorado ▶/❚❚ en el **frente** (en el divisor entre el nombre y la raza; `app/narracion.js` lo reproduce, con anillo de progreso); sin `narracion` la carta no muestra botón y se queda con el divisor normal. La `descripcion` sigue visible en el dorso.
 1. **Texto**: la `descripcion` es lo que se narra **y** lo que se ve en el dorso de la carta. Escríbela **más larga y algo épica, pero contenida**: ~160-180 caracteres, dos frases, rasgos físicos + un gesto ligado a su temática/poder (ej.: «Elfa etérea de túnicas verdes tejidas con hojas y enredaderas vivas. Su bastón, coronado por un orbe luminoso, despierta el bosque entero con apenas un susurro.»). Más larga desborda el dorso (el pergamino hace scroll, pero no abuses). Menciona solo armas de la tienda (1c).
-2. `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` (sección 0).
+2. **ComfyUI debe estar apagado** (`bash .claude/skills/crear-personaje/scripts/parar_comfyui.sh`; imágenes y audio no caben juntos en la GPU) y luego `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` (sección 0).
 3. Genera **una por carta de personaje** (nunca sin `--id`: sin él narraría también poderes y dones, que no se pidieron):
 ```bash
 make audio ARGS="public/personajes/clases/<clase>/<clase>.json --id <id-carta>"
 ```
    Escribe `clases/<clase>/narraciones/<id>.mp3` y añade `narracion` al JSON justo tras `descripcion` (no lo edites a mano). Cada audio dura ~12-17 s; la primera llamada tarda más por la carga del modelo.
 4. **La voz es un estándar ya aprobado**: el motor por defecto (Qwen3-TTS) **clona siempre la misma narradora** de `narracion/voz/` (mujer cálida, voz de cuento de fantasía), así todas las clases suenan igual. **No cambies de voz, motor (`--motor edge`) ni uses VoiceDesign** salvo que el usuario lo pida expresamente; si pide otra voz, se sustituyen `narradora.wav` y `narradora.txt` (ver `narracion/README.md`) y se regeneran todas.
-5. Si cambias después la `descripcion`, regenera ese audio. No puedes escuchar el audio: dilo al usuario y pídele que lo escuche.
+5. Comprueba que el mp3 existe, que `narracion` quedó en el JSON y que el medallón aparece en el frente de la carta (`make catalogo`, o una captura con Chrome headless). Si cambias después la `descripcion`, regenera ese audio. No puedes escuchar el audio: dilo al usuario y pídele que lo escuche.
 
 ## 4. Efectos (`efectos.js`, `efectos.css`) y registro
 Cada valor de `efecto` en `seleccion` necesita una función en `efectos.js` (ver `references/efectos.md`, con los patrones del druida: partículas, aura, tema de pantalla final y ambiente). Tema/paleta acorde a la temática de cada poder.
@@ -142,7 +150,7 @@ Ya hay scroll en: la descripción de las cartas de poder (patrón anterior), `.p
 
 ## 6. Verificación (obligatoria)
 - Armas: cada entrada de `clase.armas` figura en `tienda.js` (grupo "Armas") o en "Armaduras" si es el escudo.
-- `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen", "imagen sin usar", "falta el audio" ni "audio sin enlazar"). Las 2 cartas `personaje` deben tener su `narracion` (sección 3b).
+- `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen", "imagen sin usar", "falta el audio" ni "audio sin enlazar"). **Las 2 cartas `personaje` deben tener su `narracion` y su mp3 en `clases/<clase>/narraciones/` (sección 3b); si falta, genéralo antes de terminar.**
 - `revisar_desbordes.py <clase>`: 0 problemas (sección 5).
 - `make catalogo` → http://localhost:8081: ver que la clase aparece, cartas con imágenes, la selección de 3 pasos funciona y los efectos se disparan (haz un recorrido con navegador si hay herramienta disponible).
 - No hagas commit salvo que lo pidan. Resume al usuario: ids, poderes, dones, qué imágenes quizá quiera repetir y que escuche las narraciones (no puedes oírlas).
