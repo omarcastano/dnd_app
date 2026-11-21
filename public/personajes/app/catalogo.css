@@ -61,14 +61,14 @@
 }
 .carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
 /* Volteo 3D: frente y dorso de la misma opción */
-.volteo { width: 306px; height: 572px; perspective: 1400px; }
+.volteo { width: 306px; height: 572px; }
 .volteo.gira { cursor: pointer; }
-.volteo-in { position: relative; width: 100%; height: 100%; transition: transform .6s cubic-bezier(.4, .2, .2, 1); transform-style: preserve-3d; transform: rotateY(calc(var(--giro, 0) * 180deg)); }
+.volteo-in { position: relative; width: 100%; height: 100%; }
 
-.cara { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.cara.dorso { transform: rotateY(180deg); }
+.cara { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: perspective(1400px) rotateY(calc(var(--giro, 0) * 180deg)); transition: transform .6s cubic-bezier(.4, .2, .2, 1); }
+.cara.dorso { transform: perspective(1400px) rotateY(calc((var(--giro, 0) + 1) * 180deg)); }
 .pista-voltear { text-align: center; font-size: 13px; color: #d4af5a; opacity: .85; margin: -2px 0 0; }
-@media (prefers-reduced-motion: reduce) { .volteo-in { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cara { transition: none; } }
 
 /* Portada de las opciones con niveles */
 .carta-p.portada { align-items: center; text-align: center; justify-content: flex-start; gap: 6px; padding-top: 40px; }
