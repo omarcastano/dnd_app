@@ -1,7 +1,7 @@
 // Pestaña «Héroes»: catálogo de clases dentro de index.html (partes/heroes.html). `initHeroes()` se registra en MODULOS de main.js.
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
-import { mostrarCartas, ajustarEscala } from './carrusel.js';
+import { mostrarCartas, ajustarEscala } from './carrusel.js?v=3';
 import { iniciarSeleccion } from './seleccion.js';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';

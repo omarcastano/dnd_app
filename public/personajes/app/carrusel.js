@@ -6,8 +6,10 @@ export function ajustarEscala() {
   const raiz = document.documentElement.style;
   const escala = Math.min(1, (innerWidth - 40) / 306, (innerHeight - 190) / 572);
   raiz.setProperty('--escala', Math.max(escala, 0.5).toFixed(3));
-  // En la selección sobra espacio para el título, el contador y el botón "Elegir"
-  const sel = Math.min(1.4, (innerWidth - 32) / 306, Math.max((innerHeight - 250) / 572, 0.9));
+  // En móvil (≤760px, como el CSS) hay que dejar sitio a la barra fija, el título, el contador y el botón "Elegir" (≈350px medidos) y la carta puede ser más pequeña.
+  // En escritorio sobra espacio: se mantiene la escala original.
+  const movil = innerWidth <= 760;
+  const sel = Math.min(1.4, (innerWidth - 32) / 306, movil ? Math.max((innerHeight - 350) / 572, 0.5) : Math.max((innerHeight - 250) / 572, 0.9));
   raiz.setProperty('--escala-sel', Math.max(sel, 0.4).toFixed(3));
 }
 
