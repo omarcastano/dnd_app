@@ -1,6 +1,6 @@
 # D&D - La Taberna
 
-Sitio estático en español, sin build. `public/` es la raíz publicada; `personajes/` (WIP, borrador: faltan imágenes, no se publica) y `narracion/` (audio con edge-tts) no se publican.
+Sitio estático en español, sin build. `public/` es la raíz publicada. `personajes/` se publica como pestaña «Héroes» (iframe) mediante el enlace simbólico `public/personajes -> ../personajes`; el workflow lo copia sin `legacy/`, `plantilla/` ni `*.py`. `narracion/` no se publica.
 - Estilos en `public/tienda/css/` divididos por sección (base, tienda, puzzles, botin, tablas, robo, pie, responsive); el orden de los `<link>` en `index.html` importa (`responsive.css` va último).
 
 ## Convenciones

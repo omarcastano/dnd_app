@@ -23,8 +23,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      # public/personajes es un enlace simbólico a personajes/: se copia el contenido real y se quita lo que no es del catálogo
+      - name: Preparar sitio
+        run: |
+          cp -rL public _sitio
+          rm -rf _sitio/personajes/legacy _sitio/personajes/plantilla _sitio/personajes/*.py
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: _sitio
       - id: despliegue
         uses: actions/deploy-pages@v4
