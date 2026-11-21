@@ -31,7 +31,7 @@ const tarjetaOpcion = (o, k, caras, boton = true) => {
         </div>
       </div>
       ${gira ? `<p class="pista-voltear">↻ Toca la carta para voltearla · <b>1</b>/${caras.length}</p>` : ''}
-      ${boton ? `<button type="button" class="btn-pri" data-elegir="${k}">Elegir ${esc(o.etiqueta)}</button>` : ''}
+      ${boton ? `<button type="button" class="btn-pri" data-elegir="${k}" aria-label="Elegir ${esc(o.etiqueta)}">Elegir</button>` : ''}
     </div>`;
 };
 
