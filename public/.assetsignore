@@ -1,0 +1,4 @@
+# Cloudflare no publica esto (igual que el workflow de GitHub Pages)
+personajes/legacy
+personajes/plantilla
+personajes/*.py
