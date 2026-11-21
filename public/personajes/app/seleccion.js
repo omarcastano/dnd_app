@@ -1,8 +1,8 @@
 // Asistente de selección: un paso por pantalla; al final, las cartas de las opciones elegidas.
 // La elección se recuerda en este dispositivo (localStorage); si no está disponible, simplemente no se guarda.
 import { esc } from './util.js';
-import { carasDeCarta } from './cartas.js';
-import { activarContador, mostrarCartas } from './carrusel.js';
+import { carasDeCarta, esperarImagenes } from './cartas.js';
+import { activarContador } from './carrusel.js';
 import { reproducirEfecto, temaDe, ponerAmbiente } from './efectos.js';
 
 // Portada de una opción con niveles (Forma Salvaje, Sanación): retrato + nombre + descripción. Es la primera cara del volteo.
@@ -20,7 +20,7 @@ function carasDeOpcion(o, porId, etiquetas) {
   return caras;
 }
 
-const tarjetaOpcion = (o, k, caras) => {
+const tarjetaOpcion = (o, k, caras, boton = true) => {
   const gira = caras.length > 1;
   return `
     <div class="opcion-caja">
@@ -31,7 +31,7 @@ const tarjetaOpcion = (o, k, caras) => {
         </div>
       </div>
       ${gira ? `<p class="pista-voltear">↻ Toca la carta para voltearla · <b>1</b>/${caras.length}</p>` : ''}
-      <button type="button" class="btn-pri" data-elegir="${k}">Elegir ${esc(o.etiqueta)}</button>
+      ${boton ? `<button type="button" class="btn-pri" data-elegir="${k}">Elegir ${esc(o.etiqueta)}</button>` : ''}
     </div>`;
 };
 
@@ -46,6 +46,8 @@ function voltear(v, caras) {
   const n = v.closest('.opcion-caja').querySelector('.pista-voltear b');
   if (n) n.textContent = idx + 1;
 }
+
+const indiceCaja = (el) => [...el.closest('.opciones').children].indexOf(el.closest('.opcion-caja'));
 
 export function iniciarSeleccion(contenedor, datos) {
   const pasos = datos.seleccion;
@@ -77,8 +79,7 @@ export function iniciarSeleccion(contenedor, datos) {
         ${i ? '<button type="button" class="btn-sec" data-atras>← Atrás</button>' : ''}
       </div>`;
     const opciones = contenedor.querySelector('.opciones');
-    const claveOpcion = (el) => Number(el.closest('.opcion-caja').querySelector('[data-elegir]').dataset.elegir);
-
+    
     const elegir = async (k) => {
       if (p.opciones[k].efecto) await reproducirEfecto(p.opciones[k].efecto);
       indices.length = i;
@@ -91,11 +92,11 @@ export function iniciarSeleccion(contenedor, datos) {
       const elige = e.target.closest('[data-elegir]');
       if (elige) return elegir(Number(elige.dataset.elegir));
       const v = e.target.closest('.volteo.gira');
-      if (v) voltear(v, caras[claveOpcion(v)]);
+      if (v) voltear(v, caras[indiceCaja(v)]);
     });
     opciones.addEventListener('keydown', (e) => {
       const v = e.target.closest('.volteo.gira');
-      if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[claveOpcion(v)]); }
+      if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[indiceCaja(v)]); }
     });
     activarContador(contenedor.querySelector('.contador'), opciones);
     contenedor.querySelector('[data-atras]')?.addEventListener('click', () => paso(i - 1));
@@ -104,16 +105,28 @@ export function iniciarSeleccion(contenedor, datos) {
   async function resultado(desplazar = true) {
     const sel = elegidas();
     ponerAmbiente(temaDe(sel.map((o) => o.efecto)));
-    const ids = new Set(sel.flatMap((o) => o.cartas));
+    // Tres tarjetas volteables: personaje (frente/dorso), poder (nivel 1/nivel 2) y don
+    const caras = sel.map((o) => o.cartas.map((id) => porId.get(id)).filter(Boolean).flatMap((c) => carasDeCarta(c, datos.etiquetas)));
     contenedor.innerHTML = `
       <div class="resumen">
         <p class="progreso">Tu ${esc(datos.titulo)}</p>
         <div class="chips">${sel.map((o) => `<span>${esc(o.etiqueta)}</span>`).join('')}</div>
         <button type="button" class="btn-sec" data-reiniciar>Elegir de nuevo</button>
       </div>
-      <div class="cartas-elegidas"></div>`;
+      <div class="contador"></div>
+      <div class="opciones">${sel.map((o, k) => tarjetaOpcion(o, k, caras[k], false)).join('')}</div>`;
     contenedor.querySelector('[data-reiniciar]').addEventListener('click', () => { indices.length = 0; olvidar(); paso(0); });
-    await mostrarCartas(contenedor.querySelector('.cartas-elegidas'), datos.cartas.filter((c) => ids.has(c.id)), datos.etiquetas);
+    const opciones = contenedor.querySelector('.opciones');
+    opciones.addEventListener('click', (e) => {
+      const v = e.target.closest('.volteo.gira');
+      if (v) voltear(v, caras[indiceCaja(v)]);
+    });
+    opciones.addEventListener('keydown', (e) => {
+      const v = e.target.closest('.volteo.gira');
+      if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[indiceCaja(v)]); }
+    });
+    activarContador(contenedor.querySelector('.contador'), opciones);
+    await esperarImagenes(opciones);
     if (desplazar) contenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 

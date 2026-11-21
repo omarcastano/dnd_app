@@ -57,7 +57,7 @@
   .opciones { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 8px calc((100vw - 306px * var(--escala-sel, 1)) / 2) 8px; scrollbar-width: none; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
   .opciones::-webkit-scrollbar { display: none; }
   .opcion-caja { scroll-snap-align: center; scroll-snap-stop: always; }
-  .paso .contador { display: flex; }
+  .paso .contador, .contenido > .contador { display: flex; }
 }
 .carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
 /* Volteo 3D: frente y dorso de la misma opción */
