@@ -1,0 +1,266 @@
+{
+  "clase": {
+    "nombre": "Pícaro Vampiro",
+    "reglas": [
+      "Los pícaros vampiro solo pueden ser DPS: no pueden ser tanque ni sanador.",
+      "Los pícaros vampiro no pueden usar armas de 2 manos ni escudo."
+    ],
+    "armas": [
+      "Daga",
+      "Puñal",
+      "Espada corta"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "valerian-nox",
+      "tipo": "personaje",
+      "nombre": "Valerian Nox",
+      "raza": "Vampiro",
+      "descripcion": "Vampiro de piel pálida y ojos carmesí, envuelto en una capa negra de cuello alto. Entre las sombras empuña su daga y su puñal, y desaparece antes de que su víctima lo note.",
+      "narracion": "narraciones/valerian-nox.mp3",
+      "reglas_raza": [
+        "Los vampiros recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los vampiros sufren 1 punto de daño adicional de los ataques sagrados o de luz."
+      ]
+    },
+    {
+      "id": "seraphine-nox",
+      "tipo": "personaje",
+      "nombre": "Seraphine Nox",
+      "raza": "Vampira",
+      "descripcion": "Vampira de cabello plateado y colmillos afilados, vestida de cuero oscuro y capa de terciopelo. Con una daga y un puñal, se desliza entre las sombras y roba la sangre y el oro.",
+      "narracion": "narraciones/seraphine-nox.mp3",
+      "reglas_raza": [
+        "Los vampiros recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los vampiros sufren 1 punto de daño adicional de los ataques sagrados o de luz."
+      ]
+    },
+    {
+      "id": "hurto-de-sangre-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Hurto de Sangre",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Corte Veloz",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Estocada Letal",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida (redondeado hacia abajo, mínimo 1). Un ataque que falla no te cura.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Succión Vampírica",
+          "valor": 3,
+          "subtitulo": "Ataque que roba vida"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Festín de Sangre",
+          "valor": 4,
+          "subtitulo": "Ataque que roba vida"
+        }
+      ]
+    },
+    {
+      "id": "hurto-de-sangre-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Hurto de Sangre",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Tajo Sombrío",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Puñalada Mortal",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida (redondeado hacia abajo, mínimo 1). Un ataque que falla no te cura.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Mordisco Robavidas",
+          "valor": 2,
+          "subtitulo": "Ataque que roba vida"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Sorbo Carmesí",
+          "valor": 3,
+          "subtitulo": "Ataque que roba vida"
+        }
+      ]
+    },
+    {
+      "id": "manos-ligeras-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Manos Ligeras",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Corte Veloz",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Estocada Letal",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Atacas con tanta rapidez que le vacías los bolsillos al enemigo: recibe el daño que indica la habilidad y, además, le robas 1 moneda (2 si la tirada es 17 o más). Si no lleva monedas, el daño se hace igual.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Despojo Letal",
+          "valor": 3,
+          "subtitulo": "Ataque que roba monedas"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Saqueo Nocturno",
+          "valor": 4,
+          "subtitulo": "Ataque que roba monedas"
+        }
+      ]
+    },
+    {
+      "id": "manos-ligeras-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Manos Ligeras",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Tajo Sombrío",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Puñalada Mortal",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Atacas con tanta rapidez que le vacías los bolsillos al enemigo: recibe el daño que indica la habilidad y, además, le robas 1 moneda (2 si la tirada es 17 o más). Si no lleva monedas, el daño se hace igual.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Bolsa Cortada",
+          "valor": 2,
+          "subtitulo": "Ataque que roba monedas"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Hurto Fantasma",
+          "valor": 3,
+          "subtitulo": "Ataque que roba monedas"
+        }
+      ]
+    },
+    {
+      "id": "robo-maestro",
+      "tipo": "ilustrada",
+      "nombre": "Robo Maestro",
+      "descripcion": "El pícaro desarma a un enemigo con un movimiento imposible de seguir. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, robas a un enemigo un objeto o arma que lleve y puedes usarlo de inmediato.",
+      "tabla": [
+        {
+          "rango_d20": "12+",
+          "resultado": "Robas un objeto o arma al enemigo y puedes usarlo"
+        }
+      ]
+    },
+    {
+      "id": "nube-de-murcielagos",
+      "tipo": "ilustrada",
+      "nombre": "Nube de Murciélagos",
+      "nombre_habilidad": "Nube de Murciélagos",
+      "descripcion": "El pícaro se disuelve en una nube de murciélagos. Una vez por cada tablero de mazmorra y solo durante una batalla, hasta que termine la siguiente ronda de ataques enemigos, ningún ataque enemigo te hace daño; al reaparecer, tu siguiente ataque hace 1 punto de daño extra."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Valerian Nox",
+          "cartas": [
+            "valerian-nox"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Seraphine Nox",
+          "cartas": [
+            "seraphine-nox"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Hurto de Sangre",
+          "efecto": "sangre",
+          "detalle": "Hiere a tus enemigos y recupera vida con su sangre",
+          "cartas": [
+            "hurto-de-sangre-nivel-1",
+            "hurto-de-sangre-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Manos Ligeras",
+          "efecto": "sombra",
+          "detalle": "Hiere a tus enemigos y róbales las monedas",
+          "cartas": [
+            "manos-ligeras-nivel-1",
+            "manos-ligeras-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Robo Maestro",
+          "efecto": "sombra",
+          "detalle": "Roba un objeto o arma a un enemigo",
+          "cartas": [
+            "robo-maestro"
+          ]
+        },
+        {
+          "etiqueta": "Nube de Murciélagos",
+          "efecto": "murcielagos",
+          "detalle": "Ningún ataque enemigo te daña una ronda",
+          "cartas": [
+            "nube-de-murcielagos"
+          ]
+        }
+      ]
+    }
+  ]
+}

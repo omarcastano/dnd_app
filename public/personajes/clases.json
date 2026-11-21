@@ -6,5 +6,17 @@
   {
     "id": "paladin",
     "efectos": true
+  },
+  {
+    "id": "picaro-vampiro",
+    "efectos": true
+  },
+  {
+    "id": "guerrero-orco",
+    "efectos": true
+  },
+  {
+    "id": "sacerdote-enano",
+    "efectos": true
   }
 ]

@@ -5,12 +5,13 @@ description: Crea una clase de personaje completa para el juego de D&D de La Tab
 
 # Crear una clase de personaje
 
-Hay **dos clases de referencia** ya iteradas; léelas siempre (JSON, `efectos.js`/`efectos.css` y mira sus imágenes con Read) antes de crear nada y úsalas como contexto:
+Hay **dos clases de referencia** ya iteradas (más las demás clases existentes, que se revisan en la sección 0b); léelas siempre (JSON, `efectos.js`/`efectos.css` y mira sus imágenes con Read) antes de crear nada y úsalas como contexto:
 - **Druida** (`public/personajes/clases/druida/`): plantilla base de **2 poderes + 2 dones** (18 imágenes).
 - **Paladín** (`public/personajes/clases/paladin/`): referencia de **3 roles** (tanque / sanador / DPS), de descripciones claras y de texto largo con scroll (24 imágenes).
 Toda clase nueva replica su estructura, cantidad de cartas y convención de imágenes. No inventes otro esquema. Idioma: todo en español (ids, textos); archivos y ids en kebab-case sin tildes.
 
 ## Flujo de trabajo (orden obligatorio)
+0. **Revisa las clases existentes (sección 0b)**: inventario de habilidades, balance y mecánicas, antes de diseñar nada.
 1. Datos de partida (sección 1) y JSON de la clase (sección 2), con la `descripcion` final de las 2 cartas de personaje: **esa descripción es el texto de la narración**, así que debe quedar definitiva *antes* de generar el audio.
 2. **Etapa de imágenes** (sección 3): asegura ComfyUI, genera **todas** las imágenes y, al terminar, **apágalo** con `bash .claude/skills/crear-personaje/scripts/parar_comfyui.sh`.
 3. **Etapa de audio** (sección 3b, obligatoria; solo con ComfyUI apagado): genera un mp3 por cada carta de personaje. El audio se enlaza en el JSON (`narracion`) y se reproduce desde el medallón ▶ del frente de la carta.
@@ -34,6 +35,15 @@ Protocolo (para imágenes y audio): **antes de generar, ejecuta el script `asegu
 - El primer arranque de ComfyUI tras `make setup` puede tardar varios minutos; `asegurar_comfyui.sh` espera hasta 3 min (código 7 = no respondió a tiempo, pero puede seguir cargando: reejecuta el script). `generar_imagen.py` usa siempre el puerto 8188: no cambies `PUERTO`.
 - Avisos que **no** son errores: ComfyUI "PYTORCH CUDA VERSION BELOW 13.0" (se usa cu128 a propósito por el driver) y Qwen3-TTS "SoX could not be found" / "flash-attn is not installed".
 - Esta skill cubre **imagen y audio**; no hay ningún modelo de vídeo desplegado.
+
+## 0b. Revisar las clases existentes (obligatorio, antes de diseñar)
+Antes de proponer poderes, dones, habilidades o reglas, **lee los JSON de todos los personajes ya creados** para no repetirte y respetar el balance. Cubre **todas** las carpetas de `public/personajes/clases/` (también las aún no registradas en `clases.json`), no solo Druida y Paladín.
+1. Ejecuta el inventario: `python3 .claude/skills/crear-personaje/scripts/inventario_clases.py` (por clase: armas, reglas de clase y de raza, poderes con rango/valor/subtítulo, dones y nombres de habilidad compartidos). Para el detalle completo abre cada `clases/<clase>/<clase>.json` con Read.
+2. Haz una **tabla mental (o en el resumen)** de: roles cubiertos, mecánicas ya usadas (curar, escudo/reducción de daño, daño a varios, resurrección, duplicar daño, repetir tirada, +1 a tiradas…), armas usadas y temáticas/elementos de las clases.
+3. **Variedad (regla)**: la clase nueva debe aportar mecánicas distintas. Ninguna habilidad especial ni don puede ser un calco de otra de otra clase con distinto nombre: si el efecto ya existe, cambia el *qué* (otro objetivo, otra condición, otro tipo de efecto: robar vida, empujar, aturdir, marcar, tirada extra, etc.) o el *cuándo*. Nombres de habilidad **únicos entre clases** (cada nombre = un icono) salvo los ataques básicos, que comparten nombres y valores a propósito (sección 2). Las `reglas` de clase y `reglas_raza` también deben ser nuevas, no copias de las existentes con otras palabras.
+4. **Balance (regla)**: los números salen de la sección 2b y deben ser comparables a las clases ya creadas (mismos umbrales por rol, mismos rangos de valor, mismo valor esperado). Un don o regla nueva no debe ser claramente más fuerte ni más débil que los existentes de su tipo (p. ej. un don «una vez por tablero» comparable en potencia a *Instinto Salvaje*, *Égida Inquebrantable* o *Plegaria de Resurrección*). Si una mecánica existente es la referencia, compara contra ella.
+5. **Qué conservar**: es normal que se repita lo estructural (esquema, cantidad de cartas, ataques básicos, tabla `11-16 / 17+`, títulos de bloque). Lo que debe variar es lo creativo: temática, mecánicas de las habilidades especiales, dones, reglas de clase/raza, armas y estética.
+6. En el resumen final di brevemente en qué se diferencia la clase nueva de las existentes y con qué clase comparaste el balance.
 
 ## 1. Entrada y datos de partida
 El usuario da **(a)** una descripción detallada o **(b)** una imagen de referencia (ruta). En el caso (b) mira la imagen con Read y escribe tú la descripción (rasgos, ropa, colores, objeto/arma, temática). Pide solo lo que falte (y comprueba las armas contra la tienda, sección 1c) y no puedas decidir con criterio propio: nombre de la clase, raza(s), temática de los 2 poderes y de los 2 dones. Si dejan libertad, propón todo coherente y avanza.
@@ -173,6 +183,7 @@ Ya hay scroll en: la descripción de las cartas de poder (patrón anterior), `.p
 
 ## 6. Verificación (obligatoria)
 - Armas: cada entrada de `clase.armas` figura en `tienda.js` (grupo "Armas") o en "Armaduras" si es el escudo.
+- Variedad y balance (sección 0b): vuelve a ejecutar `inventario_clases.py` y confirma que no hay nombres de habilidad repetidos entre clases (salvo ataques básicos) ni mecánicas duplicadas, y que los números son comparables a las demás.
 - `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen", "imagen sin usar", "falta el audio" ni "audio sin enlazar"). **Las 2 cartas `personaje` deben tener su `narracion` y su mp3 en `clases/<clase>/narraciones/` (sección 3b); si falta, genéralo antes de terminar.**
 - `revisar_desbordes.py <clase>`: 0 problemas (sección 5).
 - `make catalogo` → http://localhost:8081: ver que la clase aparece, cartas con imágenes, la selección de 3 pasos funciona y los efectos se disparan (haz un recorrido con navegador si hay herramienta disponible).

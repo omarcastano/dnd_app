@@ -1,0 +1,268 @@
+{
+  "clase": {
+    "nombre": "Guerrero Orco",
+    "reglas": [
+      "Los guerreros solo pueden ser tanque o DPS: no pueden ser sanadores.",
+      "Los guerreros suman +1 a sus tiradas de ataque cuerpo a cuerpo."
+    ],
+    "armas": [
+      "Hacha corta",
+      "Espada larga",
+      "Maza",
+      "Alabarda",
+      "Escudo"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "gorak-rompehuesos",
+      "tipo": "personaje",
+      "nombre": "Gorak Rompehuesos",
+      "raza": "Orco",
+      "descripcion": "Orco colosal de piel verde y colmillos desgastados, cubierto de cicatrices de mil batallas. Su hacha corta y su escudo abollado imponen respeto con solo mirarlo.",
+      "narracion": "narraciones/gorak-rompehuesos.mp3",
+      "reglas_raza": [
+        "Los orcos suman +1 al daño de sus ataques cuando tienen la mitad o menos de sus puntos de vida.",
+        "Los orcos son inmunes al miedo."
+      ]
+    },
+    {
+      "id": "urzula-rompehuesos",
+      "tipo": "personaje",
+      "nombre": "Urzula Rompehuesos",
+      "raza": "Orca",
+      "descripcion": "Orca de mirada feroz, trenzas negras y pinturas de guerra sobre la piel verde. Su espada larga y su escudo de hierro obligan a todo enemigo a mirarla solo a ella.",
+      "narracion": "narraciones/urzula-rompehuesos.mp3",
+      "reglas_raza": [
+        "Los orcos suman +1 al daño de sus ataques cuando tienen la mitad o menos de sus puntos de vida.",
+        "Los orcos son inmunes al miedo."
+      ]
+    },
+    {
+      "id": "grito-de-guerra-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Grito de Guerra",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "7-13",
+          "nombre": "Embestida Feroz",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "14+",
+          "nombre": "Machaque Brutal",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados (si no puede alcanzarte, pierde su ataque ese turno). Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Rugido Desafiante",
+          "valor": 2,
+          "subtitulo": "Provoca a un enemigo 2 turnos"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Desafío de Sangre",
+          "valor": 3,
+          "subtitulo": "Provoca a un enemigo 3 turnos"
+        }
+      ]
+    },
+    {
+      "id": "grito-de-guerra-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Grito de Guerra",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "7-13",
+          "nombre": "Tajo de Hacha",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "14+",
+          "nombre": "Hachazo Brutal",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados (si no puede alcanzarte, pierde su ataque ese turno). Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Insulto Orco",
+          "valor": 1,
+          "subtitulo": "Provoca a un enemigo 1 turno"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Reto del Colmillo",
+          "valor": 2,
+          "subtitulo": "Provoca a un enemigo 2 turnos"
+        }
+      ]
+    },
+    {
+      "id": "furia-berserker-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Furia Berserker",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Embestida Feroz",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Machaque Brutal",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Entras en furia y barres el campo: el enemigo que elijas recibe el daño que indica la habilidad y otro enemigo cercano recibe 1 punto de daño. Si solo hay un enemigo, solo recibe el daño principal.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Remolino Sangriento",
+          "valor": 3,
+          "subtitulo": "Ataque a varios enemigos"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Furia Desatada",
+          "valor": 4,
+          "subtitulo": "Ataque a varios enemigos"
+        }
+      ]
+    },
+    {
+      "id": "furia-berserker-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Furia Berserker",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Tajo de Hacha",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Hachazo Brutal",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Entras en furia y barres el campo: el enemigo que elijas recibe el daño que indica la habilidad y otro enemigo cercano recibe 1 punto de daño. Si solo hay un enemigo, solo recibe el daño principal.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Tajo Arrasador",
+          "valor": 2,
+          "subtitulo": "Ataque a varios enemigos"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Torbellino de Hacha",
+          "valor": 3,
+          "subtitulo": "Ataque a varios enemigos"
+        }
+      ]
+    },
+    {
+      "id": "rugido-del-jefe",
+      "tipo": "ilustrada",
+      "nombre": "Rugido del Jefe",
+      "descripcion": "El orco lanza su grito de guerra más fiero y todos los enemigos olvidan a sus presas. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, todos los enemigos quedan provocados y solo pueden atacarte a ti hasta que termine la siguiente ronda de ataques enemigos.",
+      "tabla": [
+        {
+          "rango_d20": "12+",
+          "resultado": "Todos los enemigos te atacan a ti"
+        }
+      ]
+    },
+    {
+      "id": "terquedad-orca",
+      "tipo": "ilustrada",
+      "nombre": "Terquedad Orca",
+      "nombre_habilidad": "Ferocidad Implacable",
+      "descripcion": "El orco se niega a caer mientras queden enemigos en pie. Una vez por cada tablero de mazmorra y solo durante una batalla, cuando un ataque te dejaría a 0 puntos de vida, en su lugar te quedas con 1 punto de vida y tu siguiente ataque hace 1 punto de daño extra."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Gorak Rompehuesos",
+          "cartas": [
+            "gorak-rompehuesos"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Urzula Rompehuesos",
+          "cartas": [
+            "urzula-rompehuesos"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Grito de Guerra",
+          "efecto": "provocacion",
+          "detalle": "Tanque: provoca a los enemigos para que te ataquen a ti",
+          "cartas": [
+            "grito-de-guerra-nivel-1",
+            "grito-de-guerra-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Furia Berserker",
+          "efecto": "furia",
+          "detalle": "DPS: arrasa a varios enemigos con tu hacha",
+          "cartas": [
+            "furia-berserker-nivel-1",
+            "furia-berserker-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Rugido del Jefe",
+          "efecto": "provocacion",
+          "detalle": "Provoca a todos los enemigos a la vez",
+          "cartas": [
+            "rugido-del-jefe"
+          ]
+        },
+        {
+          "etiqueta": "Terquedad Orca",
+          "efecto": "aguante",
+          "detalle": "Resiste un golpe mortal",
+          "cartas": [
+            "terquedad-orca"
+          ]
+        }
+      ]
+    }
+  ]
+}

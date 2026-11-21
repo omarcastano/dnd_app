@@ -1,0 +1,29 @@
+/* Efectos y ambientes de la clase Guerrero Orco (cargado por catalogo.js según clases.json) */
+.efecto .halo-orco { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #ff8a2a55 0%, #8a2a1033 35%, transparent 65%); animation: ef-orco-halo 2s ease-out both; }
+.efecto .halo-orco.furia { background: radial-gradient(circle at 50% 55%, #e01e0066 0%, #5a0a0833 40%, transparent 65%); }
+.efecto .halo-orco.aguante { background: radial-gradient(circle at 50% 55%, #8fd16a55 0%, #2f5a1a33 40%, transparent 65%); }
+@keyframes ef-orco-halo { 0% { transform: scale(.2); opacity: 0; } 35% { opacity: 1; } 100% { transform: scale(1.1); opacity: .5; } }
+.efecto .onda-orco { position: absolute; left: 50%; top: 50%; width: 30vmin; height: 30vmin; margin: -15vmin 0 0 -15vmin; border-radius: 50%;
+  border: 4px solid #ffb25c; box-shadow: 0 0 30px #ff7a1a, inset 0 0 30px #ff7a1a; animation: ef-orco-onda 1.5s ease-out both; }
+.efecto .onda-orco.o2 { animation-delay: .35s; }
+.efecto .onda-orco.o3 { animation-delay: .7s; }
+.efecto .onda-orco.verde { border-color: #b6f08a; box-shadow: 0 0 30px #6fd13a, inset 0 0 30px #6fd13a; }
+@keyframes ef-orco-onda { from { transform: scale(.2); opacity: 1; } to { transform: scale(4); opacity: 0; } }
+.efecto .chispa-orco { position: absolute; bottom: -10px; width: 6px; height: 6px; border-radius: 50%; opacity: 0; box-shadow: 0 0 10px 3px #ff5a1a;
+  animation: ef-orco-chispa var(--t) ease-out var(--r) both; }
+@keyframes ef-orco-chispa { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), -90vh); opacity: 0; } }
+.efecto .tajo-orco { position: absolute; top: 8%; left: 50%; width: 12px; height: 85vh; border-radius: 50%; background: linear-gradient(#fff, #ff6a3c 40%, #9a1208);
+  box-shadow: 0 0 20px #e01e00; opacity: 0; transform-origin: top; animation: ef-orco-tajo .5s ease-out both; }
+.tajo-orco.t1 { margin-left: -70px; transform: rotate(28deg); animation-delay: .2s; }
+.tajo-orco.t2 { margin-left: -5px; transform: rotate(-24deg); animation-delay: .34s; }
+.tajo-orco.t3 { margin-left: 60px; transform: rotate(30deg); animation-delay: .48s; }
+@keyframes ef-orco-tajo { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
+
+/* Temas de la pantalla final */
+.heroes.tema-provocador { background: radial-gradient(120% 60% at 50% 0%, #9a4a10 0%, #3a1a08 45%, #1a0b05 100%) fixed; }
+.heroes.tema-berserker { background: radial-gradient(120% 60% at 50% 0%, #8a1410 0%, #3a0806 45%, #1a0303 100%) fixed; }
+.heroes.tema-orco { background: radial-gradient(120% 60% at 50% 0%, #3f6a1f 0%, #1c3010 45%, #0a1406 100%) fixed; }
+.heroes.tema-provocador .barra, .heroes.tema-berserker .barra, .heroes.tema-orco .barra { background: #0a0604dd; }
+.ambiente-provocador i { background: #ffb25c; box-shadow: 0 0 10px 3px #e0701e; }
+.ambiente-berserker i { background: #ff4a2a; box-shadow: 0 0 10px 3px #c01000; }
+.ambiente-orco i { background: #c4f09a; box-shadow: 0 0 10px 3px #5cc02a; }

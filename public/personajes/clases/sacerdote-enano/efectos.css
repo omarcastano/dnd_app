@@ -1,0 +1,26 @@
+/* Efectos y ambientes de la clase Sacerdote Enano */
+.efecto .halo-juicio { position: absolute; inset: 0; background: radial-gradient(circle, #ff8a2a66 0%, #5a2a0c33 40%, transparent 65%); animation: ef-sac-aura 2s ease-out both; }
+.efecto .halo-manantial { position: absolute; inset: 0; background: radial-gradient(circle, #6fe0d066 0%, #0c4a5a33 40%, transparent 65%); animation: ef-sac-aura 2.2s ease-out both; }
+@keyframes ef-sac-aura { 0% { opacity: 0; transform: scale(.3); } 35% { opacity: 1; } 100% { opacity: .5; transform: scale(1.1); } }
+.efecto .yunque-sac { position: absolute; left: 50%; top: 0; width: 18vmin; height: 10vmin; margin-left: -9vmin; background: #2b2b33; border: 3px solid #ffb347; border-radius: 4px 4px 40% 40%;
+  box-shadow: 0 0 30px #ff7a1a; animation: ef-sac-yunque 1s cubic-bezier(.6, 0, 1, .6) both; }
+@keyframes ef-sac-yunque { 0% { transform: translateY(-20vh); opacity: 0; } 20% { opacity: 1; } 70% { transform: translateY(48vh); opacity: 1; } 100% { transform: translateY(48vh) scale(2); opacity: 0; } }
+.efecto .onda-sac { position: absolute; left: 50%; top: 50%; width: 40vmin; height: 40vmin; margin: -20vmin 0 0 -20vmin; border-radius: 50%;
+  border: 3px solid #d8fff7; box-shadow: 0 0 30px #6fe0d0, inset 0 0 30px #6fe0d0; animation: ef-sac-onda 1.8s ease-out both; }
+.efecto .onda-sac.b2 { animation-delay: .6s; }
+@keyframes ef-sac-onda { from { transform: scale(.2); opacity: 1; } to { transform: scale(3); opacity: 0; } }
+.efecto .runa-sac { position: absolute; left: 50%; top: 50%; width: 50vmin; height: 50vmin; margin: -25vmin 0 0 -25vmin; border-radius: 12%; transform: rotate(45deg);
+  background: radial-gradient(circle, #c9d2dc22 40%, #c9d2dc88 75%, transparent 77%); border: 5px solid #e8c36a; box-shadow: 0 0 40px #e8c36a, inset 0 0 40px #9aa6b4;
+  animation: ef-sac-runa 2.2s ease-out both; }
+@keyframes ef-sac-runa { 0% { transform: rotate(0) scale(.2); opacity: 0; } 30% { opacity: 1; } 100% { transform: rotate(45deg) scale(1.5); opacity: 0; } }
+.efecto .mota-sac { position: absolute; bottom: -10px; width: 7px; height: 7px; border-radius: 50%; opacity: 0; box-shadow: 0 0 10px 3px #ffffff88;
+  animation: ef-sac-mota var(--t) ease-out var(--r) both; }
+@keyframes ef-sac-mota { 0% { transform: translate(0, 0) scale(.5); opacity: 0; } 20% { opacity: 1; } 100% { transform: translate(var(--dx), -90vh) scale(1.2); opacity: 0; } }
+
+.heroes.tema-sac-juicio { background: radial-gradient(120% 60% at 50% 0%, #8a4a18 0%, #3a1e0a 45%, #170c05 100%) fixed; }
+.heroes.tema-sac-manantial { background: radial-gradient(120% 60% at 50% 0%, #1f7a78 0%, #0c3a42 45%, #051a1f 100%) fixed; }
+.heroes.tema-sac-resguardo { background: radial-gradient(120% 60% at 50% 0%, #5a6472 0%, #262c36 45%, #0e1116 100%) fixed; }
+.heroes.tema-sac-juicio .barra, .heroes.tema-sac-manantial .barra, .heroes.tema-sac-resguardo .barra { background: #0a0604dd; }
+.ambiente-sac-juicio i { background: #ffb347; box-shadow: 0 0 10px 3px #ff7a1a; }
+.ambiente-sac-manantial i { background: #bffcf0; box-shadow: 0 0 10px 3px #3fc8c0; }
+.ambiente-sac-resguardo i { background: #e8c36a; box-shadow: 0 0 10px 3px #9aa6b4; }

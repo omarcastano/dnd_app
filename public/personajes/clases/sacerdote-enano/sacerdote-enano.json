@@ -1,0 +1,361 @@
+{
+  "clase": {
+    "nombre": "Sacerdote Enano",
+    "reglas": [
+      "Los sacerdotes no pueden usar armas de 2 manos.",
+      "Una vez por turno, un sacerdote puede pasar una runa de resguardo activa a otro aliado, que conserva las rondas que le quedaban."
+    ],
+    "armas": [
+      "Maza",
+      "Hacha corta",
+      "Escudo"
+    ]
+  },
+  "cartas": [
+    {
+      "id": "durgan-piedraviva",
+      "tipo": "personaje",
+      "nombre": "Durgan Piedraviva",
+      "raza": "Enano",
+      "descripcion": "Enano de barba trenzada y yelmo con runas doradas, vestido con cota de malla bajo un hábito gris. Su maza y su escudo grabado de runas guardan a sus aliados de todo mal.",
+      "narracion": "narraciones/durgan-piedraviva.mp3",
+      "reglas_raza": [
+        "Los enanos no pueden ser empujados ni derribados por los enemigos.",
+        "Los enanos son inmunes al daño de veneno."
+      ]
+    },
+    {
+      "id": "helga-piedraviva",
+      "tipo": "personaje",
+      "nombre": "Helga Piedraviva",
+      "raza": "Enana",
+      "descripcion": "Enana de trenzas pelirrojas y mirada serena, con cota de malla y túnica de piedra gris. Con su maza y su escudo rúnico levanta barreras que mantienen en pie a sus compañeros.",
+      "narracion": "narraciones/helga-piedraviva.mp3",
+      "reglas_raza": [
+        "Los enanos no pueden ser empujados ni derribados por los enemigos.",
+        "Los enanos son inmunes al daño de veneno."
+      ]
+    },
+    {
+      "id": "juicio-del-yunque-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Juicio del Yunque",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Mazazo Pétreo",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Golpe de Cantera",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Grabas una runa en un enemigo: recibe el daño que indica la habilidad y queda marcado. El siguiente ataque de cualquier aliado contra ese enemigo hace 1 punto de daño extra y la marca desaparece. Un enemigo solo puede tener una marca.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Sello Ardiente",
+          "valor": 3,
+          "subtitulo": "Ataque que marca al enemigo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Runa Demoledora",
+          "valor": 4,
+          "subtitulo": "Ataque que marca al enemigo"
+        }
+      ]
+    },
+    {
+      "id": "juicio-del-yunque-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Juicio del Yunque",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "5-11",
+          "nombre": "Mazazo Rúnico",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "12+",
+          "nombre": "Golpe de Yunque",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Grabas una runa en un enemigo: recibe el daño que indica la habilidad y queda marcado. El siguiente ataque de cualquier aliado contra ese enemigo hace 1 punto de daño extra y la marca desaparece. Un enemigo solo puede tener una marca.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Sello del Castigo",
+          "valor": 2,
+          "subtitulo": "Ataque que marca al enemigo"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Runa de Condena",
+          "valor": 3,
+          "subtitulo": "Ataque que marca al enemigo"
+        }
+      ]
+    },
+    {
+      "id": "manantial-mineral-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Manantial Mineral",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "9-15",
+          "nombre": "Mazazo Pétreo",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "16+",
+          "nombre": "Golpe de Cantera",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): recupera 1 punto de vida al inicio de cada ronda hasta sumar los puntos que indique la habilidad, sin superar su vida máxima. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Manantial Vivo",
+          "valor": 2,
+          "subtitulo": "Curación gradual a un aliado"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Cascada Sagrada",
+          "valor": 3,
+          "subtitulo": "Curación gradual a un aliado"
+        }
+      ]
+    },
+    {
+      "id": "manantial-mineral-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Manantial Mineral",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "9-15",
+          "nombre": "Mazazo Rúnico",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "16+",
+          "nombre": "Golpe de Yunque",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): recupera 1 punto de vida al inicio de cada ronda hasta sumar los puntos que indique la habilidad, sin superar su vida máxima. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Gota de Manantial",
+          "valor": 1,
+          "subtitulo": "Curación gradual a un aliado"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Fuente Serena",
+          "valor": 2,
+          "subtitulo": "Curación gradual a un aliado"
+        }
+      ]
+    },
+    {
+      "id": "runas-de-resguardo-nivel-2",
+      "tipo": "tabla",
+      "nombre": "Runas de Resguardo",
+      "nivel": 2,
+      "ataques": [
+        {
+          "rango_d20": "7-13",
+          "nombre": "Mazazo Pétreo",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "14+",
+          "nombre": "Golpe de Cantera",
+          "valor": 3,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Grabas una runa protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Runa de Hierro",
+          "valor": 2,
+          "subtitulo": "Escudo de varias rondas"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Sello de Montaña",
+          "valor": 3,
+          "subtitulo": "Escudo de varias rondas"
+        }
+      ]
+    },
+    {
+      "id": "runas-de-resguardo-nivel-1",
+      "tipo": "tabla",
+      "nombre": "Runas de Resguardo",
+      "nivel": 1,
+      "ataques": [
+        {
+          "rango_d20": "7-13",
+          "nombre": "Mazazo Rúnico",
+          "valor": 1,
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "rango_d20": "14+",
+          "nombre": "Golpe de Yunque",
+          "valor": 2,
+          "subtitulo": "Ataque básico"
+        }
+      ],
+      "descripcion": "Grabas una runa protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "tabla": [
+        {
+          "rango_d20": "11-16",
+          "nombre": "Runa de Roca",
+          "valor": 1,
+          "subtitulo": "Escudo de varias rondas"
+        },
+        {
+          "rango_d20": "17+",
+          "nombre": "Sello de Granito",
+          "valor": 2,
+          "subtitulo": "Escudo de varias rondas"
+        }
+      ]
+    },
+    {
+      "id": "aliento-purificador",
+      "tipo": "ilustrada",
+      "nombre": "Aliento Purificador",
+      "descripcion": "El sacerdote entona un himno ancestral que barre la corrupción del grupo. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, todos los aliados quedan libres de veneno, miedo, aturdimiento y cualquier otro estado negativo.",
+      "tabla": [
+        {
+          "rango_d20": "12+",
+          "resultado": "Todos los aliados se liberan de los estados negativos"
+        }
+      ]
+    },
+    {
+      "id": "altar-ancestral",
+      "tipo": "ilustrada",
+      "nombre": "Altar Ancestral",
+      "nombre_habilidad": "Altar Ancestral",
+      "descripcion": "El sacerdote clava su maza en el suelo y erige un altar de piedra bendita. Una vez por cada tablero de mazmorra y solo durante una batalla, durante 3 rondas todos los aliados (incluido tú) recuperan 1 punto de vida al inicio de cada ronda. No afecta a no-muertos ni constructos."
+    },
+    {
+      "id": "sentencia-del-yunque",
+      "tipo": "ilustrada",
+      "nombre": "Sentencia del Yunque",
+      "nombre_habilidad": "Sentencia del Yunque",
+      "descripcion": "El sacerdote descarga su maza como un yunque desde el cielo. Una vez por cada tablero de mazmorra y solo durante una batalla, elige a un enemigo: queda aturdido y pierde su siguiente ataque."
+    }
+  ],
+  "seleccion": [
+    {
+      "titulo": "¿Quién eres?",
+      "opciones": [
+        {
+          "etiqueta": "Hombre",
+          "detalle": "Durgan Piedraviva",
+          "cartas": [
+            "durgan-piedraviva"
+          ]
+        },
+        {
+          "etiqueta": "Mujer",
+          "detalle": "Helga Piedraviva",
+          "cartas": [
+            "helga-piedraviva"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu poder",
+      "opciones": [
+        {
+          "etiqueta": "Juicio del Yunque",
+          "efecto": "juicio",
+          "detalle": "Castiga y marca a un enemigo para tus aliados",
+          "cartas": [
+            "juicio-del-yunque-nivel-1",
+            "juicio-del-yunque-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Manantial Mineral",
+          "efecto": "manantial",
+          "detalle": "Cura poco a poco a un aliado o a ti",
+          "cartas": [
+            "manantial-mineral-nivel-1",
+            "manantial-mineral-nivel-2"
+          ],
+          "portada": true
+        },
+        {
+          "etiqueta": "Runas de Resguardo",
+          "efecto": "resguardo",
+          "detalle": "Escudo que reduce el daño varias rondas",
+          "cartas": [
+            "runas-de-resguardo-nivel-1",
+            "runas-de-resguardo-nivel-2"
+          ],
+          "portada": true
+        }
+      ]
+    },
+    {
+      "titulo": "Elige tu don",
+      "opciones": [
+        {
+          "etiqueta": "Aliento Purificador",
+          "efecto": "manantial",
+          "detalle": "Libera al grupo de estados negativos",
+          "cartas": [
+            "aliento-purificador"
+          ]
+        },
+        {
+          "etiqueta": "Altar Ancestral",
+          "efecto": "resguardo",
+          "detalle": "Todo el grupo se cura 3 rondas",
+          "cartas": [
+            "altar-ancestral"
+          ]
+        },
+        {
+          "etiqueta": "Sentencia del Yunque",
+          "efecto": "juicio",
+          "detalle": "Aturde a un enemigo",
+          "cartas": [
+            "sentencia-del-yunque"
+          ]
+        }
+      ]
+    }
+  ]
+}
