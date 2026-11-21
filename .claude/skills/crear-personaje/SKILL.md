@@ -1,13 +1,13 @@
 ---
 name: crear-personaje
-description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, efectos, registro en el catálogo `personajes/index.html`), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
+description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, efectos, registro en el catálogo `public/personajes/index.html`), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
 ---
 
 # Crear una clase de personaje
 
 Hay **dos clases de referencia** ya iteradas; léelas siempre (JSON, `efectos.js`/`efectos.css` y mira sus imágenes con Read) antes de crear nada y úsalas como contexto:
-- **Druida** (`personajes/clases/druida/`): plantilla base de **2 poderes + 2 dones** (18 imágenes).
-- **Paladín** (`personajes/clases/paladin/`): referencia de **3 roles** (tanque / sanador / DPS), de descripciones claras y de texto largo con scroll (24 imágenes).
+- **Druida** (`public/personajes/clases/druida/`): plantilla base de **2 poderes + 2 dones** (18 imágenes).
+- **Paladín** (`public/personajes/clases/paladin/`): referencia de **3 roles** (tanque / sanador / DPS), de descripciones claras y de texto largo con scroll (24 imágenes).
 Toda clase nueva replica su estructura, cantidad de cartas y convención de imágenes. No inventes otro esquema. Idioma: todo en español (ids, textos); archivos y ids en kebab-case sin tildes.
 
 ## 1. Entrada y datos de partida
@@ -49,7 +49,7 @@ Hoy: Espada corta (1 mano, +1), Espada larga (1, +2), Alabarda (2, +3), Espada d
 Los ejemplos del druida y el paladín tienen 2 de cada, pero **no es un límite**. `clase.armas`, `clase.reglas` y `reglas_raza` pueden tener las entradas que hagan sentido para el personaje (un guerrero puede usar 5 armas; una raza puede tener 3 habilidades). No rellenes por cuota ni recortes por cuota: cada entrada debe aportar algo y ser clara. Si hay muchas, el scroll del dorso (sección 5) las contiene. Los topes de 2 que sí aplican son otros (2 ataques básicos por nivel, 2 habilidades especiales por poder y nivel).
 
 ## 2. Estructura obligatoria (idéntica al druida)
-Parte de `references/plantilla.json` (copia fiel del esquema del druida con marcadores). Resultado en `personajes/clases/<clase>/<clase>.json`:
+Parte de `references/plantilla.json` (copia fiel del esquema del druida con marcadores). Resultado en `public/personajes/clases/<clase>/<clase>.json`:
 
 | Elemento | Cantidad | Detalle |
 |---|---|---|
@@ -91,7 +91,7 @@ Total esperado: **18** (24 con tres roles). Rutas por convención (las resuelve 
 - Una por una para el primer retrato (revísalo con Read y repite con otra semilla si sale mal); el resto en lote:
 ```bash
 python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --lote lote.json   # lista de {tipo, prompt, salida, [semilla, referencia, fuerza]}
-python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato --prompt "..." --salida personajes/clases/<clase>/imagenes/<id>.webp [--referencia img --fuerza 0.6] [--forzar]
+python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato --prompt "..." --salida public/personajes/clases/<clase>/imagenes/<id>.webp [--referencia img --fuerza 0.6] [--forzar]
 ```
   Pon `lote.json` en el scratchpad. El script omite imágenes que ya existen (`--forzar` para rehacer). ~10 s por imagen.
 - **Desde una imagen de referencia:** pásala con `--referencia` al generar el retrato (img2img; `--fuerza` 0.45 casi igual … 0.7 solo inspirada) *y* describe el personaje en el prompt. Para el otro género/variantes usa fuerza ≥0.65 con la descripción cambiada. Si el usuario quiere la imagen tal cual, conviértela a .webp 907×1117 (recorte centrado) en vez de regenerarla.
@@ -100,12 +100,12 @@ python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato 
 
 ## 4. Efectos (`efectos.js`, `efectos.css`) y registro
 Cada valor de `efecto` en `seleccion` necesita una función en `efectos.js` (ver `references/efectos.md`, con los patrones del druida: partículas, aura, tema de pantalla final y ambiente). Tema/paleta acorde a la temática de cada poder.
-1. Crear `personajes/clases/<clase>/{<clase>.json,efectos.js,efectos.css,imagenes/...}`.
-2. Registrar en `personajes/clases.json`: añadir `{ "id": "<clase>", "efectos": true }` (mantén el resto).
-3. No tocar `personajes/index.html` ni `app/`: el catálogo carga cada clase de `clases.json` y permite elegir personajes desde ahí.
+1. Crear `public/personajes/clases/<clase>/{<clase>.json,efectos.js,efectos.css,imagenes/...}`.
+2. Registrar en `public/personajes/clases.json`: añadir `{ "id": "<clase>", "efectos": true }` (mantén el resto).
+3. No tocar `public/personajes/index.html` ni `app/`: el catálogo carga cada clase de `clases.json` y permite elegir personajes desde ahí.
 
 ## 5. Textos que no caben (referencia: Bastión Sagrado del Paladín)
-Las cartas miden 306×572 px y recortan lo que sobra. **Regla: si un texto no cabe, que sea scrollable; no lo recortes ni lo acortes si perdería claridad** (se prioriza la explicación clara de las habilidades). Patrón ya iterado en el paladín: en *Bastión Sagrado* la descripción larga hace scroll **solo en su párrafo** (`.bloque.especial .desc-p { max-height: 5.4em; overflow-y: auto; scrollbar-width: thin }` en `personajes/app/cartas.css`), mientras los ataques y las filas de la tabla quedan siempre visibles y nada se solapa. Imítalo: scrollea **el párrafo largo**, no la carta entera ni las filas.
+Las cartas miden 306×572 px y recortan lo que sobra. **Regla: si un texto no cabe, que sea scrollable; no lo recortes ni lo acortes si perdería claridad** (se prioriza la explicación clara de las habilidades). Patrón ya iterado en el paladín: en *Bastión Sagrado* la descripción larga hace scroll **solo en su párrafo** (`.bloque.especial .desc-p { max-height: 5.4em; overflow-y: auto; scrollbar-width: thin }` en `public/personajes/app/cartas.css`), mientras los ataques y las filas de la tabla quedan siempre visibles y nada se solapa. Imítalo: scrollea **el párrafo largo**, no la carta entera ni las filas.
 Ya hay scroll en: la descripción de las cartas de poder (patrón anterior), `.pergamino` (dorso del personaje), `.bloque.desc` (descripción de dones) y `.cuerpo-p` como red de seguridad (`justify-content: safe center` evita perder la parte superior de textos centrados). Pasos:
 1. `python3 .claude/skills/crear-personaje/scripts/revisar_desbordes.py <clase> --captura <scratchpad>` (Chrome headless; mide cada cara y detecta texto que se sale de su caja o de la carta salvo dentro de un contenedor con scroll; la captura PNG se revisa con Read). Paladín y druida dan 0 problemas: úsalos de contraste.
 2. Si reporta `DESBORDE` en un elemento sin scroll: añade `overflow-y: auto; scrollbar-width: thin;` (y un `max-height` si hace falta, como el paladín) al párrafo o contenedor, en `clases/<clase>/efectos.css` o en `cartas.css` si afecta a todas las clases; repite hasta 0 problemas. Para nombres que desbordan en **ancho** (título, nombre de habilidad) acorta el nombre o baja `font-size` en ese selector: un nombre no se scrollea.

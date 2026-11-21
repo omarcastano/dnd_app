@@ -1,6 +1,6 @@
 # D&D - La Taberna
 
-Sitio estático en español, sin build. `public/` es la raíz publicada. `personajes/` se publica como pestaña «Héroes» (iframe) mediante el enlace simbólico `public/personajes -> ../personajes`; el workflow lo copia sin `legacy/`, `plantilla/` ni `*.py`. `narracion/` no se publica.
+Sitio estático en español, sin build. `public/` es la raíz publicada. `public/personajes/` es la pestaña «Héroes» (iframe); el workflow no publica `legacy/`, `plantilla/` ni `*.py` (`make catalogo` los sirve en local). `narracion/` no se publica.
 - Estilos en `public/tienda/css/` divididos por sección (base, tienda, puzzles, botin, tablas, robo, pie, responsive); el orden de los `<link>` en `index.html` importa (`responsive.css` va último).
 
 ## Convenciones
@@ -11,8 +11,8 @@ Sitio estático en español, sin build. `public/` es la raíz publicada. `person
 - Nada de `onclick` inline ni globales en `window`: el HTML usa atributos `data-*` (`data-tab`, `data-cerrar-puzzle`, `data-alternar-tarjeta`) y `nucleo/navegacion.js` / cada módulo los atiende por delegación de eventos.
 - Para añadir un módulo: crear `initX()` y registrarlo en `MODULOS` de `main.js`.
 - Imágenes en `.webp`, nombres en kebab-case sin tildes.
-- Cartas de personaje: `personajes/clases/<clase>/<clase>.json` (bloque `clase` + `cartas` con `tipo` personaje/tabla/ilustrada + `seleccion`), imágenes en `imagenes/` por convención de nombre (`<id>.webp`). Clases registradas en `personajes/clases.json`. Código en `personajes/app/` (`datos.js` aplica las convenciones, `cartas.js`+`cartas.css` dibujan, `seleccion.js`, `carrusel.js`, `efectos.js` motor genérico; los efectos propios de una clase viven en su carpeta). `personajes/legacy/` es el diseño y esquema antiguos, incompatible con el actual.
-- **Para crear una clase nueva usar la plantilla `personajes/plantilla/`** (`plantilla.json` + `LEEME.md` con tipos de carta, convenciones y pasos). Copiarla a `clases/<clase>/` y registrarla en `clases.json`; no es una clase real.
+- Cartas de personaje: `public/personajes/clases/<clase>/<clase>.json` (bloque `clase` + `cartas` con `tipo` personaje/tabla/ilustrada + `seleccion`), imágenes en `imagenes/` por convención de nombre (`<id>.webp`). Clases registradas en `public/personajes/clases.json`. Código en `public/personajes/app/` (`datos.js` aplica las convenciones, `cartas.js`+`cartas.css` dibujan, `seleccion.js`, `carrusel.js`, `efectos.js` motor genérico; los efectos propios de una clase viven en su carpeta). `public/personajes/legacy/` es el diseño y esquema antiguos, incompatible con el actual.
+- **Para crear una clase nueva usar la plantilla `public/personajes/plantilla/`** (`plantilla.json` + `LEEME.md` con tipos de carta, convenciones y pasos). Copiarla a `clases/<clase>/` y registrarla en `clases.json`; no es una clase real.
 
 ## Comandos
 - `make run` — servidor local (puerto `PORT=8080`)

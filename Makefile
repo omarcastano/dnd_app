@@ -16,12 +16,12 @@ audio:
 
 # Valida las clases de personajes: esquema, referencias entre cartas y selección, imágenes (make check CLASE=druida para una sola)
 check:
-	python3 personajes/validar.py $(CLASE)
+	python3 public/personajes/validar.py $(CLASE)
 
 # Catálogo de cartas de todas las clases (sin caché): http://localhost:8081
 catalogo:
-	python3 personajes/servidor.py 8081
+	python3 public/personajes/servidor.py 8081
 
-# (LEGACY: diseño y esquema antiguos, ya no compatible con personajes/clases/) Exporta las cartas a PDF
+# (LEGACY: diseño y esquema antiguos, ya no compatible con public/personajes/clases/) Exporta las cartas a PDF
 cartas:
-	personajes/legacy/exportar.sh $(CLASE)
+	public/personajes/legacy/exportar.sh $(CLASE)

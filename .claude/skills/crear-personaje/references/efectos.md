@@ -1,7 +1,7 @@
 # Efectos de clase (`efectos.js` + `efectos.css`)
 
-Cada clase real declara `"efectos": true` en `personajes/clases.json` y aporta ambos archivos en `clases/<id>/`.
-El motor (`personajes/app/efectos.js`) no conoce ninguna clase. Valor de `efecto` en `seleccion` → función en `efectos`.
+Cada clase real declara `"efectos": true` en `public/personajes/clases.json` y aporta ambos archivos en `clases/<id>/`.
+El motor (`public/personajes/app/efectos.js`) no conoce ninguna clase. Valor de `efecto` en `seleccion` → función en `efectos`.
 
 ## efectos.js (patrón del druida)
 ```js
