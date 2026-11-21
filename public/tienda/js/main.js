@@ -7,7 +7,7 @@ import { initRobo } from "./secciones/robo.js";
 import { initZonas } from "./secciones/zonas.js";
 import { initBotin } from "./secciones/botin.js";
 import { initAdmin } from "./secciones/admin.js";
-import { initHeroes } from "./secciones/heroes.js";
+import { initHeroes } from "./secciones/heroes.js?v=2";
 import { initTablas } from "./secciones/tablas.js";
 import { initMenu } from "./puzzles/menu.js";
 import { initTents } from "./puzzles/tents.js";
