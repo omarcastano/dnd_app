@@ -69,7 +69,9 @@
 .bloque { border-radius: 8px; padding: 8px 10px; background: radial-gradient(ellipse at 30% 0%, #fbf3d9, var(--pergamino) 50%, var(--pergamino-2)); box-shadow: inset 0 0 14px rgba(120,80,20,.3), inset 0 0 0 1px #a98a4a; }
 .bloque > h5 { font-family: var(--titulo); font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--oro-oscuro); text-align: center; margin: 0 0 4px; }
 .desc-p { margin: 0; font-style: italic; font-size: 14px; line-height: 1.28; text-align: center; color: var(--tinta); padding: 2px 6px; }
-.bloque.desc { display: flex; align-items: center; justify-content: center; flex: 1 1 0; min-height: 0; }
+.bloque.desc { display: flex; align-items: flex-start; justify-content: center; flex: 1 1 0; min-height: 0; }
+/* Centrado vertical sin perder el inicio del texto cuando desborda (align-items:center recorta la parte de arriba y el scroll no llega a ella) */
+.bloque.desc > * { margin-block: auto; }
 
 /* Fila: [hexágono d20] [icono + nombre] [medallón de valor] */
 .fila-p { display: grid; grid-template-columns: 54px 1fr 40px; align-items: center; gap: 8px; padding: 5px 0; }
@@ -94,7 +96,7 @@
 .banner-p { flex: none; height: 104px; border-radius: 8px; overflow: hidden; position: relative; box-shadow: 0 0 0 1px var(--oro-oscuro); background: var(--bosque-2); }
 .banner-p img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .banner-p::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 18px rgba(0,0,0,.5); pointer-events: none; }
-.carta-p.ilustrada .bloque.desc { flex-direction: column; }
+.carta-p.ilustrada .bloque.desc { flex-direction: column; align-items: center; }
 .nombre-habilidad { font-family: var(--titulo); font-weight: 700; font-size: 17px; letter-spacing: .06em; text-align: center; color: var(--musgo); margin-bottom: 6px; }
 .carta-p.ilustrada .desc-p { font-size: 13.5px; line-height: 1.25; }
 
