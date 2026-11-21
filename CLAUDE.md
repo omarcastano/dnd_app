@@ -4,6 +4,7 @@ Sitio estático en español, sin build. `public/` es la raíz publicada. La pest
 - Estilos en `public/tienda/css/` divididos por sección (base, tienda, puzzles, botin, tablas, robo, pie, responsive); el orden de los `<link>` en `index.html` importa (`responsive.css` va último).
 
 ## Convenciones
+- **Versión visible de la app**: etiqueta `.version-app` en `public/index.html` (arriba a la izquierda, formato `0.0.N`). **Hay que subirla en cada iteración entregada al usuario** (y el `?v=` de `base.css` en el mismo archivo); así el usuario sabe qué versión ve y detecta la caché.
 - Todo en español: nombres de archivos, IDs, variables y textos.
 - Rutas relativas (el sitio debe funcionar en subruta, p. ej. GitHub Pages).
 - Las vistas son fragmentos HTML en `public/tienda/partes/`, cargados con `fetch` por `js/nucleo/partes.js` (hueco `<div data-parte="x.html">` en `index.html`).
