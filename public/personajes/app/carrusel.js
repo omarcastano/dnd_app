@@ -15,7 +15,7 @@ export function ajustarEscala(forzar = false) {
   const porAncho = Math.min(1.4, (innerWidth - 32) / 306);
   let alto;
   // Móvil: se mide lo que ocupa todo lo que rodea a la carta (pestañas, títulos, pista, botón) y la carta usa el resto de la pantalla
-  const ops = movil && [...document.querySelectorAll('.heroes .opciones')].find((o) => o.offsetParent);
+  const ops = movil ? [...document.querySelectorAll('.heroes .opciones')].find((o) => o.offsetParent) : null;
   const caja = ops?.querySelector('.opcion-caja');
   const carta = caja?.querySelector('.carta-sel');
   if (caja && carta) {
