@@ -17,7 +17,8 @@
       "tipo": "personaje",
       "nombre": "Aldric Valorian",
       "raza": "Humano",
-      "descripcion": "Humano de pelo corto castaño y barba recortada, con armadura plateada y dorada, capa blanca, escudo sagrado y maza.",
+      "descripcion": "Humano de barba recortada y mirada firme, ataviado con armadura plateada y dorada. Bajo su capa blanca, su escudo sagrado y su maza defienden a los inocentes de la oscuridad.",
+      "narracion": "narraciones/aldric-valorian.mp3",
       "reglas_raza": [
         "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
       ]
@@ -27,7 +28,8 @@
       "tipo": "personaje",
       "nombre": "Elara Valorian",
       "raza": "Humana",
-      "descripcion": "Humana de larga trenza castaña, con armadura plateada y dorada, capa blanca, escudo sagrado y maza.",
+      "descripcion": "Humana de larga trenza castaña y voluntad inquebrantable, vestida de plata y oro. Con capa blanca, escudo sagrado y maza, avanza donde la luz más se necesita.",
+      "narracion": "narraciones/elara-valorian.mp3",
       "reglas_raza": [
         "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
       ]

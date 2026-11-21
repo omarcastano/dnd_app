@@ -1,6 +1,6 @@
 ---
 name: crear-personaje
-description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, efectos, registro en el catálogo (pestaña Héroes)), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
+description: Crea una clase de personaje completa para el juego de D&D de La Taberna (JSON, imágenes generadas con ComfyUI/SDXL local, narraciones de audio con Qwen3-TTS local, efectos, registro en el catálogo (pestaña Héroes)), usando la clase Druida como plantilla exacta. Úsala cuando el usuario pida crear/añadir un personaje, clase o héroe nuevo, ya sea desde una descripción detallada o desde una imagen de referencia.
 ---
 
 # Crear una clase de personaje
@@ -9,6 +9,23 @@ Hay **dos clases de referencia** ya iteradas; léelas siempre (JSON, `efectos.js
 - **Druida** (`public/personajes/clases/druida/`): plantilla base de **2 poderes + 2 dones** (18 imágenes).
 - **Paladín** (`public/personajes/clases/paladin/`): referencia de **3 roles** (tanque / sanador / DPS), de descripciones claras y de texto largo con scroll (24 imágenes).
 Toda clase nueva replica su estructura, cantidad de cartas y convención de imágenes. No inventes otro esquema. Idioma: todo en español (ids, textos); archivos y ids en kebab-case sin tildes.
+
+## 0. Entorno y modelos locales (imágenes y audio)
+**Dependencias de Python: un único `pyproject.toml` en la raíz del repo** (+ `uv.lock`), con `uv` y un solo `.venv/` (`make setup` = `uv sync --all-groups`). Nunca `pip install` global, `requirements.txt` sueltos ni otro `.toml` (tampoco en `~/ia`). **Sin forzar versiones**: nada de `override-dependencies` ni pins artificiales; si hay que añadir un paquete, prueba `uv lock` en una copia y descártalo si no resuelve de forma natural (Chatterbox se descartó así: exige `torch 2.6` y ComfyUI usa `2.11`). Grupos: base (`edge-tts`, `pedalboard`), `imagenes` (ComfyUI) y `voces` (`qwen-tts`).
+
+| | Imágenes | Audio (narración) |
+|---|---|---|
+| Modelo | Stable Diffusion XL Base 1.0 en ComfyUI v0.46.0 | Qwen3-TTS 1.7B Base (clona una voz) |
+| Dónde vive | código y checkpoint (~7 GB) en `~/ia/ComfyUI`; servidor en `http://127.0.0.1:8188` | pesos (~4,3 GB) en la caché de Hugging Face (`~/.cache/huggingface`); voz de referencia en `narracion/voz/` (en el repo) |
+| Asegurar el despliegue | `bash .claude/skills/crear-personaje/scripts/asegurar_comfyui.sh` | `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` |
+| Si falta algo | sale con código 2 → **pregunta al usuario** (descargas grandes) y reejecuta con `--instalar` | igual: código 2 → pregunta y `--instalar` |
+| Generar | `scripts/generar_imagen.py` (sección 3) | `make audio ARGS="..."` (sección 3b) |
+
+Protocolo (para imágenes y audio): **antes de generar, ejecuta el script `asegurar_*` correspondiente**; es idempotente (si ya está listo no hace nada). Códigos de `asegurar_comfyui.sh`: 0 listo, 2 falta algo instalable, 3 faltan `git`/`uv`, 4-6 falló el clonado/entorno/descarga, 7 no respondió a tiempo. De `asegurar_voz.sh`: 0 listo, 2 falta algo instalable, 3 falta la voz de referencia (`narracion/voz/narradora.wav` + `.txt`, la aporta el repo; no se instala), 4 poca VRAM libre, 5 falló la instalación. Ante un fallo lee el mensaje y el log (`~/ia/comfyui.log`) y corrige la causa; no te saltes la generación ni cambies de modelo ni uses servicios externos.
+- **La GPU (12 GB) es compartida**: ComfyUI con SDXL cargado ocupa gran parte. Orden recomendado: primero todas las imágenes; luego apaga ComfyUI (`kill $(pgrep -f '[m]ain.py --listen 127.0.0.1')`) y genera los audios. `asegurar_voz.sh` avisa (código 4) si queda poca VRAM libre.
+- El primer arranque de ComfyUI tras `make setup` puede tardar varios minutos; `asegurar_comfyui.sh` espera hasta 3 min (código 7 = no respondió a tiempo, pero puede seguir cargando: reejecuta el script). `generar_imagen.py` usa siempre el puerto 8188: no cambies `PUERTO`.
+- Avisos que **no** son errores: ComfyUI "PYTORCH CUDA VERSION BELOW 13.0" (se usa cu128 a propósito por el driver) y Qwen3-TTS "SoX could not be found" / "flash-attn is not installed".
+- Esta skill cubre **imagen y audio**; no hay ningún modelo de vídeo desplegado.
 
 ## 1. Entrada y datos de partida
 El usuario da **(a)** una descripción detallada o **(b)** una imagen de referencia (ruta). En el caso (b) mira la imagen con Read y escribe tú la descripción (rasgos, ropa, colores, objeto/arma, temática). Pide solo lo que falte (y comprueba las armas contra la tienda, sección 1c) y no puedas decidir con criterio propio: nombre de la clase, raza(s), temática de los 2 poderes y de los 2 dones. Si dejan libertad, propón todo coherente y avanza.
@@ -84,8 +101,8 @@ Total esperado: **18** (24 con tres roles). Rutas por convención (las resuelve 
 `slug` = minúsculas, sin tildes, no alfanumérico → `-`. Todo `.webp`. Los iconos y portadas son circulares con alfa (el script ya aplica la máscara). **Los iconos se ven diminutos (~28 px en la carta): un solo símbolo grande, siluetas gruesas, cero detalle, nada de texto.** Nunca prompts complejos para `habilidad`/`portada`.
 
 ### Generación: ComfyUI local, SDXL
-- ComfyUI v0.46.0 en `~/ia/ComfyUI`, escuchando en `http://127.0.0.1:8188`; modelo **Stable Diffusion XL Base 1.0** (`sd_xl_base_1.0.safetensors`, en `models/checkpoints`). No uses otro modelo ni servicio externo.
-- **Antes de generar, asegura el despliegue**: `bash .claude/skills/crear-personaje/scripts/asegurar_comfyui.sh`. Es idempotente: si ya responde en :8188 no hace nada; si está instalado pero apagado lo arranca (`~/ia/ComfyUI` con `~/ia/.venv/bin/python main.py --listen 127.0.0.1 --port 8188`, log en `~/ia/comfyui.log`) y espera a que responda; si falta ComfyUI, el entorno (`uv`, Python 3.12, PyTorch cu128) o el checkpoint, lo indica y termina con código 2. En ese caso **pregunta al usuario** (clonar ComfyUI v0.46.0 y descargar ~7 GB) y, con su OK, ejecuta `asegurar_comfyui.sh --instalar`. Si el arranque falla, lee `~/ia/comfyui.log` y corrige la causa (puerto ocupado, VRAM, dependencias) en vez de saltarte la generación. Nunca sustituyas el modelo por otro ni por un servicio externo.
+- ComfyUI v0.46.0 en `~/ia/ComfyUI` (solo código y modelo; las dependencias de Python están en el `pyproject.toml` del proyecto, nunca en `~/ia`), escuchando en `http://127.0.0.1:8188`; modelo **Stable Diffusion XL Base 1.0** (`sd_xl_base_1.0.safetensors`, en `models/checkpoints`). No uses otro modelo ni servicio externo.
+- **Antes de generar, asegura el despliegue** con `bash .claude/skills/crear-personaje/scripts/asegurar_comfyui.sh` (protocolo, códigos y `--instalar` en la sección 0). Arranca ComfyUI desde `~/ia/ComfyUI` con el `.venv/bin/python` del proyecto (log en `~/ia/comfyui.log`). Nunca sustituyas el modelo por otro ni por un servicio externo.
 - Usa `scripts/generar_imagen.py` (añade el estilo del tipo y convierte/redimensiona/enmascara a .webp). Prompts en **inglés**, descriptivos. Estilo y negativos por defecto ya están en el script; tú solo describes el sujeto.
 - Primero el **retrato de referencia** y mantén coherencia: reutiliza en el prompt del hombre/mujer los mismos rasgos (raza, pelo, colores de ropa, objeto) y fija `semilla` si repites.
 - Una por una para el primer retrato (revísalo con Read y repite con otra semilla si sale mal); el resto en lote:
@@ -97,6 +114,18 @@ python3 .claude/skills/crear-personaje/scripts/generar_imagen.py --tipo retrato 
 - **Desde una imagen de referencia:** pásala con `--referencia` al generar el retrato (img2img; `--fuerza` 0.45 casi igual … 0.7 solo inspirada) *y* describe el personaje en el prompt. Para el otro género/variantes usa fuerza ≥0.65 con la descripción cambiada. Si el usuario quiere la imagen tal cual, conviértela a .webp 907×1117 (recorte centrado) en vez de regenerarla.
 - Revisa con Read al menos los retratos, las portadas y 3-4 iconos. Rehaz con otra semilla los que tengan texto, manos mal, o iconos demasiado detallados (simplifica el prompt: "a single X, minimal").
 - Prompts de iconos: sujeto + una palabra de color de la clase, p. ej. `a crescent moon and a star`, `a bear claw swipe`, `a glowing leaf heart`. Mantén una paleta común por clase (añade `green and cream palette`) para que el set parezca uno.
+
+## 3b. Narraciones de audio (cartas de personaje)
+Cada carta `personaje` (hombre y mujer) lleva una narración: el audio narra su `descripcion` y se enlaza en el JSON (`"narracion": "narraciones/<id>.mp3"`, ruta relativa a la clase; `app/datos.js` la resuelve y `make check` comprueba que exista).
+1. **Texto**: la `descripcion` es lo que se narra **y** lo que se ve en el dorso de la carta. Escríbela **más larga y algo épica, pero contenida**: ~160-180 caracteres, dos frases, rasgos físicos + un gesto ligado a su temática/poder (ej.: «Elfa etérea de túnicas verdes tejidas con hojas y enredaderas vivas. Su bastón, coronado por un orbe luminoso, despierta el bosque entero con apenas un susurro.»). Más larga desborda el dorso (el pergamino hace scroll, pero no abuses). Menciona solo armas de la tienda (1c).
+2. `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` (sección 0).
+3. Genera **una por carta de personaje** (nunca sin `--id`: sin él narraría también poderes y dones, que no se pidieron):
+```bash
+make audio ARGS="public/personajes/clases/<clase>/<clase>.json --id <id-carta>"
+```
+   Escribe `clases/<clase>/narraciones/<id>.mp3` y añade `narracion` al JSON justo tras `descripcion` (no lo edites a mano). Cada audio dura ~12-17 s; la primera llamada tarda más por la carga del modelo.
+4. **La voz es un estándar ya aprobado**: el motor por defecto (Qwen3-TTS) **clona siempre la misma narradora** de `narracion/voz/` (mujer cálida, voz de cuento de fantasía), así todas las clases suenan igual. **No cambies de voz, motor (`--motor edge`) ni uses VoiceDesign** salvo que el usuario lo pida expresamente; si pide otra voz, se sustituyen `narradora.wav` y `narradora.txt` (ver `narracion/README.md`) y se regeneran todas.
+5. Si cambias después la `descripcion`, regenera ese audio. No puedes escuchar el audio: dilo al usuario y pídele que lo escuche.
 
 ## 4. Efectos (`efectos.js`, `efectos.css`) y registro
 Cada valor de `efecto` en `seleccion` necesita una función en `efectos.js` (ver `references/efectos.md`, con los patrones del druida: partículas, aura, tema de pantalla final y ambiente). Tema/paleta acorde a la temática de cada poder.
@@ -113,7 +142,7 @@ Ya hay scroll en: la descripción de las cartas de poder (patrón anterior), `.p
 
 ## 6. Verificación (obligatoria)
 - Armas: cada entrada de `clase.armas` figura en `tienda.js` (grupo "Armas") o en "Armaduras" si es el escudo.
-- `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen" ni "imagen sin usar").
+- `make check CLASE=<clase>`: debe dar 0 errores y 0 avisos (sin "falta imagen", "imagen sin usar", "falta el audio" ni "audio sin enlazar"). Las 2 cartas `personaje` deben tener su `narracion` (sección 3b).
 - `revisar_desbordes.py <clase>`: 0 problemas (sección 5).
 - `make catalogo` → http://localhost:8081: ver que la clase aparece, cartas con imágenes, la selección de 3 pasos funciona y los efectos se disparan (haz un recorrido con navegador si hay herramienta disponible).
-- No hagas commit salvo que lo pidan. Resume al usuario: ids, poderes, dones, qué imágenes quizá quiera repetir.
+- No hagas commit salvo que lo pidan. Resume al usuario: ids, poderes, dones, qué imágenes quizá quiera repetir y que escuche las narraciones (no puedes oírlas).

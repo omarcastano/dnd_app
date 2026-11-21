@@ -2,6 +2,7 @@
 //   · imagen de carta personaje/ilustrada  → `imagen` o `imagenes/<id>.webp`
 //   · icono de una fila con nombre         → `icono` o `imagenes/habilidades/<slug(nombre)>.webp`
 //   · retrato de una opción con `portada`  → `imagenes/<slug(etiqueta)>.webp`
+//   · narración (audio)                    → `narracion` (ruta relativa a la clase, p. ej. `narraciones/<id>.mp3`)
 //   · personaje: `reglas` y `armas` salen del bloque `clase` salvo que la carta las defina
 // Todas las rutas quedan resueltas desde la carpeta de la clase (`base`).
 import { slug } from './util.js';
@@ -31,6 +32,7 @@ export function normalizar(id, crudo) {
       n.reglas = c.reglas ?? clase.reglas ?? [];
       n.armas = c.armas ?? clase.armas ?? [];
     }
+    if (c.narracion) n.narracion = base + c.narracion;
     if (c.tipo !== 'tabla') n.imagen = base + (c.imagen ?? `imagenes/${c.id}.webp`);
     for (const k of ['ataques', 'tabla']) if (c[k]) n[k] = c[k].map((f) => normalizarFila(f, base));
     return n;

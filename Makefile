@@ -1,15 +1,17 @@
 PORT ?= 8080
-VENV := narracion/.venv
-PY := $(VENV)/bin/python
+UV ?= uv
+PY := .venv/bin/python
 
-.PHONY: run audio-setup audio check cartas catalogo
+.PHONY: run setup audio-setup audio check cartas catalogo
 
 run:
 	python3 -m http.server $(PORT) -d public
 
-audio-setup:
-	python3 -m venv $(VENV)
-	$(VENV)/bin/pip install -r narracion/requirements.txt
+# Dependencias de Python: todas en pyproject.toml (uv), un solo entorno .venv dentro del proyecto
+setup:
+	$(UV) sync --all-groups
+
+audio-setup: setup
 
 audio:
 	$(PY) narracion/generar_audio.py $(ARGS)

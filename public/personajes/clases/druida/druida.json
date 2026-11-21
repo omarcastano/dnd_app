@@ -16,7 +16,8 @@
       "tipo": "personaje",
       "nombre": "Eldan Galadriel",
       "raza": "Elfo del Bosque",
-      "descripcion": "Elfo de largos cabellos blancos y barba, con bastón intrincado, capa y pergaminos.",
+      "descripcion": "Anciano elfo de largos cabellos y barba blancos como la escarcha. Envuelto en su capa, guarda pergaminos antiguos y un bastón tallado por el bosque, que obedece solo a su voz.",
+      "narracion": "narraciones/eldan-galadriel.mp3",
       "reglas_raza": [
         "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
       ]
@@ -26,7 +27,8 @@
       "tipo": "personaje",
       "nombre": "Selene Galadriel",
       "raza": "Elfa del Bosque",
-      "descripcion": "Elfa etérea de túnicas verdes con hojas y enredaderas; porta un bastón con orbe brillante.",
+      "descripcion": "Elfa etérea de túnicas verdes tejidas con hojas y enredaderas vivas. Su bastón, coronado por un orbe luminoso, despierta el bosque entero con apenas un susurro.",
+      "narracion": "narraciones/selene-galadriel.mp3",
       "reglas_raza": [
         "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
       ]

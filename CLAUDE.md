@@ -18,4 +18,9 @@ Sitio estático en español, sin build. `public/` es la raíz publicada. La pest
 - `make run` — servidor local (puerto `PORT=8080`)
 - `make check` — valida personajes (esquema, referencias, imágenes); `CLASE=x` para una sola
 - `make catalogo` — el sitio en http://localhost:8081 sin caché (pestaña Héroes = catálogo de cartas)
-- `make audio-setup` / `make audio ARGS="..."` — narración
+- `make setup` — instala TODAS las dependencias de Python (`uv sync --all-groups` → `.venv`); `make audio ARGS="..."` — narración: motor Qwen3-TTS que clona siempre la misma narradora (`narracion/voz/`), ver `narracion/README.md` (`make audio-setup` es un alias de `make setup`)
+
+## Dependencias de Python
+- **Todas las dependencias de Python viven en el `pyproject.toml` de la raíz** (+ `uv.lock`), con `uv` y un único entorno `.venv/` dentro del proyecto. Nunca `pip install` global ni `requirements.txt` sueltos, ni otro `pyproject.toml` (ni en `~/ia`) para este proyecto.
+- Base: narración (`edge-tts`, `pedalboard`). Grupo `imagenes`: ComfyUI/SDXL (el código y el modelo están en `~/ia/ComfyUI`; `asegurar_comfyui.sh` lo arranca con el `.venv` del proyecto). Grupo `voces`: voces open source (Qwen3-TTS).
+- **Sin forzar versiones**: nada de `override-dependencies` ni pins artificiales. Antes de añadir un paquete, comprobar con `uv lock` que resuelve de forma natural; si choca con otro (p. ej. Chatterbox exige `torch 2.6` y ComfyUI usa `2.11`), se descarta ese paquete.

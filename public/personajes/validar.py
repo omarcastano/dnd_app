@@ -2,7 +2,8 @@
 """Valida las clases de personajes (esquema, referencias e imágenes). Uso: python3 public/personajes/validar.py [clase ...]
 
 Errores (exit 1): JSON roto, campos obligatorios, ids repetidos o inexistentes, tipos desconocidos, clases mal registradas.
-Avisos: imágenes que faltan (borrador) o que nadie usa.
+Avisos: imágenes que faltan (borrador) o que nadie usa, y audios en narraciones/ que ninguna carta enlaza.
+Una carta puede llevar `narracion` (ruta a un .mp3 relativa a la clase); si el archivo no existe es un error.
 Valida también `plantilla/` para que el ejemplo no se desactualice. Las convenciones de imágenes deben coincidir con app/datos.js.
 """
 import json
@@ -52,6 +53,7 @@ def validar_clase(id, carpeta, es_plantilla=False):
         if k not in clase:
             errores.append(f'{id}: falta clase.{k}')
     usadas = set()  # imágenes referenciadas
+    audios = set()  # narraciones referenciadas
     ids = set()
     for c in d.get('cartas', []):
         cid = c.get('id', '?')
@@ -71,6 +73,10 @@ def validar_clase(id, carpeta, es_plantilla=False):
                     errores.append(f'{ctx}: sin {k} (ni propias ni en clase)')
         if 'nivel' in c and not 1 <= c['nivel'] <= 6:
             errores.append(f'{ctx}: nivel fuera de 1-6')
+        if c.get('narracion'):
+            audios.add(c['narracion'])
+            if not (carpeta / c['narracion']).is_file():
+                errores.append(f'{ctx}: falta el audio {c["narracion"]}')
         if c['tipo'] != 'tabla':
             usadas.add(c.get('imagen', f'imagenes/{cid}.webp'))
         for k in ('ataques', 'tabla'):
@@ -89,6 +95,12 @@ def validar_clase(id, carpeta, es_plantilla=False):
                     errores.append(f'{ctx}: la carta "{cid}" no existe')
             if o.get('portada'):
                 usadas.add(f'imagenes/{slug(o["etiqueta"])}.webp')
+
+    carpeta_audio = carpeta / 'narraciones'
+    if carpeta_audio.is_dir():
+        for u in sorted(str(p.relative_to(carpeta)) for p in carpeta_audio.glob('*.mp3')):
+            if u not in audios:
+                avisos.append(f'{id}: audio sin enlazar {u}')
 
     existentes = {str(p.relative_to(carpeta)) for p in (carpeta / 'imagenes').rglob('*') if p.is_file() and p.suffix == '.webp'}
     if not es_plantilla:  # la plantilla no lleva imágenes

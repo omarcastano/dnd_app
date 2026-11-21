@@ -1,0 +1,43 @@
+# Dependencias de Python de TODO el proyecto, en un solo sitio y UN solo entorno (uv; nada va al Python global).
+#   dependencias base     → narración con edge-tts
+#   grupo `imagenes`      → ComfyUI / SDXL (el código y el modelo viven en ~/ia/ComfyUI)
+#   grupo `voces`         → voces open source (Qwen3-TTS)
+# `make setup` instala todo en .venv. Todo resuelve de forma natural: sin overrides, sin forzar versiones.
+# Si se añade un paquete, comprobar con `uv lock` que resuelve sin conflicto antes de commitear.
+[project]
+name = "dnd-app"
+version = "0.1.0"
+description = "Herramientas locales (narración, imágenes, voces) de La Taberna"
+requires-python = ">=3.12,<3.13"
+dependencies = ["edge-tts", "pedalboard"]
+
+[dependency-groups]
+# ComfyUI v0.46.0 (el código y el modelo SDXL viven en ~/ia/ComfyUI; aquí solo sus dependencias)
+imagenes = [
+  "comfyui-frontend-package==1.59.10", "comfyui-workflow-templates==0.11.114", "comfyui-embedded-docs==0.5.17",
+  "torch", "torchvision", "torchaudio", "torchsde",
+  "einops",
+  "sentencepiece", "aiohttp>=3.11.8", "yarl>=1.18.0",
+  "pyyaml", "tqdm", "psutil", "alembic",
+  "SQLAlchemy>=2.0.0", "filelock", "av>=17.0.0", "comfy-aimdo==0.6.0",
+  "comfy-kitchen==0.2.41", "requests", "simpleeval>=1.0.0", "blake3",
+  "kornia>=0.7.1", "spandrel", "pydantic~=2.0", "pydantic-settings~=2.0",
+  "PyOpenGL>=3.1.8", "comfy-angle",
+  "numpy>=1.25.0", "transformers>=4.50.3", "tokenizers>=0.13.3", "safetensors>=0.4.2", "scipy", "Pillow>=10.1.0",
+]
+# Voces expresivas open source (pruebas de narración). Chatterbox se descartó: exige torch 2.6 y choca con ComfyUI
+voces = ["qwen-tts"]
+
+[tool.uv]
+package = false
+
+# PyTorch con CUDA 12.8 (compatible con el driver)
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
