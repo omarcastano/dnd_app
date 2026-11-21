@@ -111,4 +111,4 @@
 .cuerpo-p { justify-content: flex-start; }
 
 /* Móvil: el scroll vertical interno de las cartas debe funcionar dentro del carrusel horizontal */
-.pergamino, .bloque.desc, .cuerpo-p, .bloque.especial .desc-p { touch-action: pan-y; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.pergamino, .bloque.desc, .cuerpo-p, .bloque.especial .desc-p { touch-action: pan-x pan-y; overscroll-behavior-y: contain; overscroll-behavior-x: auto; -webkit-overflow-scrolling: touch; }
