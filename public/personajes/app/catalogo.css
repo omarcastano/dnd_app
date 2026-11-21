@@ -151,3 +151,14 @@ body.visor-abierto { overflow: hidden; }
   .btn-pri { padding: 10px 14px; }
   .resumen .chips { margin: 4px 0 6px; }
 }
+
+/* ===== Móvil: una sola carta a la vez, grande y centrada (sin asomar la siguiente) ===== */
+.ayuda, .pista-voltear { display: none !important; } /* el gesto de deslizar/tocar se explica en persona */
+@media (max-width: 760px) {
+  .tab-content.tab-heroes { padding: 0 0 80px; }
+  .opciones { gap: calc((100vw - 306px * var(--escala-sel, 1)) / 2 + 4px); }
+  .hoja-p { gap: calc((100vw - 306px * var(--escala, 1)) / 2 + 4px); }
+  .clase h2 { padding: 0 16px; }
+  .paso h3 { margin: 0 0 2px; }
+  .paso .progreso { margin-top: 0; }
+}
