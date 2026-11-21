@@ -109,6 +109,3 @@
 /* Texto que no cabe: se hace scroll (nunca se recorta ni se pisa otro bloque). `safe center` evita que lo centrado pierda su parte superior. */
 .pergamino, .bloque.desc, .cuerpo-p { overflow-y: auto; scrollbar-width: thin; scrollbar-color: #a98a4a transparent; justify-content: safe center; }
 .cuerpo-p { justify-content: flex-start; }
-
-/* Móvil: el scroll vertical interno de las cartas debe funcionar dentro del carrusel horizontal */
-.pergamino, .bloque.desc, .cuerpo-p, .bloque.especial .desc-p { touch-action: pan-y; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
