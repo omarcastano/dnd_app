@@ -5,6 +5,7 @@ import { mostrarCartas, ajustarEscala } from './carrusel.js?v=3';
 import { iniciarSeleccion } from './seleccion.js';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
+import { atenderNarracion } from './narracion.js';
 
 async function cargarEfectos(id) {
   const css = document.createElement('link');
@@ -59,6 +60,7 @@ export async function initHeroes() {
     addEventListener('hashchange', mostrarVista);
     // Texto que no cabe en la carta: al tocarlo se abre completo en una ventana (el scroll interno falla en Chrome móvil)
     raiz.addEventListener('click', (e) => {
+      if (atenderNarracion(e)) return;
       if (e.target.closest('.visor')) return;
       const caja = e.target.closest('.bloque.desc, .bloque.especial, .pergamino');
       if (!caja) return;

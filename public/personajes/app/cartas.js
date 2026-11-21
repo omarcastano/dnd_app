@@ -5,6 +5,9 @@ import { esc } from './util.js';
 const ROMANOS = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
 const ESQUINAS = '<i class="esquina a"></i><i class="esquina b"></i><i class="esquina c"></i><i class="esquina d"></i>';
 const DIVISOR = '<div class="divisor"><i>◆</i></div>';
+// Divisor del frente con un medallón ▶/❚❚ en el centro cuando la carta tiene narración (iconos SVG: quedan centrados en cualquier estado)
+const MEDALLON = (ruta) => `<div class="divisor divisor-narracion"><button type="button" class="btn-narracion" data-narracion="${esc(ruta)}" aria-label="Escuchar la narración" title="Escuchar la narración">
+  <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12l10-6z"/></svg><svg class="ico-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5h3.6v13H7zM13.4 5.5H17v13h-3.6z"/></svg></button></div>`;
 const lista = (xs) => `<ul>${xs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
 const img = (src, alt = '') => (src ? `<img src="${src}" alt="${esc(alt)}">` : '');
 
@@ -22,7 +25,7 @@ const bloqueTabla = (c, et) => `<div class="bloque"><h5>${esc(et.tabla)}</h5>${c
 const DISENOS = {
   personaje: (c, et) => [
     `${ESQUINAS}<div class="retrato-p">${img(c.imagen, c.nombre)}</div>
-     <div class="pie-p"><div class="nombre-carta">${esc(c.nombre)}</div>${DIVISOR}<div class="linaje">${linaje(c)}</div></div>`,
+     <div class="pie-p"><div class="nombre-carta">${esc(c.nombre)}</div>${c.narracion ? MEDALLON(c.narracion) : DIVISOR}<div class="linaje">${linaje(c)}</div></div>`,
     `${ESQUINAS}<div class="placa"><div class="nombre-carta">${esc(c.nombre)}</div></div>
      <div class="pergamino">
        ${c.descripcion ? `<section class="presentacion"><p class="descripcion-dorso">${esc(c.descripcion)}</p></section>` : ''}
