@@ -1,7 +1,7 @@
 // Pestaña «Héroes»: catálogo de clases dentro de index.html (partes/heroes.html). `initHeroes()` se registra en MODULOS de main.js.
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
-import { mostrarCartas, ajustarEscala } from './carrusel.js?v=4';
+import { mostrarCartas, ajustarEscala } from './carrusel.js?v=5';
 import { iniciarSeleccion } from './seleccion.js';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
@@ -37,7 +37,7 @@ export async function initHeroes() {
   const raiz = document.querySelector('.heroes');
   const nav = document.getElementById('heroes-nav');
   const catalogo = document.getElementById('heroes-catalogo');
-  addEventListener('resize', ajustarEscala);
+  addEventListener('resize', () => ajustarEscala());
   ajustarEscala();
   try {
     const clases = await (await fetch(new URL('clases.json', RAIZ), { cache: 'no-cache' })).json();
@@ -87,6 +87,7 @@ export async function initHeroes() {
     }, true);
     await Promise.all(clases.map((c) => cargar(catalogo, c)));
     mostrarVista();
+    ajustarEscala(true);
     // Contador vertical «1 / N» entre clases (solo móvil, en la lista)
     const pagina = document.createElement('div');
     pagina.className = 'pagina-clases';

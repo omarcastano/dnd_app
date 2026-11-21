@@ -2,7 +2,7 @@
 // La elección se recuerda en este dispositivo (localStorage); si no está disponible, simplemente no se guarda.
 import { esc } from './util.js';
 import { carasDeCarta, esperarImagenes } from './cartas.js';
-import { activarContador } from './carrusel.js?v=4';
+import { activarContador, ajustarEscala } from './carrusel.js?v=5';
 import { reproducirEfecto, temaDe, ponerAmbiente } from './efectos.js';
 
 // Portada de una opción con niveles (Forma Salvaje, Sanación): retrato + nombre + descripción. Es la primera cara del volteo.
@@ -99,6 +99,7 @@ export function iniciarSeleccion(contenedor, datos) {
       if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[indiceCaja(v)]); }
     });
     activarContador(contenedor.querySelector('.contador'), opciones);
+    ajustarEscala(true);
     contenedor.querySelector('[data-atras]')?.addEventListener('click', () => paso(i - 1));
   }
 
@@ -126,6 +127,7 @@ export function iniciarSeleccion(contenedor, datos) {
       if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[indiceCaja(v)]); }
     });
     activarContador(contenedor.querySelector('.contador'), opciones);
+    ajustarEscala(true);
     await esperarImagenes(opciones);
     if (desplazar) contenedor.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }

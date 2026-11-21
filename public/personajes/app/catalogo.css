@@ -137,3 +137,17 @@ body.visor-abierto { overflow: hidden; }
 .visor-caja, .visor-caja p, .visor-caja li, .visor-caja span, .visor-caja div, .visor-caja b, .visor-caja i, .visor-caja em, .visor-caja strong { color: var(--tinta) !important; text-shadow: none !important; }
 .visor-caja h4, .visor-caja h5 { color: var(--oro-oscuro) !important; text-shadow: none !important; }
 .visor-caja li::before { color: var(--musgo) !important; }
+/* Móvil: menos relleno vertical alrededor de las cartas para que ganen tamaño */
+@media (max-width: 760px) {
+  .clase { padding-top: 8px; }
+  .clase h2 { font-size: 18px; }
+  .paso { padding-top: 2px; }
+  .paso h3 { font-size: 18px; margin: 2px 0 6px; }
+  .paso .ayuda { display: none; }
+  .paso .progreso { margin-top: 2px; }
+  .contador { padding-top: 4px; }
+  .opciones { padding-top: 4px; padding-bottom: 4px; }
+  .pista-voltear { font-size: 12px; margin: 0; }
+  .btn-pri { padding: 10px 14px; }
+  .resumen .chips { margin: 4px 0 6px; }
+}
