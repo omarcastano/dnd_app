@@ -9,7 +9,7 @@ import { slug } from './util.js';
 
 export const ETIQUETAS = {
   armas: 'Armas', habilidades_clase: 'Habilidades de clase', habilidades_raza: 'Habilidades de raza',
-  ataques: 'Ataque básico', tabla: 'Ataque especial', nivel: 'Nivel', dado: 'D20',
+  ataques: 'Habilidades básicas', tabla: 'Habilidades especiales', nivel: 'Nivel', dado: 'D20',
 };
 export const TIPOS = ['personaje', 'tabla', 'ilustrada'];
 

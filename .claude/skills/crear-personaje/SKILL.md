@@ -46,17 +46,17 @@ Por defecto la clase tiene **2 poderes y 2 dones** (Druida). Si el usuario pide 
 | Cartas `tabla` | 4 | 6 (3 roles × 2 niveles) |
 | Cartas `ilustrada` (dones) | 2 | 3 (1 con tabla d20, 2 con `nombre_habilidad`) |
 | Opciones en "Elige tu poder" y "Elige tu don" | 2 y 2 | 3 y 3 |
-| Ataques básicos (compartidos por todos los roles) | 4 | 4 |
+| Ataques básicos (mismos nombres y valores; umbral por rol, ver 2b) | 4 | 4 |
 | Habilidades especiales | 8 | 12 |
 | Iconos de habilidad | 12 | 16 |
 | Imágenes totales | 18 | 24 (2 retratos + 3 portadas + 3 dones + 16 iconos) |
 | Efectos en `efectos.js` | 2 | los que haga falta: uno por rol y los dones pueden tener el suyo (el paladín: `castigo`, `luz`, `egida`, `resurreccion`; `temas` agrupa en 3 pantallas finales) |
 
-Cómo se diferencian los roles en el paladín (copia el patrón):
-- **DPS** (*Castigo Divino*): tabla `1-14 / 15-18 / 19+`, subtítulo "Ataque especial", valores 2-3 (nivel 1) y 3-4 (nivel 2).
-- **Sanador** (*Luz Sanadora*): `1-10 / 11-16 / 17+`, subtítulo "Conjuro de sanación", valores 1-2 y 2-3.
-- **Tanque** (*Bastión Sagrado*): `1-10 / 11-16 / 17+`, subtítulo "Conjuro de protección", valores 1-2 y 2-3; la descripción explica la mecánica (reduce el siguiente ataque enemigo en tantos puntos como indique la habilidad, se suma el escudo).
-- Los 4 ataques básicos son iguales en los 3 roles, con subtítulo "Ataque básico" (en el druida, al ser conjuros, "Conjuro de ataque"). La carta del personaje incluye `reglas_raza` (paladín: humanos repiten un d20 fallido).
+Cómo se diferencian los roles en el paladín (copia el patrón; los números exactos y su porqué están en la sección 2b):
+- **DPS** (*Castigo Divino*): ataques básicos `5-11 / 12+`; tabla `11-16 / 17+`, subtítulo "Ataque especial", valores 2-3 (nivel 1) y 3-4 (nivel 2).
+- **Tanque** (*Bastión Sagrado*): ataques básicos **más difíciles** `7-13 / 14+`; tabla `11-16 / 17+`, subtítulo "Conjuro de protección", valores 1-2 y 2-3; la descripción explica la mecánica (reduce el siguiente ataque enemigo en tantos puntos como indique la habilidad, se suma el escudo).
+- **Sanador** (*Luz Sanadora*): ataques básicos **los más difíciles** `9-15 / 16+`; tabla `11-16 / 17+`, subtítulo "Conjuro de sanación", valores 1-2 y 2-3.
+- Los ataques básicos mantienen **mismos nombres, mismos valores y subtítulo "Ataque básico"** en los 3 roles (en el druida, "Conjuro de ataque"): solo cambia el umbral del d20 según el rol (mismo nombre → mismo icono, se genera una vez). La carta del personaje incluye `reglas_raza` (paladín: humanos repiten un d20 fallido).
 Si los roles son otros, aplica la misma lógica según su función. El catálogo ya admite 3 opciones por paso (carrusel); no hay que tocar código.
 
 ## 1c. Armas: solo las de la tienda (regla obligatoria)
@@ -81,11 +81,34 @@ Parte de `references/plantilla.json` (copia fiel del esquema del druida con marc
 | `clase` | 1 | `nombre`, `reglas` (habilidades de clase: normalmente una restricción y una bonificación, **pero no hay tope**; las que hagan sentido), `armas` (**de la tienda**, ver 1c; **sin tope de 2**) |
 | Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` = habilidades de raza, **las que hagan sentido, sin tope de 2**), con `descripcion` (~160-180 caracteres, ver 3b) **y `narracion`** (el mp3 de esa descripción, sección 3b) |
 | Cartas `tabla` | 4 | 2 poderes × niveles 1 y 2. id `<poder>-nivel-<n>` |
-| Cartas `ilustrada` | 2 | Los 2 dones. Uno con `tabla` d20 (1-11 nada / 12+ efecto, "una vez por tablero de mazmorra"); el otro con `nombre_habilidad` y sin tabla |
+| Cartas `ilustrada` | 2 | Los 2 dones. Uno con `tabla` d20 (solo la fila `12+` con el efecto; 1-11 no se muestra, "una vez por tablero de mazmorra"); el otro con `nombre_habilidad` y sin tabla |
 | `seleccion` | 3 pasos | "¿Quién eres?" (Hombre/Mujer) → "Elige tu poder" (2 opciones, `portada: true`, cartas nivel-1 y nivel-2) → "Elige tu don" (2 opciones) |
 
-Cada carta `tabla`: `ataques` = **2 ataques básicos por nivel** (`5+` y `12+`, subtítulo "Conjuro de ataque" o equivalente) y `tabla` = fila "No ocurre nada" + **2 habilidades especiales**. Los ataques básicos del nivel son **los mismos en los dos poderes** (mismos nombres → mismo icono, se genera una vez). Totales por clase base: **4 ataques básicos + 8 habilidades especiales = 12 iconos** (16 con tres roles).
-Valores y rangos como el druida: básicos nivel 1 = 1 y 2, nivel 2 = 2 y 3. Poder ofensivo: tabla `1-14` / `15-18` / `19+`, valores 2-3 (nivel 1) y 3-4 (nivel 2). Poder de apoyo/curación: `1-10` / `11-16` / `17+`, valores 1-2 (nivel 1) y 2-3 (nivel 2). `rango_d20` siempre texto. Toda fila con `nombre` lleva `valor` y `subtitulo`. Nombres de habilidades distintos entre sí (cada uno = un icono propio).
+Cada carta `tabla`: `ataques` = **2 ataques básicos por nivel** (umbrales según el rol, sección 2b; subtítulo "Conjuro de ataque" o equivalente) y `tabla` = **2 habilidades especiales** (sin fila «No ocurre nada»). Los ataques básicos del nivel tienen **los mismos nombres y valores en todos los poderes** (mismo icono, se genera una vez); solo el umbral d20 cambia por rol. Totales por clase base: **4 ataques básicos + 8 habilidades especiales = 12 iconos** (16 con tres roles).
+Valores y rangos: **ver la sección 2b (balance por rol)**; no los inventes. `rango_d20` siempre texto. Toda fila con `nombre` lleva `valor` y `subtitulo`. Nombres de habilidades distintos entre sí (cada uno = un icono propio).
+
+## 2b. Balance de dados por rol (obligatorio)
+Todo poder pertenece a un **rol** (DPS, tanque o sanador; en la variante de 2 poderes: ofensivo = DPS y apoyo = sanador). El rol decide la dificultad del **ataque básico**; la **tabla especial** es igual para todos los roles. Un tanque o un sanador debe costar más hacer daño que a un DPS, pero sus poderes siguen siendo útiles.
+
+**Ataques básicos por rol** (mismos nombres y valores en todos; solo cambia el umbral). Cada nivel tiene 2 ataques: el normal y el fuerte. **Los ataques básicos se escriben siempre como rangos (`5-11` y `12+`), nunca como `5+ / 12+` solapados**: así cada tirada da un solo resultado y el formato es igual al de la tabla especial. **Nunca se escribe la fila «No ocurre nada»** (ni en ataques básicos ni en la tabla especial ni en los dones): las tiradas por debajo del primer rango no hacen nada y no se muestran, así se gana espacio para el texto.
+
+| Rol | Umbrales d20 | Valores nv1 | Valores nv2 | Valor esperado nv1 / nv2 |
+|---|---|---|---|---|
+| DPS | `5-11` / `12+` | 1 y 2 | 2 y 3 | 1.25 / 2.05 |
+| Tanque | `7-13` / `14+` | 1 y 2 | 2 y 3 | 1.05 / 1.75 |
+| Sanador | `9-15` / `16+` | 1 y 2 | 2 y 3 | 0.85 / 1.45 |
+
+**Tabla especial (todos los roles igual)**: `11-16` / `17+` (1-10 no hace nada y no se muestra). Valores: DPS (ataque especial) 2-3 en nivel 1 y 3-4 en nivel 2; tanque y sanador 1-2 y 2-3. Así el ataque especial falla el 50 % (como las sanaciones y protecciones) y no queda peor que el ataque básico (antes `1-14 / 15-18 / 19+` fallaba el 70 % y no compensaba).
+
+Los títulos de los dos bloques de la carta son genéricos para todos los roles: **«Habilidades básicas»** y **«Habilidades especiales»** (`ETIQUETAS` en `app/datos.js`; no los cambies por clase). El `subtitulo` de cada fila sí describe su tipo ("Ataque básico", "Conjuro de sanación", "Conjuro de protección"…).
+
+Reglas del criterio (aplícalas también a roles que no sean estos tres):
+- Jerarquía del daño: **DPS > tanque > sanador**. Cada escalón baja ~15-20 % el valor esperado del ataque básico, subiendo el umbral (nunca cambies los `valor` de los básicos para eso: la carta se mantiene uniforme).
+- Cuanto más difícil es sacar un rango, mayor es el valor (probabilidad × valor ≈ constante por nivel).
+- Una habilidad con riesgo no debe tener **valor esperado menor** que un ataque básico del mismo rol y nivel sin una ventaja clara (efecto extra, a varios objetivos, etc.); si la tiene, escríbela en la `descripcion`.
+- Evita rangos de 2 caras o menos (p. ej. `19+` = 10 %): casi nunca salen. El escalón alto empieza en `17+`.
+- Un rol nuevo (p. ej. un controlador o apoyo ofensivo): ubícalo entre los escalones anteriores, calcula el valor esperado y explica la decisión al usuario en el resumen.
+- Comprueba los cálculos antes de dar la clase por terminada (valor esperado = Σ probabilidad × valor; cada cara del d20 = 5 %).
 
 ### Las habilidades deben entenderse (regla de contenido)
 Un jugador debe saber qué hace cada habilidad con solo leer la carta. **Prohibido** nombres o descripciones ambiguos o solo "bonitos" ("Danza de las sombras", "Bendición eterna", "Furia primigenia" sin decir qué hacen).

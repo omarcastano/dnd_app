@@ -40,7 +40,7 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Rayo de Luna",
           "valor": 2,
           "subtitulo": "Conjuro de ataque"
@@ -55,17 +55,13 @@
       "descripcion": "Al canalizar la energía de la naturaleza, tomas la forma de una fuerte bestia que te permite luchar cuerpo a cuerpo.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Zarpazo Veloz",
           "valor": 3,
           "subtitulo": "Ataque con garras"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Pisotón de Tierra",
           "valor": 4,
           "subtitulo": "Ataque con garras"
@@ -79,7 +75,7 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Llamarada Solar",
           "valor": 1,
           "subtitulo": "Conjuro de ataque"
@@ -94,17 +90,13 @@
       "descripcion": "Al canalizar la energía de la naturaleza, tomas la forma de una fuerte bestia que te permite luchar cuerpo a cuerpo.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Mordida Feroz",
           "valor": 2,
           "subtitulo": "Ataque con garras"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Embate de la Bestia",
           "valor": 3,
           "subtitulo": "Ataque con garras"
@@ -118,13 +110,13 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Rayo de Luna",
           "valor": 2,
           "subtitulo": "Conjuro de ataque"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Llama Sagrada",
           "valor": 3,
           "subtitulo": "Conjuro de ataque"
@@ -132,10 +124,6 @@
       ],
       "descripcion": "Al canalizar la energía de la naturaleza, puedes restaurar puntos de vida a uno de tus compañeros o a ti mismo.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Viento Sanador",
@@ -157,13 +145,13 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Llamarada Solar",
           "valor": 1,
           "subtitulo": "Conjuro de ataque"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Explosión de Espinas",
           "valor": 2,
           "subtitulo": "Conjuro de ataque"
@@ -171,10 +159,6 @@
       ],
       "descripcion": "Al canalizar la energía de la naturaleza, puedes restaurar puntos de vida a uno de tus compañeros o a ti mismo.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Sanación Menor",
@@ -195,10 +179,6 @@
       "nombre": "Instinto Salvaje",
       "descripcion": "Esta habilidad permite al druida elfo transformarse mágicamente en una poderosa bestia que duplica su poder de ataque. Una vez por cada tablero de mazmorra y solo durante una batalla, puedes convertirte en una poderosa bestia parda, lo que hará que los ataques infligidos en tu forma salvaje hagan el doble de daño a tus enemigos.",
       "tabla": [
-        {
-          "rango_d20": "1-11",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "12+",
           "resultado": "Te conviertes en una bestia"

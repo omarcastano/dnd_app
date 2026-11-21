@@ -41,7 +41,7 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Golpe Radiante",
           "valor": 2,
           "subtitulo": "Ataque básico"
@@ -56,17 +56,13 @@
       "descripcion": "Al invocar la furia de la luz, tu arma se envuelve en fuego sagrado y castigas a los enemigos con golpes devastadores.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Martillo del Alba",
           "valor": 3,
           "subtitulo": "Ataque especial"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Juicio Final",
           "valor": 4,
           "subtitulo": "Ataque especial"
@@ -80,7 +76,7 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Golpe de Martillo",
           "valor": 1,
           "subtitulo": "Ataque básico"
@@ -95,17 +91,13 @@
       "descripcion": "Al invocar la furia de la luz, tu arma se envuelve en fuego sagrado y castigas a los enemigos con golpes devastadores.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Castigo Sagrado",
           "valor": 2,
           "subtitulo": "Ataque especial"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Cólera Celestial",
           "valor": 3,
           "subtitulo": "Ataque especial"
@@ -119,13 +111,13 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Golpe Radiante",
           "valor": 2,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Martillazo Sagrado",
           "valor": 3,
           "subtitulo": "Ataque básico"
@@ -133,10 +125,6 @@
       ],
       "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Bendición Radiante",
@@ -158,13 +146,13 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Golpe de Martillo",
           "valor": 1,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Estocada Sagrada",
           "valor": 2,
           "subtitulo": "Ataque básico"
@@ -172,10 +160,6 @@
       ],
       "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Imposición de Manos",
@@ -197,13 +181,13 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "7-13",
           "nombre": "Golpe Radiante",
           "valor": 2,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "14+",
           "nombre": "Martillazo Sagrado",
           "valor": 3,
           "subtitulo": "Ataque básico"
@@ -211,10 +195,6 @@
       ],
       "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Guardia Celestial",
@@ -236,13 +216,13 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "7-13",
           "nombre": "Golpe de Martillo",
           "valor": 1,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "14+",
           "nombre": "Estocada Sagrada",
           "valor": 2,
           "subtitulo": "Ataque básico"
@@ -250,10 +230,6 @@
       ],
       "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Escudo de Fe",
@@ -274,10 +250,6 @@
       "nombre": "Plegaria de Resurrección",
       "descripcion": "El paladín se arrodilla junto a un aliado caído y ruega a los dioses por su regreso. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, un aliado caído regresa a la vida con la mitad de sus puntos de vida.",
       "tabla": [
-        {
-          "rango_d20": "1-11",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "12+",
           "resultado": "Un aliado caído revive con la mitad de sus puntos de vida"

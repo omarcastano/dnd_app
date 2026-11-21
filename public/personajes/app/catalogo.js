@@ -62,10 +62,10 @@ export async function initHeroes() {
     raiz.addEventListener('click', (e) => {
       if (atenderNarracion(e)) return;
       if (e.target.closest('.visor')) return;
-      const caja = e.target.closest('.bloque.desc, .bloque.especial, .pergamino');
+      const clic = e.target.closest('.bloque, .pergamino');
+      // En las cartas de tabla (ataque básico + especial) se muestra el cuerpo entero, no un bloque suelto
+      const caja = clic?.closest('.cuerpo-p') ?? clic;
       if (!caja) return;
-      const corta = [caja, ...caja.querySelectorAll('.desc-p')].some((x) => x.scrollHeight > x.clientHeight + 1);
-      if (!corta) return;
       e.stopPropagation(); // que no voltee la carta
       const visor = document.createElement('div');
       visor.className = 'visor';

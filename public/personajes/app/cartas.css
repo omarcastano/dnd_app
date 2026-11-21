@@ -69,7 +69,7 @@
 /* ===== Habilidades ===== */
 .cuerpo-p { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
 .bloque { border-radius: 8px; padding: 8px 10px; background: radial-gradient(ellipse at 30% 0%, #fbf3d9, var(--pergamino) 50%, var(--pergamino-2)); box-shadow: inset 0 0 14px rgba(120,80,20,.3), inset 0 0 0 1px #a98a4a; }
-.bloque > h5 { font-family: var(--titulo); font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--oro-oscuro); text-align: center; margin: 0 0 4px; }
+.bloque > h5 { font-family: var(--titulo); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--oro-oscuro); text-align: center; margin: 0 0 4px; }
 .desc-p { margin: 0; font-style: italic; font-size: 14px; line-height: 1.28; text-align: center; color: var(--tinta); padding: 2px 6px; }
 .bloque.desc { display: flex; align-items: flex-start; justify-content: center; flex: 1 1 0; min-height: 0; }
 /* Centrado vertical sin perder el inicio del texto cuando desborda (align-items:center recorta la parte de arriba y el scroll no llega a ella) */
@@ -99,6 +99,8 @@
 .banner-p img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .banner-p::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 18px rgba(0,0,0,.5); pointer-events: none; }
 .carta-p.ilustrada .bloque.desc { flex-direction: column; align-items: center; }
+.carta-p.ilustrada .bloque.desc { justify-content: safe center; gap: 12px; }
+.carta-p.ilustrada .bloque.desc > * { margin-block: 0; } /* título y texto juntos y centrados, sin repartir el vacío entre ellos */
 .nombre-habilidad { font-family: var(--titulo); font-weight: 700; font-size: 17px; letter-spacing: .06em; text-align: center; color: var(--musgo); margin-bottom: 6px; }
 .carta-p.ilustrada .desc-p { font-size: 13.5px; line-height: 1.25; }
 
@@ -107,8 +109,8 @@
 
 
 .descripcion-dorso { margin: 0; font-style: italic; font-size: 16.5px; line-height: 1.3; text-align: center; color: var(--tinta); }
-.bloque.especial { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
-.bloque.especial .desc-p { margin-bottom: 6px; padding-bottom: 8px; border-bottom: 1px solid #a98a4a66; max-height: 5.4em; overflow-y: hidden; scrollbar-width: thin; }
+.bloque.especial { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; }
+.bloque.especial .desc-p { margin-bottom: 6px; padding-bottom: 8px; border-bottom: 1px solid #a98a4a66; flex: 1 1 auto; min-height: 3.6em; overflow-y: auto; scrollbar-width: thin; }
 
 /* Texto que no cabe: se hace scroll (nunca se recorta ni se pisa otro bloque). `safe center` evita que lo centrado pierda su parte superior. */
 .pergamino, .bloque.desc, .cuerpo-p { overflow-y: hidden; scrollbar-width: thin; scrollbar-color: #a98a4a transparent; justify-content: safe center; }

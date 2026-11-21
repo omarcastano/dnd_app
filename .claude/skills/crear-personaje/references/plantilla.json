@@ -40,7 +40,7 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Ataque Básico Tres",
           "valor": 2,
           "subtitulo": "Ataque básico"
@@ -55,17 +55,13 @@
       "descripcion": "Descripción del poder 1.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Habilidad 1B",
           "valor": 3,
           "subtitulo": "Ataque especial"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Habilidad 2B",
           "valor": 4,
           "subtitulo": "Ataque especial"
@@ -79,7 +75,7 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "5-11",
           "nombre": "Ataque Básico Uno",
           "valor": 1,
           "subtitulo": "Ataque básico"
@@ -94,17 +90,13 @@
       "descripcion": "Descripción del poder 1.",
       "tabla": [
         {
-          "rango_d20": "1-14",
-          "resultado": "No ocurre nada"
-        },
-        {
-          "rango_d20": "15-18",
+          "rango_d20": "11-16",
           "nombre": "Habilidad 1A",
           "valor": 2,
           "subtitulo": "Ataque especial"
         },
         {
-          "rango_d20": "19+",
+          "rango_d20": "17+",
           "nombre": "Habilidad 2A",
           "valor": 3,
           "subtitulo": "Ataque especial"
@@ -118,13 +110,13 @@
       "nivel": 2,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Ataque Básico Tres",
           "valor": 2,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Ataque Básico Cuatro",
           "valor": 3,
           "subtitulo": "Ataque básico"
@@ -132,10 +124,6 @@
       ],
       "descripcion": "Descripción del poder 2.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Habilidad 3B",
@@ -157,13 +145,13 @@
       "nivel": 1,
       "ataques": [
         {
-          "rango_d20": "5+",
+          "rango_d20": "9-15",
           "nombre": "Ataque Básico Uno",
           "valor": 1,
           "subtitulo": "Ataque básico"
         },
         {
-          "rango_d20": "12+",
+          "rango_d20": "16+",
           "nombre": "Ataque Básico Dos",
           "valor": 2,
           "subtitulo": "Ataque básico"
@@ -171,10 +159,6 @@
       ],
       "descripcion": "Descripción del poder 2.",
       "tabla": [
-        {
-          "rango_d20": "1-10",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "11-16",
           "nombre": "Habilidad 3A",
@@ -195,10 +179,6 @@
       "nombre": "Don Uno",
       "descripcion": "Descripción del don (una vez por tablero de mazmorra...).",
       "tabla": [
-        {
-          "rango_d20": "1-11",
-          "resultado": "No ocurre nada"
-        },
         {
           "rango_d20": "12+",
           "resultado": "Resultado del don"

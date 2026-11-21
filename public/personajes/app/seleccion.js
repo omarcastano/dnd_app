@@ -110,8 +110,6 @@ export function iniciarSeleccion(contenedor, datos) {
     const caras = sel.map((o) => o.cartas.map((id) => porId.get(id)).filter(Boolean).flatMap((c) => carasDeCarta(c, datos.etiquetas)));
     contenedor.innerHTML = `
       <div class="resumen">
-        <p class="progreso">Tu ${esc(datos.titulo)}</p>
-        <div class="chips">${sel.map((o) => `<span>${esc(o.etiqueta)}</span>`).join('')}</div>
         <button type="button" class="btn-sec" data-reiniciar>Elegir de nuevo</button>
       </div>
       <div class="contador"></div>

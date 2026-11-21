@@ -128,30 +128,16 @@
   --titulo: "Cinzel", Georgia, serif; --texto: "EB Garamond", Georgia, serif;
   position: fixed; inset: 0; z-index: 1000; background: #000d; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; display: flex; flex-direction: column; align-items: center; padding: 20px 14px calc(20px + env(safe-area-inset-bottom)); box-sizing: border-box; color: var(--tinta); font-family: var(--texto); line-height: 1.35; }
 .visor * { box-sizing: border-box; }
-.visor-caja { display: block !important; flex: none !important; width: min(100%, 460px); height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; margin: auto 0 14px; padding: 18px 20px; font-size: 18px; }
-.visor-caja li, .visor-caja p { font-size: 1em; }
-.visor-caja h4, .visor-caja h5 { font-size: .75em; }
+.visor-caja { flex: none !important; zoom: 1.3; width: min(calc((100vw - 28px) / 1.3), 360px); height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; margin: auto 0 14px; padding: 18px 20px; }
 .visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 32px; position: sticky; bottom: 0; }
+/* El cuerpo completo de una carta de tabla no lleva marco propio: cada bloque ya tiene el suyo */
+.visor-caja.cuerpo-p { padding: 0; gap: 10px; }
+.visor-caja.cuerpo-p > .bloque { flex: none !important; min-height: auto !important; height: auto !important; max-height: none !important; overflow: visible !important; }
+.visor-caja.cuerpo-p .desc-p { max-height: none !important; overflow: visible !important; }
+/* Don en el visor: el título siempre arriba y el texto debajo (fuera de .carta-p.ilustrada el bloque sería una fila) */
+.visor-caja .bloque.desc { flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; }
+.visor-caja .bloque.desc > * { margin-block: 0; }
 body.visor-abierto { overflow: hidden; }
-/* Texto legible sobre el pergamino: el sitio fuerza letra clara en p/li/span, aquí va tinta oscura */
-.visor-caja, .visor-caja p, .visor-caja li, .visor-caja span, .visor-caja div, .visor-caja b, .visor-caja i, .visor-caja em, .visor-caja strong { color: var(--tinta) !important; text-shadow: none !important; }
-.visor-caja h4, .visor-caja h5 { color: var(--oro-oscuro) !important; text-shadow: none !important; }
-.visor-caja li::before { color: var(--musgo) !important; }
-/* Móvil: menos relleno vertical alrededor de las cartas para que ganen tamaño */
-@media (max-width: 760px) {
-  .clase { padding-top: 8px; }
-  .clase h2 { font-size: 18px; }
-  .paso { padding-top: 2px; }
-  .paso h3 { font-size: 18px; margin: 2px 0 6px; }
-  .paso .ayuda { display: none; }
-  .paso .progreso { margin-top: 2px; }
-  .contador { padding-top: 4px; }
-  .opciones { padding-top: 4px; padding-bottom: 4px; }
-  .pista-voltear { font-size: 12px; margin: 0; }
-  .btn-pri { padding: 10px 14px; }
-  .resumen .chips { margin: 4px 0 6px; }
-}
-
 /* ===== Móvil: una sola carta a la vez, grande y centrada (sin asomar la siguiente) ===== */
 .ayuda, .pista-voltear { display: none !important; } /* el gesto de deslizar/tocar se explica en persona */
 @media (max-width: 760px) {
