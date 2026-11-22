@@ -12,6 +12,7 @@ Entradas del usuario: **nivel** (1-7), **nombre** y **foto(s)** de la figura (ru
 - **Un solo tipo de enemigo por nivel** (nada de esbirro/soldado/élite): los enemigos de un mismo nivel comparten estadísticas y solo se diferencian por imagen, nombre, descripción, nombres de ataque y habilidad.
 - **Daño fijo, no rangos.** Cada ataque es un número fijo, como en las cartas de personajes.
 - **Botín por nivel (importantísimo, ver sec. 1b).** Todo enemigo, al llegar a 0 de vida, tira su botín; las probabilidades salen de la tabla de su nivel, nunca del enemigo.
+- **Robo del Pícaro (ver sec. 1c).** Todo enemigo lleva objetos que el Pícaro puede robar; cada nivel define cuántos y de qué tipo.
 - **Un enemigo por combate**; la dificultad la da la vida (escala con 4/5/6 jugadores) y el efecto, no la cantidad de enemigos.
 - **Sin extras que no se pidieron** (contadores de ronda, barras, atajos…). El usuario los rechazó: manténlo simple.
 - **Lee todo completo antes de decidir.** El usuario se ha quejado de análisis a medias: cuando una decisión dependa de datos (clases, tienda, tabla), léelos enteros.
@@ -34,15 +35,23 @@ Al derrotar a un enemigo (vida a 0 en su vista) la app **tira el botín al azar 
 - **Pesos** (% que suman 100; el usuario los afinará; N6 y N7 son provisionales). **La fuente de verdad es `enemigos.json`: para ver o mostrar las tablas vigentes ejecuta `python3 .claude/skills/crear-enemigo/scripts/mostrar_tablas.py` (niveles, botín y enemigos existentes) y no copies de aquí.** Esta tabla es solo una copia informativa y puede estar desactualizada:
   | Nivel | nada | monedas | comida | bebida | dado | arma | armadura | monedas |
   |---|---|---|---|---|---|---|---|---|
-  | N1 | 25 | 42 | 14 | 9 | 5 | 3 | 2 | 1-2 |
-  | N2 | 20 | 38 | 14 | 10 | 7 | 6 | 5 | 1-3 |
-  | N3 | 15 | 34 | 14 | 10 | 8 | 10 | 9 | 2-4 |
-  | N4 | 10 | 30 | 13 | 10 | 9 | 15 | 13 | 2-5 |
+  | N1 | 25 | 47 | 14 | 9 | 2 | 2 | 1 | 1-2 |
+  | N2 | 20 | 42 | 14 | 10 | 5 | 5 | 4 | 1-3 |
+  | N3 | 15 | 36 | 14 | 10 | 7 | 10 | 8 | 2-4 |
+  | N4 | 10 | 31 | 13 | 10 | 9 | 15 | 12 | 2-5 |
   | N5 | 8 | 26 | 12 | 10 | 9 | 18 | 17 | 3-6 |
   | N6 | 0 | 20 | 10 | 8 | 10 | 26 | 26 | 4-8 |
   | N7 | 0 | 15 | 8 | 7 | 10 | 30 | 30 | 6-10 |
 - **Si el usuario cambia el botín**, edítalo en la fila del nivel (comprueba que los pesos suman 100), sube la versión y muestra la tabla de botín junto a la de niveles. Si pide un botín propio para un enemigo concreto, pregúntale cómo quiere que conviva con el del nivel antes de tocar el código.
 - El botín se guarda en este dispositivo mientras el enemigo está derrotado y se descarta al subir la vida o reiniciar.
+
+## 1c. Robo del Pícaro (regla importante)
+La habilidad *Manos Ligeras* del Pícaro (`public/personajes/clases/picaro/picaro.json`): «el valor de la habilidad es el número de objetos que robas (**1 o 2**) y tú decides cuáles de los que lleve el enemigo» (nivel 2: además le haces un daño igual al número de objetos robados). Por eso **todo enemigo debe llevar objetos** entre los que el Pícaro elige.
+- **Dónde vive**: `robo` en la fila del nivel (`niveles` de `enemigos.json`): `objetos` (**probabilidad de llevar 0, 1, 2… objetos**, suma 100; **escala con el nivel**: N1 lleva poco y puede no llevar nada, los jefes siempre llevan varios para que haya algo que elegir cuando roba 2), y **el tipo de cada objeto usa exactamente los pesos del botín** (lo que allí es «nada» pasa a monedas), de modo que armas, armaduras y dados son igual de raros al robar que al derrotar y suben igual con el nivel (no hay `pesos` propios en `robo`: se editan en `botin`). Los objetos salen de la tienda.
+- **Qué hace la app**: en la vista del enemigo, el botón «Ver qué lleva» tira sus objetos (se guardan en este dispositivo); al tocar un objeto se marca como robado; «Reiniciar» lo borra. El daño del nivel 2 y el número de objetos (1 o 2) los lleva a mano el jugador, como el resto de la vida.
+- **Robo ≠ botín**: el robo es lo que lleva encima y se puede quitar con vida; el botín es lo que aparece al derrotarlo. Son tiradas independientes.
+- **Que tenga sentido (por enemigo)**: cada enemigo puede llevar `"robo": {"objetos": [1, 2], "texto": "…"}`: cambia la cantidad (un lobo lleva menos que un bandido; mínimo 1 para poder robar) y el `texto` explica dónde lo lleva (el lobo: «Entre las espinas de su lomo cuelgan restos de sus víctimas»). **Siempre añade `texto` y ajusta `objetos` a la criatura** (`"objetos": {"0": 40, "1": 45, "2": 15}`; animal: menos objetos que el nivel; humanoide/bruja/guerrero: el del nivel; dragón/jefe: el del nivel o más). **Puede no llevar nada**: la app muestra «No lleva nada». **Lo valioso** (armas, armaduras y dados de ataque, que dan +1d4) **es muy raro a nivel bajo** (N1: 2 % armas, 1 % armaduras, 2 % dados) y sube con el nivel; esto se controla en el `botin` del nivel.
+- Si el usuario cambia el robo, edítalo en la fila del nivel (pesos suman 100), sube la versión y muestra la tabla con `mostrar_tablas.py`.
 
 ## 2. Diseño del enemigo
 Lee `public/enemigos/enemigos.json` (enemigos ya hechos: **no repitas nombres de habilidad ni de ataque**) y las habilidades de las clases (`python3 .claude/skills/crear-personaje/scripts/inventario_clases.py`) para no copiar mecánicas.
@@ -82,21 +91,43 @@ Añade a `enemigos` (el catálogo lo lee solo; no hay que registrar nada más):
     { "golpe": "basico", "nombre": "Mordisco", "subtitulo": "Ataque básico" },
     { "golpe": "fuerte", "nombre": "Desgarro espinoso", "subtitulo": "Ataque que causa sangrado" }
   ],
+  "sonido": "sonidos/lobo-espinoso-aullido.wav", "sonido_muerte": "sonidos/lobo-espinoso-muerte.mp3",
+  "robo": { "objetos": { "0": 40, "1": 45, "2": 15 }, "texto": "Entre las espinas de su lomo cuelgan restos de sus víctimas." },
   "habilidades": [ { "nombre": "Sangrado", "descripcion": "…" } ]
 }
 ```
 No escribas `narracion` a mano (la añade el script de audio). Valida: `python3 -c "import json;json.load(open('public/enemigos/enemigos.json'))"`.
+
+## 4b. Sonidos de la bestia (AudioLDM2 local; van ANTES de la narración)
+Cada bestia lleva **dos sonidos propios de su criatura**, en `public/enemigos/sonidos/`:
+- `sonido` (p. ej. `"sonidos/lobo-espinoso-aullido.wav"`): **efecto final de la narración** (aullido, rugido, siseo…); `generar_audio.py` lo pega tras la voz (0,4 s de silencio, volumen un poco bajo el de la voz, fundido final) y queda un solo mp3.
+- `sonido_muerte` (p. ej. `"sonidos/lobo-espinoso-muerte.mp3"`): **se reproduce solo cuando la vida llega a 0** (quejido/estertor de la criatura; la app lo hace al tocar el botón que la deja en 0, no al abrir la vista).
+**Adecúalos a la criatura**, no uses el del lobo para todas. Prompts en inglés (punto de partida; el modelo no es fiable con voces humanas):
+| Criatura | `sonido` (final de la narración) | `sonido_muerte` |
+|---|---|---|
+| Lobo / animal | `a lone wolf howling at night, long mournful howl, quiet forest, natural echo` | `a wolf yelping and whimpering in pain, a short dying cry that fades into a weak breath` |
+| Dragón | `a huge dragon roaring, deep echoing growl` | `a dragon roaring in agony then collapsing, deep fading groan` |
+| No-muerto | `an undead groaning, hollow rasping moan, eerie` | `an undead moaning and crumbling to dust, fading rattle` |
+| Diablo | `a demon growling deeply, low menacing snarl` | `a demon screeching in pain and fading away` |
+| Bruja / guerrero (voz humana) | **el modelo suele fallar**: pide al usuario una grabación libre de derechos | idem |
+Proceso (**solo con ComfyUI apagado**; la GPU no admite a la vez imágenes, sonidos y narración):
+1. Modelo: `cvssp/audioldm2` (~4,5 GB en la caché de Hugging Face, ya descargado; licencia CC BY-NC-SA 4.0, solo uso no comercial) y dependencias del grupo `sonidos` del `pyproject.toml` (`make setup`). Si faltan, **pide permiso antes de descargar**.
+2. Genera **6 candidatos de cada sonido**: `.venv/bin/python narracion/generar_sonido.py --prompt "…" --salida <scratchpad>/sonidos --prefijo <id>-aullido --candidatos 6 --segundos 6 --pasos 100 --mp3` (muerte: ~4 s). ~15-40 s por candidato.
+3. **No puedes escuchar audio**: deja los candidatos en una carpeta con su ruta completa y pide al usuario que elija. Mientras tanto usa el primero de forma provisional y dilo. Copia los elegidos a `public/enemigos/sonidos/` (`sonido` en `.wav` tal cual; `sonido_muerte` en `.mp3`) y escribe los campos en el JSON.
+4. **Monitoriza la generación** (Monitor sobre el log y los archivos) y **lee el log cuando el proceso termine**: una vez se cayó por un error y se dio por «en marcha». Aprendido: con `transformers` reciente AudioLDM2 falla («GPT2Model no tiene `_update_model_kwargs_for_generation`»); el script ya lo parchea, no lo toques. Un candidato tarda segundos, no minutos: si no hay archivos nuevos en 1-2 minutos, algo falla.
 
 ## 5. Narración (Qwen3-TTS, voz clonada de `narracion/voz/`)
 Solo con ComfyUI apagado. `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` (código 2 → pide permiso, `--instalar`; 3 falta la voz de referencia; 4 poca VRAM → `parar_comfyui.sh`). Luego:
 ```bash
 make audio ARGS="public/enemigos/enemigos.json --id <id>"
 ```
-El audio narra **la descripción y la habilidad** («… Habilidad, Sangrado. Si el Desgarro…»), se guarda en `public/enemigos/narraciones/<id>.mp3` y se enlaza en el JSON. La carta muestra el medallón ▶ en el frente. Dura ~25 s. **No puedes escucharlo: díselo al usuario.** No cambies la voz ni el motor. Si cambias después la descripción o la habilidad, regenera el audio.
+El audio narra **la descripción y la habilidad** («… Habilidad, Sangrado. Si el Desgarro…») y, si el enemigo tiene `sonido` (sec. 4b), lo añade al final, se guarda en `public/enemigos/narraciones/<id>.mp3` y se enlaza en el JSON. La carta muestra el medallón ▶ en el frente. Dura ~25 s. **No puedes escucharlo: díselo al usuario.** No cambies la voz ni el motor. Si cambias después la descripción o la habilidad, regenera el audio.
 
 ## 6. Verificación (obligatoria)
 - Servidor sin caché: `make catalogo` (puerto 8081) o, si ya corre, reutilízalo. Captura: `python3 .claude/skills/crear-enemigo/scripts/captura_bestiario.py --enemigo <id> --salida <scratchpad>/frente.png` (y `--dorso`). Mira las dos con Read: frente (¿se ve la cabeza y el rasgo clave? ¿botón ▶?) y dorso (¿todo cabe sin recortes? orden: descripción, habilidad, ataques, vida). Comprueba que la vista del enemigo muestra el corazón con la vida correcta (4/5/6 jugadores).
 - Los números de la carta deben coincidir con la fila del nivel en `niveles`.
+- **Sonido de muerte**: comprueba que el archivo de `sonido_muerte` existe y se sirve (`curl -I`); en el navegador suena al dejar la vida en 0.
+- **Robo**: `captura_bestiario.py --enemigo <id> --robar --salida …` debe mostrar el `texto` del enemigo y un objeto marcado como robado.
 - **Botín**: derrota al enemigo (`captura_bestiario.py --enemigo <id> --derrotar --salida …`) y comprueba que aparece «Derrotado» y un botín. Su nivel debe tener `botin` con pesos que sumen 100.
 - **Sube la versión visible**: `.version-app` en `public/index.html` (`0.0.N`) y el `?v=` de `base.css`; si tocaste `bestiario.css`, también su `?v=`. Una subida por iteración entregada.
 - No hagas commit ni despliegue salvo que lo pidan.

@@ -45,6 +45,7 @@ const leer = (clave, defecto) => { try { const v = localStorage.getItem(clave); 
 const guardar = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch {} };
 const CLAVE_JUGADORES = 'taberna:bestiario:jugadores';
 const claveVida = (id, jugadores) => `taberna:bestiario:${id}:vida:${jugadores}`;
+const claveRobo = (id) => `taberna:bestiario:${id}:robo`;
 const claveBotin = (id, jugadores) => `taberna:bestiario:${id}:botin:${jugadores}`;
 const olvidar = (clave) => { try { localStorage.removeItem(clave); } catch {} };
 
@@ -66,15 +67,22 @@ const ITEMS_TIENDA = {
 };
 const GRUPO_TIENDA = { comida: 'Comida', bebida: 'Bebidas', dado: 'Dados', arma: 'Armas', armadura: 'Armaduras' };
 
-function tirarBotin(n) {
-  const { pesos, monedas } = n.botin;
+const entre = ([min, max]) => min + Math.floor(Math.random() * (max - min + 1));
+function elegirTipo(pesos) {
   let tirada = Math.random() * Object.values(pesos).reduce((a, b) => a + b, 0);
-  const tipo = Object.keys(pesos).find((k) => (tirada -= pesos[k]) < 0) ?? 'nada';
+  return Object.keys(pesos).find((k) => (tirada -= pesos[k]) < 0) ?? 'nada';
+}
+function itemDe(tipo, monedas) {
   if (tipo === 'nada') return { tipo, texto: 'No dejó nada' };
-  if (tipo === 'monedas') { const c = monedas[0] + Math.floor(Math.random() * (monedas[1] - monedas[0] + 1)); return { tipo: 'moneda', texto: plural(c, 'moneda', 'monedas') }; }
+  if (tipo === 'monedas') return { tipo: 'moneda', texto: plural(entre(monedas), 'moneda', 'monedas') };
   const { nombre, detalle } = ITEMS_TIENDA[tipo](azar(filasTienda(GRUPO_TIENDA[tipo])));
   return { tipo, texto: nombre, detalle };
 }
+const tirarBotin = (n) => itemDe(elegirTipo(n.botin.pesos), n.botin.monedas);
+// Objetos que lleva el enemigo y que el Pícaro puede robar (1 o 2, a su elección). `objetos` da el % de llevar 0, 1, 2… objetos; un enemigo puede cambiarlo con `robo.objetos`.
+// El tipo de cada objeto usa los pesos del botín (lo que allí es «nada» pasa a monedas): lo valioso es igual de raro al robar que al derrotar.
+const pesosRobo = ({ botin: { pesos }, robo }) => robo.pesos ?? (({ nada = 0, monedas = 0, ...resto }) => ({ monedas: monedas + nada, ...resto }))(pesos);
+const tirarRobo = (n, e) => Array.from({ length: Number(elegirTipo(e.robo?.objetos ?? n.robo.objetos)) }, () => ({ ...itemDe(elegirTipo(pesosRobo(n)), n.robo.monedas ?? n.botin.monedas), robado: false }));
 
 const botinHtml = ({ tipo, texto, detalle }) => {
   const [icono, color] = ICONOS_BOTIN[tipo];
@@ -98,6 +106,8 @@ const panelVida = () => `<section class="panel-vida" aria-label="Seguimiento del
   <button type="button" class="reiniciar" data-reiniciar>Reiniciar</button>
   <p class="estado-derrota" hidden>Derrotado</p>
   <div class="botin" hidden><h3>Botín</h3><p class="botin-item"></p></div>
+  <section class="robo" aria-label="Robo del pícaro"><h3>Robo</h3><p class="robo-texto"></p><div class="robo-lista"></div>
+    <button type="button" class="reiniciar" data-ver-robo>Ver qué lleva</button></section>
 </section>`;
 
 function abrirEnemigo(zona, d, e) {
@@ -109,9 +119,16 @@ function abrirEnemigo(zona, d, e) {
   const guardadas = leer(CLAVE_JUGADORES, 4);
   let jugadores = JUGADORES.includes(guardadas) ? guardadas : 4;
   let vida;
+  let robo = leer(claveRobo(e.id), null);
   const maximo = () => n.vida[JUGADORES.indexOf(jugadores)];
   const cargarVida = () => { const v = Number(leer(claveVida(e.id, jugadores), maximo())); vida = Number.isInteger(v) && v >= 0 && v <= maximo() ? v : maximo(); };
+  const pintarRobo = () => {
+    q('.robo-texto').textContent = e.robo?.texto ?? '';
+    q('.robo-lista').innerHTML = robo && !robo.length ? '<p class="robo-nada">No lleva nada</p>' : (robo ?? []).map((o, i) => `<button type="button" class="objeto-robo${o.robado ? ' robado' : ''}" data-robar="${i}" aria-pressed="${o.robado}">${botinHtml(o)}</button>`).join('');
+    q('[data-ver-robo]').hidden = !!robo;
+  };
   const pintar = () => {
+    pintarRobo();
     const pct = vida / maximo();
     q('.vida-valor b').textContent = vida;
     q('.vida-enemigo').classList.toggle('baja', vida > 0 && pct <= 0.3);
@@ -132,17 +149,23 @@ function abrirEnemigo(zona, d, e) {
   zona.onclick = (ev) => {
     if (atenderNarracion(ev)) return;
     if (ev.target.closest('[data-volver]')) return mostrarLista(zona, d);
+    const antes = vida;
     const j = ev.target.closest('[data-jugadores]');
+    const rb = ev.target.closest('[data-robar]');
     const v = ev.target.closest('[data-vida]');
     if (j) { jugadores = Number(j.dataset.jugadores); guardar(CLAVE_JUGADORES, jugadores); cargarVida(); }
+    else if (ev.target.closest('[data-ver-robo]')) { robo = tirarRobo(n, e); guardar(claveRobo(e.id), robo); }
+    else if (rb) { robo[Number(rb.dataset.robar)].robado = !robo[Number(rb.dataset.robar)].robado; guardar(claveRobo(e.id), robo); }
     else if (v) { vida = Math.min(maximo(), Math.max(0, vida + Number(v.dataset.vida))); guardar(claveVida(e.id, jugadores), vida); }
-    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); guardar(claveVida(e.id, jugadores), vida); olvidar(claveBotin(e.id, jugadores)); }
+    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); guardar(claveVida(e.id, jugadores), vida); olvidar(claveBotin(e.id, jugadores)); robo = null; olvidar(claveRobo(e.id)); }
     else {
       const c = ev.target.closest('.volteo.gira');
       if (c) { const giro = Number(c.dataset.giro ?? 0) + 1; c.dataset.giro = giro; c.style.setProperty('--giro', giro); }
       return;
     }
     pintar();
+    // Al morir suena el quejido de la bestia (sonido_muerte): solo cuando este toque la deja en 0, no al abrir la vista
+    if (antes > 0 && vida === 0 && e.sonido_muerte) new Audio(new URL(e.sonido_muerte, RAIZ).href).play().catch(() => {});
   };
   zona.onkeydown = (ev) => {
     const c = ev.target.closest('.volteo.gira');

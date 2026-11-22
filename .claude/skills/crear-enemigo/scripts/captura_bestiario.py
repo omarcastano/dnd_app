@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Captura de la vista de un enemigo del Bestiario (Chrome headless), para revisarla con Read.
 
-Uso: captura_bestiario.py --enemigo lobo-espinoso --salida frente.png [--dorso] [--derrotar] [--alto 1500] [--puerto 8081]
-Crea una copia temporal de public/index.html con un script que abre la pestaña Bestiario y el enemigo (voltea la carta con --dorso; con --derrotar baja la vida a 0 para ver el botín),
+Uso: captura_bestiario.py --enemigo lobo-espinoso --salida frente.png [--dorso] [--derrotar] [--robar] [--alto 1500] [--puerto 8081]
+Crea una copia temporal de public/index.html con un script que abre la pestaña Bestiario y el enemigo (voltea la carta con --dorso; con --derrotar baja la vida a 0 para ver el botín; con --robar tira lo que lleva el enemigo y marca el primer objeto como robado),
 desactiva transiciones/animaciones para que la captura no salga a mitad de giro, y borra la copia al terminar.
 Si no hay servidor en el puerto, arranca uno sin caché (personajes/servidor.py) y lo cierra al acabar.
 """
@@ -29,6 +29,7 @@ def main():
     p.add_argument('--salida', type=Path, required=True)
     p.add_argument('--dorso', action='store_true')
     p.add_argument('--derrotar', action='store_true', help='Baja la vida a 0 (aparece el botín)')
+    p.add_argument('--robar', action='store_true', help='Tira el robo del Pícaro y marca el primer objeto')
     p.add_argument('--ancho', type=int, default=420)
     p.add_argument('--alto', type=int, default=1500)
     p.add_argument('--puerto', type=int, default=8081)
@@ -40,10 +41,11 @@ def main():
 
     voltear = "document.querySelector('.bestiario .volteo.gira').click();" if a.dorso else ''
     derrotar = "const z=document.getElementById('bestiario-catalogo');for(let i=0;i<30;i++)z.querySelector('[data-vida=\"-1\"]').click();" if a.derrotar else ''
+    robar = "const z2=document.getElementById('bestiario-catalogo');z2.querySelector('[data-ver-robo]').click();z2.querySelector('[data-robar]').click();" if a.robar else ''
     guion = (
         '<style>*{transition:none!important;animation:none!important}</style><script>'
         "setTimeout(()=>{document.querySelector('[data-tab=\"bestiario\"]').click();"
-        f"setTimeout(()=>{{document.querySelector('[data-enemigo=\"{a.enemigo}\"]').click();{derrotar}{voltear}}},500);}},1500);</script></body>"
+        f"setTimeout(()=>{{document.querySelector('[data-enemigo=\"{a.enemigo}\"]').click();{derrotar}{robar}{voltear}}},500);}},1500);</script></body>"
     )
     temporal = RAIZ / 'public' / '_captura.html'
     temporal.write_text((RAIZ / 'public' / 'index.html').read_text(encoding='utf-8').replace('</body>', guion), encoding='utf-8')

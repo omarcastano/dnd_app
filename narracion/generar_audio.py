@@ -56,7 +56,22 @@ VOZ_REF = Path(__file__).parent / "voz"
 MODELO_QWEN = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
 
 
-def generar_qwen(cartas, carpeta_salida):
+def con_sonido(voz, sample_rate, ruta, hueco=0.4, fundido=1.2, db=-3.0):
+    """Pega un efecto de sonido (aullido, rugido…) tras la narración: `hueco` s de silencio, volumen un poco por debajo del pico de la voz y fundido final."""
+    import numpy as np
+
+    with AudioFile(str(ruta)) as archivo:
+        efecto = archivo.resampled_to(sample_rate).read(int(archivo.duration * sample_rate) + 1)
+    efecto = efecto.mean(axis=0).astype("float32")
+    efecto *= (float(np.max(np.abs(voz))) * 10 ** (db / 20)) / (float(np.max(np.abs(efecto))) or 1.0)
+    n = min(int(fundido * sample_rate), len(efecto))
+    efecto[-n:] *= np.linspace(1.0, 0.0, n, dtype="float32")
+    corto = min(int(0.05 * sample_rate), len(efecto))
+    efecto[:corto] *= np.linspace(0.0, 1.0, corto, dtype="float32")  # entrada suave: sin chasquido
+    return np.concatenate([voz, np.zeros(int(hueco * sample_rate), dtype="float32"), efecto])
+
+
+def generar_qwen(cartas, carpeta_salida, base):
     import numpy as np
     import torch  # pesado: solo se importa con este motor
     from qwen_tts import Qwen3TTSModel
@@ -73,8 +88,11 @@ def generar_qwen(cartas, carpeta_salida):
         torch.manual_seed(1234)
         ondas, sample_rate = modelo.generate_voice_clone(text=texto, language="Spanish", voice_clone_prompt=referencia)
         ruta = carpeta_salida / f"{carta['id']}.mp3"
+        voz = np.asarray(ondas[0], dtype="float32").reshape(-1)
+        if carta.get("sonido"):  # ruta relativa a la carpeta del JSON
+            voz = con_sonido(voz, sample_rate, base / carta["sonido"])
         with AudioFile(str(ruta), "w", sample_rate, 1, quality="128 kbps") as salida_audio:
-            salida_audio.write(np.asarray(ondas[0], dtype="float32").reshape(1, -1))
+            salida_audio.write(voz.reshape(1, -1))
         print(f"Generado: {ruta}")
 
 
@@ -117,7 +135,7 @@ def main():
 
     salida = args.salida or args.archivo.parent / "narraciones"
     if args.motor == "qwen":
-        generar_qwen(cartas, salida)
+        generar_qwen(cartas, salida, args.archivo.parent)
     else:
         asyncio.run(generar(cartas, args.voz or VOCES[args.acento], args.estilo, salida))
 

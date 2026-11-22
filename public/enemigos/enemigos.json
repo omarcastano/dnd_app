@@ -6,7 +6,8 @@
       "5 jugadores: 1 ataque por ronda y un segundo ataque cada 3 rondas.",
       "6 jugadores: 1 ataque por ronda y un segundo ataque cada 2 rondas."
     ],
-    "botin": "Al derrotar a un enemigo se tira su botín según su nivel: puede no dejar nada, monedas o cualquier ítem de la tienda. Cuanto más bajo el nivel, menos probable es que deje armas o armaduras."
+    "botin": "Al derrotar a un enemigo se tira su botín según su nivel: puede no dejar nada, monedas o cualquier ítem de la tienda. Cuanto más bajo el nivel, menos probable es que deje armas o armaduras.",
+    "robo": "El Pícaro (Manos Ligeras) roba 1 o 2 objetos de los que lleve el enemigo y elige cuáles. Cada nivel define cuántos objetos lleva (puede no llevar nada); el tipo de cada objeto usa las mismas probabilidades que el botín (lo que en el botín es «nada» pasa a monedas), así que lo valioso es igual de raro y escala igual con el nivel."
   },
   "niveles": [
     {
@@ -24,17 +25,24 @@
       "botin": {
         "pesos": {
           "nada": 25,
-          "monedas": 42,
+          "monedas": 47,
           "comida": 14,
           "bebida": 9,
-          "dado": 5,
-          "arma": 3,
-          "armadura": 2
+          "dado": 2,
+          "arma": 2,
+          "armadura": 1
         },
         "monedas": [
           1,
           2
         ]
+      },
+      "robo": {
+        "objetos": {
+          "0": 30,
+          "1": 45,
+          "2": 25
+        }
       }
     },
     {
@@ -52,17 +60,25 @@
       "botin": {
         "pesos": {
           "nada": 20,
-          "monedas": 38,
+          "monedas": 42,
           "comida": 14,
           "bebida": 10,
-          "dado": 7,
-          "arma": 6,
-          "armadura": 5
+          "dado": 5,
+          "arma": 5,
+          "armadura": 4
         },
         "monedas": [
           1,
           3
         ]
+      },
+      "robo": {
+        "objetos": {
+          "0": 20,
+          "1": 40,
+          "2": 30,
+          "3": 10
+        }
       }
     },
     {
@@ -80,17 +96,25 @@
       "botin": {
         "pesos": {
           "nada": 15,
-          "monedas": 34,
+          "monedas": 36,
           "comida": 14,
           "bebida": 10,
-          "dado": 8,
+          "dado": 7,
           "arma": 10,
-          "armadura": 9
+          "armadura": 8
         },
         "monedas": [
           2,
           4
         ]
+      },
+      "robo": {
+        "objetos": {
+          "0": 15,
+          "1": 30,
+          "2": 35,
+          "3": 20
+        }
       }
     },
     {
@@ -108,17 +132,25 @@
       "botin": {
         "pesos": {
           "nada": 10,
-          "monedas": 30,
+          "monedas": 31,
           "comida": 13,
           "bebida": 10,
           "dado": 9,
           "arma": 15,
-          "armadura": 13
+          "armadura": 12
         },
         "monedas": [
           2,
           5
         ]
+      },
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        }
       }
     },
     {
@@ -147,6 +179,14 @@
           3,
           6
         ]
+      },
+      "robo": {
+        "objetos": {
+          "0": 5,
+          "1": 20,
+          "2": 35,
+          "3": 40
+        }
       }
     },
     {
@@ -174,6 +214,14 @@
           4,
           8
         ]
+      },
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        }
       }
     },
     {
@@ -201,6 +249,13 @@
           6,
           10
         ]
+      },
+      "robo": {
+        "objetos": {
+          "2": 20,
+          "3": 40,
+          "4": 40
+        }
       }
     }
   ],
@@ -230,7 +285,17 @@
           "nombre": "Sangrado",
           "descripcion": "Si el Desgarro espinoso acierta, la víctima sangra: pierde 1 punto de vida al inicio de cada una de sus 2 siguientes rondas. La armadura no reduce este daño y el sangrado no se acumula."
         }
-      ]
+      ],
+      "robo": {
+        "objetos": {
+          "0": 40,
+          "1": 45,
+          "2": 15
+        },
+        "texto": "Entre las espinas de su lomo cuelgan restos de sus víctimas."
+      },
+      "sonido": "sonidos/lobo-espinoso-aullido.wav",
+      "sonido_muerte": "sonidos/lobo-espinoso-muerte.mp3"
     }
   ]
 }

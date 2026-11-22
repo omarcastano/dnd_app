@@ -24,8 +24,8 @@
 .titulo-enemigo small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4af5a; margin-top: 2px; }
 
 /* Contador de vida (el corazón y los botones − / + son los de catalogo.css) */
-.panel-vida { display: flex; flex-direction: column; align-items: center; gap: 10px; width: fit-content; max-width: 100%; margin: 0 auto 16px; padding: 12px 18px; border: 1px solid #d4af5a88; border-radius: 12px; background: #0006; }
-.jugadores { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #d4af5a; }
+.panel-vida { display: flex; flex-direction: column; align-items: center; gap: 10px; width: fit-content; max-width: min(100%, calc(306px * var(--escala-bestiario, 1))); margin: 0 auto 16px; padding: 12px 18px; border: 1px solid #d4af5a88; border-radius: 12px; background: #0006; }
+.jugadores { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; font-size: 13px; color: #d4af5a; }
 .jugadores span { margin-right: 4px; letter-spacing: .1em; text-transform: uppercase; }
 .jugadores button, .reiniciar { all: unset; cursor: pointer; min-width: 40px; height: 36px; padding: 0 12px; box-sizing: border-box; display: inline-grid; place-items: center; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 15px; -webkit-tap-highlight-color: transparent; }
 .reiniciar { font-size: 13px; }
@@ -64,3 +64,19 @@
 .botin-item b { font-family: "Cinzel", Georgia, serif; font-size: 16px; }
 .botin-item small { flex-basis: 100%; font-size: 13px; opacity: .8; }
 .botin.bueno { border-color: #f2dc9b; box-shadow: 0 0 14px #d4af5a66; background: #d4af5a22; }
+
+/* Robo del Pícaro: objetos que lleva el enemigo; al tocar uno se marca como robado */
+.robo { width: 100%; text-align: center; padding: 10px 12px; border: 1px dashed #d4af5a88; border-radius: 10px; background: #00000044; }
+.robo h3 { margin: 0 0 6px; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: #d4af5a; }
+.robo-texto { margin: 0 0 6px; font-size: 13px; font-style: italic; opacity: .85; }
+.robo-texto:empty { display: none; }
+.robo-lista { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.robo-lista:empty { display: none; }
+.objeto-robo { all: unset; cursor: pointer; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2px 10px; padding: 8px 10px; border: 1px solid #d4af5a66; border-radius: 8px; color: #f2dc9b; font-size: 15px; -webkit-tap-highlight-color: transparent; }
+.objeto-robo i { font-size: 18px; }
+.objeto-robo b { font-family: "Cinzel", Georgia, serif; font-size: 14px; }
+.objeto-robo small { flex-basis: 100%; font-size: 12px; opacity: .8; }
+.objeto-robo.robado { opacity: .45; text-decoration: line-through; border-style: dashed; }
+.objeto-robo.robado::after { content: 'Robado'; flex-basis: 100%; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; color: #ffb4a8; }
+.robo [hidden] { display: none; }
+.robo-nada { margin: 0; font-style: italic; color: #f2dc9b; opacity: .8; }

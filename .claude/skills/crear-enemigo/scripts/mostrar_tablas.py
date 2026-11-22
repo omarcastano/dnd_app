@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Imprime las tablas vigentes de enemigos (niveles y botín) leyendo public/enemigos/enemigos.json, en Markdown.
+"""Imprime las tablas vigentes de enemigos (niveles, botín y robo) leyendo public/enemigos/enemigos.json, en Markdown.
 
 Uso: mostrar_tablas.py
 La fuente de verdad es el JSON: úsalo en vez de copiar números de memoria o de SKILL.md (que solo trae una copia informativa).
@@ -30,9 +30,21 @@ def main():
         suma = sum(b['pesos'].values())
         aviso = '' if suma == 100 else f' ⚠ suman {suma}'
         print(f"| N{n['nivel']} | " + ' | '.join(str(b['pesos'].get(t, 0)) for t in TIPOS) + f" | {b['monedas'][0]}-{b['monedas'][1]}{aviso} |")
+    print('\n## Robo del Pícaro (cuántos objetos lleva; el tipo de objeto usa los % del botín, con «nada» sumado a monedas)\n')
+    print('| Nivel | Objetos que lleva (cantidad: %) |')
+    print('|---|---|')
+    for n in d['niveles']:
+        r = n.get('robo')
+        if not r:
+            print(f"| N{n['nivel']} | sin robo definido |")
+            continue
+        suma = sum(r['objetos'].values())
+        aviso = '' if suma == 100 else f' ⚠ suman {suma}'
+        print(f"| N{n['nivel']} | " + ' · '.join(f'{k}: {v}%' for k, v in r['objetos'].items()) + f' |{aviso}')
     print('\n## Enemigos\n')
     for e in sorted(d['enemigos'], key=lambda x: x['nivel']):
-        print(f"- N{e['nivel']} · {e['nombre']} ({e['tipo']})")
+        r = e.get('robo', {}).get('objetos')
+        print(f"- N{e['nivel']} · {e['nombre']} ({e['tipo']})" + (' · robo propio: ' + ' · '.join(f'{k}: {v}%' for k, v in r.items()) if r else ''))
 
 
 if __name__ == '__main__':
