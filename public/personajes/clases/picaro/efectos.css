@@ -1,0 +1,25 @@
+/* Efectos y ambientes de la clase Pícaro (cargado por catalogo.js según clases.json) */
+.efecto .aura-p { position: absolute; left: 50%; top: 50%; width: 140vmax; height: 140vmax; margin: -70vmax 0 0 -70vmax; border-radius: 50%;
+  background: radial-gradient(circle, #c1121f99 0%, #5a001133 30%, transparent 58%); animation: ef-p-aura 2.1s ease-out both; }
+@keyframes ef-p-aura { 0% { transform: scale(.1); opacity: 0; } 35% { opacity: 1; } 100% { transform: scale(1); opacity: .5; } }
+.efecto .anillo-p { position: absolute; left: 50%; top: 50%; width: 40vmin; height: 40vmin; margin: -20vmin 0 0 -20vmin; border-radius: 50%;
+  border: 3px solid #ff4d5a; box-shadow: 0 0 30px #c1121f, inset 0 0 30px #c1121f; animation: ef-p-anillo 1.6s ease-out both; }
+@keyframes ef-p-anillo { from { transform: scale(.2); opacity: 1; } to { transform: scale(3); opacity: 0; } }
+.efecto .chispa-p { position: absolute; top: -10px; width: 7px; height: 11px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; opacity: 0; box-shadow: 0 0 8px 2px #7a0010;
+  animation: ef-p-gota var(--t) ease-in var(--r) both; }
+@keyframes ef-p-gota { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), 100vh); opacity: 0; } }
+.efecto .niebla-p { position: absolute; inset: 0; background: radial-gradient(circle at 50% 60%, #2a1a4a99 0%, #12081f66 40%, transparent 70%); animation: ef-p-aura 2s ease-out both; }
+.efecto .humo-p { position: absolute; left: -40px; width: 26px; height: 10px; opacity: 0; background: #0b0610;
+  clip-path: polygon(0 20%, 25% 0, 40% 45%, 50% 15%, 60% 45%, 75% 0, 100% 20%, 80% 80%, 50% 55%, 20% 80%);
+  animation: ef-p-humo-p var(--t) ease-in-out var(--r) both; }
+@keyframes ef-p-humo-p { 0% { transform: translate(0, 0) scaleY(1); opacity: 0; } 15% { opacity: 1; } 50% { transform: translate(55vw, var(--dy)) scaleY(.4); }
+  100% { transform: translate(115vw, 0) scaleY(1); opacity: 0; } }
+
+/* Temas de la pantalla final */
+.heroes.tema-filo { background: radial-gradient(120% 60% at 50% 0%, #7a0f1a 0%, #2a050a 45%, #0d0204 100%) fixed; }
+.heroes.tema-sombra { background: radial-gradient(120% 60% at 50% 0%, #4a2a6a 0%, #1a0f2a 45%, #08040d 100%) fixed; }
+.heroes.tema-noche { background: radial-gradient(120% 60% at 50% 0%, #2a2a4a 0%, #0f0f1f 45%, #05050a 100%) fixed; }
+.heroes.tema-filo .barra, .heroes.tema-sombra .barra, .heroes.tema-noche .barra { background: #0a0604dd; }
+.ambiente-filo i { background: #ff4d5a; box-shadow: 0 0 10px 3px #c1121f; }
+.ambiente-sombra i { background: #d9b8ff; box-shadow: 0 0 10px 3px #7a4aaa; }
+.ambiente-noche i { background: #b8b8ff; box-shadow: 0 0 10px 3px #4a4a8a; }

@@ -1,6 +1,6 @@
 {
   "clase": {
-    "nombre": "Pícaro Vampiro",
+    "nombre": "Pícaro",
     "reglas": [
       "Ataque furtivo: el primer ataque que aciertes en cada combate hace 2 puntos de daño extra.",
       "Ojo de ladrón: al abrir un cofre o saquear a un enemigo caído, tira un d20; con 15 o más encuentras 1 moneda extra."
@@ -17,10 +17,10 @@
       "tipo": "personaje",
       "nombre": "Valerian Nox",
       "raza": "Tiefling",
-      "descripcion": "Tiefling de piel roja, cuernos curvos y coleta recogida en moño, de sangre vampírica. Agazapado entre las sombras, empuña su espada corta y su daga, y ataca sin ser visto.",
+      "descripcion": "Tiefling de piel roja, cuernos cortos y finos y coleta recogida en moño. Agazapado entre las sombras, empuña su espada corta y su daga, y ataca sin ser visto.",
       "narracion": "narraciones/valerian-nox.mp3",
       "reglas_raza": [
-        "Los tieflings, por su sangre vampírica, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los tieflings, por su sangre infernal, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
         "Los tieflings ven en la oscuridad y no pueden ser sorprendidos: ningún enemigo ataca primero contra ellos en una emboscada."
       ]
     },
@@ -29,17 +29,17 @@
       "tipo": "personaje",
       "nombre": "Seraphine Nox",
       "raza": "Tiefling",
-      "descripcion": "Tiefling de piel roja, cuernos curvos y colmillos afilados, de sangre vampírica. Vestida de cuero oscuro, con su espada corta y su daga se desliza entre las sombras y roba sangre y oro.",
+      "descripcion": "Tiefling de piel roja, cuernos cortos y finos y mirada astuta. Vestida de cuero oscuro, con su espada corta y su daga se desliza entre las sombras y roba bolsas y secretos.",
       "narracion": "narraciones/seraphine-nox.mp3",
       "reglas_raza": [
-        "Los tieflings, por su sangre vampírica, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los tieflings, por su sangre infernal, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
         "Los tieflings ven en la oscuridad y no pueden ser sorprendidos: ningún enemigo ataca primero contra ellos en una emboscada."
       ]
     },
     {
-      "id": "hurto-de-sangre-nivel-2",
+      "id": "golpe-de-sombra-nivel-2",
       "tipo": "tabla",
-      "nombre": "Hurto de Sangre",
+      "nombre": "Golpe de Sombra",
       "nivel": 2,
       "ataques": [
         {
@@ -55,26 +55,26 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
+      "descripcion": "Hieres a un enemigo desde las sombras y te llevas su botín: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
       "tabla": [
         {
           "rango_d20": "11-16",
-          "nombre": "Succión Vampírica",
+          "nombre": "Filo Reparador",
           "valor": 3,
-          "subtitulo": "Ataque que roba vida"
+          "subtitulo": "Ataque que cura"
         },
         {
           "rango_d20": "17+",
-          "nombre": "Festín de Sangre",
+          "nombre": "Remate Triunfal",
           "valor": 4,
-          "subtitulo": "Ataque que roba vida"
+          "subtitulo": "Ataque que cura"
         }
       ]
     },
     {
-      "id": "hurto-de-sangre-nivel-1",
+      "id": "golpe-de-sombra-nivel-1",
       "tipo": "tabla",
-      "nombre": "Hurto de Sangre",
+      "nombre": "Golpe de Sombra",
       "nivel": 1,
       "ataques": [
         {
@@ -90,19 +90,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
+      "descripcion": "Hieres a un enemigo desde las sombras y te llevas su botín: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
       "tabla": [
         {
           "rango_d20": "11-16",
-          "nombre": "Mordisco Robavidas",
+          "nombre": "Corte Restaurador",
           "valor": 2,
-          "subtitulo": "Ataque que roba vida"
+          "subtitulo": "Ataque que cura"
         },
         {
           "rango_d20": "17+",
-          "nombre": "Sorbo Carmesí",
+          "nombre": "Tajo Vigorizante",
           "valor": 3,
-          "subtitulo": "Ataque que roba vida"
+          "subtitulo": "Ataque que cura"
         }
       ]
     },
@@ -177,14 +177,14 @@
       ]
     },
     {
-      "id": "banquete-de-sangre",
+      "id": "golpe-maestro",
       "roles": [
         "dano",
         "sanacion"
       ],
       "tipo": "ilustrada",
-      "nombre": "Banquete de Sangre",
-      "descripcion": "El pícaro se lanza al cuello de un enemigo y bebe su sangre sin piedad. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, el enemigo recibe 4 puntos de daño y tú recuperas 4 puntos de vida.",
+      "nombre": "Golpe Maestro",
+      "descripcion": "El pícaro apuñala por la espalda a un enemigo desprevenido y le vacía la bolsa. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, el enemigo recibe 4 puntos de daño y tú recuperas 4 puntos de vida.",
       "tabla": [
         {
           "rango_d20": "12+",
@@ -193,15 +193,15 @@
       ]
     },
     {
-      "id": "nube-de-murcielagos",
+      "id": "bomba-de-humo",
       "roles": [
         "tanque",
         "dano"
       ],
       "tipo": "ilustrada",
-      "nombre": "Nube de Murciélagos",
-      "nombre_habilidad": "Nube de Murciélagos",
-      "descripcion": "El pícaro se disuelve en una nube de murciélagos. Una vez por cada tablero de mazmorra y solo durante una batalla, hasta que termine la siguiente ronda de ataques enemigos, ningún ataque enemigo te hace daño; al reaparecer, tu siguiente ataque hace 1 punto de daño extra."
+      "nombre": "Bomba de Humo",
+      "nombre_habilidad": "Bomba de Humo",
+      "descripcion": "El pícaro lanza una bomba de humo y desaparece entre la niebla. Una vez por cada tablero de mazmorra y solo durante una batalla, hasta que termine la siguiente ronda de ataques enemigos, ningún ataque enemigo te hace daño; al reaparecer del humo, tu siguiente ataque hace 1 punto de daño extra."
     }
   ],
   "seleccion": [
@@ -228,12 +228,12 @@
       "titulo": "Elige tu poder",
       "opciones": [
         {
-          "etiqueta": "Hurto de Sangre",
-          "efecto": "sangre",
-          "detalle": "Hiere a tus enemigos y recupera vida con su sangre",
+          "etiqueta": "Golpe de Sombra",
+          "efecto": "filo",
+          "detalle": "Hiere a tus enemigos desde las sombras y recupera vida",
           "cartas": [
-            "hurto-de-sangre-nivel-1",
-            "hurto-de-sangre-nivel-2"
+            "golpe-de-sombra-nivel-1",
+            "golpe-de-sombra-nivel-2"
           ],
           "portada": true
         },
@@ -253,19 +253,19 @@
       "titulo": "Elige tu don",
       "opciones": [
         {
-          "etiqueta": "Banquete de Sangre",
-          "efecto": "sangre",
-          "detalle": "Bebe la sangre de un enemigo: 4 de daño y 4 de vida para ti",
+          "etiqueta": "Golpe Maestro",
+          "efecto": "filo",
+          "detalle": "Apuñala y roba el botín: 4 de daño y 4 de vida para ti",
           "cartas": [
-            "banquete-de-sangre"
+            "golpe-maestro"
           ]
         },
         {
-          "etiqueta": "Nube de Murciélagos",
-          "efecto": "murcielagos",
+          "etiqueta": "Bomba de Humo",
+          "efecto": "humo",
           "detalle": "Ningún ataque enemigo te daña una ronda",
           "cartas": [
-            "nube-de-murcielagos"
+            "bomba-de-humo"
           ]
         }
       ]

@@ -31,7 +31,7 @@
       "tipo": "personaje",
       "nombre": "Urzula Rompehuesos",
       "raza": "Taurent",
-      "descripcion": "Taurent de mirada feroz, hocico oscuro, cuernos pulidos y pelaje pardo, con chaleco de cuero y botas de piel. Su maza y su hacha corta obligan a todo enemigo a mirarla a ella.",
+      "descripcion": "Taurent vaca de talle esbelto, pestañas largas, hocico fino, cuernos curvos y melena castaña, con peto de cuero y botas de piel. Su maza y su hacha corta obligan a todo enemigo a mirarla.",
       "narracion": "narraciones/urzula-rompehuesos.mp3",
       "reglas_raza": [
         "Los taurent suman +1 al daño de su primer ataque de cada combate, gracias a la embestida de sus cuernos.",
