@@ -445,6 +445,232 @@
           "descripcion": "Si el Virote dentado acierta, la víctima sangra: pierde 1 punto de vida al inicio de cada una de sus 2 siguientes rondas. La armadura no reduce este daño y el sangrado no se acumula."
         }
       ]
+    },
+    {
+      "id": "satiro-trovador",
+      "nombre": "Sátiro Trovador",
+      "nivel": 1,
+      "tipo": "Humanoide",
+      "encuadre": "50% 50%",
+      "descripcion": "Hombre de torso esbelto con cuernos de cabra, patas peludas y pezuñas hendidas. Toca un laúd de cuerpo tallado y, con su música, hechiza a los intrusos y los hostiga con las pezuñas.",
+      "narracion": "narraciones/satiro-trovador.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Coz de pezuña",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Melodía enloquecedora",
+          "subtitulo": "Ataque que causa miedo"
+        }
+      ],
+      "sonido": "sonidos/satiro-trovador-grito.wav",
+      "sonido_muerte": "sonidos/satiro-trovador-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 25,
+          "1": 45,
+          "2": 30
+        },
+        "texto": "De su cinturón cuelgan bolsitas, cuerdas de repuesto y baratijas que le dan los viajeros."
+      },
+      "habilidades": [
+        {
+          "nombre": "Canto del bosque",
+          "descripcion": "Si la Melodía enloquecedora acierta, la víctima sufre miedo: tiene −1 a sus tiradas de ataque durante sus 2 siguientes turnos. La armadura no reduce este efecto y el miedo no se acumula. El Aliento Purificador lo limpia."
+        }
+      ]
+    },
+    {
+      "id": "calavera-ardiente",
+      "nombre": "Calavera Ardiente",
+      "nivel": 2,
+      "tipo": "No-muerto",
+      "encuadre": "50% 50%",
+      "descripcion": "Una calavera sin cuerpo flota en la oscuridad, envuelta en llamas que ondean tras ella. Sus cuencas brillan como brasas y se lanza contra los intrusos mordiendo y escupiendo fuego.",
+      "narracion": "narraciones/calavera-ardiente.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Mordisco calcinado",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Llamarada espectral",
+          "subtitulo": "Ataque que causa quemadura"
+        }
+      ],
+      "sonido": "sonidos/calavera-ardiente-risa.wav",
+      "sonido_muerte": "sonidos/calavera-ardiente-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 30,
+          "1": 40,
+          "2": 30
+        },
+        "texto": "Entre sus dientes y dentro del cráneo quedaron restos de quienes ardieron antes."
+      },
+      "habilidades": [
+        {
+          "nombre": "Fuego fatuo",
+          "descripcion": "Si la Llamarada espectral acierta, la víctima se quema: sufre 1 de daño al inicio de cada uno de sus 2 siguientes turnos. La armadura no reduce este daño y la quemadura no se acumula. Los dracónidos son inmunes."
+        }
+      ]
+    },
+    {
+      "id": "gato-hachero",
+      "nombre": "Gato Hachero",
+      "nivel": 2,
+      "tipo": "Humanoide",
+      "encuadre": "50% 50%",
+      "descripcion": "Felino humanoide de orejas erguidas y larga cola, con un hacha en cada mano. Viste una armadura oscura de cuero con capa y se lanza contra los intrusos descargando tajos a dos manos.",
+      "narracion": "narraciones/gato-hachero.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Tajo de hacha",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Doble hachazo",
+          "subtitulo": "Ataque que causa sangrado"
+        }
+      ],
+      "sonido": "sonidos/gato-hachero-grito.wav",
+      "sonido_muerte": "sonidos/gato-hachero-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 20,
+          "1": 40,
+          "2": 30,
+          "3": 10
+        },
+        "texto": "Entre las correas de su armadura y el cinto guarda botín de sus emboscadas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Frenesí felino",
+          "descripcion": "Si el Doble hachazo acierta, la víctima sangra: sufre 1 de daño al inicio de cada uno de sus 2 siguientes turnos. La armadura no reduce este daño y el sangrado no se acumula."
+        }
+      ]
+    },
+    {
+      "id": "enano-corrompido",
+      "nombre": "Enano Corrompido",
+      "nivel": 3,
+      "tipo": "Humanoide",
+      "encuadre": "50% 50%",
+      "descripcion": "Enano de larga barba gris, corrompido por la oscuridad, con armadura pesada, un escudo redondo y una enorme maza. Avanza a paso firme aplastando a quien se le pone delante.",
+      "narracion": "narraciones/enano-corrompido.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Embestida de escudo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mazazo sombrío",
+          "subtitulo": "Ataque que aturde"
+        }
+      ],
+      "sonido": "sonidos/enano-corrompido-voz.wav",
+      "sonido_muerte": "sonidos/enano-corrompido-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 15,
+          "1": 30,
+          "2": 35,
+          "3": 20
+        },
+        "texto": "Entre las placas de su armadura y la barba trenzada guarda lo que arrebató en la oscuridad."
+      },
+      "habilidades": [
+        {
+          "nombre": "Golpe aturdidor",
+          "descripcion": "Si el Mazazo sombrío acierta, la víctima queda aturdida y pierde su siguiente turno. No se acumula. Los taurent son inmunes."
+        }
+      ]
+    },
+    {
+      "id": "humano-corrompido",
+      "nombre": "Humano Corrompido",
+      "nivel": 3,
+      "tipo": "Humanoide",
+      "encuadre": "0% 50%",
+      "descripcion": "Guerrero humano cubierto de pies a cabeza con armadura negra y un yelmo de ranura estrecha. Maneja un hacha de doble filo, una hoja en cada extremo del mango, y la hace girar sin descanso.",
+      "narracion": "narraciones/humano-corrompido.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Giro de hachas",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Hachazo corrupto",
+          "subtitulo": "Ataque que ignora armadura"
+        }
+      ],
+      "sonido": "sonidos/humano-corrompido-gruniido.wav",
+      "sonido_muerte": "sonidos/humano-corrompido-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 15,
+          "1": 30,
+          "2": 35,
+          "3": 20
+        },
+        "texto": "Bajo las placas de su armadura negra guarda lo que robó a sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Filo corrupto",
+          "descripcion": "Si el Hachazo corrupto acierta, ignora 2 puntos de la armadura de la víctima, que recibe ese daño extra aunque la armadura lo reduzca. No se acumula."
+        }
+      ]
+    },
+    {
+      "id": "coloso-calvo",
+      "nombre": "Coloso Calvo",
+      "nivel": 3,
+      "tipo": "Humanoide",
+      "encuadre": "50% 50%",
+      "descripcion": "Humano calvo de más de dos metros, de cuerpo enorme y musculoso, sin camisa y con una falda de guerra. Descarga sobre sus enemigos una gran maza que sostiene con la mano izquierda.",
+      "narracion": "narraciones/coloso-calvo.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Puñetazo brutal",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mazazo aplastante",
+          "subtitulo": "Ataque que aturde"
+        }
+      ],
+      "sonido": "sonidos/coloso-calvo-voz.wav",
+      "sonido_muerte": "sonidos/coloso-calvo-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 15,
+          "1": 30,
+          "2": 35,
+          "3": 20
+        },
+        "texto": "Bajo su cinturón y la falda de guerra guarda lo que arrebató a quienes aplastó."
+      },
+      "habilidades": [
+        {
+          "nombre": "Golpe atronador",
+          "descripcion": "Si el Mazazo aplastante acierta, la víctima queda aturdida y pierde su siguiente turno. No se acumula. Los taurent son inmunes."
+        }
+      ]
     }
   ]
 }
