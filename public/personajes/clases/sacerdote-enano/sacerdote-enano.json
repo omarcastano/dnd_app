@@ -22,7 +22,7 @@
       "narracion": "narraciones/bao-pelonegro.mp3",
       "reglas_raza": [
         "Los pandas no pueden ser empujados ni derribados por los enemigos: su peso y su pelaje espeso los mantienen firmes.",
-        "Los pandas recuperan 1 punto de vida al inicio de cada combate gracias a su pelaje espeso y su calma."
+        "Los pandas recuperan 1 punto de vida al inicio de cada combate al mordisquear un tierno brote de bambú antes de pelear."
       ]
     },
     {
@@ -34,7 +34,7 @@
       "narracion": "narraciones/mei-pelonegro.mp3",
       "reglas_raza": [
         "Los pandas no pueden ser empujados ni derribados por los enemigos: su peso y su pelaje espeso los mantienen firmes.",
-        "Los pandas recuperan 1 punto de vida al inicio de cada combate gracias a su pelaje espeso y su calma."
+        "Los pandas recuperan 1 punto de vida al inicio de cada combate al mordisquear un tierno brote de bambú antes de pelear."
       ]
     },
     {
