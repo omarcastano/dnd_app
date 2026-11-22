@@ -2,12 +2,14 @@
   "clase": {
     "nombre": "Sacerdote Enano",
     "reglas": [
-      "Los sacerdotes no pueden usar armaduras ni escudo.",
-      "Una vez por turno, un sacerdote puede pasar una runa de resguardo activa a otro aliado, que conserva las rondas que le quedaban."
+      "Cuando un sacerdote hace daño a un enemigo con un ataque, un aliado a su elección (o él mismo) recupera 1 punto de vida.",
+      "Los conjuros de sanación y de escudo del sacerdote alcanzan a cualquier aliado del tablero, sin importar la distancia."
     ],
     "armas": [
       "Maza",
-      "Daga"
+      "Daga",
+      "Bastón",
+      "Libro de conjuros"
     ]
   },
   "cartas": [
@@ -124,19 +126,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): recupera 1 punto de vida al inicio de cada ronda hasta sumar los puntos que indique la habilidad, sin superar su vida máxima. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
+      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): al inicio de cada una de las 2 rondas siguientes, ese aliado recupera tantos puntos de vida como indique la habilidad. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Manantial Vivo",
           "valor": 2,
-          "subtitulo": "Curación gradual a un aliado"
+          "subtitulo": "Cura en las 2 rondas siguientes"
         },
         {
           "rango_d20": "17+",
           "nombre": "Cascada Sagrada",
           "valor": 3,
-          "subtitulo": "Curación gradual a un aliado"
+          "subtitulo": "Cura en las 2 rondas siguientes"
         }
       ]
     },
@@ -159,19 +161,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): recupera 1 punto de vida al inicio de cada ronda hasta sumar los puntos que indique la habilidad, sin superar su vida máxima. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
+      "descripcion": "Haces brotar un manantial bajo un aliado (o bajo ti): al inicio de cada una de las 2 rondas siguientes, ese aliado recupera tantos puntos de vida como indique la habilidad. Un aliado solo puede tener un manantial; si recibe otro, sustituye al anterior.",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Gota de Manantial",
           "valor": 1,
-          "subtitulo": "Curación gradual a un aliado"
+          "subtitulo": "Cura en las 2 rondas siguientes"
         },
         {
           "rango_d20": "17+",
           "nombre": "Fuente Serena",
           "valor": 2,
-          "subtitulo": "Curación gradual a un aliado"
+          "subtitulo": "Cura en las 2 rondas siguientes"
         }
       ]
     },
@@ -194,7 +196,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si el aliado porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -229,7 +231,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos (mínimo 0). Si el aliado porta escudo, sus puntos de protección se suman. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",

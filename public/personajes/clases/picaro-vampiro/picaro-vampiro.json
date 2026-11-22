@@ -2,8 +2,8 @@
   "clase": {
     "nombre": "Pícaro Vampiro",
     "reglas": [
-      "Los pícaros vampiro solo pueden ser DPS: no pueden ser tanque ni sanador.",
-      "Los pícaros vampiro no pueden usar armas de 2 manos ni escudo."
+      "Ataque furtivo: el primer ataque que aciertes en cada combate hace 2 puntos de daño extra.",
+      "Ojo de ladrón: al abrir un cofre o saquear a un enemigo caído, tira un d20; con 15 o más encuentras 1 moneda extra."
     ],
     "armas": [
       "Daga",
@@ -55,7 +55,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida (redondeado hacia abajo, mínimo 1). Un ataque que falla no te cura.",
+      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -90,7 +90,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida (redondeado hacia abajo, mínimo 1). Un ataque que falla no te cura.",
+      "descripcion": "Muerdes y desgarras a un enemigo: recibe el daño que indica la habilidad y tú recuperas la mitad de ese daño en puntos de vida.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -125,19 +125,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Atacas con tanta rapidez que le vacías los bolsillos al enemigo: recibe el daño que indica la habilidad y, además, le robas 1 moneda (2 si la tirada es 17 o más). Si no lleva monedas, el daño se hace igual.",
+      "descripcion": "Con manos expertas robas y golpeas a la vez: el valor de la habilidad es el número de objetos que robas (1 o 2) y tú decides cuáles de los que lleve el enemigo. Además, mientras robas le haces un daño igual al número de objetos robados.",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Despojo Letal",
-          "valor": 3,
-          "subtitulo": "Ataque que roba monedas"
+          "valor": 1,
+          "subtitulo": "Robo de objetos"
         },
         {
           "rango_d20": "17+",
           "nombre": "Saqueo Nocturno",
-          "valor": 4,
-          "subtitulo": "Ataque que roba monedas"
+          "valor": 2,
+          "subtitulo": "Robo de objetos"
         }
       ]
     },
@@ -160,31 +160,31 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Atacas con tanta rapidez que le vacías los bolsillos al enemigo: recibe el daño que indica la habilidad y, además, le robas 1 moneda (2 si la tirada es 17 o más). Si no lleva monedas, el daño se hace igual.",
+      "descripcion": "Intentas robar objetos al enemigo sin que se dé cuenta: el valor de la habilidad es el número de objetos que robas (1 o 2).",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Bolsa Cortada",
-          "valor": 2,
-          "subtitulo": "Ataque que roba monedas"
+          "valor": 1,
+          "subtitulo": "Robo de objetos"
         },
         {
           "rango_d20": "17+",
           "nombre": "Hurto Fantasma",
-          "valor": 3,
-          "subtitulo": "Ataque que roba monedas"
+          "valor": 2,
+          "subtitulo": "Robo de objetos"
         }
       ]
     },
     {
-      "id": "robo-maestro",
+      "id": "banquete-de-sangre",
       "tipo": "ilustrada",
-      "nombre": "Robo Maestro",
-      "descripcion": "El pícaro desarma a un enemigo con un movimiento imposible de seguir. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, robas a un enemigo un objeto o arma que lleve y puedes usarlo de inmediato.",
+      "nombre": "Banquete de Sangre",
+      "descripcion": "El pícaro se lanza al cuello de un enemigo y bebe su sangre sin piedad. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, el enemigo recibe 4 puntos de daño y tú recuperas 4 puntos de vida.",
       "tabla": [
         {
           "rango_d20": "12+",
-          "resultado": "Robas un objeto o arma al enemigo y puedes usarlo"
+          "resultado": "El enemigo recibe 4 de daño y tú recuperas 4 puntos de vida"
         }
       ]
     },
@@ -245,11 +245,11 @@
       "titulo": "Elige tu don",
       "opciones": [
         {
-          "etiqueta": "Robo Maestro",
-          "efecto": "sombra",
-          "detalle": "Roba un objeto o arma a un enemigo",
+          "etiqueta": "Banquete de Sangre",
+          "efecto": "sangre",
+          "detalle": "Bebe la sangre de un enemigo: 4 de daño y 4 de vida para ti",
           "cartas": [
-            "robo-maestro"
+            "banquete-de-sangre"
           ]
         },
         {

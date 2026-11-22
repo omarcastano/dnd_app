@@ -81,14 +81,14 @@ Hoy: Espada corta (1 mano, +1), Espada larga (1, +2), Alabarda (2, +3), Espada d
 - Los números de daño de habilidades y el "Daño (+)" del arma no se contradicen: las habilidades no deben duplicar ni anular lo que ya da el arma.
 
 ### Sin topes artificiales en armas, habilidades de clase y de raza
-Los ejemplos del druida y el paladín tienen 2 de cada, pero **no es un límite**. `clase.armas`, `clase.reglas` y `reglas_raza` pueden tener las entradas que hagan sentido para el personaje (un guerrero puede usar 5 armas; una raza puede tener 3 habilidades). No rellenes por cuota ni recortes por cuota: cada entrada debe aportar algo y ser clara. Si hay muchas, el scroll del dorso (sección 5) las contiene. Los topes de 2 que sí aplican son otros (2 ataques básicos por nivel, 2 habilidades especiales por poder y nivel).
+Los ejemplos del druida y el paladín tienen 2 de cada, pero **no es un límite**. `clase.armas`, `clase.reglas` y `reglas_raza` pueden tener las entradas que hagan sentido para el personaje (un guerrero puede usar 5 armas; una raza puede tener 3 habilidades). No rellenes por cuota ni recortes por cuota: cada entrada debe aportar algo y ser clara. Si hay muchas, el scroll del dorso (sección 5) las contiene. **Las `reglas` de clase no pueden ser restricciones obvias**: ni «solo puede ser DPS/tanque/sanador» (ya lo dicen sus poderes) ni «no puede usar armas de 2 manos / escudo» (ya se ve en `armas`). Cada regla debe dar algo nuevo y jugable (p. ej. «Ataque furtivo: el primer ataque que aciertes en cada combate hace 2 puntos de daño extra»). Los topes de 2 que sí aplican son otros (2 ataques básicos por nivel, 2 habilidades especiales por poder y nivel).
 
 ## 2. Estructura obligatoria (idéntica al druida)
 Parte de `references/plantilla.json` (copia fiel del esquema del druida con marcadores). Resultado en `public/personajes/clases/<clase>/<clase>.json`:
 
 | Elemento | Cantidad | Detalle |
 |---|---|---|
-| `clase` | 1 | `nombre`, `reglas` (habilidades de clase: normalmente una restricción y una bonificación, **pero no hay tope**; las que hagan sentido), `armas` (**de la tienda**, ver 1c; **sin tope de 2**) |
+| `clase` | 1 | `nombre`, `reglas` (habilidades de clase: **bonificaciones o mecánicas propias, nunca restricciones evidentes**; no hay tope, las que hagan sentido), `armas` (**de la tienda**, ver 1c; **sin tope de 2**) |
 | Cartas `personaje` | 2 | Versión hombre y mujer (mismo `raza`; `reglas_raza` = habilidades de raza, **las que hagan sentido, sin tope de 2**), con `descripcion` (~160-180 caracteres, ver 3b) **y `narracion`** (el mp3 de esa descripción, sección 3b) |
 | Cartas `tabla` | 4 | 2 poderes × niveles 1 y 2. id `<poder>-nivel-<n>` |
 | Cartas `ilustrada` | 2 | Los 2 dones. Uno con `tabla` d20 (solo la fila `12+` con el efecto; 1-11 no se muestra, "una vez por tablero de mazmorra"); el otro con `nombre_habilidad` y sin tabla |

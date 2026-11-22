@@ -2,7 +2,7 @@
   "clase": {
     "nombre": "Guerrero Orco",
     "reglas": [
-      "Los guerreros solo pueden ser tanque o DPS: no pueden ser sanadores.",
+      "Los guerreros que portan escudo reducen en 1 el daño del primer ataque que reciban en cada ronda.",
       "Los guerreros suman +1 a sus tiradas de ataque cuerpo a cuerpo."
     ],
     "armas": [
@@ -57,7 +57,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados (si no puede alcanzarte, pierde su ataque ese turno). Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados. Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -92,7 +92,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados (si no puede alcanzarte, pierde su ataque ese turno). Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados. Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -182,7 +182,7 @@
       "id": "rugido-del-jefe",
       "tipo": "ilustrada",
       "nombre": "Rugido del Jefe",
-      "descripcion": "El orco lanza su grito de guerra más fiero y todos los enemigos olvidan a sus presas. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, todos los enemigos quedan provocados y solo pueden atacarte a ti hasta que termine la siguiente ronda de ataques enemigos.",
+      "descripcion": "El orco lanza su grito de guerra más fiero y todos los enemigos olvidan a sus presas. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, todos los enemigos quedan provocados y solo pueden atacarte a ti durante toda la batalla.",
       "tabla": [
         {
           "rango_d20": "12+",
