@@ -100,10 +100,10 @@ No escribas `narracion` a mano (la añade el script de audio). Valida: `python3 
 
 ## 4b. Sonidos de la bestia (AudioLDM2 local; van ANTES de la narración)
 Cada bestia lleva **dos sonidos propios de su criatura**, en `public/enemigos/sonidos/`:
-- `sonido` (p. ej. `"sonidos/lobo-espinoso-aullido.wav"`): **efecto final de la narración** (aullido, rugido, siseo…); `generar_audio.py` lo pega tras la voz (0,4 s de silencio, volumen un poco bajo el de la voz, fundido final) y queda un solo mp3.
+- `sonido` (p. ej. `"sonidos/lobo-espinoso-aullido.wav"`): **efecto al INICIO de la narración** (aullido, rugido, siseo… suena antes de que hable la narradora); `generar_audio.py` lo pone primero (entrada suave, volumen un poco bajo el de la voz, fundido final y 0,4 s de silencio antes de la voz) y queda un solo mp3.
 - `sonido_muerte` (p. ej. `"sonidos/lobo-espinoso-muerte.mp3"`): **se reproduce solo cuando la vida llega a 0** (quejido/estertor de la criatura; la app lo hace al tocar el botón que la deja en 0, no al abrir la vista).
 **Adecúalos a la criatura**, no uses el del lobo para todas. Prompts en inglés (punto de partida; el modelo no es fiable con voces humanas):
-| Criatura | `sonido` (final de la narración) | `sonido_muerte` |
+| Criatura | `sonido` (inicio de la narración) | `sonido_muerte` |
 |---|---|---|
 | Lobo / animal | `a lone wolf howling at night, long mournful howl, quiet forest, natural echo` | `a wolf yelping and whimpering in pain, a short dying cry that fades into a weak breath` |
 | Dragón | `a huge dragon roaring, deep echoing growl` | `a dragon roaring in agony then collapsing, deep fading groan` |
@@ -121,7 +121,7 @@ Solo con ComfyUI apagado. `bash .claude/skills/crear-personaje/scripts/asegurar_
 ```bash
 make audio ARGS="public/enemigos/enemigos.json --id <id>"
 ```
-El audio narra **la descripción y la habilidad** («… Habilidad, Sangrado. Si el Desgarro…») y, si el enemigo tiene `sonido` (sec. 4b), lo añade al final, se guarda en `public/enemigos/narraciones/<id>.mp3` y se enlaza en el JSON. La carta muestra el medallón ▶ en el frente. Dura ~25 s. **No puedes escucharlo: díselo al usuario.** No cambies la voz ni el motor. Si cambias después la descripción o la habilidad, regenera el audio.
+El audio narra **la descripción y la habilidad** («… Habilidad, Sangrado. Si el Desgarro…») y, si el enemigo tiene `sonido` (sec. 4b), lo pone **al inicio, antes de la voz**, se guarda en `public/enemigos/narraciones/<id>.mp3` y se enlaza en el JSON. La carta muestra el medallón ▶ en el frente. Dura ~25 s. **No puedes escucharlo: díselo al usuario.** No cambies la voz ni el motor. Si cambias después la descripción o la habilidad, regenera el audio.
 
 ## 6. Verificación (obligatoria)
 - Servidor sin caché: `make catalogo` (puerto 8081) o, si ya corre, reutilízalo. Captura: `python3 .claude/skills/crear-enemigo/scripts/captura_bestiario.py --enemigo <id> --salida <scratchpad>/frente.png` (y `--dorso`). Mira las dos con Read: frente (¿se ve la cabeza y el rasgo clave? ¿botón ▶?) y dorso (¿todo cabe sin recortes? orden: descripción, habilidad, ataques, vida). Comprueba que la vista del enemigo muestra el corazón con la vida correcta (4/5/6 jugadores).

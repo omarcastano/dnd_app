@@ -57,7 +57,7 @@ MODELO_QWEN = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
 
 
 def con_sonido(voz, sample_rate, ruta, hueco=0.4, fundido=1.2, db=-3.0):
-    """Pega un efecto de sonido (aullido, rugido…) tras la narración: `hueco` s de silencio, volumen un poco por debajo del pico de la voz y fundido final."""
+    """Pone un efecto de sonido (aullido, rugido…) AL INICIO, antes de la narración: entrada suave, volumen un poco por debajo del pico de la voz, fundido final y `hueco` s de silencio antes de que empiece la voz."""
     import numpy as np
 
     with AudioFile(str(ruta)) as archivo:
@@ -68,7 +68,7 @@ def con_sonido(voz, sample_rate, ruta, hueco=0.4, fundido=1.2, db=-3.0):
     efecto[-n:] *= np.linspace(1.0, 0.0, n, dtype="float32")
     corto = min(int(0.05 * sample_rate), len(efecto))
     efecto[:corto] *= np.linspace(0.0, 1.0, corto, dtype="float32")  # entrada suave: sin chasquido
-    return np.concatenate([voz, np.zeros(int(hueco * sample_rate), dtype="float32"), efecto])
+    return np.concatenate([efecto, np.zeros(int(hueco * sample_rate), dtype="float32"), voz])
 
 
 def generar_qwen(cartas, carpeta_salida, base):
