@@ -1,27 +1,17 @@
 <div id="view-cipher" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
-  <h3 class="puzzle-title">Cifrado César</h3>
+  <h3 class="puzzle-title">Cifrado</h3>
+  <div class="puzzle-nivel">Dificultad muy alta · 3 rondas: César, sustitución y Vigenère</div>
   <div class="rob-description">
-    Un cifrado César desplaza cada letra un número fijo de posiciones en el alfabeto. Intenta descifrar el mensaje moviendo el deslizador hasta que tenga sentido.
+    Descifra tres mensajes secretos, cada vez con un cifrado más complicado. Supera una ronda para pasar a la siguiente.
   </div>
-  <div id="cipherContainer">
-    <div class="cipher-display">
-      <div class="cipher-label">Cifrado:</div>
-      <div id="cipherText" class="cipher-text"></div>
-    </div>
-    <div class="cipher-shift">
-      <label for="cipherShift">Desplazamiento:</label>
-      <input id="cipherShift" type="range" min="1" max="25" value="1">
-      <span id="cipherShiftValue">1</span>
-    </div>
-    <div class="cipher-display">
-      <div class="cipher-label">Descifrado:</div>
-      <div id="decryptedText" class="cipher-text"></div>
-    </div>
-  </div>
+  <div id="cipherRonda" class="cipher-rondas"></div>
+  <div id="cipherContainer"></div>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="cipherCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
-    <button class="puzzle-btn" id="cipherReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+    <button class="puzzle-btn" id="cipherPista"><i class="fa-solid fa-lightbulb"></i> Pista</button>
+    <button class="puzzle-btn" id="cipherSiguiente" style="display:none"><i class="fa-solid fa-forward"></i> Siguiente ronda</button>
+    <button class="puzzle-btn" id="cipherReset"><i class="fa-solid fa-rotate-left"></i> Empezar de nuevo</button>
   </div>
   <div class="puzzle-message" id="cipherMessage"></div>
 </div>

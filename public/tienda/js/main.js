@@ -4,10 +4,9 @@ import { initNavegacion } from "./nucleo/navegacion.js";
 import { initTienda } from "./secciones/tienda.js";
 import { initCofres } from "./secciones/cofres.js";
 import { initRobo } from "./secciones/robo.js";
-import { initZonas } from "./secciones/zonas.js";
-import { initBotin } from "./secciones/botin.js";
 import { initAdmin } from "./secciones/admin.js";
 import { initHeroes } from "./secciones/heroes.js?v=6";
+import { initBestiario } from "./secciones/bestiario.js";
 import { initTablas } from "./secciones/tablas.js";
 import { initMenu } from "./puzzles/menu.js";
 import { initTents } from "./puzzles/tents.js";
@@ -24,7 +23,7 @@ import { initCipher } from "./puzzles/cifrado.js";
 // Se ejecutan en orden una vez cargadas las partes HTML. initTablas va al final: envuelve las tablas ya generadas.
 const MODULOS = [
   initAmbiente, initNavegacion,
-  initTienda, initCofres, initRobo, initZonas, initBotin, initAdmin, initHeroes,
+  initTienda, initCofres, initRobo, initAdmin, initHeroes, initBestiario,
   initMenu, initTents, initHitori, initLightUp, initLightsOut, initNonograma,
   initGalaxias, initStarBattle, initHanoi, initMastermind, initCipher,
   initTablas

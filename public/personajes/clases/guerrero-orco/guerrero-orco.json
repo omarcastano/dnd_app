@@ -1,6 +1,6 @@
 {
   "clase": {
-    "nombre": "Guerrero Taurent",
+    "nombre": "Guerrero",
     "reglas": [
       "Los guerreros que portan escudo reducen en 1 el daño del primer ataque que reciban en cada ronda.",
       "Los guerreros suman +1 a sus tiradas de ataque cuerpo a cuerpo."

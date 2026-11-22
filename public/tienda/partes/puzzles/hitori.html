@@ -1,15 +1,17 @@
 <div id="view-hitori" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Hitori</h3>
+  <div class="puzzle-nivel">Dificultad alta · 7×7 · solución única</div>
   <div class="rob-description">
-    Sombrea algunas celdas para cumplir estas reglas:<br><br>
-    • No puede haber dos celdas sombreadas juntas, ni arriba, abajo, a la izquierda o a la derecha.<br>
-    • En cada fila y en cada columna, los numeros sin sombrear no pueden repetirse.<br>
-    • Las celdas sin sombrear deben quedar conectadas entre si.
+    Sombrea (tacha) números hasta que ninguno se repita en su fila ni en su columna.<br><br>
+    • Dos casillas sombreadas nunca pueden tocarse por un lado.<br>
+    • Las casillas que quedan sin sombrear deben formar una sola zona conectada.<br>
+    • Toca una casilla: 1.ª vez la sombreas, 2.ª la marcas con un círculo («esta se queda»), 3.ª la limpias. Los números repetidos se resaltan en rojo.
   </div>
-  <table id="hitoriBoard" class="puzzle-table"></table>
+  <table id="hitoriBoard" class="puzzle-table hitori"></table>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="hitoriCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="hitoriNew"><i class="fa-solid fa-shuffle"></i> Nuevo</button>
     <button class="puzzle-btn" id="hitoriReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
   </div>
   <div class="puzzle-message" id="hitoriMessage"></div>

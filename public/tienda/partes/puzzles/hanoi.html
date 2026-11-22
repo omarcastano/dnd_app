@@ -1,29 +1,26 @@
 <div id="view-hanoi" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Torres de Hanoi</h3>
+  <div class="puzzle-nivel">Dificultad media-alta · elige de 3 a 8 anillos · por defecto 5</div>
   <div class="rob-description">
-    Mueve todos los anillos de la Torre 1 a la Torre 3 siguiendo estas reglas:<br><br>
-    • Solo puedes mover un anillo a la vez.<br>
-    • Puedes mover un anillo de cualquier torre a cualquier otra.<br>
+    Mueve todos los anillos de la Torre 1 a la Torre 3.<br><br>
+    • Mueves un anillo cada vez: toca una torre para coger su anillo de arriba y toca otra torre para soltarlo.<br>
     • Nunca puedes poner un anillo grande sobre uno más pequeño.<br>
-    Consejo: con N anillos necesitas 2^N − 1 movimientos mínimo.
+    • Con N anillos el mínimo es 2<sup>N</sup> − 1 movimientos. ¡Intenta lograrlo!
+  </div>
+  <div class="puzzle-actions hanoi-niveles">
+    <span>Anillos:</span>
+    <button class="puzzle-btn chico" data-hanoi-anillos="3">3</button><button class="puzzle-btn chico" data-hanoi-anillos="4">4</button><button class="puzzle-btn chico" data-hanoi-anillos="5">5</button><button class="puzzle-btn chico" data-hanoi-anillos="6">6</button><button class="puzzle-btn chico" data-hanoi-anillos="7">7</button><button class="puzzle-btn chico" data-hanoi-anillos="8">8</button>
   </div>
   <div id="hanoiContainer" class="hanoi-container">
-    <div class="hanoi-tower">
-      <div class="hanoi-base">Torre 1</div>
-      <div id="hanoiTower1" class="hanoi-stack"></div>
-    </div>
-    <div class="hanoi-tower">
-      <div class="hanoi-base">Torre 2</div>
-      <div id="hanoiTower2" class="hanoi-stack"></div>
-    </div>
-    <div class="hanoi-tower">
-      <div class="hanoi-base">Torre 3</div>
-      <div id="hanoiTower3" class="hanoi-stack"></div>
-    </div>
+    <div class="hanoi-tower"><div id="hanoiTower1" class="hanoi-stack"></div><div class="hanoi-base">Torre 1</div></div>
+    <div class="hanoi-tower"><div id="hanoiTower2" class="hanoi-stack"></div><div class="hanoi-base">Torre 2</div></div>
+    <div class="hanoi-tower"><div id="hanoiTower3" class="hanoi-stack"></div><div class="hanoi-base">Torre 3</div></div>
   </div>
+  <div class="puzzle-info" id="hanoiInfo"></div>
   <div class="puzzle-actions">
-    <button class="puzzle-btn" id="hanoiReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+    <button class="puzzle-btn" id="hanoiUndo"><i class="fa-solid fa-rotate-left"></i> Deshacer</button>
+    <button class="puzzle-btn" id="hanoiReset"><i class="fa-solid fa-arrow-rotate-left"></i> Reiniciar</button>
   </div>
   <div class="puzzle-message" id="hanoiMessage"></div>
 </div>

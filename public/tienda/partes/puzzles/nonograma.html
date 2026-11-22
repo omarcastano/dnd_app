@@ -1,13 +1,18 @@
 <div id="view-nonogram" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Nonograma</h3>
+  <div class="puzzle-nivel">Dificultad alta · 10×10 · cada puzzle es nuevo y se resuelve solo con lógica</div>
   <div class="rob-description">
-    Pinta celdas para cumplir las pistas de cada fila (a la izquierda) y de cada columna (arriba).<br><br>
-    Cada numero es un bloque de celdas pintadas seguidas. Entre bloques debe haber al menos una celda vacia. Por ejemplo, "1 2" significa un bloque de 1 y luego otro de 2.
+    Rellena las casillas para formar un dibujo oculto. Los números de cada fila (izquierda) y columna (arriba) dicen cuántas casillas seguidas van rellenas, en ese orden y separadas por al menos un hueco.<br><br>
+    • Ejemplo: «3 1» = un bloque de 3 y, después, un bloque de 1.<br>
+    • Toca o arrastra para rellenar. Con el botón de modo (o clic derecho) marcas con ✕ las casillas que seguro están vacías.<br>
+    • Un número que se atenúa significa que esa fila/columna ya cumple su pista.
   </div>
-  <table id="nonoBoard" class="puzzle-table"></table>
+  <table id="nonoBoard" class="puzzle-table nonograma"></table>
+  <div class="puzzle-actions"><button class="puzzle-btn puzzle-modo" id="nonoModo"><i class="fa-solid fa-square"></i> Modo: rellenar</button></div>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="nonoCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="nonoNew"><i class="fa-solid fa-shuffle"></i> Nuevo</button>
     <button class="puzzle-btn" id="nonoReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
   </div>
   <div class="puzzle-message" id="nonoMessage"></div>

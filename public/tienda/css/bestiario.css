@@ -1,0 +1,31 @@
+/* Pestaña «Bestiario»: catálogo de enemigos. Las cartas usan el diseño de personajes/app/cartas.css (variables añadidas a .bestiario) y el volteo de catalogo.css. */
+.tab-bestiario { max-width: none; padding: 0; }
+.bestiario { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; min-height: 100dvh; padding: 8px 16px 80px;
+  background: radial-gradient(120% 60% at 50% 0%, #3a2a1c 0%, #17110c 70%) fixed; }
+.bestiario * { box-sizing: border-box; }
+.bestiario > header { text-align: center; padding: 14px 0 6px; }
+.bestiario > header h1 { font-family: "Cinzel", Georgia, serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; }
+.estado.alerta { color: #ffd37a; text-align: center; }
+
+.nivel-enemigos h2 { font-family: "Cinzel", Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #f2dc9b; margin: 22px 0 10px; text-align: center; }
+.nivel-enemigos h2 small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4af5a; margin-top: 2px; }
+.rejilla-enemigos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+/* Cada carta ocupa su tamaño escalado (zoom) para que quepa en móviles estrechos */
+.bestiario .carta-sel { zoom: var(--escala-bestiario, 1); }
+.bestiario .volteo.gira:focus-visible { outline: 3px solid #f2dc9b; outline-offset: 4px; border-radius: 16px; }
+
+/* Dorso del enemigo */
+.carta-p.enemigo { padding: 22px 20px 24px; gap: 8px; }
+.carta-p.enemigo .placa { padding: 4px 8px 2px; }
+.carta-p.enemigo .placa h3 { font-size: 19px; }
+.bloque.desc-e { flex: none; }
+.bloque.desc-e .desc-p { font-size: 14px; }
+.nota-e { margin: 4px 0 0; font-size: 12px; font-style: italic; text-align: center; color: var(--tinta-suave); }
+.habilidad-e b { display: block; font-family: var(--titulo); font-size: 13px; color: #8e2a2a; text-align: center; letter-spacing: .06em; }
+.habilidad-e p { margin: 2px 0 0; font-size: 13px; line-height: 1.25; text-align: center; color: var(--tinta); }
+.habilidad-e + .habilidad-e { margin-top: 6px; padding-top: 6px; border-top: 1px dashed #a98a4a88; }
+.vida-e { margin-top: auto; }
+.vidas { display: flex; justify-content: space-around; }
+.vidas div { display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+.vidas b { font-family: var(--titulo); font-size: 20px; color: #8e2a2a; }
+.vidas span { font-size: 11px; color: var(--tinta-suave); letter-spacing: .08em; text-transform: uppercase; }

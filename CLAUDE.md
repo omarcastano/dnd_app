@@ -1,6 +1,7 @@
 # D&D - La Taberna
 
 Sitio estático en español, sin build. `public/` es la raíz publicada. La pestaña «Héroes» (`tienda/partes/heroes.html` + `initHeroes()` de `public/personajes/app/catalogo.js`) muestra las clases de `public/personajes/`; el workflow no publica `legacy/`, `plantilla/` ni `*.py` (`make run` los sirve en local). `narracion/` no se publica.
+- La pestaña «Bestiario» (`tienda/partes/bestiario.html` + `initBestiario()` de `public/enemigos/bestiario.js`) muestra los enemigos de `public/enemigos/enemigos.json`: tabla `niveles` (1-7, vida para 4/5/6 jugadores y daño básico/fuerte; un solo tipo de enemigo por nivel) + lista `enemigos` (nombre, descripción, 2 ataques que referencian el golpe del nivel, habilidades). Imágenes en `public/enemigos/imagenes/<id>.webp`. Cartas con el diseño de `personajes/app/cartas.css`.
 - Estilos en `public/tienda/css/` divididos por sección (base, tienda, puzzles, botin, tablas, robo, pie, responsive); el orden de los `<link>` en `index.html` importa (`responsive.css` va último).
 
 ## Convenciones

@@ -1,16 +1,18 @@
 <div id="view-stars" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Star Battle</h3>
+  <div class="puzzle-nivel">Dificultad muy alta · 9×9 · 2 estrellas por línea · solución única</div>
   <div class="rob-description">
-    Pon estrellas en el tablero para cumplir estas reglas:<br><br>
-    • Una estrella por fila.<br>
-    • Una estrella por columna.<br>
-    • Una estrella por color.<br>
-    • Las estrellas no pueden tocarse, ni siquiera en diagonal. Toca una celda para poner o quitar una estrella.
+    Coloca <strong>2 estrellas</strong> en cada fila, en cada columna y en cada región de color.<br><br>
+    • Las estrellas no pueden tocarse, ni siquiera en diagonal.<br>
+    • Las regiones están delimitadas por bordes oscuros gruesos.<br>
+    • Toca una casilla: estrella → punto («aquí no») → vacía. Las que rompen una regla se resaltan en rojo.
   </div>
-  <table id="starBoard" class="puzzle-table"></table>
+  <table id="starBoard" class="puzzle-table starbattle"></table>
+  <div class="puzzle-info" id="starInfo"></div>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="starCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="starNew"><i class="fa-solid fa-shuffle"></i> Nuevo</button>
     <button class="puzzle-btn" id="starReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
   </div>
   <div class="puzzle-message" id="starMessage"></div>

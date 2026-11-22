@@ -1,16 +1,20 @@
 <div id="view-mastermind" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Mastermind</h3>
+  <div class="puzzle-nivel">Dificultad muy alta · 5 posiciones · 8 colores · 10 intentos</div>
   <div class="rob-description">
-    Adivina el código secreto de 4 colores. Despues de cada intento recibiras pistas:<br><br>
-    • Un circulo NEGRO: un color esta en posicion correcta.<br>
-    • Un circulo BLANCO: un color esta en el codigo pero en posicion incorrecta.<br>
-    Intentos ilimitados.
+    Descubre el código secreto de <strong>5 colores</strong> (los colores pueden repetirse).<br><br>
+    • Elige un color de la paleta (se coloca en el primer hueco libre) o elige uno y toca el hueco que quieras. Cada color tiene también un símbolo.<br>
+    • Pistas tras cada intento: círculo <strong>NEGRO</strong> = color correcto en su sitio; círculo <strong>BLANCO</strong> = color que está en el código pero en otro sitio. No dicen cuáles.<br>
+    • Tienes 10 intentos.
   </div>
+  <div id="mastermindPaleta" class="mastermind-paleta"></div>
+  <div class="puzzle-info" id="mastermindInfo"></div>
   <div id="mastermindBoard"></div>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="mastermindCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
-    <button class="puzzle-btn" id="mastermindReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+    <button class="puzzle-btn" id="mastermindClear"><i class="fa-solid fa-eraser"></i> Borrar fila</button>
+    <button class="puzzle-btn" id="mastermindReset"><i class="fa-solid fa-rotate-left"></i> Nueva partida</button>
   </div>
   <div class="puzzle-message" id="mastermindMessage"></div>
 </div>

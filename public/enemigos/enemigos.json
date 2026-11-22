@@ -1,0 +1,124 @@
+{
+  "reglas": {
+    "d20": "Cada enemigo tira un d20 en su turno: 1-6 falla; 7-15 golpe básico; 16+ golpe fuerte (con su habilidad).",
+    "ataques_por_ronda": [
+      "4 jugadores: 1 ataque por ronda.",
+      "5 jugadores: 1 ataque por ronda y un segundo ataque cada 3 rondas.",
+      "6 jugadores: 1 ataque por ronda y un segundo ataque cada 2 rondas."
+    ]
+  },
+  "niveles": [
+    {
+      "nivel": 1,
+      "nombre": "Sin equipo",
+      "vida": [
+        13,
+        17,
+        20
+      ],
+      "basico": 1,
+      "fuerte": 2,
+      "habilidades": 1
+    },
+    {
+      "nivel": 2,
+      "nombre": "Un par de comidas y armas",
+      "vida": [
+        22,
+        29,
+        34
+      ],
+      "basico": 3,
+      "fuerte": 6,
+      "habilidades": 1
+    },
+    {
+      "nivel": 3,
+      "nombre": "Armas y algo de armadura",
+      "vida": [
+        30,
+        40,
+        46
+      ],
+      "basico": 4,
+      "fuerte": 7,
+      "habilidades": 1
+    },
+    {
+      "nivel": 4,
+      "nombre": "Equipo completo",
+      "vida": [
+        50,
+        66,
+        76
+      ],
+      "basico": 7,
+      "fuerte": 9,
+      "habilidades": 1
+    },
+    {
+      "nivel": 5,
+      "nombre": "Equipo completo y nivel 2",
+      "vida": [
+        60,
+        80,
+        92
+      ],
+      "basico": 7,
+      "fuerte": 10,
+      "habilidades": 1
+    },
+    {
+      "nivel": 6,
+      "nombre": "Mini jefe",
+      "vida": [
+        80,
+        105,
+        120
+      ],
+      "basico": 8,
+      "fuerte": 11,
+      "habilidades": 2
+    },
+    {
+      "nivel": 7,
+      "nombre": "Jefe final",
+      "vida": [
+        100,
+        135,
+        155
+      ],
+      "basico": 9,
+      "fuerte": 12,
+      "habilidades": 3
+    }
+  ],
+  "enemigos": [
+    {
+      "id": "lobo-espinoso",
+      "nombre": "Lobo Espinoso",
+      "nivel": 1,
+      "tipo": "Bestia",
+      "encuadre": "12% 50%",
+      "descripcion": "Lobo flaco de pelaje pardo y lomo erizado de espinas afiladas. Acecha entre los pinos con la cabeza gacha y se lanza sobre quien baje la guardia.",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Mordisco",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Desgarro espinoso",
+          "subtitulo": "Ataque que causa sangrado"
+        }
+      ],
+      "habilidades": [
+        {
+          "nombre": "Sangrado",
+          "descripcion": "Si el Desgarro espinoso acierta, la víctima sangra: pierde 1 punto de vida al inicio de cada una de sus 2 siguientes rondas. La armadura no reduce este daño y el sangrado no se acumula."
+        }
+      ]
+    }
+  ]
+}

@@ -1,17 +1,17 @@
 <div id="view-tents" class="puzzle-view">
   <button class="puzzle-btn puzzle-back" data-cerrar-puzzle><i class="fa-solid fa-arrow-left"></i> Volver</button>
   <h3 class="puzzle-title">Carpas</h3>
+  <div class="puzzle-nivel">Dificultad alta · 8×8 · solución única</div>
   <div class="rob-description">
-    Pon una moneda en las celdas vacias para cumplir estas reglas:<br><br>
-    • Cada estrella tiene exactamente una moneda, justo arriba, abajo, a la izquierda o a la derecha.<br>
-    • Las monedas no pueden tocarse, ni siquiera en diagonal.<br>
-    • Los numeros indican cuantas monedas hay en cada fila (a la izquierda) y en cada columna (arriba).
+    Cada árbol <i class="fa-solid fa-tree"></i> tiene su propia carpa <i class="fa-solid fa-campground"></i> pegada a él (arriba, abajo, izquierda o derecha).<br><br>
+    • Las carpas no pueden tocarse entre sí, ni siquiera en diagonal.<br>
+    • Los números indican cuántas carpas hay en cada fila (izquierda) y cada columna (arriba).<br>
+    • Toca una casilla: carpa → hierba <i class="fa-solid fa-leaf"></i> (aquí no hay carpa) → vacía. El número se pone verde al cumplirse y rojo si te pasas.
   </div>
-
-  <table id="puzzleTable" class="puzzle-table"></table>
-
+  <table id="puzzleTable" class="puzzle-table tents"></table>
   <div class="puzzle-actions">
     <button class="puzzle-btn" id="puzzleCheck"><i class="fa-solid fa-circle-check"></i> Comprobar</button>
+    <button class="puzzle-btn" id="puzzleNew"><i class="fa-solid fa-shuffle"></i> Nuevo</button>
     <button class="puzzle-btn" id="puzzleReset"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
   </div>
   <div class="puzzle-message" id="puzzleMessage"></div>

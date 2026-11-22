@@ -69,7 +69,6 @@
 
 .table-scroll { overflow-x: auto; padding-bottom: 6px; }
 
-#zonasTabla .loot-table { min-width: 520px; }
 .food-table td, .food-table th { padding-left: 8px; padding-right: 8px; }
 .food-table thead th { font-size: 0.72rem; letter-spacing: 0.04em; }
 

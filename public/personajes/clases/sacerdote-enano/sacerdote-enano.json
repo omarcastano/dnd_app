@@ -1,6 +1,6 @@
 {
   "clase": {
-    "nombre": "Sacerdote Panda",
+    "nombre": "Sacerdote",
     "reglas": [
       "Cuando un sacerdote hace daño a un enemigo con un ataque, un aliado a su elección (o él mismo) recupera 1 punto de vida.",
       "Los conjuros de sanación y de escudo del sacerdote alcanzan a cualquier aliado del tablero, sin importar la distancia."
