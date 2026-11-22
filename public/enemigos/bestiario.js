@@ -4,6 +4,7 @@
 import { esc } from '../personajes/app/util.js';
 import { MEDALLON } from '../personajes/app/cartas.js';
 import { atenderNarracion } from '../personajes/app/narracion.js';
+import { groups as TIENDA } from '../tienda/js/datos/tienda.js';
 
 const RAIZ = new URL('./', import.meta.url);
 const ROMANOS = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
@@ -44,6 +45,41 @@ const leer = (clave, defecto) => { try { const v = localStorage.getItem(clave); 
 const guardar = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch {} };
 const CLAVE_JUGADORES = 'taberna:bestiario:jugadores';
 const claveVida = (id, jugadores) => `taberna:bestiario:${id}:vida:${jugadores}`;
+const claveBotin = (id, jugadores) => `taberna:bestiario:${id}:botin:${jugadores}`;
+const olvidar = (clave) => { try { localStorage.removeItem(clave); } catch {} };
+
+// ---------- Botín: al llegar a 0 de vida se tira según el nivel (pesos en enemigos.json) y puede salir cualquier ítem de la tienda ----------
+const ICONOS_BOTIN = { moneda: ['coins', '#d4a54a'], comida: ['drumstick-bite', '#c0813a'], bebida: ['beer-mug-empty', '#d4a54a'], dado: ['dice-d20', '#6a9a4a'],
+  arma: ['khanda', '#c0392b'], armadura: ['shield-halved', '#3498db'], nada: ['skull-crossbones', '#7a6845'] };
+const limpio = (t) => String(t).replace(/<[^>]*>/g, '').trim(); // los nombres de la tienda pueden llevar iconos HTML
+const filasTienda = (grupo) => TIENDA.find((g) => g.name === grupo)?.table ?? [];
+const azar = (xs) => xs[Math.floor(Math.random() * xs.length)];
+const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
+
+// Texto del ítem tal como lo describe la tienda (columnas: nombre, unidades, precio, efecto…)
+const ITEMS_TIENDA = {
+  comida: ([nombre, , , cura]) => ({ nombre: limpio(nombre), detalle: typeof cura === 'number' ? `cura ${cura}` : 'efecto desconocido' }),
+  bebida: ([nombre, , , cura]) => ({ nombre: `Bebida ${limpio(nombre).toLowerCase()}`, detalle: `cura ${cura}` }),
+  dado: ([nombre, , , sirve]) => ({ nombre: limpio(nombre), detalle: `sirve para ${String(sirve).toLowerCase()}` }),
+  arma: ([nombre, , , dano, manos]) => ({ nombre: limpio(nombre), detalle: `+${dano} de daño · ${plural(manos, 'mano', 'manos')}` }),
+  armadura: ([nombre, , , reduce]) => ({ nombre: limpio(nombre), detalle: `reduce ${reduce}` }),
+};
+const GRUPO_TIENDA = { comida: 'Comida', bebida: 'Bebidas', dado: 'Dados', arma: 'Armas', armadura: 'Armaduras' };
+
+function tirarBotin(n) {
+  const { pesos, monedas } = n.botin;
+  let tirada = Math.random() * Object.values(pesos).reduce((a, b) => a + b, 0);
+  const tipo = Object.keys(pesos).find((k) => (tirada -= pesos[k]) < 0) ?? 'nada';
+  if (tipo === 'nada') return { tipo, texto: 'No dejó nada' };
+  if (tipo === 'monedas') { const c = monedas[0] + Math.floor(Math.random() * (monedas[1] - monedas[0] + 1)); return { tipo: 'moneda', texto: plural(c, 'moneda', 'monedas') }; }
+  const { nombre, detalle } = ITEMS_TIENDA[tipo](azar(filasTienda(GRUPO_TIENDA[tipo])));
+  return { tipo, texto: nombre, detalle };
+}
+
+const botinHtml = ({ tipo, texto, detalle }) => {
+  const [icono, color] = ICONOS_BOTIN[tipo];
+  return `<i class="fa-solid fa-${icono}" style="color:${color}"></i><b>${esc(texto)}</b>${detalle ? `<small>${esc(detalle)}</small>` : ''}`;
+};
 
 // ---------- Vistas ----------
 const lista = (d) => `<table class="lista-enemigos"><thead><tr><th>Nivel</th><th>Enemigo</th></tr></thead><tbody>
@@ -61,6 +97,7 @@ const panelVida = () => `<section class="panel-vida" aria-label="Seguimiento del
   </div>
   <button type="button" class="reiniciar" data-reiniciar>Reiniciar</button>
   <p class="estado-derrota" hidden>Derrotado</p>
+  <div class="botin" hidden><h3>Botín</h3><p class="botin-item"></p></div>
 </section>`;
 
 function abrirEnemigo(zona, d, e) {
@@ -82,6 +119,14 @@ function abrirEnemigo(zona, d, e) {
     q('[data-vida="1"]').disabled = vida >= maximo();
     zona.querySelectorAll('[data-jugadores]').forEach((b) => b.classList.toggle('activo', Number(b.dataset.jugadores) === jugadores));
     q('.estado-derrota').hidden = vida > 0;
+    if (vida > 0) olvidar(claveBotin(e.id, jugadores)); // el botín solo existe mientras el enemigo está derrotado
+    else {
+      let botin = leer(claveBotin(e.id, jugadores), null);
+      if (!botin) { botin = tirarBotin(n); guardar(claveBotin(e.id, jugadores), botin); }
+      q('.botin-item').innerHTML = botinHtml(botin);
+      q('.botin').classList.toggle('bueno', botin.tipo === 'arma' || botin.tipo === 'armadura');
+    }
+    q('.botin').hidden = vida > 0;
     zona.classList.toggle('derrotado', vida <= 0);
   };
   zona.onclick = (ev) => {
@@ -91,7 +136,7 @@ function abrirEnemigo(zona, d, e) {
     const v = ev.target.closest('[data-vida]');
     if (j) { jugadores = Number(j.dataset.jugadores); guardar(CLAVE_JUGADORES, jugadores); cargarVida(); }
     else if (v) { vida = Math.min(maximo(), Math.max(0, vida + Number(v.dataset.vida))); guardar(claveVida(e.id, jugadores), vida); }
-    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); guardar(claveVida(e.id, jugadores), vida); }
+    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); guardar(claveVida(e.id, jugadores), vida); olvidar(claveBotin(e.id, jugadores)); }
     else {
       const c = ev.target.closest('.volteo.gira');
       if (c) { const giro = Number(c.dataset.giro ?? 0) + 1; c.dataset.giro = giro; c.style.setProperty('--giro', giro); }

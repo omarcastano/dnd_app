@@ -54,3 +54,13 @@
 .vidas div { display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
 .vidas b { font-family: var(--titulo); font-size: 20px; color: #8e2a2a; }
 .vidas span { font-size: 11px; color: var(--tinta-suave); letter-spacing: .08em; text-transform: uppercase; }
+
+/* Botín que aparece al derrotar al enemigo */
+.botin { width: 100%; text-align: center; padding: 10px 12px; border: 1px solid #d4af5a88; border-radius: 10px; background: #00000066; }
+.botin[hidden] { display: none; }
+.botin h3 { margin: 0 0 6px; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: #d4af5a; }
+.botin-item { margin: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 10px; font-size: 17px; color: #f2dc9b; }
+.botin-item i { font-size: 22px; }
+.botin-item b { font-family: "Cinzel", Georgia, serif; font-size: 16px; }
+.botin-item small { flex-basis: 100%; font-size: 13px; opacity: .8; }
+.botin.bueno { border-color: #f2dc9b; box-shadow: 0 0 14px #d4af5a66; background: #d4af5a22; }

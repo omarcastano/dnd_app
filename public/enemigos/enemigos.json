@@ -5,7 +5,8 @@
       "4 jugadores: 1 ataque por ronda.",
       "5 jugadores: 1 ataque por ronda y un segundo ataque cada 3 rondas.",
       "6 jugadores: 1 ataque por ronda y un segundo ataque cada 2 rondas."
-    ]
+    ],
+    "botin": "Al derrotar a un enemigo se tira su botín según su nivel: puede no dejar nada, monedas o cualquier ítem de la tienda. Cuanto más bajo el nivel, menos probable es que deje armas o armaduras."
   },
   "niveles": [
     {
@@ -19,7 +20,22 @@
       "basico": 1,
       "fuerte": 2,
       "habilidades": 1,
-      "efecto": 2
+      "efecto": 2,
+      "botin": {
+        "pesos": {
+          "nada": 25,
+          "monedas": 42,
+          "comida": 14,
+          "bebida": 9,
+          "dado": 5,
+          "arma": 3,
+          "armadura": 2
+        },
+        "monedas": [
+          1,
+          2
+        ]
+      }
     },
     {
       "nivel": 2,
@@ -32,7 +48,22 @@
       "basico": 1,
       "fuerte": 3,
       "habilidades": 1,
-      "efecto": 2
+      "efecto": 2,
+      "botin": {
+        "pesos": {
+          "nada": 20,
+          "monedas": 38,
+          "comida": 14,
+          "bebida": 10,
+          "dado": 7,
+          "arma": 6,
+          "armadura": 5
+        },
+        "monedas": [
+          1,
+          3
+        ]
+      }
     },
     {
       "nivel": 3,
@@ -45,7 +76,22 @@
       "basico": 2,
       "fuerte": 4,
       "habilidades": 1,
-      "efecto": 2
+      "efecto": 2,
+      "botin": {
+        "pesos": {
+          "nada": 15,
+          "monedas": 34,
+          "comida": 14,
+          "bebida": 10,
+          "dado": 8,
+          "arma": 10,
+          "armadura": 9
+        },
+        "monedas": [
+          2,
+          4
+        ]
+      }
     },
     {
       "nivel": 4,
@@ -58,7 +104,22 @@
       "basico": 8,
       "fuerte": 11,
       "habilidades": 1,
-      "efecto": 2
+      "efecto": 2,
+      "botin": {
+        "pesos": {
+          "nada": 10,
+          "monedas": 30,
+          "comida": 13,
+          "bebida": 10,
+          "dado": 9,
+          "arma": 15,
+          "armadura": 13
+        },
+        "monedas": [
+          2,
+          5
+        ]
+      }
     },
     {
       "nivel": 5,
@@ -71,7 +132,22 @@
       "basico": 9,
       "fuerte": 12,
       "habilidades": 1,
-      "efecto": 2
+      "efecto": 2,
+      "botin": {
+        "pesos": {
+          "nada": 8,
+          "monedas": 26,
+          "comida": 12,
+          "bebida": 10,
+          "dado": 9,
+          "arma": 18,
+          "armadura": 17
+        },
+        "monedas": [
+          3,
+          6
+        ]
+      }
     },
     {
       "nivel": 6,
@@ -83,7 +159,22 @@
       ],
       "basico": 8,
       "fuerte": 11,
-      "habilidades": 2
+      "habilidades": 2,
+      "botin": {
+        "pesos": {
+          "nada": 0,
+          "monedas": 20,
+          "comida": 10,
+          "bebida": 8,
+          "dado": 10,
+          "arma": 26,
+          "armadura": 26
+        },
+        "monedas": [
+          4,
+          8
+        ]
+      }
     },
     {
       "nivel": 7,
@@ -95,7 +186,22 @@
       ],
       "basico": 9,
       "fuerte": 12,
-      "habilidades": 3
+      "habilidades": 3,
+      "botin": {
+        "pesos": {
+          "nada": 0,
+          "monedas": 15,
+          "comida": 8,
+          "bebida": 7,
+          "dado": 10,
+          "arma": 30,
+          "armadura": 30
+        },
+        "monedas": [
+          6,
+          10
+        ]
+      }
     }
   ],
   "enemigos": [
