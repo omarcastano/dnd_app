@@ -296,6 +296,43 @@
       },
       "sonido": "sonidos/lobo-espinoso-aullido.wav",
       "sonido_muerte": "sonidos/lobo-espinoso-muerte.mp3"
+    },
+    {
+      "id": "tarantula-gigante",
+      "nombre": "Tarántula Gigante",
+      "nivel": 1,
+      "tipo": "Bestia",
+      "encuadre": "50% 50%",
+      "descripcion": "Tarántula del tamaño de un perro, de patas peludas y ojos rojos. Espera inmóvil en la penumbra de las cuevas y salta sobre su presa clavándole los colmillos.",
+      "narracion": "narraciones/tarantula-gigante.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Zarpazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Colmillos venenosos",
+          "subtitulo": "Ataque que causa veneno"
+        }
+      ],
+      "habilidades": [
+        {
+          "nombre": "Veneno",
+          "descripcion": "Si los Colmillos venenosos aciertan, la víctima se envenena: pierde 1 punto de vida al inicio de cada una de sus 2 siguientes rondas. La armadura no reduce este daño y el veneno no se acumula."
+        }
+      ],
+      "robo": {
+        "objetos": {
+          "0": 45,
+          "1": 40,
+          "2": 15
+        },
+        "texto": "Entre las telarañas de su guarida quedan restos de sus presas."
+      },
+      "sonido": "sonidos/tarantula-gigante-silbido.wav",
+      "sonido_muerte": "sonidos/tarantula-gigante-muerte.mp3"
     }
   ]
 }

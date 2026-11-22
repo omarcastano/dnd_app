@@ -1,6 +1,6 @@
 ---
 name: crear-enemigo
-description: Crea un enemigo (bestia) para el Bestiario de La Taberna a partir de un nivel (1-7), un nombre y una foto de la figura. Genera varias imágenes con ComfyUI/SDXL local y elige la más parecida a la foto, toma vida, daño y botín de la tabla de niveles de public/enemigos/enemigos.json, diseña ataques y habilidades (veneno, sangrado, miedo…), genera la narración con Qwen3-TTS y lo deja en el catálogo. Úsala cuando el usuario pida crear/añadir un enemigo, bicho, monstruo o bestia.
+description: Crea un enemigo (bestia) para el Bestiario de La Taberna a partir de un nivel (1-7), un nombre y una foto de la figura. Genera varias imágenes con ComfyUI/SDXL local y elige la más parecida a la foto, toma vida, daño, botín y robo del Pícaro de la tabla de niveles de public/enemigos/enemigos.json, diseña ataques y habilidades (veneno, sangrado, miedo…), genera sus dos sonidos (efecto al inicio de la narración y quejido de muerte) con AudioLDM2, genera la narración con Qwen3-TTS y lo deja en el catálogo. Úsala cuando el usuario pida crear/añadir un enemigo, bicho, monstruo o bestia.
 ---
 
 # Crear un enemigo (Bestiario)
@@ -13,6 +13,7 @@ Entradas del usuario: **nivel** (1-7), **nombre** y **foto(s)** de la figura (ru
 - **Daño fijo, no rangos.** Cada ataque es un número fijo, como en las cartas de personajes.
 - **Botín por nivel (importantísimo, ver sec. 1b).** Todo enemigo, al llegar a 0 de vida, tira su botín; las probabilidades salen de la tabla de su nivel, nunca del enemigo.
 - **Robo del Pícaro (ver sec. 1c).** Todo enemigo lleva objetos que el Pícaro puede robar; cada nivel define cuántos y de qué tipo.
+- **Sonidos propios de la criatura (ver sec. 4b).** Efecto al inicio de la narración y quejido al morir, adecuados a cada bestia.
 - **Un enemigo por combate**; la dificultad la da la vida (escala con 4/5/6 jugadores) y el efecto, no la cantidad de enemigos.
 - **Sin extras que no se pidieron** (contadores de ronda, barras, atajos…). El usuario los rechazó: manténlo simple.
 - **Lee todo completo antes de decidir.** El usuario se ha quejado de análisis a medias: cuando una decisión dependa de datos (clases, tienda, tabla), léelos enteros.
@@ -72,7 +73,7 @@ Lee `public/enemigos/enemigos.json` (enemigos ya hechos: **no repitas nombres de
 - **Tipo** (`tipo`): «Bestia», «No-muerto», «Humanoide»… (sale en el frente: «Bestia ◆ Nivel I»).
 
 ## 3. Imágenes (ComfyUI + SDXL local; no hay ControlNet ni IP-Adapter, solo img2img)
-Orden obligatorio: **imágenes primero, audio después**, nunca a la vez (GPU de 12 GB; ver `crear-personaje` sec. 0). Usa el scratchpad para todo lo temporal.
+Orden obligatorio: **1) imágenes, 2) sonidos de la bestia (4b), 3) narración (5)**, nunca a la vez (GPU de 12 GB; ver `crear-personaje` sec. 0). Usa el scratchpad para todo lo temporal.
 1. `bash .claude/skills/crear-personaje/scripts/asegurar_comfyui.sh` (puede tardar minutos: se mueve a segundo plano; espera con `curl http://127.0.0.1:8188/system_stats`, no repitas el comando). **Si falta ComfyUI/SDXL (código 2): pídele permiso al usuario (descarga de varios GB) y reejecuta con `--instalar`.** Otros códigos: lee el mensaje y `~/ia/comfyui.log`; no cambies de modelo ni uses servicios externos.
 2. **Mira la foto con Read** y recórtala a la figura (PIL, ~730×670 px alrededor del bicho; sin el fondo de escritorio). Con dos ángulos, úsalos ambos. Anota los rasgos distintivos (la cresta de espinas del lobo era lo más importante: describe **esos rasgos en el prompt**).
 3. Genera **al menos 15-20 candidatos** con `generar_imagen.py --lote` (tipo `retrato`, 907×1117): foto de referencia × fuerzas **0,55 / 0,68 / 0,74 / 0,80 / 0,86** × 2-3 semillas. Aprendido: `≤0,6` sale casi la foto (miniatura sobre una mesa, nada de estilo cómic); `0,74-0,86` da estilo cómic conservando pose y rasgos; por encima pierde rasgos. Si los rasgos distintivos salen flojos, repite con un prompt que los enfatice. Prompt en inglés: descripción del animal/criatura + rasgos + entorno oscuro de noche.
