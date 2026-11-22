@@ -371,6 +371,43 @@
       },
       "sonido": "sonidos/wendigo-del-musgo-grunido.wav",
       "sonido_muerte": "sonidos/wendigo-del-musgo-muerte.mp3"
+    },
+    {
+      "id": "diablillo-del-fogon",
+      "nombre": "Diablillo del Fogón",
+      "nivel": 1,
+      "tipo": "Humanoide",
+      "encuadre": "50% 50%",
+      "descripcion": "Un diablillo verde de cuernos curvos y sonrisa afilada, envuelto en una capa raída. Apoyado en su bastón, arroja ceniza de su fogata a los ojos de sus víctimas.",
+      "narracion": "narraciones/diablillo-del-fogon.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Bastonazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Ceniza maldita",
+          "subtitulo": "Ataque que causa miedo"
+        }
+      ],
+      "sonido": "sonidos/diablillo-del-fogon-risa.wav",
+      "sonido_muerte": "sonidos/diablillo-del-fogon-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 25,
+          "1": 45,
+          "2": 30
+        },
+        "texto": "Del cinturón le cuelgan bolsitas con baratijas y polvos."
+      },
+      "habilidades": [
+        {
+          "nombre": "Maleficio de ceniza",
+          "descripcion": "Si la Ceniza maldita acierta, la víctima sufre miedo: tiene −1 a sus tiradas de ataque durante sus 2 siguientes turnos. La armadura no reduce este efecto y el miedo no se acumula. El Aliento Purificador lo limpia."
+        }
+      ]
     }
   ]
 }

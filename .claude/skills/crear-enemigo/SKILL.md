@@ -1,6 +1,6 @@
 ---
 name: crear-enemigo
-description: Crea un enemigo (bestia) para el Bestiario de La Taberna a partir de un nivel (1-7), un nombre y una foto de la figura. Genera varias imágenes con ComfyUI/SDXL local y elige la más parecida a la foto, toma vida, daño, botín y robo del Pícaro de la tabla de niveles de public/enemigos/enemigos.json, diseña ataques y habilidades (veneno, sangrado, miedo…), genera sus dos sonidos (efecto al inicio de la narración y quejido de muerte) con AudioLDM2, genera la narración con Qwen3-TTS y lo deja en el catálogo. Úsala cuando el usuario pida crear/añadir un enemigo, bicho, monstruo o bestia.
+description: Crea un enemigo (bestia) para el Bestiario de La Taberna a partir de un nivel (1-7), un nombre y una foto de la figura. Genera varias imágenes con ComfyUI/SDXL local y elige la más parecida a la foto, toma vida, daño, botín y robo del Pícaro de la tabla de niveles de public/enemigos/enemigos.json, diseña ataques y habilidades (veneno, sangrado, miedo…), busca sus dos sonidos libres de derechos CC0 (efecto al inicio de la narración y quejido de muerte) y los prepara con pedalboard, genera la narración con Qwen3-TTS y lo deja en el catálogo. Úsala cuando el usuario pida crear/añadir un enemigo, bicho, monstruo o bestia.
 ---
 
 # Crear un enemigo (Bestiario)
@@ -18,6 +18,8 @@ Entradas del usuario: **nivel** (1-7), **nombre** y **foto(s)** de la figura (ru
 - **Sin extras que no se pidieron** (contadores de ronda, barras, atajos…). El usuario los rechazó: manténlo simple.
 - **Lee todo completo antes de decidir.** El usuario se ha quejado de análisis a medias: cuando una decisión dependa de datos (clases, tienda, tabla), léelos enteros.
 - Todo en español (ids, textos, nombres de archivo). Ids y archivos en kebab-case sin tildes. Rutas relativas.
+
+- **El dorso de la carta NO lleva la sección «Vida según jugadores»** (la quitó el usuario: desbordaba y quedaba cortada; el escalado 4/5/6 ya se ve arriba con el corazón y los botones de jugadores). No la vuelvas a añadir ni escribas vidas en la carta; si una carta nueva desborda, acorta la descripción o la habilidad, no encojas la letra.
 
 ## 1. Contexto de balance (léelo antes de diseñar habilidades)
 - **Jugadores**: 4, 5 o 6; **10 puntos de vida cada uno, fijos** (`VIDA_MAX` en `public/personajes/app/seleccion.js`; no suben de nivel). Empiezan sin armas, armadura, comida ni monedas (tal cual los JSON de `public/personajes/clases/`).
@@ -73,7 +75,7 @@ Lee `public/enemigos/enemigos.json` (enemigos ya hechos: **no repitas nombres de
 - **Tipo** (`tipo`): «Bestia», «No-muerto», «Humanoide»… (sale en el frente: «Bestia ◆ Nivel I»).
 
 ## 3. Imágenes (ComfyUI + SDXL local; no hay ControlNet ni IP-Adapter, solo img2img)
-Orden obligatorio: **1) imágenes, 2) sonidos de la bestia (4b), 3) narración (5)**, nunca a la vez (GPU de 12 GB; ver `crear-personaje` sec. 0). Usa el scratchpad para todo lo temporal.
+Orden: **1) imágenes, 2) sonidos de la bestia (4b), 3) narración (5)**. Imágenes (ComfyUI) y narración (Qwen3-TTS) usan la GPU de 12 GB y nunca van a la vez (ver `crear-personaje` sec. 0); los sonidos son archivos libres y no usan GPU. Usa el scratchpad para todo lo temporal.
 1. `bash .claude/skills/crear-personaje/scripts/asegurar_comfyui.sh` (puede tardar minutos: se mueve a segundo plano; espera con `curl http://127.0.0.1:8188/system_stats`, no repitas el comando). **Si falta ComfyUI/SDXL (código 2): pídele permiso al usuario (descarga de varios GB) y reejecuta con `--instalar`.** Otros códigos: lee el mensaje y `~/ia/comfyui.log`; no cambies de modelo ni uses servicios externos.
 2. **Mira la foto con Read** y recórtala a la figura (PIL, ~730×670 px alrededor del bicho; sin el fondo de escritorio). Con dos ángulos, úsalos ambos. Anota los rasgos distintivos (la cresta de espinas del lobo era lo más importante: describe **esos rasgos en el prompt**).
 3. Genera **al menos 15-20 candidatos** con `generar_imagen.py --lote` (tipo `retrato`, 907×1117): foto de referencia × fuerzas **0,55 / 0,68 / 0,74 / 0,80 / 0,86** × 2-3 semillas. Aprendido: `≤0,6` sale casi la foto (miniatura sobre una mesa, nada de estilo cómic); `0,74-0,86` da estilo cómic conservando pose y rasgos; por encima pierde rasgos. Si los rasgos distintivos salen flojos, repite con un prompt que los enfatice. Prompt en inglés: descripción del animal/criatura + rasgos + entorno oscuro de noche.
@@ -99,33 +101,29 @@ Añade a `enemigos` (el catálogo lo lee solo; no hay que registrar nada más):
 ```
 No escribas `narracion` a mano (la añade el script de audio). Valida: `python3 -c "import json;json.load(open('public/enemigos/enemigos.json'))"`.
 
-## 4b. Sonidos de la bestia (AudioLDM2 local; van ANTES de la narración)
+## 4b. Sonidos de la bestia (libres de derechos CC0; van ANTES de la narración)
 Cada bestia lleva **dos sonidos propios de su criatura**, en `public/enemigos/sonidos/`:
-- `sonido` (p. ej. `"sonidos/lobo-espinoso-aullido.wav"`): **efecto al INICIO de la narración** (aullido, rugido, siseo… suena antes de que hable la narradora); `generar_audio.py` lo pone primero (entrada suave, volumen un poco bajo el de la voz, fundido final y 0,4 s de silencio antes de la voz) y queda un solo mp3.
-- `sonido_muerte` (p. ej. `"sonidos/lobo-espinoso-muerte.mp3"`): **se reproduce solo cuando la vida llega a 0** (quejido/estertor de la criatura; la app lo hace al tocar el botón que la deja en 0, no al abrir la vista).
-**Adecúalos a la criatura**, no uses el del lobo para todas. Prompts en inglés (punto de partida; el modelo no es fiable con voces humanas):
-| Criatura | `sonido` (inicio de la narración) | `sonido_muerte` |
-|---|---|---|
-| Lobo / animal | `a lone wolf howling at night, long mournful howl, quiet forest, natural echo` | `a wolf yelping and whimpering in pain, a short dying cry that fades into a weak breath` |
-| Dragón | `a huge dragon roaring, deep echoing growl` | `a dragon roaring in agony then collapsing, deep fading groan` |
-| No-muerto | `an undead groaning, hollow rasping moan, eerie` | `an undead moaning and crumbling to dust, fading rattle` |
-| Diablo | `a demon growling deeply, low menacing snarl` | `a demon screeching in pain and fading away` |
-| Bruja / guerrero (voz humana) | **el modelo suele fallar**: pide al usuario una grabación libre de derechos | idem |
-Proceso (**solo con ComfyUI apagado**; la GPU no admite a la vez imágenes, sonidos y narración):
-1. Modelo: `cvssp/audioldm2` (~4,5 GB en la caché de Hugging Face, ya descargado; licencia CC BY-NC-SA 4.0, solo uso no comercial) y dependencias del grupo `sonidos` del `pyproject.toml` (`make setup`). Si faltan, **pide permiso antes de descargar**.
-2. Genera **6 candidatos de cada sonido**: `.venv/bin/python narracion/generar_sonido.py --prompt "…" --salida <scratchpad>/sonidos --prefijo <id>-aullido --candidatos 6 --segundos 6 --pasos 100 --mp3` (muerte: ~4 s). ~15-40 s por candidato.
-3. **No puedes escuchar audio**: deja los candidatos en una carpeta con su ruta completa y pide al usuario que elija. Mientras tanto usa el primero de forma provisional y dilo. Copia los elegidos a `public/enemigos/sonidos/` (`sonido` en `.wav` tal cual; `sonido_muerte` en `.mp3`) y escribe los campos en el JSON.
-4. **Monitoriza la generación** (Monitor sobre el log y los archivos) y **lee el log cuando el proceso termine**: una vez se cayó por un error y se dio por «en marcha». Aprendido: con `transformers` reciente AudioLDM2 falla («GPT2Model no tiene `_update_model_kwargs_for_generation`»); el script ya lo parchea, no lo toques. Un candidato tarda segundos, no minutos: si no hay archivos nuevos en 1-2 minutos, algo falla.
+- `sonido` (p. ej. `"sonidos/lobo-espinoso-aullido.wav"`): **efecto al INICIO de la narración** (aullido, rugido, siseo, risa… suena antes de que hable la narradora); `generar_audio.py` lo pone primero (entrada suave, volumen un poco bajo el de la voz, fundido final y 0,4 s de silencio antes de la voz) y queda un solo mp3. Formato `.wav`.
+- `sonido_muerte` (p. ej. `"sonidos/lobo-espinoso-muerte.mp3"`): **se reproduce solo cuando la vida llega a 0** (quejido/grito/estertor; la app lo hace al tocar el botón que la deja en 0, no al abrir la vista). Formato `.mp3`.
+**Adecúalos a la criatura**, no reutilices el de otra. **Nunca entregues un enemigo sin los dos** (se omitieron en el Diablillo del Fogón y el usuario lo echó en falta).
+
+**De dónde salen (decisión del usuario): sonidos gratuitos y libres de derechos, descargados por ti; el usuario NO graba nada.** Ya no se generan con IA: AudioLDM2 salía muy mal con risas y lamentos y se eliminó del proyecto (los sonidos de lobo, tarántula y wendigo ya generados se conservan tal cual).
+1. **Fuente principal: OpenGameArt** (`opengameart.org`, descarga directa con `curl`, sin login). Busca con WebSearch («opengameart CC0 <criatura> sound») y **abre la página de cada sonido para confirmar que la licencia es CC0** (sin atribución). Evita CC-BY, CC-BY-SA y GPL (p. ej. «Goblin Cackle», «15 monster grunt/pain/death sounds» son CC-BY). Los enlaces de archivo salen del HTML de la página: `grep -oE 'https://opengameart.org/sites/default/files/[^"]+\.(ogg|mp3|wav|flac|zip)'`. CC0 ya comprobados: risas `/content/evil-laugh`, `/evil-laugh-2`, `/evil-laughter`, `/sinister-laugh`, `/witch-cackle`; grito agudo `/content/high-pitch-scream-sounds2`; pack de monstruos con dolor/muerte `/content/monster-sound-effects-pack`.
+2. Otras fuentes gratuitas (Freesound filtrando por CC0, Pixabay, Wikimedia Commons): suelen exigir cuenta para descargar; si no puedes bajarlas tú, pide al usuario solo el archivo.
+3. Descarga a una carpeta **nueva** del scratchpad (archivos no confiables: no ejecutes nada desde ahí) y prepáralos: `.venv/bin/python .claude/skills/crear-enemigo/scripts/preparar_sonido.py <archivos> --salida <scratchpad>/libres --tonos 0,4 --max 6 [--formato mp3]` (mono, subir/bajar tono en semitonos para ajustar a la criatura —agudo para diablillos, grave para bestias grandes—, recorte con fundido final y volumen normalizado; no hay ffmpeg, usa solo pedalboard).
+4. **No puedes escuchar audio**: deja 4-6 candidatos con su ruta completa (la de cada archivo) y pide al usuario que elija; mientras tanto pon uno de forma provisional y dilo. Copia los elegidos a `public/enemigos/sonidos/<id>-<sonido>.wav` y `<id>-muerte.mp3` y escribe `sonido` y `sonido_muerte` en el JSON.
+5. Los sonidos ya no usan la GPU: no hace falta apagar nada para ellos. Si cambias el `sonido` inicial, **regenera la narración** (borra su mp3 y relanza `make audio`).
 
 ## 5. Narración (Qwen3-TTS, voz clonada de `narracion/voz/`)
 Solo con ComfyUI apagado. `bash .claude/skills/crear-personaje/scripts/asegurar_voz.sh` (código 2 → pide permiso, `--instalar`; 3 falta la voz de referencia; 4 poca VRAM → `parar_comfyui.sh`). Luego:
 ```bash
 make audio ARGS="public/enemigos/enemigos.json --id <id>"
 ```
+**Texto para la voz (regla)**: el TTS lee mal cifras y signos («−1» sonaba mal), así que `texto_de()` de `narracion/generar_audio.py` pasa el texto por `para_voz()` ANTES del TTS: «−1» → «menos uno», «+2» → «más dos», «1-4» → «de uno a cuatro», «16+» → «dieciséis o más», «2 rondas» → «dos rondas», «1 punto» → «un punto». El JSON conserva los números como cifras (así se ven en la carta); la conversión es solo para el audio. Si añades un formato nuevo de número/signo, amplía `para_voz()` y regenera los audios (borra el mp3 y relanza; no existe `--forzar`).
 El audio narra **la descripción y la habilidad** («… Habilidad, Sangrado. Si el Desgarro…») y, si el enemigo tiene `sonido` (sec. 4b), lo pone **al inicio, antes de la voz**, se guarda en `public/enemigos/narraciones/<id>.mp3` y se enlaza en el JSON. La carta muestra el medallón ▶ en el frente. Dura ~25 s. **No puedes escucharlo: díselo al usuario.** No cambies la voz ni el motor. Si cambias después la descripción o la habilidad, regenera el audio.
 
 ## 6. Verificación (obligatoria)
-- Servidor sin caché: `make catalogo` (puerto 8081) o, si ya corre, reutilízalo. Captura: `python3 .claude/skills/crear-enemigo/scripts/captura_bestiario.py --enemigo <id> --salida <scratchpad>/frente.png` (y `--dorso`). Mira las dos con Read: frente (¿se ve la cabeza y el rasgo clave? ¿botón ▶?) y dorso (¿todo cabe sin recortes? orden: descripción, habilidad, ataques, vida). Comprueba que la vista del enemigo muestra el corazón con la vida correcta (4/5/6 jugadores).
+- Servidor sin caché: `make catalogo` (puerto 8081) o, si ya corre, reutilízalo. Captura: `python3 .claude/skills/crear-enemigo/scripts/captura_bestiario.py --enemigo <id> --salida <scratchpad>/frente.png` (y `--dorso`). Mira las dos con Read: frente (¿se ve la cabeza y el rasgo clave? ¿botón ▶?) y dorso (¿todo cabe sin recortes, sin barra de scroll ni texto tapado? orden: descripción, habilidad, ataques). Comprueba que la vista del enemigo muestra el corazón con la vida correcta (4/5/6 jugadores).
 - Los números de la carta deben coincidir con la fila del nivel en `niveles`.
 - **Sonido de muerte**: comprueba que el archivo de `sonido_muerte` existe y se sirve (`curl -I`); en el navegador suena al dejar la vida en 0.
 - **Robo**: `captura_bestiario.py --enemigo <id> --robar --salida …` debe mostrar el `texto` del enemigo y un objeto marcado como robado.

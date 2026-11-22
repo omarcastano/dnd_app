@@ -2,7 +2,6 @@
 #   dependencias base     → narración con edge-tts
 #   grupo `imagenes`      → ComfyUI / SDXL (el código y el modelo viven en ~/ia/ComfyUI)
 #   grupo `voces`         → voces open source (Qwen3-TTS)
-#   grupo `sonidos`       → efectos de sonido de las bestias (AudioLDM2)
 # `make setup` instala todo en .venv. Todo resuelve de forma natural: sin overrides, sin forzar versiones.
 # Si se añade un paquete, comprobar con `uv lock` que resuelve sin conflicto antes de commitear.
 [project]
@@ -28,8 +27,6 @@ imagenes = [
 ]
 # Voces expresivas open source (pruebas de narración). Chatterbox se descartó: exige torch 2.6 y choca con ComfyUI
 voces = ["qwen-tts"]
-# Efectos de sonido de las bestias (AudioLDM2 vía diffusers; el modelo vive en la caché de Hugging Face)
-sonidos = ["diffusers", "accelerate"]
 
 [tool.uv]
 package = false

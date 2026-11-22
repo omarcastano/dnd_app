@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import json
+import re
 from pathlib import Path
 
 import edge_tts
@@ -21,13 +22,48 @@ ESTILOS = {
 }
 
 
+_UNIDADES = ["cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece",
+             "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve", "veinte", "veintiuno", "veintidós", "veintitrés",
+             "veinticuatro", "veinticinco", "veintiséis", "veintisiete", "veintiocho", "veintinueve"]
+_DECENAS = {3: "treinta", 4: "cuarenta", 5: "cincuenta", 6: "sesenta", 7: "setenta", 8: "ochenta", 9: "noventa"}
+_ENLACES = {"por", "a", "de", "o", "y", "en", "con", "si", "que", "al", "del", "el", "la", "los", "las", ""}
+
+
+def numero_en_palabras(n):
+    if n < 30:
+        return _UNIDADES[n]
+    if n < 100:
+        d, u = divmod(n, 10)
+        return _DECENAS[d] + (f" y {_UNIDADES[u]}" if u else "")
+    return str(n)
+
+
+def para_voz(texto):
+    """El TTS lee mal cifras y signos: escribe todo en palabras («−1» → «menos uno», «1-4» → «de uno a cuatro», «16+» → «dieciséis o más»)."""
+    t = texto.replace("\u2212", "-").replace("\u2013", "-")
+    t = re.sub(r"(?<![\w])(\d+)\s*-\s*(\d+)(?![\w])", lambda m: f"de {numero_en_palabras(int(m[1]))} a {numero_en_palabras(int(m[2]))}", t)
+    t = re.sub(r"(\d+)\s*\+", lambda m: f"{numero_en_palabras(int(m[1]))} o más", t)
+    t = re.sub(r"(?<![\w])-(\d+)", lambda m: f"menos {numero_en_palabras(int(m[1]))}", t)
+    t = re.sub(r"(?<![\w])\+(\d+)", lambda m: f"más {numero_en_palabras(int(m[1]))}", t)
+
+    def suelto(m):
+        n, resto = int(m[1]), t[m.end():]
+        if n == 1 and not t[:m.start()].rstrip().endswith(("menos", "más")):
+            sig = re.match(r"\s*([\wáéíóúñ]*)", resto)[1].lower()
+            if sig not in _ENLACES:
+                return "una" if sig.endswith(("a", "as")) and sig not in {"punto"} else "un"
+        return numero_en_palabras(n)
+
+    return re.sub(r"(?<![\w])(\d+)(?![\w])", suelto, t)
+
+
 def texto_de(carta):
     """Texto que se narra: la descripción y, si la carta tiene habilidades (enemigos), también cada una."""
     texto = carta.get("descripcion")
     if not texto:
         return None
     habilidades = " ".join(f"Habilidad, {h['nombre']}. {h['descripcion']}" for h in carta.get("habilidades", []))
-    return f"{texto} {habilidades}".strip()
+    return para_voz(f"{texto} {habilidades}".strip())
 
 
 def procesar(entrada, salida, efectos):

@@ -32,8 +32,6 @@ const dorso = (e, n) => `${ESQUINAS}
     <div class="bloque desc-e"><p class="desc-p">${esc(e.descripcion)}</p></div>
     <div class="bloque"><h5>${e.habilidades.length > 1 ? 'Habilidades' : 'Habilidad'}</h5>${e.habilidades.map((h) => `<div class="habilidad-e"><b>${esc(h.nombre)}</b><p>${esc(h.descripcion)}</p></div>`).join('')}</div>
     <div class="bloque"><h5>Ataques</h5>${e.ataques.map((a) => filaAtaque(a, n)).join('')}<p class="nota-e">Con 1-4 el enemigo falla.</p></div>
-    <div class="bloque vida-e"><h5>Vida según jugadores</h5>
-      <div class="vidas">${JUGADORES.map((j, i) => `<div><b>${n.vida[i]}</b><span>${j} jug.</span></div>`).join('')}</div></div>
   </div>`;
 
 const carta = (e, n) => `<div class="carta-sel volteo gira" role="button" tabindex="0" aria-label="Voltear la carta de ${esc(e.nombre)}">
