@@ -21,6 +21,15 @@ ESTILOS = {
 }
 
 
+def texto_de(carta):
+    """Texto que se narra: la descripción y, si la carta tiene habilidades (enemigos), también cada una."""
+    texto = carta.get("descripcion")
+    if not texto:
+        return None
+    habilidades = " ".join(f"Habilidad, {h['nombre']}. {h['descripcion']}" for h in carta.get("habilidades", []))
+    return f"{texto} {habilidades}".strip()
+
+
 def procesar(entrada, salida, efectos):
     with AudioFile(str(entrada)) as archivo:
         audio = archivo.read(archivo.frames)
@@ -58,7 +67,7 @@ def generar_qwen(cartas, carpeta_salida):
         ref_audio=str(VOZ_REF / "narradora.wav"), ref_text=(VOZ_REF / "narradora.txt").read_text(encoding="utf-8").strip()
     )
     for carta in cartas:
-        texto = carta.get("descripcion")
+        texto = texto_de(carta)
         if not texto:
             continue
         torch.manual_seed(1234)
@@ -73,7 +82,7 @@ async def generar(cartas, voz, estilo, carpeta_salida):
     carpeta_salida.mkdir(parents=True, exist_ok=True)
     config = ESTILOS[estilo]
     for carta in cartas:
-        texto = carta.get("descripcion")
+        texto = texto_de(carta)
         if not texto:
             continue
         ruta = carpeta_salida / f"{carta['id']}.mp3"
@@ -90,17 +99,17 @@ async def generar(cartas, voz, estilo, carpeta_salida):
 
 def main():
     parser = argparse.ArgumentParser(description="Genera narraciones (mp3) de las cartas con Qwen3-TTS (voz clonada de narracion/voz/) o edge-tts.")
-    parser.add_argument("archivo", type=Path, help="JSON con una lista 'cartas'")
+    parser.add_argument("archivo", type=Path, help="JSON con una lista 'cartas' (clases) o 'enemigos' (public/enemigos/enemigos.json)")
     parser.add_argument("--id", help="ID de la carta a narrar (por defecto, todas)")
     parser.add_argument("--motor", choices=["qwen", "edge"], default="qwen", help="qwen (por defecto): voz clonada de la narradora; edge: edge-tts")
     parser.add_argument("--acento", choices=VOCES, default="es-CO", help="Solo motor edge")
     parser.add_argument("--voz", help="Solo motor edge. Voz exacta de edge-tts (sustituye a --acento), p. ej. es-ES-ElviraNeural")
     parser.add_argument("--estilo", choices=ESTILOS, default="epico", help="Solo motor edge")
-    parser.add_argument("--salida", type=Path, help="Carpeta de salida (por defecto, narraciones/ junto al JSON de la clase)")
+    parser.add_argument("--salida", type=Path, help="Carpeta de salida (por defecto, narraciones/ junto al JSON)")
     args = parser.parse_args()
 
     crudo = json.loads(args.archivo.read_text(encoding="utf-8"))
-    cartas = crudo["cartas"]
+    cartas = crudo.get("cartas") or crudo["enemigos"]
     if args.id:
         cartas = [c for c in cartas if c["id"] == args.id]
         if not cartas:

@@ -1,4 +1,4 @@
-/* Pestaña «Bestiario»: catálogo de enemigos. Las cartas usan el diseño de personajes/app/cartas.css (variables añadidas a .bestiario) y el volteo de catalogo.css. */
+/* Pestaña «Bestiario»: lista de enemigos y vista de combate con contador de vida. Las cartas usan el diseño de personajes/app/cartas.css (variables añadidas a .bestiario) y el volteo de catalogo.css. */
 .tab-bestiario { max-width: none; padding: 0; }
 .bestiario { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; min-height: 100dvh; padding: 8px 16px 80px;
   background: radial-gradient(120% 60% at 50% 0%, #3a2a1c 0%, #17110c 70%) fixed; }
@@ -7,8 +7,33 @@
 .bestiario > header h1 { font-family: "Cinzel", Georgia, serif; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; }
 .estado.alerta { color: #ffd37a; text-align: center; }
 
-.nivel-enemigos h2 { font-family: "Cinzel", Georgia, serif; font-size: 20px; letter-spacing: .1em; color: #f2dc9b; margin: 22px 0 10px; text-align: center; }
-.nivel-enemigos h2 small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4af5a; margin-top: 2px; }
+/* Lista de enemigos: nivel y nombre */
+.lista-enemigos { width: 100%; max-width: 560px; margin: 18px auto 0; border-collapse: separate; border-spacing: 0 8px; }
+.lista-enemigos th { font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4af5a; text-align: left; padding: 0 14px; }
+.lista-enemigos tbody tr { cursor: pointer; background: #00000055; }
+.lista-enemigos td { padding: 14px; border-top: 1px solid #d4af5a66; border-bottom: 1px solid #d4af5a66; font-family: "Cinzel", Georgia, serif; font-size: 17px; letter-spacing: .06em; color: #f2dc9b; }
+.lista-enemigos td:first-child { width: 72px; border-left: 1px solid #d4af5a66; border-radius: 10px 0 0 10px; color: #d4af5a; text-align: center; }
+.lista-enemigos td:last-child { border-right: 1px solid #d4af5a66; border-radius: 0 10px 10px 0; }
+.lista-enemigos tbody tr:hover td, .lista-enemigos tbody tr:focus-visible td { background: #d4af5a22; }
+.lista-enemigos tbody tr:focus-visible { outline: 2px solid #f2dc9b; outline-offset: 2px; border-radius: 10px; }
+
+/* Vista del enemigo */
+.volver { all: unset; cursor: pointer; display: inline-block; margin: 8px 0 0; padding: 8px 14px; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 13px; }
+.volver:active { background: #d4af5a33; }
+.titulo-enemigo { font-family: "Cinzel", Georgia, serif; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; text-align: center; margin: 12px 0 8px; }
+.titulo-enemigo small { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #d4af5a; margin-top: 2px; }
+
+/* Contador de vida (el corazón y los botones − / + son los de catalogo.css) */
+.panel-vida { display: flex; flex-direction: column; align-items: center; gap: 10px; width: fit-content; max-width: 100%; margin: 0 auto 16px; padding: 12px 18px; border: 1px solid #d4af5a88; border-radius: 12px; background: #0006; }
+.jugadores { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #d4af5a; }
+.jugadores span { margin-right: 4px; letter-spacing: .1em; text-transform: uppercase; }
+.jugadores button, .reiniciar { all: unset; cursor: pointer; min-width: 40px; height: 36px; padding: 0 12px; box-sizing: border-box; display: inline-grid; place-items: center; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 15px; -webkit-tap-highlight-color: transparent; }
+.reiniciar { font-size: 13px; }
+.reiniciar:active { background: #d4af5a44; }
+.jugadores button.activo { background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-weight: 700; }
+.estado-derrota { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: 18px; letter-spacing: .25em; text-transform: uppercase; color: #ffb4a8; }
+.estado-derrota[hidden] { display: none; }
+.bestiario .derrotado .carta-p.personaje .retrato-p img { filter: grayscale(1) brightness(.6); }
 .rejilla-enemigos { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
 /* Cada carta ocupa su tamaño escalado (zoom) para que quepa en móviles estrechos */
 .bestiario .carta-sel { zoom: var(--escala-bestiario, 1); }

@@ -1,6 +1,6 @@
 {
   "reglas": {
-    "d20": "Cada enemigo tira un d20 en su turno: 1-6 falla; 7-15 golpe básico; 16+ golpe fuerte (con su habilidad).",
+    "d20": "Cada enemigo tira un d20 en su turno: 1-4 falla; 5-15 golpe básico; 16+ golpe fuerte (con su habilidad).",
     "ataques_por_ronda": [
       "4 jugadores: 1 ataque por ronda.",
       "5 jugadores: 1 ataque por ronda y un segundo ataque cada 3 rondas.",
@@ -12,61 +12,66 @@
       "nivel": 1,
       "nombre": "Sin equipo",
       "vida": [
-        13,
-        17,
-        20
+        10,
+        15,
+        17
       ],
       "basico": 1,
       "fuerte": 2,
-      "habilidades": 1
+      "habilidades": 1,
+      "efecto": 2
     },
     {
       "nivel": 2,
       "nombre": "Un par de comidas y armas",
       "vida": [
-        22,
-        29,
-        34
+        21,
+        25,
+        28
       ],
-      "basico": 3,
-      "fuerte": 6,
-      "habilidades": 1
+      "basico": 1,
+      "fuerte": 3,
+      "habilidades": 1,
+      "efecto": 2
     },
     {
       "nivel": 3,
       "nombre": "Armas y algo de armadura",
       "vida": [
-        30,
+        29,
         40,
-        46
+        43
       ],
-      "basico": 4,
-      "fuerte": 7,
-      "habilidades": 1
+      "basico": 2,
+      "fuerte": 4,
+      "habilidades": 1,
+      "efecto": 2
     },
     {
       "nivel": 4,
       "nombre": "Equipo completo",
       "vida": [
-        50,
-        66,
-        76
+        37,
+        51,
+        56
       ],
-      "basico": 7,
-      "fuerte": 9,
-      "habilidades": 1
+      "basico": 8,
+      "fuerte": 11,
+      "habilidades": 1,
+      "efecto": 2
     },
     {
       "nivel": 5,
       "nombre": "Equipo completo y nivel 2",
       "vida": [
-        60,
-        80,
-        92
+        47,
+        64,
+        72
       ],
-      "basico": 7,
-      "fuerte": 10,
-      "habilidades": 1
+      "basico": 9,
+      "fuerte": 12,
+      "habilidades": 1,
+      "efecto": 2
     },
     {
       "nivel": 6,
@@ -101,6 +106,7 @@
       "tipo": "Bestia",
       "encuadre": "12% 50%",
       "descripcion": "Lobo flaco de pelaje pardo y lomo erizado de espinas afiladas. Acecha entre los pinos con la cabeza gacha y se lanza sobre quien baje la guardia.",
+      "narracion": "narraciones/lobo-espinoso.mp3",
       "ataques": [
         {
           "golpe": "basico",

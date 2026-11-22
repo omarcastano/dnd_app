@@ -24,6 +24,8 @@ El audio se guarda en `public/personajes/clases/<clase>/narraciones/<id>.mp3` y 
 `"narracion": "narraciones/<id>.mp3"` (ruta relativa a la clase, justo tras `descripcion`). `app/datos.js` la resuelve y
 `make check` comprueba que el archivo exista. El texto narrado es la `descripcion` de la carta.
 
+**Enemigos:** `make audio ARGS="public/enemigos/enemigos.json --id lobo-espinoso"` escribe `public/enemigos/narraciones/<id>.mp3` y enlaza `narracion` en `enemigos.json`. Aquí se narra la `descripcion` **y** cada habilidad («Habilidad, Sangrado. …»).
+
 Opciones: `--id`, `--salida` (carpeta distinta; en ese caso no se modifica el JSON), `--motor qwen|edge`.
 Con `--motor edge` (edge-tts, sin GPU): `--acento` (es-CO, es-MX, es-ES), `--voz` (p. ej. `es-ES-XimenaNeural`), `--estilo` (normal, epico, villano).
 
