@@ -408,6 +408,43 @@
           "descripcion": "Si la Ceniza maldita acierta, la víctima sufre miedo: tiene −1 a sus tiradas de ataque durante sus 2 siguientes turnos. La armadura no reduce este efecto y el miedo no se acumula. El Aliento Purificador lo limpia."
         }
       ]
+    },
+    {
+      "id": "rana-ballestera",
+      "nombre": "Rana Ballestera",
+      "nivel": 1,
+      "tipo": "Bestia",
+      "encuadre": "50% 40%",
+      "descripcion": "Una rana verde de ojos dorados con chaleco de cuero y una ballesta casi más grande que ella. Acecha agazapada sobre un tronco y dispara virotes desde lejos.",
+      "narracion": "narraciones/rana-ballestera.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Virote",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Virote dentado",
+          "subtitulo": "Ataque que causa sangrado"
+        }
+      ],
+      "sonido": "sonidos/rana-ballestera-croar.wav",
+      "sonido_muerte": "sonidos/rana-ballestera-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 40,
+          "1": 45,
+          "2": 15
+        },
+        "texto": "En su carcaj y su cinturón guarda virotes y algún botín de sus presas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Herida abierta",
+          "descripcion": "Si el Virote dentado acierta, la víctima sangra: pierde 1 punto de vida al inicio de cada una de sus 2 siguientes rondas. La armadura no reduce este daño y el sangrado no se acumula."
+        }
+      ]
     }
   ]
 }
