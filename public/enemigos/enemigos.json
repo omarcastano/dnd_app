@@ -333,6 +333,44 @@
       },
       "sonido": "sonidos/tarantula-gigante-silbido.wav",
       "sonido_muerte": "sonidos/tarantula-gigante-muerte.mp3"
+    },
+    {
+      "id": "wendigo-del-musgo",
+      "nombre": "Wendigo del Musgo",
+      "nivel": 5,
+      "tipo": "Bestia",
+      "encuadre": "50% 50%",
+      "descripcion": "Criatura encorvada de piel de corteza y musgo, con astas como ramas y un rostro liso sin facciones. Acecha entre la niebla del bosque y se lanza sobre su presa con garras de madera.",
+      "narracion": "narraciones/wendigo-del-musgo.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Zarpazo de corteza",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mirada vacía",
+          "subtitulo": "Ataque que causa miedo"
+        }
+      ],
+      "habilidades": [
+        {
+          "nombre": "Terror del bosque",
+          "descripcion": "Si la Mirada vacía acierta, la víctima sufre miedo: tiene −2 a sus tiradas de ataque durante sus 2 siguientes turnos. La armadura no reduce este efecto y el miedo no se acumula. El Aliento Purificador lo limpia."
+        }
+      ],
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 30,
+          "2": 35,
+          "3": 25
+        },
+        "texto": "Entre el musgo y las raíces de su espalda quedan enredados los restos de quienes se perdieron en el bosque."
+      },
+      "sonido": "sonidos/wendigo-del-musgo-grunido.wav",
+      "sonido_muerte": "sonidos/wendigo-del-musgo-muerte.mp3"
     }
   ]
 }
