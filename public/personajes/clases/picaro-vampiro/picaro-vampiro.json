@@ -16,24 +16,24 @@
       "id": "valerian-nox",
       "tipo": "personaje",
       "nombre": "Valerian Nox",
-      "raza": "Vampiro",
-      "descripcion": "Vampiro de piel pálida y ojos carmesí, envuelto en una capa negra de cuello alto. Entre las sombras empuña su daga y su puñal, y desaparece antes de que su víctima lo note.",
+      "raza": "Tiefling",
+      "descripcion": "Tiefling de piel roja, cuernos curvos y coleta recogida en moño, de sangre vampírica. Agazapado entre las sombras, empuña su espada corta y su daga, y ataca sin ser visto.",
       "narracion": "narraciones/valerian-nox.mp3",
       "reglas_raza": [
-        "Los vampiros recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
-        "Los vampiros sufren 1 punto de daño adicional de los ataques sagrados o de luz."
+        "Los tieflings, por su sangre vampírica, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los tieflings ven en la oscuridad y no pueden ser sorprendidos: ningún enemigo ataca primero contra ellos en una emboscada."
       ]
     },
     {
       "id": "seraphine-nox",
       "tipo": "personaje",
       "nombre": "Seraphine Nox",
-      "raza": "Vampira",
-      "descripcion": "Vampira de cabello plateado y colmillos afilados, vestida de cuero oscuro y capa de terciopelo. Con una daga y un puñal, se desliza entre las sombras y roba la sangre y el oro.",
+      "raza": "Tiefling",
+      "descripcion": "Tiefling de piel roja, cuernos curvos y colmillos afilados, de sangre vampírica. Vestida de cuero oscuro, con su espada corta y su daga se desliza entre las sombras y roba sangre y oro.",
       "narracion": "narraciones/seraphine-nox.mp3",
       "reglas_raza": [
-        "Los vampiros recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
-        "Los vampiros sufren 1 punto de daño adicional de los ataques sagrados o de luz."
+        "Los tieflings, por su sangre vampírica, recuperan 1 punto de vida cuando dejan a un enemigo a 0 puntos de vida.",
+        "Los tieflings ven en la oscuridad y no pueden ser sorprendidos: ningún enemigo ataca primero contra ellos en una emboscada."
       ]
     },
     {
@@ -178,6 +178,10 @@
     },
     {
       "id": "banquete-de-sangre",
+      "roles": [
+        "dano",
+        "sanacion"
+      ],
       "tipo": "ilustrada",
       "nombre": "Banquete de Sangre",
       "descripcion": "El pícaro se lanza al cuello de un enemigo y bebe su sangre sin piedad. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, el enemigo recibe 4 puntos de daño y tú recuperas 4 puntos de vida.",
@@ -190,6 +194,10 @@
     },
     {
       "id": "nube-de-murcielagos",
+      "roles": [
+        "tanque",
+        "dano"
+      ],
       "tipo": "ilustrada",
       "nombre": "Nube de Murciélagos",
       "nombre_habilidad": "Nube de Murciélagos",

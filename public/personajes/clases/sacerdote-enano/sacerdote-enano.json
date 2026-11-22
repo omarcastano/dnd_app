@@ -202,13 +202,15 @@
           "rango_d20": "11-16",
           "nombre": "Runa de Hierro",
           "valor": 2,
-          "subtitulo": "Escudo de varias rondas"
+          "subtitulo": "Escudo de varias rondas",
+          "rol": "apoyo"
         },
         {
           "rango_d20": "17+",
           "nombre": "Sello de Montaña",
           "valor": 3,
-          "subtitulo": "Escudo de varias rondas"
+          "subtitulo": "Escudo de varias rondas",
+          "rol": "apoyo"
         }
       ]
     },
@@ -237,18 +239,21 @@
           "rango_d20": "11-16",
           "nombre": "Runa de Roca",
           "valor": 1,
-          "subtitulo": "Escudo de varias rondas"
+          "subtitulo": "Escudo de varias rondas",
+          "rol": "apoyo"
         },
         {
           "rango_d20": "17+",
           "nombre": "Sello de Granito",
           "valor": 2,
-          "subtitulo": "Escudo de varias rondas"
+          "subtitulo": "Escudo de varias rondas",
+          "rol": "apoyo"
         }
       ]
     },
     {
       "id": "aliento-purificador",
+      "roles": ["sanacion"],
       "tipo": "ilustrada",
       "nombre": "Aliento Purificador",
       "descripcion": "El sacerdote entona un himno ancestral que barre la corrupción del grupo. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, todos los aliados quedan libres de veneno, miedo, aturdimiento y cualquier otro estado negativo.",
@@ -261,6 +266,7 @@
     },
     {
       "id": "altar-ancestral",
+      "roles": ["sanacion"],
       "tipo": "ilustrada",
       "nombre": "Altar Ancestral",
       "nombre_habilidad": "Altar Ancestral",
@@ -268,6 +274,7 @@
     },
     {
       "id": "sentencia-del-yunque",
+      "roles": ["dano", "apoyo"],
       "tipo": "ilustrada",
       "nombre": "Sentencia del Yunque",
       "nombre_habilidad": "Sentencia del Yunque",

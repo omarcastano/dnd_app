@@ -1,4 +1,4 @@
-/* Efectos y ambientes de la clase Guerrero Orco (cargado por catalogo.js según clases.json) */
+/* Efectos y ambientes de la clase Guerrero Taurent (cargado por catalogo.js según clases.json) */
 .efecto .halo-orco { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #ff8a2a55 0%, #8a2a1033 35%, transparent 65%); animation: ef-orco-halo 2s ease-out both; }
 .efecto .halo-orco.furia { background: radial-gradient(circle at 50% 55%, #e01e0066 0%, #5a0a0833 40%, transparent 65%); }
 .efecto .halo-orco.aguante { background: radial-gradient(circle at 50% 55%, #8fd16a55 0%, #2f5a1a33 40%, transparent 65%); }

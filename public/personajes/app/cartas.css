@@ -143,3 +143,10 @@
 .divisor-narracion .btn-narracion { margin: 0 auto; padding: 0; gap: 0; background: none; border: 0; box-shadow: none; }
 .divisor-narracion .btn-narracion .nar-play, .divisor-narracion .btn-narracion .nar-pausa { display: none; }
 .divisor-narracion .btn-narracion::after { border-radius: 50%; inset: -2px; }
+
+/* Roles de habilidad: espada (daño), escudo (tanque), cruz verde (sanación) */
+.rol { width: 15px; height: 15px; margin-left: 6px; vertical-align: -2px; flex: none; }
+.rol-dano { fill: #8e2a2a; } .rol-tanque { fill: #3b5f8a; } .rol-sanacion { fill: #2e8b3d; }
+.roles-carta { position: absolute; top: 20px; right: 20px; z-index: 6; display: flex; gap: 5px; padding: 5px 7px; border-radius: 14px; background: #fbf3dcee; border: 1.5px solid var(--oro); }
+.rol.rol-grande { width: 22px; height: 22px; margin: 0; vertical-align: 0; }
+.rol-apoyo { fill: #7a4fb0; }

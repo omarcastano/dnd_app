@@ -2,7 +2,7 @@
 // Las clases salen de `clases.json`; cada una carga su `clases/<id>/<id>.json` y, si lo declara, sus efectos.
 import { cargarClase, rutaClase, RAIZ } from './datos.js';
 import { mostrarCartas, ajustarEscala } from './carrusel.js?v=9';
-import { iniciarSeleccion } from './seleccion.js?v=4';
+import { iniciarSeleccion } from './seleccion.js?v=6';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
 import { atenderNarracion } from './narracion.js';

@@ -17,18 +17,30 @@ export const TIPOS = ['personaje', 'tabla', 'ilustrada'];
 export const RAIZ = new URL('../', import.meta.url);
 export const rutaClase = (id) => new URL(`clases/${id}/`, RAIZ).href;
 
+// Rol de una habilidad: `rol` explícito ('dano' | 'tanque' | 'sanacion' | 'apoyo') o deducido del subtítulo
+export function rolDe(f) {
+  if (f.rol) return f.rol;
+  const t = (f.subtitulo ?? '').toLowerCase();
+  if (/sanaci|cura/.test(t)) return 'sanacion';
+  if (/protecci|escudo|provoca/.test(t)) return 'tanque';
+  if (/ataque/.test(t)) return 'dano';
+  return null;
+}
+
 function normalizarFila(f, base) {
   if (!f.nombre) return f;
-  return { ...f, icono: base + (f.icono ?? `imagenes/habilidades/${slug(f.nombre)}.webp`) };
+  return { ...f, rol: rolDe(f), icono: base + (f.icono ?? `imagenes/habilidades/${slug(f.nombre)}.webp`) };
 }
 
 export function normalizar(id, crudo) {
   const base = rutaClase(id);
   const clase = crudo.clase ?? {};
+  const roles = ['dano', 'tanque', 'sanacion', 'apoyo'].filter((r) => crudo.cartas.some((c) => [...(c.ataques ?? []), ...(c.tabla ?? [])].some((f) => f.nombre && rolDe(f) === r)));
   const cartas = crudo.cartas.map((c) => {
     const n = { ...c };
     if (c.tipo === 'personaje') {
       n.clase = clase.nombre ?? id;
+      n.roles = clase.roles ?? roles;
       n.reglas = c.reglas ?? clase.reglas ?? [];
       n.armas = c.armas ?? clase.armas ?? [];
     }

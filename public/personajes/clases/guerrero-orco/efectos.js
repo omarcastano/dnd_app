@@ -1,4 +1,4 @@
-// Efectos de la clase Guerrero Orco: provocacion (ondas de rugido), furia (tajos y brasas), aguante (chispas de hierro). Estilos en efectos.css.
+// Efectos de la clase Guerrero Taurent: provocacion (ondas de rugido), furia (tajos y brasas), aguante (chispas de hierro). Estilos en efectos.css.
 import { rnd } from '../../app/util.js';
 
 const elegir = (xs) => xs[Math.floor(Math.random() * xs.length)];

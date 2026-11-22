@@ -15,22 +15,24 @@
       "id": "eldan-galadriel",
       "tipo": "personaje",
       "nombre": "Eldan Galadriel",
-      "raza": "Elfo del Bosque",
-      "descripcion": "Anciano elfo de largos cabellos y barba blancos como la escarcha. Envuelto en su capa, guarda pergaminos antiguos y un bastón tallado por el bosque, que obedece solo a su voz.",
+      "raza": "Enano del Bosque",
+      "descripcion": "Enano barbirrojo de capucha verde que cabalga sobre su fiel pug. Lleva un bastón nudoso tallado por el bosque y un libro de conjuros abierto, y la naturaleza le obedece.",
       "narracion": "narraciones/eldan-galadriel.mp3",
       "reglas_raza": [
-        "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
+        "Los enanos del bosque ven en la oscuridad sin penalización.",
+        "Su pug los avisa del peligro: los enemigos no pueden sorprenderlos ni obtener un ataque extra al aparecer."
       ]
     },
     {
       "id": "selene-galadriel",
       "tipo": "personaje",
       "nombre": "Selene Galadriel",
-      "raza": "Elfa del Bosque",
-      "descripcion": "Elfa etérea de túnicas verdes tejidas con hojas y enredaderas vivas. Su bastón, coronado por un orbe luminoso, despierta el bosque entero con apenas un susurro.",
+      "raza": "Enana del Bosque",
+      "descripcion": "Enana de larga melena castaña que cabalga sobre su pug, con capa verde y un libro de conjuros abierto. Su bastón nudoso despierta el bosque entero con apenas un susurro.",
       "narracion": "narraciones/selene-galadriel.mp3",
       "reglas_raza": [
-        "Los elfos del bosque pueden moverse por terreno difícil sin penalización."
+        "Los enanos del bosque ven en la oscuridad sin penalización.",
+        "Su pug los avisa del peligro: los enemigos no pueden sorprenderlos ni obtener un ataque extra al aparecer."
       ]
     },
     {
@@ -175,9 +177,12 @@
     },
     {
       "id": "instinto-salvaje",
+      "roles": [
+        "dano"
+      ],
       "tipo": "ilustrada",
       "nombre": "Instinto Salvaje",
-      "descripcion": "Esta habilidad permite al druida elfo transformarse mágicamente en una poderosa bestia que duplica su poder de ataque. Una vez por cada tablero de mazmorra y solo durante una batalla, puedes convertirte en una poderosa bestia parda, lo que hará que los ataques infligidos en tu forma salvaje hagan el doble de daño a tus enemigos.",
+      "descripcion": "Esta habilidad permite al druida enano transformarse mágicamente en una poderosa bestia que duplica su poder de ataque. Una vez por cada tablero de mazmorra y solo durante una batalla, puedes convertirte en una poderosa bestia parda, lo que hará que los ataques infligidos en tu forma salvaje hagan el doble de daño a tus enemigos.",
       "tabla": [
         {
           "rango_d20": "12+",
@@ -187,10 +192,13 @@
     },
     {
       "id": "el-curandero",
+      "roles": [
+        "sanacion"
+      ],
       "tipo": "ilustrada",
       "nombre": "El Curandero",
       "nombre_habilidad": "Sanación Natural",
-      "descripcion": "Este poderoso hechizo canaliza la energía vital de la naturaleza para curar a todos los aliados dentro de un radio de 60 metros. El druida elfo invoca el poder de los antiguos bosques, haciendo que una suave luz verde emane del suelo y envuelva a sus compañeros. Una vez por cada tablero de mazmorra, cada aliado recupera una cantidad de puntos de vida igual a 1d4. Este hechizo no tiene efecto sobre no-muertos o constructos, ya que su magia está profundamente ligada a la vida y la naturaleza."
+      "descripcion": "Este poderoso hechizo canaliza la energía vital de la naturaleza para curar a todos los aliados dentro de un radio de 60 metros. El druida enano invoca el poder de los antiguos bosques, haciendo que una suave luz verde emane del suelo y envuelva a sus compañeros. Una vez por cada tablero de mazmorra, cada aliado recupera una cantidad de puntos de vida igual a 1d4. Este hechizo no tiene efecto sobre no-muertos o constructos, ya que su magia está profundamente ligada a la vida y la naturaleza."
     }
   ],
   "seleccion": [

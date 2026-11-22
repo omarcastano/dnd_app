@@ -42,7 +42,19 @@
 .btn-sec:active { background: #d4af5a33; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0 10px; }
 .chips span { padding: 5px 12px; border-radius: 999px; background: #d4af5a22; border: 1px solid #d4af5a; color: #f2dc9b; font-size: 13px; }
-.resumen .btn-sec { margin-top: 0; }
+/* Resumen: vida (corazón + / −) a la izquierda y "Elegir de nuevo" a la derecha, en una sola fila compacta */
+.resumen { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.resumen .btn-sec { margin-top: 0; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
+.vida { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid #d4af5a; border-radius: 999px; background: #d4af5a14; }
+.vida-btn { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; line-height: 1; color: #f2dc9b; user-select: none; -webkit-tap-highlight-color: transparent; }
+.vida-btn:active { background: #d4af5a44; }
+.vida-btn:disabled { opacity: .3; cursor: default; }
+.vida-valor { position: relative; display: grid; place-items: center; width: 52px; height: 48px; }
+.vida-corazon { position: absolute; inset: 0; width: 100%; height: 100%; fill: #b8281c; stroke: #f2dc9b; stroke-width: 1.2; filter: drop-shadow(0 0 5px #c0392b88); }
+.vida-valor b { position: relative; margin-top: -3px; font-family: "Cinzel", Georgia, serif; font-size: 19px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px #000a; }
+.vida.baja .vida-valor { animation: latido 1s ease-in-out infinite; }
+@keyframes latido { 50% { transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { .vida.baja .vida-valor { animation: none; } }
 
 /* Opciones de la selección: son las propias cartas (cartas.css), una tras otra. Botón "Elegir" debajo */
 .ayuda { font-size: 13px; opacity: .75; margin-bottom: 4px; }

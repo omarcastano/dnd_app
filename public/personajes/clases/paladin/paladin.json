@@ -16,22 +16,24 @@
       "id": "aldric-valorian",
       "tipo": "personaje",
       "nombre": "Aldric Valorian",
-      "raza": "Humano",
-      "descripcion": "Humano de barba recortada y mirada firme, ataviado con armadura plateada y dorada. Bajo su capa blanca, su escudo sagrado y su maza defienden a los inocentes de la oscuridad.",
+      "raza": "Dracónido",
+      "descripcion": "Dracónido de escamas plateadas y cresta de púas, enfundado en armadura de placas con tabardo dorado. Con su pesada maza al hombro y el yunque a sus pies, forja la justicia sagrada.",
       "narracion": "narraciones/aldric-valorian.mp3",
       "reglas_raza": [
-        "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
+        "Los dracónidos tienen 1 punto de vida máximo adicional gracias a sus escamas.",
+        "Los dracónidos son inmunes al daño de fuego."
       ]
     },
     {
       "id": "elara-valorian",
       "tipo": "personaje",
       "nombre": "Elara Valorian",
-      "raza": "Humana",
-      "descripcion": "Humana de larga trenza castaña y voluntad inquebrantable, vestida de plata y oro. Con capa blanca, escudo sagrado y maza, avanza donde la luz más se necesita.",
+      "raza": "Dracónida",
+      "descripcion": "Dracónida de escamas blancas y mirada serena, vestida de plata y oro bajo una capa negra. Con su pesada maza en alto y el yunque a sus pies, forja la luz donde más se necesita.",
       "narracion": "narraciones/elara-valorian.mp3",
       "reglas_raza": [
-        "Los humanos pueden repetir una tirada de d20 fallida una vez por tablero de mazmorra."
+        "Los dracónidos tienen 1 punto de vida máximo adicional gracias a sus escamas.",
+        "Los dracónidos son inmunes al daño de fuego."
       ]
     },
     {
@@ -123,7 +125,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
+      "descripcion": "Al canalizar la gracia divina, tus manos escamosas irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -158,7 +160,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Al canalizar la gracia divina, tus manos irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
+      "descripcion": "Al canalizar la gracia divina, tus manos escamosas irradian luz que restaura puntos de vida a un compañero o a ti mismo.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -246,6 +248,9 @@
     },
     {
       "id": "plegaria-de-resurreccion",
+      "roles": [
+        "sanacion"
+      ],
       "tipo": "ilustrada",
       "nombre": "Plegaria de Resurrección",
       "descripcion": "El paladín se arrodilla junto a un aliado caído y ruega a los dioses por su regreso. Una vez por cada tablero de mazmorra y durante un combate, tira un d20: con 12 o más, un aliado caído regresa a la vida con la mitad de sus puntos de vida.",
@@ -258,6 +263,9 @@
     },
     {
       "id": "egida-inquebrantable",
+      "roles": [
+        "tanque"
+      ],
       "tipo": "ilustrada",
       "nombre": "Égida Inquebrantable",
       "nombre_habilidad": "Égida Inquebrantable",
@@ -265,10 +273,13 @@
     },
     {
       "id": "furia-divina",
+      "roles": [
+        "dano"
+      ],
       "tipo": "ilustrada",
       "nombre": "Furia Divina",
       "nombre_habilidad": "Furia Divina",
-      "descripcion": "El paladín se envuelve en fuego sagrado y sus golpes arden con la ira de los dioses. Una vez por cada tablero de mazmorra y solo durante una batalla, los ataques que inflijas hacen el doble de daño a tus enemigos."
+      "descripcion": "El fuego sagrado de su sangre dracónica recorre las escamas del paladín y sus golpes arden con la ira de los dioses. Una vez por cada tablero de mazmorra y solo durante una batalla, los ataques que inflijas hacen el doble de daño a tus enemigos."
     }
   ],
   "seleccion": [

@@ -1,22 +1,24 @@
 // Asistente de selección: un paso por pantalla; al final, las cartas de las opciones elegidas.
 // La elección se recuerda en este dispositivo (localStorage); si no está disponible, simplemente no se guarda.
 import { esc } from './util.js';
-import { carasDeCarta, esperarImagenes } from './cartas.js';
+import { carasDeCarta, esperarImagenes, bloqueRoles } from './cartas.js';
 import { activarContador, ajustarEscala } from './carrusel.js?v=9';
 import { reproducirEfecto, temaDe, ponerAmbiente } from './efectos.js';
 
 // Portada de una opción con niveles (Forma Salvaje, Sanación): retrato + nombre + descripción. Es la primera cara del volteo.
-const portada = (o) => `<article class="carta-p portada"><i class="esquina a"></i><i class="esquina b"></i><i class="esquina c"></i><i class="esquina d"></i>
+const portada = (o, cartas = []) => `<article class="carta-p portada"><i class="esquina a"></i><i class="esquina b"></i><i class="esquina c"></i><i class="esquina d"></i>
   <div class="placa"><h3>${esc(o.etiqueta)}</h3></div>
   <div class="icono-portada"><img src="${o.portada}" alt=""></div>
   <div class="divisor"><i>◆</i></div>
   <p class="detalle-portada">${esc(o.detalle ?? '')}</p>
+  ${bloqueRoles(cartas)}
 </article>`;
 
 // Caras de una opción: las cartas reales. Personaje: frente y dorso. Habilidades de dos niveles: portada + nivel 1 + nivel 2.
 function carasDeOpcion(o, porId, etiquetas) {
-  const caras = o.cartas.map((id) => porId.get(id)).filter(Boolean).flatMap((c) => carasDeCarta(c, etiquetas));
-  if (o.portada && caras.length > 1) caras.unshift(portada(o));
+  const cartas = o.cartas.map((id) => porId.get(id)).filter(Boolean);
+  const caras = cartas.flatMap((c) => carasDeCarta(c, etiquetas));
+  if (o.portada && caras.length > 1) caras.unshift(portada(o, cartas));
   return caras;
 }
 
@@ -63,6 +65,12 @@ export function iniciarSeleccion(contenedor, datos) {
     } catch {}
     return null;
   };
+  // Vida: 0–10, se recuerda por clase en este dispositivo
+  const claveVida = `taberna:${datos.id}:vida`;
+  const VIDA_MAX = 10;
+  const leerVida = () => { try { const v = Number(localStorage.getItem(claveVida)); if (localStorage.getItem(claveVida) !== null && Number.isInteger(v) && v >= 0 && v <= VIDA_MAX) return v; } catch {} return VIDA_MAX; };
+  const guardarVida = (v) => { try { localStorage.setItem(claveVida, String(v)); } catch {} };
+  const olvidarVida = () => { try { localStorage.removeItem(claveVida); } catch {} };
   const elegidas = () => indices.map((k, i) => pasos[i].opciones[k]);
 
   function paso(i) {
@@ -112,11 +120,32 @@ export function iniciarSeleccion(contenedor, datos) {
     const caras = sel.map((o) => o.cartas.map((id) => porId.get(id)).filter(Boolean).flatMap((c) => carasDeCarta(c, datos.etiquetas)));
     contenedor.innerHTML = `
       <div class="resumen">
+        <div class="vida" role="group" aria-label="Vida">
+          <button type="button" class="vida-btn" data-vida="-1" aria-label="Bajar vida">−</button>
+          <span class="vida-valor" aria-live="polite"><svg viewBox="0 0 32 29" class="vida-corazon" aria-hidden="true"><path d="M16 28C6 20 1 15 1 9a7.5 7.5 0 0 1 15-2 7.5 7.5 0 0 1 15 2c0 6-5 11-15 19z"/></svg><b></b></span>
+          <button type="button" class="vida-btn" data-vida="1" aria-label="Subir vida">+</button>
+        </div>
         <button type="button" class="btn-sec" data-reiniciar>Elegir de nuevo</button>
       </div>
       <div class="contador"></div>
       <div class="opciones">${sel.map((o, k) => tarjetaOpcion(o, k, caras[k], false)).join('')}</div>`;
-    contenedor.querySelector('[data-reiniciar]').addEventListener('click', (e) => { indices.length = 0; olvidar(); e.target.dispatchEvent(new CustomEvent('heroes:reiniciar', { bubbles: true })); });
+    let vida = leerVida();
+    const vidaEl = contenedor.querySelector('.vida');
+    const pintarVida = () => {
+      vidaEl.querySelector('b').textContent = vida;
+      vidaEl.classList.toggle('baja', vida <= 3);
+      vidaEl.querySelector('[data-vida="-1"]').disabled = vida <= 0;
+      vidaEl.querySelector('[data-vida="1"]').disabled = vida >= VIDA_MAX;
+    };
+    vidaEl.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-vida]');
+      if (!b) return;
+      vida = Math.min(VIDA_MAX, Math.max(0, vida + Number(b.dataset.vida)));
+      guardarVida(vida);
+      pintarVida();
+    });
+    pintarVida();
+    contenedor.querySelector('[data-reiniciar]').addEventListener('click', (e) => { indices.length = 0; olvidar(); olvidarVida(); e.target.dispatchEvent(new CustomEvent('heroes:reiniciar', { bubbles: true })); });
     const opciones = contenedor.querySelector('.opciones');
     opciones.addEventListener('click', (e) => {
       const v = e.target.closest('.volteo.gira');
