@@ -2,7 +2,7 @@ PORT ?= 8080
 UV ?= uv
 PY := .venv/bin/python
 
-.PHONY: run setup audio-setup audio check cartas catalogo
+.PHONY: run setup audio-setup audio check cartas catalogo simular
 
 run:
 	python3 -m http.server $(PORT) -d public
@@ -27,3 +27,7 @@ catalogo:
 # (LEGACY: diseño y esquema antiguos, ya no compatible con public/personajes/clases/) Exporta las cartas a PDF
 cartas:
 	public/personajes/legacy/exportar.sh $(CLASE)
+
+# Simulador de balance (Python): genera simulacion/reporte.html (make simular ARGS="--rapido")
+simular:
+	$(PY) simulacion/simular.py $(ARGS)

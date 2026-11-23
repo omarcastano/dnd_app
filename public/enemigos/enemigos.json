@@ -671,6 +671,658 @@
           "descripcion": "Si el Mazazo aplastante acierta, la víctima queda aturdida y pierde su siguiente turno. No se acumula. Los taurent son inmunes."
         }
       ]
+    },
+    {
+      "id": "engendro-del-abismo",
+      "nombre": "Engendro del Abismo",
+      "nivel": 2,
+      "tipo": "Demonio",
+      "encuadre": "50% 50%",
+      "descripcion": "Un demonio escuálido que avanza a cuatro patas, con la cabeza lisa y alargada y una cresta de espinas de hueso en el lomo. Acecha encorvado y se abalanza sobre su presa con las garras por delante.",
+      "narracion": "narraciones/engendro-del-abismo.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Zarpazo infernal",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Embestida de espinas",
+          "subtitulo": "Ataque que marca a su presa"
+        }
+      ],
+      "robo": {
+        "objetos": {
+          "0": 30,
+          "1": 40,
+          "2": 25,
+          "3": 5
+        },
+        "texto": "Entre las espinas de su lomo y bajo sus garras quedan restos de sus presas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Marca de presa",
+          "descripcion": "Si la Embestida de espinas acierta, la víctima queda marcada durante 2 rondas: cada ataque del Engendro que le acierte le hace 1 de daño extra. La armadura no reduce este daño y la marca no se acumula."
+        }
+      ],
+      "sonido": "sonidos/engendro-del-abismo-rugido.wav",
+      "sonido_muerte": "sonidos/engendro-del-abismo-muerte.mp3"
+    },
+    {
+      "id": "devorador-de-mentes",
+      "nombre": "Devorador de Mentes",
+      "nivel": 4,
+      "tipo": "Humanoide",
+      "encuadre": "50% 25%",
+      "descripcion": "Ilítido de piel violeta y cabeza de pulpo, con tentáculos colgando del rostro y armadura de espinas. Ataca a puñetazos y con su mente.",
+      "narracion": "narraciones/devorador-de-mentes.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Puñetazo retorcido",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Succión mental",
+          "subtitulo": "Ataque que controla la mente"
+        }
+      ],
+      "sonido": "sonidos/devorador-de-mentes-voz.wav",
+      "sonido_muerte": "sonidos/devorador-de-mentes-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        },
+        "texto": "Entre las placas de su armadura y los pliegues de su túnica guarda lo que arrebata a sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Control mental",
+          "descripcion": "Si la Succión mental acierta, el Devorador toma el control de la víctima: en su siguiente turno solo puede hacer una tirada de ataque y está forzada a hacerla, y su golpe cae sobre un aliado que elige el enemigo. Solo controla a un jugador a la vez."
+        }
+      ]
+    },
+    {
+      "id": "bruja-cazacraneos",
+      "nombre": "Bruja Cazacráneos",
+      "nivel": 4,
+      "tipo": "Humanoide",
+      "encuadre": "50% 30%",
+      "descripcion": "Bruja de melena negra y capa rasgada que alza una calavera como trofeo. Rodeada de llamas, canta sobre cráneos ajenos y grita para silenciar a su presa.",
+      "narracion": "narraciones/bruja-cazacraneos.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Garra huesuda",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Grito del cráneo",
+          "subtitulo": "Ataque que silencia"
+        }
+      ],
+      "sonido": "sonidos/bruja-cazacraneos-voz.wav",
+      "sonido_muerte": "sonidos/bruja-cazacraneos-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        },
+        "texto": "Del cinturón cuelgan bolsitas de huesos y ofrendas que roba a sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Silencio del cráneo",
+          "descripcion": "Si el Grito del cráneo acierta, la víctima queda silenciada: en su siguiente turno no puede usar habilidades y solo puede hacer su ataque básico. No se acumula y la armadura no lo reduce. El Aliento Purificador lo limpia."
+        }
+      ]
+    },
+    {
+      "id": "lamia-dorada",
+      "nombre": "Lamia Dorada",
+      "nivel": 4,
+      "tipo": "Monstruo",
+      "encuadre": "50% 30%",
+      "descripcion": "Mujer de larga cabellera y collar de oro, con el cuerpo de una cobra bronce que se alza sobre sus anillos. Golpea con la cola y estruja a sus presas hasta dejarlas sin aire.",
+      "narracion": "narraciones/lamia-dorada.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Latigazo de cola",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Abrazo constrictor",
+          "subtitulo": "Ataque que atrapa"
+        }
+      ],
+      "sonido": "sonidos/lamia-dorada-voz.wav",
+      "sonido_muerte": "sonidos/lamia-dorada-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        },
+        "texto": "Entre sus anillos y bajo el collar de oro esconde los tesoros de quienes estranguló."
+      },
+      "habilidades": [
+        {
+          "nombre": "Presa de anillos",
+          "descripcion": "Si el Abrazo constrictor acierta, la víctima queda atrapada entre sus anillos: no puede atacar ni usar habilidades. En cada uno de sus turnos tira un dado de 20 (d20) para liberarse: con 11 o más se libera; si no, sigue atrapada, hasta que lo consiga o termine la batalla. Solo atrapa a un jugador a la vez."
+        }
+      ]
+    },
+    {
+      "id": "paquidermo-acorazado",
+      "nombre": "Paquidermo Acorazado",
+      "nivel": 4,
+      "tipo": "Humanoide",
+      "encuadre": "50% 25%",
+      "descripcion": "Guerrero de cuerpo humano, cabeza de elefante con trompa y colmillos, y patas gruesas de paquidermo. Cubierto de armadura pesada, descarga sobre sus enemigos una maza que empuña con la mano izquierda.",
+      "narracion": "narraciones/paquidermo-acorazado.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Trompazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mazazo sísmico",
+          "subtitulo": "Ataque que golpea a dos jugadores"
+        }
+      ],
+      "sonido": "sonidos/paquidermo-acorazado-voz.wav",
+      "sonido_muerte": "sonidos/paquidermo-acorazado-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        },
+        "texto": "Entre las placas de su armadura y las correas de su cinto guarda lo que arrebató a sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Onda de choque",
+          "descripcion": "Si el Mazazo sísmico acierta, el suelo tiembla y la onda alcanza a un segundo jugador que elige el enemigo: sufre 2 de daño que la armadura no reduce. No se acumula."
+        }
+      ]
+    },
+    {
+      "id": "dama-de-cristal",
+      "nombre": "Dama de Cristal",
+      "nivel": 4,
+      "tipo": "Elemental",
+      "encuadre": "50% 30%",
+      "descripcion": "Hechicera que brota de la tierra, con falda de cristales dorados y hombreras de espinas. Ataca con zarpazos de esquirlas y haciendo brotar cristales.",
+      "narracion": "narraciones/dama-de-cristal.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Zarpazo de esquirlas",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Brote de cristales",
+          "subtitulo": "Ataque que inmoviliza"
+        }
+      ],
+      "robo": {
+        "objetos": {
+          "0": 10,
+          "1": 25,
+          "2": 35,
+          "3": 30
+        },
+        "texto": "Entre los cristales de su falda quedan atrapados los objetos de quienes cayeron ante ella."
+      },
+      "habilidades": [
+        {
+          "nombre": "Raíces de cristal",
+          "descripcion": "Si el Brote de cristales acierta, unas raíces de cristal inmovilizan a la víctima: en su siguiente turno no puede usar habilidades ni objetos, solo hacer su ataque básico. No se acumula."
+        }
+      ],
+      "sonido": "sonidos/dama-de-cristal-cristales.wav",
+      "sonido_muerte": "sonidos/dama-de-cristal-muerte.mp3"
+    },
+    {
+      "id": "la-parca",
+      "nombre": "La Parca",
+      "nivel": 3,
+      "tipo": "No-muerto",
+      "encuadre": "50% 50%",
+      "descripcion": "La Muerte en persona: un esqueleto envuelto en una túnica negra raída, con la capucha sobre el cráneo. Avanza sin prisa empuñando una guadaña enorme y siega a quien se cruza en su camino.",
+      "narracion": "narraciones/la-parca.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Tajo de guadaña",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Siega final",
+          "subtitulo": "Ataque que marca la hora de la víctima"
+        }
+      ],
+      "sonido": "sonidos/la-parca-voz.wav",
+      "sonido_muerte": "sonidos/la-parca-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 15,
+          "1": 30,
+          "2": 35,
+          "3": 20
+        },
+        "texto": "Entre los pliegues de su túnica y colgado del cinto lleva lo que cosechó de sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Hora marcada",
+          "descripcion": "Si la Siega final acierta, la víctima queda con la hora marcada: si en su siguiente turno no ataca a La Parca, pierde 2 de vida al terminarlo. La armadura no reduce este daño y la marca no se acumula."
+        }
+      ]
+    },
+    {
+      "id": "golem-de-piedra",
+      "nombre": "Golem de Piedra",
+      "nivel": 5,
+      "tipo": "Constructo",
+      "encuadre": "50% 50%",
+      "descripcion": "Un coloso de bloques de roca ensamblados, con runas azules brillando en el pecho y los puños. Camina lento y con estruendo, y aplasta todo con sus enormes manos de piedra.",
+      "narracion": "narraciones/golem-de-piedra.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Puñetazo de roca",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Runa de eco",
+          "subtitulo": "Ataque que activa un escudo de runas"
+        }
+      ],
+      "sonido": "sonidos/golem-de-piedra-voz.wav",
+      "sonido_muerte": "sonidos/golem-de-piedra-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 5,
+          "1": 20,
+          "2": 35,
+          "3": 40
+        },
+        "texto": "Entre las grietas de su cuerpo de roca quedaron atrapados objetos de quienes intentaron derribarlo."
+      },
+      "habilidades": [
+        {
+          "nombre": "Piedra rebotante",
+          "descripcion": "Si la Runa de eco acierta, las runas del Golem se encienden hasta el inicio de su siguiente turno: el primer ataque que le acierte rebota y hace 2 de daño al atacante, que la armadura no reduce. Solo se activa una vez y no se acumula."
+        }
+      ]
+    },
+    {
+      "id": "soldado-canonero",
+      "nombre": "Soldado Cañonero",
+      "nivel": 5,
+      "tipo": "Humanoide",
+      "encuadre": "0% 15%",
+      "descripcion": "Soldado enorme, pesado y robusto, con armadura completa y casco de hierro. Empuña en la mano derecha un cañón de pólvora y dispara a quemarropa envuelto en humo.",
+      "narracion": "narraciones/soldado-canonero.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Culatazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Cañonazo",
+          "subtitulo": "Ataque que enciende una mecha"
+        }
+      ],
+      "sonido": "sonidos/soldado-canonero-voz.wav",
+      "sonido_muerte": "sonidos/soldado-canonero-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 5,
+          "1": 20,
+          "2": 35,
+          "3": 40
+        },
+        "texto": "En las bolsas del cinto y bajo las placas de la armadura guarda pólvora y el botín de sus campañas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Mecha encendida",
+          "descripcion": "Si el Cañonazo acierta, la víctima queda con una mecha encendida. Al inicio del siguiente turno del Soldado, la mecha estalla: la víctima sufre 2 de daño que la armadura no reduce y otro jugador que elige el enemigo sufre 2 más. Cualquier jugador puede apagarla antes renunciando a su ataque en su turno. No se acumula."
+        }
+      ]
+    },
+    {
+      "id": "pajaron-coloso",
+      "nombre": "Pajarón Coloso",
+      "nivel": 5,
+      "tipo": "Monstruo",
+      "encuadre": "50% 30%",
+      "descripcion": "Un pajarón humanoide, grande y fornido, de barriga rolliza, con un enorme pico en la cabeza, plumas rojas y patas casi humanas. Picotea y lanza graznidos que ensordecen.",
+      "narracion": "narraciones/pajaron-coloso.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Picotazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Graznido ensordecedor",
+          "subtitulo": "Ataque que pone un huevo guardián"
+        }
+      ],
+      "sonido": "sonidos/pajaron-coloso-graznido.wav",
+      "sonido_muerte": "sonidos/pajaron-coloso-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "0": 5,
+          "1": 20,
+          "2": 35,
+          "3": 40
+        },
+        "texto": "Entre las plumas de su barriga y en su nido de ramas guarda objetos que ha picoteado a sus víctimas."
+      },
+      "habilidades": [
+        {
+          "nombre": "Huevo guardián",
+          "descripcion": "Si el Graznido ensordecedor acierta, el Pajarón pone un huevo gigante delante de él. El siguiente ataque de un jugador contra el Pajarón golpea al huevo: el huevo se rompe y ese ataque no le quita vida. Solo puede haber un huevo a la vez y no se acumula."
+        }
+      ]
+    },
+    {
+      "id": "hidra-de-cinco-cabezas",
+      "nombre": "Hidra Quíntuple",
+      "nivel": 7,
+      "tipo": "Monstruo",
+      "encuadre": "70% 50%",
+      "descripcion": "Hidra de cinco cabezas con crestas de estegosaurio. Sus cuellos rebrotan.",
+      "narracion": "narraciones/hidra-de-cinco-cabezas.mp3",
+      "cabezas": {
+        "cantidad": 5,
+        "vida": [
+          17,
+          23,
+          26
+        ],
+        "regenera": [
+          6,
+          8,
+          9
+        ]
+      },
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Mordisco",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mordisco coral",
+          "subtitulo": "Muerde a dos jugadores"
+        }
+      ],
+      "sonido": "sonidos/hidra-de-cinco-cabezas-rugido.wav",
+      "sonido_muerte": "sonidos/hidra-de-cinco-cabezas-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "2": 20,
+          "3": 40,
+          "4": 40
+        },
+        "texto": "Entre las placas de su lomo y en su guarida de huesos cuelgan los tesoros de quienes intentaron cortarle el cuello."
+      },
+      "habilidades": [
+        {
+          "nombre": "Cuello renacido",
+          "descripcion": "Regenera 1 cabeza caída por turno (con 1/3 de vida). Solo muere con las 5 a 0 a la vez."
+        },
+        {
+          "nombre": "Baba de cuello cortado",
+          "descripcion": "Matar una cabeza: 2 de daño sin armadura."
+        },
+        {
+          "nombre": "Segunda boca",
+          "descripcion": "Golpe fuerte: muerde a otro jugador (6)."
+        },
+        {
+          "nombre": "Cuellos furiosos",
+          "descripcion": "Bajo la mitad: regenera 2 cabezas/turno."
+        }
+      ]
+    },
+    {
+      "id": "guerrero-del-inframundo",
+      "nombre": "Guerrero del Inframundo",
+      "nivel": 6,
+      "tipo": "Demonio",
+      "encuadre": "70% 20%",
+      "descripcion": "Guerrero del inframundo con armadura de calavera, casco con cuernos y capa. Tras su escudo enorme blande una maza gigante.",
+      "narracion": "narraciones/guerrero-del-inframundo.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Embestida de escudo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Mazazo quebrantador",
+          "subtitulo": "Ataque que rompe la armadura"
+        }
+      ],
+      "sonido": "sonidos/guerrero-del-inframundo-voz.wav",
+      "sonido_muerte": "sonidos/guerrero-del-inframundo-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        },
+        "texto": "Entre las calaveras de su armadura y bajo la capa guarda los trofeos de las almas que reclamó."
+      },
+      "habilidades": [
+        {
+          "nombre": "Armadura quebrada",
+          "descripcion": "Si el Mazazo quebrantador acierta, la armadura total de la víctima baja 2 puntos hasta el final del combate. Se acumula."
+        },
+        {
+          "nombre": "Escudo en alto",
+          "descripcion": "Si su d20 falla (1-4), alza el escudo: hasta su siguiente turno recibe 3 menos de daño por ataque (mínimo 1). No se acumula."
+        }
+      ]
+    },
+    {
+      "id": "hechicero-demoniaco",
+      "nombre": "Hechicero Demoníaco",
+      "nivel": 6,
+      "tipo": "Demonio",
+      "encuadre": "50% 30%",
+      "descripcion": "Brujo demoníaco de túnica larga y máscara de calavera, con pequeños cuernos bajo la capucha. Sostiene un báculo retorcido que corona un orbe carmesí.",
+      "narracion": "narraciones/hechicero-demoniaco.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Báculo de huesos",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Rayo infernal",
+          "subtitulo": "Ataque que marca con un sello de condena"
+        }
+      ],
+      "sonido": "sonidos/hechicero-demoniaco-voz.wav",
+      "sonido_muerte": "sonidos/hechicero-demoniaco-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        },
+        "texto": "En los bolsillos de su túnica y colgados del báculo guarda ofrendas y talismanes de sus pactos."
+      },
+      "habilidades": [
+        {
+          "nombre": "Sello de condena",
+          "descripcion": "Si el Rayo infernal acierta, sella a la víctima: la próxima vez que ataque al Hechicero sufre 3 de daño que ignora la armadura y el sello se rompe. Solo un sello a la vez."
+        },
+        {
+          "nombre": "Espectro devoto",
+          "descripcion": "Al empezar invoca un espectro: el siguiente golpe que reciba el Hechicero lo absorbe el espectro (0 de daño). Si su d20 falla (1-4), invoca otro. Solo hay uno a la vez."
+        }
+      ]
+    },
+    {
+      "id": "gloton-tragaalmas",
+      "nombre": "Glotón Tragaalmas",
+      "nivel": 6,
+      "tipo": "Abominación",
+      "encuadre": "50% 30%",
+      "descripcion": "Abominación obesa de cabeza calva y diminuta, con cuatro brazos. Su vientre es una boca enorme de colmillos con una lengua de ventosas.",
+      "narracion": "narraciones/gloton-tragaalmas.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Zarpazo carnoso",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Lengua del vientre",
+          "subtitulo": "Ataque que traga un arma"
+        }
+      ],
+      "sonido": "sonidos/gloton-tragaalmas-rugido.wav",
+      "sonido_muerte": "sonidos/gloton-tragaalmas-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        },
+        "texto": "Dentro de las fauces de su vientre, entre los colmillos, quedan trabados los restos de todo lo que se ha tragado."
+      },
+      "habilidades": [
+        {
+          "nombre": "Lengua ladrona",
+          "descripcion": "Si la Lengua del vientre acierta, se traga el arma equipada de la víctima: no puede usarla. Solo guarda una. Se recupera si un solo ataque le hace 10 o más de daño, o al derrotarlo."
+        },
+        {
+          "nombre": "Panza hambrienta",
+          "descripcion": "Cada vez que la Lengua del vientre acierta, recupera 5 de vida (sin superar su máximo), haya robado arma o no."
+        }
+      ]
+    },
+    {
+      "id": "gargola-alabardera",
+      "nombre": "Gárgola Alabardera",
+      "nivel": 6,
+      "tipo": "Demonio",
+      "encuadre": "50% 30%",
+      "descripcion": "Gárgola de piel de roca agrietada, cuernos y alas membranosas abiertas. Blande una alabarda de hacha enorme y una gran hoja curva dentada.",
+      "narracion": "narraciones/gargola-alabardera.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Tajo de alabarda",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Presa en picado",
+          "subtitulo": "Ataque que agarra y suelta desde lo alto"
+        }
+      ],
+      "sonido": "sonidos/gargola-alabardera-rugido.wav",
+      "sonido_muerte": "sonidos/gargola-alabardera-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        },
+        "texto": "Entre las grietas de su piel y colgados de la hoja dentada lleva restos de las víctimas que dejó caer."
+      },
+      "habilidades": [
+        {
+          "nombre": "Caída libre",
+          "descripcion": "Si la Presa en picado acierta, agarra a la víctima y la suelta desde lo alto al empezar su siguiente turno: sufre 3 de daño que ignora la armadura. Solo agarra a un jugador a la vez."
+        },
+        {
+          "nombre": "Vuelo rasante",
+          "descripcion": "Tras un golpe fuerte (d20 16+) la Gárgola vuela hasta su siguiente turno: los ataques cuerpo a cuerpo contra ella fallan. Los ataques a distancia y los conjuros sí la alcanzan."
+        }
+      ]
+    },
+    {
+      "id": "senor-de-las-brasas",
+      "nombre": "Señor de las Brasas",
+      "nivel": 6,
+      "tipo": "Elemental",
+      "encuadre": "50% 25%",
+      "descripcion": "Torso de lava con cresta de llamas y púas en los hombros, que emerge de una columna de fuego. Golpea con puños incandescentes y alza pilares de llamas.",
+      "narracion": "narraciones/senor-de-las-brasas.mp3",
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Puño de brasa",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Pilar de llamas",
+          "subtitulo": "Ataque que pone al rojo vivo el arma"
+        }
+      ],
+      "sonido": "sonidos/senor-de-las-brasas-crepitar.wav",
+      "sonido_muerte": "sonidos/senor-de-las-brasas-muerte.mp3",
+      "robo": {
+        "objetos": {
+          "1": 10,
+          "2": 30,
+          "3": 40,
+          "4": 20
+        },
+        "texto": "Entre las brasas de su base humean objetos de quienes se atrevieron a desafiarlo."
+      },
+      "habilidades": [
+        {
+          "nombre": "Metal al rojo",
+          "descripcion": "Si el Pilar de llamas acierta, el arma de la víctima se pone al rojo: en su siguiente turno su arma no da bonus de daño. Si no lleva arma, no pasa nada. No se acumula."
+        },
+        {
+          "nombre": "Calor acumulado",
+          "descripcion": "Cada golpe básico (d20 de 5-15) del Señor suma 1 de calor. Al llegar a 3, estalla: 2 de daño a todos los jugadores que ignora la armadura y el calor vuelve a 0."
+        }
+      ]
     }
   ]
 }

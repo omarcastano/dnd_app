@@ -93,10 +93,18 @@ const lista = (d) => `<table class="lista-enemigos"><thead><tr><th>Nivel</th><th
     <td class="nivel-celda">${ROMANOS[e.nivel]}</td><td>${esc(e.nombre)}</td></tr>`).join('')}
   </tbody></table>`;
 
-const panelVida = () => `<section class="panel-vida" aria-label="Seguimiento del combate">
+// Enemigos con varias cabezas (e.cabezas = { cantidad, vida, regenera } por 4/5/6 jugadores): un contador por cabeza en vez del contador único
+const cabezasHtml = (e) => `<div class="cabezas" role="group" aria-label="Vida de cada cabeza">${Array.from({ length: e.cabezas.cantidad }, (_, i) => `<div class="cabeza" data-cabeza-fila="${i}">
+  <button type="button" class="vida-btn" data-cabeza="${i}:-1" aria-label="Quitar 1 de vida a la cabeza ${i + 1}">−</button>
+  <span class="vida-valor"><small>Cabeza ${i + 1}</small><b></b></span>
+  <button type="button" class="vida-btn" data-cabeza="${i}:1" aria-label="Sumar 1 de vida a la cabeza ${i + 1}">+</button></div>`).join('')}
+  <p class="cabezas-info"></p></div>`;
+
+const panelVida = (e) => `<section class="panel-vida" aria-label="Seguimiento del combate">
   <div class="jugadores" role="group" aria-label="Número de jugadores"><span>Jugadores</span>
     ${JUGADORES.map((j) => `<button type="button" data-jugadores="${j}">${j}</button>`).join('')}</div>
-  <div class="vida vida-enemigo" role="group" aria-label="Vida del enemigo">
+  ${e.cabezas ? cabezasHtml(e) : ''}
+  <div class="vida vida-enemigo" role="group" aria-label="Vida del enemigo"${e.cabezas ? ' hidden' : ''}>
     <button type="button" class="vida-btn" data-vida="-1" aria-label="Quitar 1 de vida">−</button>
     <span class="vida-valor" aria-live="polite">${CORAZON}<b></b></span>
     <button type="button" class="vida-btn" data-vida="1" aria-label="Sumar 1 de vida">+</button>
@@ -112,14 +120,24 @@ function abrirEnemigo(zona, d, e) {
   const n = d.niveles.find((x) => x.nivel === e.nivel);
   zona.innerHTML = `<button type="button" class="volver" data-volver>← Enemigos</button>
     <h2 class="titulo-enemigo">${esc(e.nombre)} <small>Nivel ${ROMANOS[e.nivel]} · ${esc(n.nombre)}</small></h2>
-    ${panelVida()}<div class="rejilla-enemigos">${carta(e, n)}</div>`;
+    ${panelVida(e)}<div class="rejilla-enemigos">${carta(e, n)}</div>`;
   const q = (s) => zona.querySelector(s);
   const guardadas = leer(CLAVE_JUGADORES, 4);
   let jugadores = JUGADORES.includes(guardadas) ? guardadas : 4;
   let vida;
+  let cab; // vida de cada cabeza (solo enemigos con `cabezas`); `vida` es entonces su suma
+  const cabezas = e.cabezas;
   let robo = leer(claveRobo(e.id), null);
-  const maximo = () => n.vida[JUGADORES.indexOf(jugadores)];
-  const cargarVida = () => { const v = Number(leer(claveVida(e.id, jugadores), maximo())); vida = Number.isInteger(v) && v >= 0 && v <= maximo() ? v : maximo(); };
+  const porCabeza = () => cabezas.vida[JUGADORES.indexOf(jugadores)];
+  const maximo = () => (cabezas ? porCabeza() * cabezas.cantidad : n.vida[JUGADORES.indexOf(jugadores)]);
+  const cargarVida = () => {
+    if (cabezas) {
+      const g = leer(claveVida(e.id, jugadores), null);
+      cab = Array.isArray(g) && g.length === cabezas.cantidad && g.every((x) => Number.isInteger(x) && x >= 0 && x <= porCabeza()) ? g : Array(cabezas.cantidad).fill(porCabeza());
+      return;
+    }
+    const v = Number(leer(claveVida(e.id, jugadores), maximo())); vida = Number.isInteger(v) && v >= 0 && v <= maximo() ? v : maximo();
+  };
   const pintarRobo = () => {
     q('.robo-texto').textContent = e.robo?.texto ?? '';
     q('.robo-lista').innerHTML = robo && !robo.length ? '<p class="robo-nada">No lleva nada</p>' : (robo ?? []).map((o, i) => `<button type="button" class="objeto-robo${o.robado ? ' robado' : ''}" data-robar="${i}" aria-pressed="${o.robado}">${botinHtml(o)}</button>`).join('');
@@ -127,8 +145,19 @@ function abrirEnemigo(zona, d, e) {
   };
   const pintar = () => {
     pintarRobo();
+    if (cabezas) {
+      vida = cab.reduce((a, b) => a + b, 0);
+      zona.querySelectorAll('[data-cabeza-fila]').forEach((f, i) => {
+        f.querySelector('b').textContent = cab[i];
+        f.classList.toggle('muerta', cab[i] === 0);
+        f.querySelector('[data-cabeza$=":-1"]').disabled = cab[i] <= 0;
+        f.querySelector('[data-cabeza$=":1"]').disabled = cab[i] >= porCabeza();
+      });
+      const viva = cab.filter((x) => x > 0).length;
+      q('.cabezas-info').textContent = `Cabezas vivas ${viva}/${cabezas.cantidad} · regenera con ${cabezas.regenera[JUGADORES.indexOf(jugadores)]} · mitad: ${Math.floor(maximo() / 2)} (total ${vida})`;
+    }
     const pct = vida / maximo();
-    q('.vida-valor b').textContent = vida;
+    q('.vida-enemigo .vida-valor b').textContent = vida;
     q('.vida-enemigo').classList.toggle('baja', vida > 0 && pct <= 0.3);
     q('[data-vida="-1"]').disabled = vida <= 0;
     q('[data-vida="1"]').disabled = vida >= maximo();
@@ -151,11 +180,13 @@ function abrirEnemigo(zona, d, e) {
     const j = ev.target.closest('[data-jugadores]');
     const rb = ev.target.closest('[data-robar]');
     const v = ev.target.closest('[data-vida]');
+    const cb = ev.target.closest('[data-cabeza]');
     if (j) { jugadores = Number(j.dataset.jugadores); guardar(CLAVE_JUGADORES, jugadores); cargarVida(); }
     else if (ev.target.closest('[data-ver-robo]')) { robo = tirarRobo(n, e); guardar(claveRobo(e.id), robo); }
     else if (rb) { robo[Number(rb.dataset.robar)].robado = !robo[Number(rb.dataset.robar)].robado; guardar(claveRobo(e.id), robo); }
+    else if (cb) { const [i, d] = cb.dataset.cabeza.split(':').map(Number); cab[i] = Math.min(porCabeza(), Math.max(0, cab[i] + d)); guardar(claveVida(e.id, jugadores), cab); }
     else if (v) { vida = Math.min(maximo(), Math.max(0, vida + Number(v.dataset.vida))); guardar(claveVida(e.id, jugadores), vida); }
-    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); guardar(claveVida(e.id, jugadores), vida); olvidar(claveBotin(e.id, jugadores)); robo = null; olvidar(claveRobo(e.id)); }
+    else if (ev.target.closest('[data-reiniciar]')) { vida = maximo(); if (cabezas) { olvidar(claveVida(e.id, jugadores)); cargarVida(); } else guardar(claveVida(e.id, jugadores), vida); olvidar(claveBotin(e.id, jugadores)); robo = null; olvidar(claveRobo(e.id)); }
     else {
       const c = ev.target.closest('.volteo.gira');
       if (c) { const giro = Number(c.dataset.giro ?? 0) + 1; c.dataset.giro = giro; c.style.setProperty('--giro', giro); }

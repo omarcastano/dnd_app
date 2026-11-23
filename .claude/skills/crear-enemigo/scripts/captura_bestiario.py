@@ -40,7 +40,7 @@ def main():
         sys.exit('No encuentro Chrome/Chromium (google-chrome, chromium).')
 
     voltear = "document.querySelector('.bestiario .volteo.gira').click();" if a.dorso else ''
-    derrotar = "const z=document.getElementById('bestiario-catalogo');for(let i=0;i<30;i++)z.querySelector('[data-vida=\"-1\"]').click();" if a.derrotar else ''
+    derrotar = "const z=document.getElementById('bestiario-catalogo');for(let i=0;i<200;i++)z.querySelector('[data-vida=\"-1\"]').click();z.querySelectorAll('[data-cabeza$=\":-1\"]').forEach(b=>{for(let k=0;k<40;k++)b.click()});" if a.derrotar else ''
     robar = "const z2=document.getElementById('bestiario-catalogo');z2.querySelector('[data-ver-robo]').click();z2.querySelector('[data-robar]').click();" if a.robar else ''
     guion = (
         '<style>*{transition:none!important;animation:none!important}</style><script>'

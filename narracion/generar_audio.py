@@ -39,8 +39,16 @@ def numero_en_palabras(n):
 
 
 def para_voz(texto):
-    """El TTS lee mal cifras y signos: escribe todo en palabras («−1» → «menos uno», «1-4» → «de uno a cuatro», «16+» → «dieciséis o más»)."""
+    """El TTS lee mal cifras y signos: escribe todo en palabras («−1» → «menos uno», «1-4» → «de uno a cuatro», «16+» → «dieciséis o más», «d20» → «dado de veinte»)."""
     t = texto.replace("\u2212", "-").replace("\u2013", "-")
+
+    def dado(m):
+        n = int(m[2]) if m[2] else 1
+        cuerpo = f"{numero_en_palabras(n) if n > 1 else 'un'} {'dados' if n > 1 else 'dado'} de {numero_en_palabras(int(m[3]))}"
+        return ("más " if m[1] else "") + cuerpo
+
+    # Notación de dados: «d20» → «dado de veinte», «2d6» → «dos dados de seis», «+1d4» → «más un dado de cuatro»
+    t = re.sub(r"(?<![\w])(\+)?(?:un\s+)?(\d*)d(\d+)(?![\w])", dado, t)
     t = re.sub(r"(?<![\w])(\d+)\s*-\s*(\d+)(?![\w])", lambda m: f"de {numero_en_palabras(int(m[1]))} a {numero_en_palabras(int(m[2]))}", t)
     t = re.sub(r"(\d+)\s*\+", lambda m: f"{numero_en_palabras(int(m[1]))} o más", t)
     t = re.sub(r"(?<![\w])-(\d+)", lambda m: f"menos {numero_en_palabras(int(m[1]))}", t)

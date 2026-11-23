@@ -75,3 +75,15 @@
 .objeto-robo.robado::after { content: 'Robado'; flex-basis: 100%; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; color: #ffb4a8; }
 .robo [hidden] { display: none; }
 .robo-nada { margin: 0; font-style: italic; color: #f2dc9b; opacity: .8; }
+
+/* Enemigos con varias cabezas: un contador por cabeza */
+.cabezas { display: flex; flex-direction: column; gap: 4px; width: 100%; }
+.cabeza { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.cabeza .vida-valor { display: flex; align-items: baseline; justify-content: center; gap: 8px; flex: 1; font-size: 20px; color: #f2dc9b; }
+.cabeza .vida-valor small { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #d4af5a; }
+.cabeza.muerta .vida-valor { opacity: .4; text-decoration: line-through; }
+.cabezas-info { margin: 4px 0 0; font-size: 12px; text-align: center; color: #d4af5a; }
+.vida-enemigo[hidden] { display: none; }
+.cabeza .vida-btn { flex: none; }
+.cabeza .vida-valor { line-height: 1; }
+.cabeza { align-items: center; } .cabeza .vida-valor { height: 38px; align-items: center; }
