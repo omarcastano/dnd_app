@@ -75,6 +75,7 @@ TAUNT_A_TODOS = True       # la provocación del tanque (Grito de guerra) obliga
 SANADOR_PRIORIZA_TANQUE = True   # el sanador cura primero al tanque si está herido (si no, al más herido)
 DESTREZA_INICIATIVA = True   # el dado de destreza (1d4) se suma a la tirada de iniciativa de quien lo lleve
 DADO_DESTREZA_AL_TANQUE = True   # en la taberna el grupo le compra al tanque el dado de destreza (después del escudo y el nivel 2)
+MONEDAS_EVENTOS = 5          # monedas que el EQUIPO (en total) gana por los eventos de mundo al terminar cada mapa; se reparten de una en una al héroe con menos monedas
 RUNA_REDUCCION = 3           # puntos de daño que quita la Runa de Resguardo del sacerdote a cada golpe (+ los del escudo del aliado, que se duplican)
 ESCENARIOS = [(1, 2), (2, 3), (3, 4), (4, 5)]      # campaña: nivel mínimo y máximo de las bestias de cada mapa (mapas 1 a 4)
 
@@ -754,6 +755,8 @@ def simular_equipo(tarea):
             if r["superado"]:
                 a["mon_n"] += p.n_jug; a["mon_sum"] += sum(j.monedas for j in p.jug); a["mon_cero"] += sum(j.monedas == 0 for j in p.jug)
                 a["mon_nivel"] += sum(j.nivel_carta == 1 and j.monedas >= PRECIO_NIVEL for j in p.jug)
+                for _ in range(MONEDAS_EVENTOS):
+                    min(p.jug, key=lambda j: j.monedas).monedas += 1
                 gastos = Counter()
                 entre_mapas(p, gastos)
                 for k, x in gastos.items():
