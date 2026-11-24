@@ -5,7 +5,7 @@ import { initTienda } from "./secciones/tienda.js";
 import { initCofres } from "./secciones/cofres.js";
 import { initRobo } from "./secciones/robo.js";
 import { initAdmin } from "./secciones/admin.js";
-import { initHeroes } from "./secciones/heroes.js?v=6";
+import { initHeroes } from "./secciones/heroes.js?v=7";
 import { initBestiario } from "./secciones/bestiario.js";
 import { initTablas } from "./secciones/tablas.js";
 import { initMenu } from "./puzzles/menu.js";

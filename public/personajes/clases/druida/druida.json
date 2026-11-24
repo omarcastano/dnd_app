@@ -129,13 +129,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Viento Sanador",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Conjuro de sanación"
         },
         {
           "rango_d20": "17+",
           "nombre": "Aura de Sanación",
-          "valor": 3,
+          "valor": 4,
           "subtitulo": "Conjuro de sanación"
         }
       ]
@@ -164,13 +164,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Sanación Menor",
-          "valor": 1,
+          "valor": 2,
           "subtitulo": "Conjuro de sanación"
         },
         {
           "rango_d20": "17+",
           "nombre": "Toque Curativo",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Conjuro de sanación"
         }
       ]

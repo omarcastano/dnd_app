@@ -47,6 +47,7 @@ function voltear(v, caras) {
   v.style.setProperty('--giro', giro + 1);
   const n = v.closest('.opcion-caja').querySelector('.pista-voltear b');
   if (n) n.textContent = idx + 1;
+  return idx;
 }
 
 const indiceCaja = (el) => [...el.closest('.opciones').children].indexOf(el.closest('.opcion-caja'));
@@ -65,10 +66,10 @@ export function iniciarSeleccion(contenedor, datos) {
     } catch {}
     return null;
   };
-  // Vida: 0–10, se recuerda por clase en este dispositivo
+  // Vida: 0 hasta el máximo (10; o el `vida_nivel_2` / `vida` del poder elegido, p. ej. 20 → 30 el tanque guerrero), se recuerda por clase en este dispositivo
   const claveVida = `taberna:${datos.id}:vida`;
-  const VIDA_MAX = 10;
-  const leerVida = () => { try { const v = Number(localStorage.getItem(claveVida)); if (localStorage.getItem(claveVida) !== null && Number.isInteger(v) && v >= 0 && v <= VIDA_MAX) return v; } catch {} return VIDA_MAX; };
+  let VIDA_MAX = 10, VIDA_INI = 10;   // máximo (con `vida_nivel_2` si el poder lo tiene) y vida inicial
+  const leerVida = () => { try { const v = Number(localStorage.getItem(claveVida)); if (localStorage.getItem(claveVida) !== null && Number.isInteger(v) && v >= 0 && v <= VIDA_MAX) return v; } catch {} return VIDA_INI; };
   const guardarVida = (v) => { try { localStorage.setItem(claveVida, String(v)); } catch {} };
   const olvidarVida = () => { try { localStorage.removeItem(claveVida); } catch {} };
   const elegidas = () => indices.map((k, i) => pasos[i].opciones[k]);
@@ -114,6 +115,9 @@ export function iniciarSeleccion(contenedor, datos) {
 
   async function resultado(desplazar = true) {
     const sel = elegidas();
+    const poderVida = sel.find((o) => o.vida);
+    VIDA_INI = poderVida?.vida ?? 10;
+    VIDA_MAX = poderVida?.vida_nivel_2 ?? VIDA_INI;
     contenedor.closest('.heroes')?.classList.add('con-resultado');
     ponerAmbiente(temaDe(sel.map((o) => o.efecto)));
     // Tres tarjetas volteables: personaje (frente/dorso), poder (nivel 1/nivel 2) y don
@@ -129,31 +133,39 @@ export function iniciarSeleccion(contenedor, datos) {
       </div>
       <div class="contador"></div>
       <div class="opciones">${sel.map((o, k) => tarjetaOpcion(o, k, caras[k], false)).join('')}</div>`;
-    let vida = leerVida();
+    let vida = Math.min(leerVida(), VIDA_INI);   // las cartas arrancan en nivel 1
+    let tope = VIDA_INI;                          // máximo según la cara del poder (nivel 1 o 2)
     const vidaEl = contenedor.querySelector('.vida');
     const pintarVida = () => {
       vidaEl.querySelector('b').textContent = vida;
       vidaEl.classList.toggle('baja', vida <= 3);
       vidaEl.querySelector('[data-vida="-1"]').disabled = vida <= 0;
-      vidaEl.querySelector('[data-vida="1"]').disabled = vida >= VIDA_MAX;
+      vidaEl.querySelector('[data-vida="1"]').disabled = vida >= tope;
     };
     vidaEl.addEventListener('click', (e) => {
       const b = e.target.closest('[data-vida]');
       if (!b) return;
-      vida = Math.min(VIDA_MAX, Math.max(0, vida + Number(b.dataset.vida)));
+      vida = Math.min(tope, Math.max(0, vida + Number(b.dataset.vida)));
       guardarVida(vida);
       pintarVida();
     });
     pintarVida();
     contenedor.querySelector('[data-reiniciar]').addEventListener('click', (e) => { indices.length = 0; olvidar(); olvidarVida(); e.target.dispatchEvent(new CustomEvent('heroes:reiniciar', { bubbles: true })); });
+    const girar = (v) => {                        // al girar el poder con vida: nivel 2 → +10 de vida (hasta el máximo del nivel 2); vuelta a nivel 1 → -10
+      const k = indiceCaja(v), idx = voltear(v, caras[k]);
+      if (!sel[k].vida || !sel[k].vida_nivel_2) return;
+      if (idx === 1) { tope = VIDA_MAX; vida = Math.min(tope, vida + 10); }
+      else { tope = VIDA_INI; vida = Math.min(tope, vida); }
+      guardarVida(vida); pintarVida();
+    };
     const opciones = contenedor.querySelector('.opciones');
     opciones.addEventListener('click', (e) => {
       const v = e.target.closest('.volteo.gira');
-      if (v) voltear(v, caras[indiceCaja(v)]);
+      if (v) girar(v);
     });
     opciones.addEventListener('keydown', (e) => {
       const v = e.target.closest('.volteo.gira');
-      if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); voltear(v, caras[indiceCaja(v)]); }
+      if (v && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); girar(v); }
     });
     activarContador(contenedor.querySelector('.contador'), opciones);
     ajustarEscala(true);

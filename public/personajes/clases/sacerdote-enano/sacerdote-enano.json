@@ -131,13 +131,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Manantial Vivo",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Cura en las 2 rondas siguientes"
         },
         {
           "rango_d20": "17+",
           "nombre": "Cascada Sagrada",
-          "valor": 3,
+          "valor": 4,
           "subtitulo": "Cura en las 2 rondas siguientes"
         }
       ]
@@ -166,13 +166,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Gota de Manantial",
-          "valor": 1,
+          "valor": 2,
           "subtitulo": "Cura en las 2 rondas siguientes"
         },
         {
           "rango_d20": "17+",
           "nombre": "Fuente Serena",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Cura en las 2 rondas siguientes"
         }
       ]
@@ -196,7 +196,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 3 puntos de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -233,7 +233,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 1 punto de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
+      "descripcion": "Trazas una runa mágica protectora en un aliado (o en ti). Durante tantas rondas como indique la habilidad, cada ataque enemigo que reciba ese aliado hace 3 puntos de daño menos. Si el aliado porta escudo, los puntos de protección del escudo se duplican. Solo una runa por aliado; si recibe otra, se queda la que dure más rondas.",
       "tabla": [
         {
           "rango_d20": "11-16",

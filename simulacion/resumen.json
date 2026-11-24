@@ -1,0 +1,61 @@
+{
+ "formato": 2,
+ "generado": "2026-11-23 21:53",
+ "ejecuciones": 2000,
+ "equipos": 143,
+ "completa": 0.4663,
+ "completa_4": 0.4637,
+ "completa_5": 0.4734,
+ "superado": [
+  0.9945,
+  0.9771,
+  0.7201,
+  0.5782
+ ],
+ "supervivencia": [
+  0.9775,
+  0.9436,
+  0.6154,
+  0.4611
+ ],
+ "monedas": [
+  16.094,
+  23.357,
+  23.63,
+  24.645
+ ],
+ "items": [
+  10.744,
+  15.246,
+  14.24,
+  15.677
+ ],
+ "por_clase": {
+  "druida": 0.74,
+  "guerrero": 0.7532,
+  "paladin": 0.7495,
+  "picaro": 0.7514,
+  "sacerdote": 0.7525
+ },
+ "por_rol": {
+  "tank": 0.8583,
+  "dps": 0.746,
+  "ladrón": 0.752,
+  "healer": 0.7631,
+  "soporte": 0.715
+ },
+ "por_heroe": {
+  "druida-dps": 0.7195,
+  "guerrero-tank": 0.8447,
+  "paladin-dps": 0.6844,
+  "picaro-dps": 0.7507,
+  "picaro-ladrón": 0.752,
+  "paladin-healer": 0.7301,
+  "guerrero-dps": 0.6935,
+  "paladin-tank": 0.8767,
+  "druida-healer": 0.7795,
+  "sacerdote-dps": 0.7802,
+  "sacerdote-healer": 0.7749,
+  "sacerdote-soporte": 0.715
+ }
+}

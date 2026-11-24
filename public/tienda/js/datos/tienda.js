@@ -48,7 +48,7 @@ export const groups = [
     note: "Solo puedes llevar una armadura.<br><br>Cada armadura reduce el daño que recibes de cada golpe en la cantidad indicada.<br>Un golpe acertado siempre hace al menos 1 de daño.",
     headers: ["Armadura", "Unidades", "Precio (monedas)", "Reduce (puntos)"],
     table: [
-      ['<i class="fa-solid fa-shield-halved" style="color:var(--hielo)"></i> Escudo', 2, 5, 4],
+      ['<i class="fa-solid fa-shield-halved" style="color:var(--hielo)"></i> Escudo', 2, 5, 6],
       ['<svg viewBox="0 0 64 64" width="28" height="28"><path d="M32 8 L48 20 L50 44 L42 54 L22 54 L14 44 L16 20 Z" fill="none" stroke="#8e6b3e" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 20 L32 14 L40 20" fill="none" stroke="#8e6b3e" stroke-width="2.5" stroke-linejoin="round"/><line x1="32" y1="14" x2="32" y2="48" stroke="#8e6b3e" stroke-width="2" opacity="0.5"/><line x1="18" y1="32" x2="46" y2="32" stroke="#8e6b3e" stroke-width="2" opacity="0.5"/></svg> Pechera', 4, 7, 5],
       ['<svg viewBox="0 0 64 64" width="28" height="28"><path d="M12 38c0-16 8-26 20-26s20 10 20 26" fill="none" stroke="#7f8c8d" stroke-width="4" stroke-linecap="round"/><rect x="8" y="36" width="48" height="8" rx="3" fill="#7f8c8d" opacity="0.9"/><rect x="28" y="20" width="8" height="24" rx="2" fill="#1a1008" opacity="0.6"/><path d="M14 44v8M50 44v8" stroke="#7f8c8d" stroke-width="3" stroke-linecap="round"/></svg> Casco', 4, 6, 3]
     ],
@@ -57,7 +57,7 @@ export const groups = [
   {
     name: "Dados",
     icon: '<i class="fa-solid fa-dice" style="color:var(--rubi)"></i>',
-    note: "Los dados de 1d4 se suman a la tirada que les corresponde.<br><br>Por ejemplo: si sacas 3 en el d20 y 4 en el 1d4, tienes 7 en total.<br><br>El dado de sanacion se usa al curarte con comida o bebida. El de destreza sirve para abrir cofres y robar al tabernero.",
+    note: "Los dados de 1d4 se suman a la tirada que les corresponde.<br><br>Por ejemplo: si sacas 3 en el d20 y 4 en el 1d4, tienes 7 en total.<br><br>El dado de sanacion se usa al curarte con comida o bebida. El de destreza sirve para abrir cofres y robar al tabernero, y se suma a tu tirada de iniciativa al empezar el combate (quién ataca primero).",
     headers: ["Dado", "Unidades", "Precio (monedas)", "Sirve para"],
     table: [
       ['<i class="fa-solid fa-dice" style="color:var(--rubi)"></i> Dado de ataque', 5, 3, "Ataque"],

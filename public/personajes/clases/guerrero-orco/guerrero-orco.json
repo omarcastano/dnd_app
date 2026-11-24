@@ -57,19 +57,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados. Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "descripcion": "Con un rugido obligas a todos los enemigos a mirarte, sin elegir. Durante tantos turnos como indique la habilidad, todos los enemigos solo pueden atacarte a ti y no pueden atacar a tus aliados. Si vuelves a provocar, la duración se renueva y no se suma.",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Rugido Desafiante",
           "valor": 2,
-          "subtitulo": "Provoca a un enemigo 2 turnos"
+          "subtitulo": "Provoca a todos los enemigos 2 turnos"
         },
         {
           "rango_d20": "17+",
           "nombre": "Desafío de Sangre",
           "valor": 3,
-          "subtitulo": "Provoca a un enemigo 3 turnos"
+          "subtitulo": "Provoca a todos los enemigos 3 turnos"
         }
       ]
     },
@@ -92,19 +92,19 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Con un rugido obligas a un enemigo a mirarte: elige a un enemigo. Durante tantos turnos como indique la habilidad, ese enemigo solo puede atacarte a ti y no puede atacar a tus aliados. Puedes tener provocados a varios enemigos a la vez; si provocas de nuevo a uno, la duración se renueva y no se suma.",
+      "descripcion": "Con un rugido obligas a todos los enemigos a mirarte, sin elegir. Durante tantos turnos como indique la habilidad, todos los enemigos solo pueden atacarte a ti y no pueden atacar a tus aliados. Si vuelves a provocar, la duración se renueva y no se suma.",
       "tabla": [
         {
           "rango_d20": "11-16",
           "nombre": "Insulto Astado",
           "valor": 1,
-          "subtitulo": "Provoca a un enemigo 1 turno"
+          "subtitulo": "Provoca a todos los enemigos 1 turno"
         },
         {
           "rango_d20": "17+",
           "nombre": "Reto del Colmillo",
           "valor": 2,
-          "subtitulo": "Provoca a un enemigo 2 turnos"
+          "subtitulo": "Provoca a todos los enemigos 2 turnos"
         }
       ]
     },
@@ -230,7 +230,9 @@
         {
           "etiqueta": "Grito de Guerra",
           "efecto": "provocacion",
-          "detalle": "Tanque: provoca a los enemigos para que te ataquen a ti",
+          "detalle": "Tanque: provoca a los enemigos para que te ataquen a ti. 30 de vida (40 en nivel 2)",
+          "vida": 30,
+          "vida_nivel_2": 40,
           "cartas": [
             "grito-de-guerra-nivel-1",
             "grito-de-guerra-nivel-2"

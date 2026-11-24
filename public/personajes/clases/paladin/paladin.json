@@ -130,13 +130,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Bendición Radiante",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Conjuro de sanación"
         },
         {
           "rango_d20": "17+",
           "nombre": "Luz Redentora",
-          "valor": 3,
+          "valor": 4,
           "subtitulo": "Conjuro de sanación"
         }
       ]
@@ -165,13 +165,13 @@
         {
           "rango_d20": "11-16",
           "nombre": "Imposición de Manos",
-          "valor": 1,
+          "valor": 2,
           "subtitulo": "Conjuro de sanación"
         },
         {
           "rango_d20": "17+",
           "nombre": "Plegaria Sanadora",
-          "valor": 2,
+          "valor": 3,
           "subtitulo": "Conjuro de sanación"
         }
       ]
@@ -195,7 +195,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
+      "descripcion": "Al invocar tu fe, corres a interponerte entre tus aliados y las bestias, sin elegir: durante tantos turnos como indique la habilidad, todos los ataques que irían contra un aliado los recibes tú y el aliado no sufre daño. A cambio, recibes la mitad del daño del ataque (hacia abajo) y 1 punto de daño adicional, y la armadura no lo reduce. Si el ataque iba contra ti, lo recibes con normalidad. La luz que te rodea te cura 2 puntos de vida al final de cada ronda de combate.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -230,7 +230,7 @@
           "subtitulo": "Ataque básico"
         }
       ],
-      "descripcion": "Al invocar tu fe, interpones tu escudo sagrado: elige a un aliado (o a ti). El próximo ataque enemigo que reciba ese aliado se reduce en tantos puntos como indique la habilidad. Si portas un escudo, los puntos de protección del escudo se suman a esa reducción.",
+      "descripcion": "Al invocar tu fe, corres a interponerte entre tus aliados y las bestias, sin elegir: durante tantos turnos como indique la habilidad, todos los ataques que irían contra un aliado los recibes tú y el aliado no sufre daño. A cambio, recibes la mitad del daño del ataque (hacia abajo) y 1 punto de daño adicional, y la armadura no lo reduce. Si el ataque iba contra ti, lo recibes con normalidad. La luz que te rodea te cura 2 puntos de vida al final de cada ronda de combate.",
       "tabla": [
         {
           "rango_d20": "11-16",
@@ -328,7 +328,10 @@
         {
           "etiqueta": "Bastión Sagrado",
           "efecto": "egida",
-          "detalle": "Reduce el próximo golpe que reciba un aliado o tú",
+          "detalle": "Intercepta los golpes dirigidos a tus aliados: tú recibes la mitad del daño + 1. 25 de vida (35 en nivel 2) y te curas 2 al final de cada ronda",
+          "vida": 25,
+          "vida_nivel_2": 35,
+          "regeneracion": 2,
           "cartas": [
             "bastion-sagrado-nivel-1",
             "bastion-sagrado-nivel-2"
