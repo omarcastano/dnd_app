@@ -1,3 +1,4 @@
+/* Zona común (va la última). Lo propio de una pestaña va dentro de su contenedor con :where(), que no suma especificidad */
 @media (max-width: 600px) {
   body { font-size: 1.02rem; }
 
@@ -14,12 +15,12 @@
 
   .tab-content { padding: 18px 12px 80px; }
 
-  .card-header { padding: 12px; }
-  .card-icon { width: 36px; height: 36px; font-size: 1.05rem; }
-  .card-name { font-size: 1rem; }
-  .card-content { padding: 0 14px 16px; }
+  :where(#tab-shop) .card-header { padding: 12px; }
+  :where(#tab-shop) .card-icon { width: 36px; height: 36px; font-size: 1.05rem; }
+  :where(#tab-shop) .card-name { font-size: 1rem; }
+  :where(#tab-shop) .card-content { padding: 0 14px 16px; }
 
-  .rob-description { padding: 16px; }
+  :where(#tab-rob, #tab-puzzles) .rob-description { padding: 16px; }
 
-  .loot-box { width: 130px; height: 130px; }
+  :where(#tab-loot, #tab-puzzles) .loot-box { width: 130px; height: 130px; }
 }

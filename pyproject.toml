@@ -27,6 +27,8 @@ imagenes = [
 ]
 # Voces expresivas open source (pruebas de narración). Chatterbox se descartó: exige torch 2.6 y choca con ComfyUI
 voces = ["qwen-tts"]
+# Pruebas visuales de la app (make probar): Playwright usa el Chrome del sistema
+pruebas = ["playwright"]
 
 [tool.uv]
 package = false

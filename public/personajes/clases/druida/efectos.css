@@ -20,9 +20,9 @@
 @keyframes ef-brasa { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), -90vh); opacity: 0; } }
 .efecto .zarpa { position: absolute; top: 10%; left: 50%; width: 10px; height: 80vh; border-radius: 50%; background: linear-gradient(#fff, #ffb25c 40%, #c9772e);
   box-shadow: 0 0 18px #ff8a2a; opacity: 0; transform-origin: top; animation: ef-zarpa .5s ease-out both; }
-.zarpa.z1 { margin-left: -60px; transform: rotate(-22deg); animation-delay: .2s; }
-.zarpa.z2 { margin-left: -5px; animation-delay: .32s; }
-.zarpa.z3 { margin-left: 50px; animation-delay: .44s; }
+:where(.efecto) .zarpa.z1 { margin-left: -60px; transform: rotate(-22deg); animation-delay: .2s; }
+:where(.efecto) .zarpa.z2 { margin-left: -5px; animation-delay: .32s; }
+:where(.efecto) .zarpa.z3 { margin-left: 50px; animation-delay: .44s; }
 @keyframes ef-zarpa { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
 
 /* Temas de la pantalla final */

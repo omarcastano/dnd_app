@@ -13,9 +13,9 @@
 .efecto .halo-castigo { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, #ffb83066 0%, #8a4a1c33 35%, transparent 65%); animation: ef-pal-aura 2s ease-out both; }
 .efecto .rayo { position: absolute; top: 0; left: 50%; width: 8px; height: 90vh; border-radius: 50%; background: linear-gradient(#fff, #ffe27a 50%, #ff9a2a);
   box-shadow: 0 0 20px #ffc040; opacity: 0; transform-origin: top; animation: ef-pal-rayo .6s ease-out both; }
-.rayo.r1 { margin-left: -70px; transform: rotate(14deg); animation-delay: .15s; }
-.rayo.r2 { margin-left: -4px; animation-delay: .3s; }
-.rayo.r3 { margin-left: 62px; transform: rotate(-14deg); animation-delay: .45s; }
+:where(.efecto) .rayo.r1 { margin-left: -70px; transform: rotate(14deg); animation-delay: .15s; }
+:where(.efecto) .rayo.r2 { margin-left: -4px; animation-delay: .3s; }
+:where(.efecto) .rayo.r3 { margin-left: 62px; transform: rotate(-14deg); animation-delay: .45s; }
 @keyframes ef-pal-rayo { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
 
 .efecto .columna { position: absolute; top: 0; left: 50%; width: 22vmin; height: 100vh; margin-left: -11vmin;

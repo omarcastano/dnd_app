@@ -1,4 +1,4 @@
-import { closePuzzle } from "../puzzles/vistas.js";
+import { cerrarEnigma } from "../puzzles/api.js";
 
 function switchTab(tab, btn) {
   document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
@@ -12,6 +12,6 @@ export function initNavegacion() {
   document.addEventListener("click", e => {
     const pestana = e.target.closest("[data-tab]");
     if (pestana) return switchTab(pestana.dataset.tab, pestana);
-    if (e.target.closest("[data-cerrar-puzzle]")) closePuzzle();
+    if (e.target.closest("[data-cerrar-puzzle]")) cerrarEnigma();
   });
 }

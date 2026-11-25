@@ -1,4 +1,5 @@
 import { arrastrar, directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
 
 // Galaxias: reparte la cuadrícula en regiones conexas con simetría de giro de 180° alrededor de su punto.
 // Los centros usan coordenadas dobles: [2r, 2c] = centro de celda, impar = arista o vértice.
@@ -140,6 +141,7 @@ function galaxyError() {
 }
 
 function revisarVictoria() {
+  if (enHistoria("galaxies")) return;
   if (!galaxyError()) { resuelto = true; setPuzzleMsg("galaxyMessage", "¡Puzzle resuelto!", true); }
 }
 
@@ -147,13 +149,13 @@ export function initGalaxias() {
   const t = document.getElementById("galaxyBoard");
   t.addEventListener("click", e => {
     const punto = e.target.closest("[data-galaxia]");
-    if (!punto) return;
+    if (!punto || bloqueado("galaxies")) return;
     elegida = Number(punto.dataset.galaxia);
     setPuzzleMsg("galaxyMessage", "");
     render();
   });
   arrastrar(t, (r, c) => {
-    if (resuelto) return false;
+    if (resuelto || bloqueado("galaxies")) return false;
     if (fijas[r][c]) { elegida = asignacion[r][c]; render(); return false; }
     pincel = asignacion[r][c] === elegida ? -1 : elegida;
     setPuzzleMsg("galaxyMessage", "");
@@ -162,7 +164,7 @@ export function initGalaxias() {
     revisarVictoria();
     return true;
   }, (r, c) => {
-    if (fijas[r][c]) return;
+    if (resuelto || bloqueado("galaxies") || fijas[r][c]) return;
     if (pincel === -1 && asignacion[r][c] !== elegida) return;
     pintarCelda(r, c, pincel);
     render();
@@ -170,16 +172,18 @@ export function initGalaxias() {
   });
   document.getElementById("galaxyCheck").addEventListener("click", () => {
     const error = galaxyError();
+    if (comprobarHistoria("galaxies", !error)) return;
     if (error) setPuzzleMsg("galaxyMessage", error);
     else { resuelto = true; setPuzzleMsg("galaxyMessage", "¡Puzzle resuelto!", true); }
   });
   document.getElementById("galaxyReset").addEventListener("click", () => {
+    if (bloqueado("galaxies")) return;
     asignacion = gridOf(N, N, -1);
     galaxias.forEach((g, k) => g.celdas.forEach(([r, c]) => { asignacion[r][c] = k; }));
     resuelto = false;
     setPuzzleMsg("galaxyMessage", "");
     render();
   });
-  document.getElementById("galaxyNew").addEventListener("click", nuevo);
+  document.getElementById("galaxyNew").addEventListener("click", () => { if (!enHistoria("galaxies")) nuevo(); });
   nuevo();
 }

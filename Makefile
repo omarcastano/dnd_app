@@ -2,7 +2,7 @@ PORT ?= 8080
 UV ?= uv
 PY := .venv/bin/python
 
-.PHONY: run setup audio-setup audio check cartas catalogo simular
+.PHONY: run setup audio-setup audio check cartas catalogo simular probar check-css
 
 run:
 	python3 -m http.server $(PORT) -d public
@@ -31,3 +31,11 @@ cartas:
 # Simulador de balance (Python): genera simulacion/reporte.html (make simular ARGS="--rapido")
 simular:
 	$(PY) simulacion/simular.py $(ARGS)
+
+# Red de seguridad visual (Playwright + Chrome del sistema): make probar ACTUALIZAR=1 guarda nuevas referencias
+probar:
+	ACTUALIZAR=$(ACTUALIZAR) $(PY) pruebas/probar.py
+
+# Avisa si una clase CSS se define en secciones distintas sin estar dentro del contenedor de su sección
+check-css:
+	python3 pruebas/check_css.py

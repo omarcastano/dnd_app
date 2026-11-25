@@ -14,9 +14,9 @@
 @keyframes ef-orco-chispa { 0% { transform: translate(0, 0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(var(--dx), -90vh); opacity: 0; } }
 .efecto .tajo-orco { position: absolute; top: 8%; left: 50%; width: 12px; height: 85vh; border-radius: 50%; background: linear-gradient(#fff, #ff6a3c 40%, #9a1208);
   box-shadow: 0 0 20px #e01e00; opacity: 0; transform-origin: top; animation: ef-orco-tajo .5s ease-out both; }
-.tajo-orco.t1 { margin-left: -70px; transform: rotate(28deg); animation-delay: .2s; }
-.tajo-orco.t2 { margin-left: -5px; transform: rotate(-24deg); animation-delay: .34s; }
-.tajo-orco.t3 { margin-left: 60px; transform: rotate(30deg); animation-delay: .48s; }
+:where(.efecto) .tajo-orco.t1 { margin-left: -70px; transform: rotate(28deg); animation-delay: .2s; }
+:where(.efecto) .tajo-orco.t2 { margin-left: -5px; transform: rotate(-24deg); animation-delay: .34s; }
+:where(.efecto) .tajo-orco.t3 { margin-left: 60px; transform: rotate(30deg); animation-delay: .48s; }
 @keyframes ef-orco-tajo { 0% { opacity: 0; clip-path: inset(0 0 100% 0); } 30% { opacity: 1; } 100% { opacity: 0; clip-path: inset(0); } }
 
 /* Temas de la pantalla final */

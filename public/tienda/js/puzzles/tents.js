@@ -1,4 +1,5 @@
 import { directions, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
 
 // Carpas: cada árbol (estrella) tiene una carpa (moneda) pegada, sin tocarse entre sí.
 const N = 8;
@@ -101,7 +102,8 @@ function conteos() {
 function render() {
   const n = puzzle.n;
   const { f, c: cc } = conteos();
-  const cls = (v, meta) => (v === meta ? "cumplida" : v > meta ? "excedida" : "");
+  // En modo historia las cifras no se ponen verdes: delatarían que el tablero está resuelto.
+  const cls = (v, meta) => (enHistoria("tents") ? (v > meta ? "excedida" : "") : v === meta ? "cumplida" : v > meta ? "excedida" : "");
   let html = "<tr><th></th>";
   for (let c = 0; c < n; c++) html += `<th class="clue ${cls(cc[c], puzzle.colClues[c])}">${puzzle.colClues[c]}</th>`;
   html += "</tr>";
@@ -141,31 +143,34 @@ export function initTents() {
   const tabla = document.getElementById("puzzleTable");
   tabla.addEventListener("click", e => {
     const cell = e.target.closest(".puzzle-cell");
-    if (!cell || cell.classList.contains("tree") || resuelto) return;
+    if (!cell || cell.classList.contains("tree") || resuelto || bloqueado("tents")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     tablero[r][c] = (tablero[r][c] + 1) % 3;
     setPuzzleMsg("puzzleMessage", "");
     render();
-    if (!puzzleError()) { resuelto = true; setPuzzleMsg("puzzleMessage", "¡Puzzle resuelto!", true); }
+    if (!enHistoria("tents") && !puzzleError()) { resuelto = true; setPuzzleMsg("puzzleMessage", "¡Puzzle resuelto!", true); }
   });
   tabla.addEventListener("contextmenu", e => {
     const cell = e.target.closest(".puzzle-cell");
     if (!cell || cell.classList.contains("tree")) return;
     e.preventDefault();
+    if (resuelto || bloqueado("tents")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     tablero[r][c] = tablero[r][c] === 2 ? 0 : 2;
     render();
   });
   document.getElementById("puzzleCheck").addEventListener("click", () => {
     const error = puzzleError();
+    if (comprobarHistoria("tents", !error)) return;
     if (error) setPuzzleMsg("puzzleMessage", error);
     else { resuelto = true; setPuzzleMsg("puzzleMessage", "¡Puzzle resuelto!", true); }
   });
   document.getElementById("puzzleReset").addEventListener("click", () => {
+    if (bloqueado("tents")) return;
     tablero = gridOf(puzzle.n, puzzle.n, 0); resuelto = false;
     setPuzzleMsg("puzzleMessage", "");
     render();
   });
-  document.getElementById("puzzleNew").addEventListener("click", nuevo);
+  document.getElementById("puzzleNew").addEventListener("click", () => { if (!enHistoria("tents")) nuevo(); });
   nuevo();
 }

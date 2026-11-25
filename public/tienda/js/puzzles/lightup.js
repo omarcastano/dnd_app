@@ -1,4 +1,7 @@
 import { directions, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+
+const ID = "lightup";
 
 // Disposición: "W" casilla libre, "B" muro sin número, "0"-"4" muro numerado.
 const N = 8;
@@ -170,31 +173,43 @@ export function initLightUp() {
   const tabla = document.getElementById("lightBoard");
   tabla.addEventListener("click", e => {
     const cell = e.target.closest("[data-r]");
-    if (!cell || resuelto) return;
+    if (!cell || resuelto || bloqueado(ID)) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     bombillas[r][c] = (bombillas[r][c] + 1) % 3;
     setPuzzleMsg("lightMessage", "");
     render();
-    if (!lightError()) { resuelto = true; setPuzzleMsg("lightMessage", "¡Puzzle resuelto!", true); }
+    if (!enHistoria(ID) && !lightError()) { resuelto = true; setPuzzleMsg("lightMessage", "¡Puzzle resuelto!", true); }
   });
   tabla.addEventListener("contextmenu", e => {
     const cell = e.target.closest("[data-r]");
     if (!cell) return;
     e.preventDefault();
+    if (resuelto || bloqueado(ID)) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     bombillas[r][c] = bombillas[r][c] === 2 ? 0 : 2;
     render();
   });
   document.getElementById("lightCheck").addEventListener("click", () => {
+    if (bloqueado(ID)) return;
     const error = lightError();
+    // modo historia: solo sí o no, sin decir qué falla
+    if (comprobarHistoria(ID, !error)) { if (!error) resuelto = true; return; }
     if (error) setPuzzleMsg("lightMessage", error);
     else { resuelto = true; setPuzzleMsg("lightMessage", "¡Puzzle resuelto!", true); }
   });
   document.getElementById("lightReset").addEventListener("click", () => {
+    if (bloqueado(ID)) return;
     bombillas = gridOf(diseno.length, diseno.length, 0); resuelto = false;
     setPuzzleMsg("lightMessage", "");
     render();
   });
-  document.getElementById("lightNew").addEventListener("click", nuevo);
+  document.getElementById("lightNew").addEventListener("click", () => { if (!enHistoria(ID)) nuevo(); });
+  // Al entrar o salir del modo historia se vacía el tablero (mismo puzzle) y se limpia el mensaje
+  const vista = document.getElementById("view-" + ID);
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; bombillas = gridOf(diseno.length, diseno.length, 0); resuelto = false; setPuzzleMsg("lightMessage", ""); render(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

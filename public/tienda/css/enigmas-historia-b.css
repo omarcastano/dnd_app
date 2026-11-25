@@ -1,0 +1,148 @@
+/* Modo historia (parte B): nonograma (tapiz), hitori (losas), carpas (campamento), star battle (cielo) y galaxias (remolinos).
+   Solo se aplica con .modo-historia[data-tema]; fuera del libro los puzzles se ven como siempre. */
+
+/* Sin trampas: en modo historia no se puede generar un puzzle nuevo */
+:where(#tab-puzzles) {
+  .modo-historia #nonoNew, .modo-historia #hitoriNew, .modo-historia #puzzleNew,
+  .modo-historia #starNew, .modo-historia #galaxyNew { display: none; }
+
+  /* Tablero bloqueado al terminar el enigma */
+  .modo-historia.historia-exito :is(#nonoBoard, #hitoriBoard, #puzzleTable, #starBoard, #galaxyBoard),
+  .modo-historia.historia-fallo :is(#nonoBoard, #hitoriBoard, #puzzleTable, #starBoard, #galaxyBoard) { cursor: default; }
+  .modo-historia.historia-fallo :is(#nonoBoard, #hitoriBoard, #puzzleTable, #starBoard, #galaxyBoard) { filter: grayscale(.6) brightness(.8); transition: filter .8s; }
+
+  /* ---------- Nonograma → tapiz tejido ---------- */
+  .modo-historia[data-tema="tapiz"] #nonoBoard {
+    padding: 10px;
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.12) 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 2px, transparent 2px 4px),
+      #5a2a22;
+    box-shadow: 0 0 0 3px #c9a24a, 0 0 0 6px #3a1712, 0 10px 24px rgba(0,0,0,.6);
+    position: relative;
+  }
+  /* flecos del tapiz */
+  .modo-historia[data-tema="tapiz"] #nonoBoard::after {
+    content: ""; position: absolute; left: 6%; right: 6%; bottom: -14px; height: 12px;
+    background: repeating-linear-gradient(90deg, #c9a24a 0 2px, transparent 2px 7px);
+  }
+  .modo-historia[data-tema="tapiz"] #nonoBoard .clue { color: #f1d9a0; font-family: var(--fuente-encabezado); }
+  .modo-historia[data-tema="tapiz"] #nonoBoard .puzzle-cell {
+    background: repeating-linear-gradient(45deg, #e8d6ae 0 3px, #dcc597 3px 6px) !important;
+    border-color: #8a6a3a !important; color: #6a3a2a;
+  }
+  .modo-historia[data-tema="tapiz"] #nonoBoard .puzzle-cell.filled {
+    background:
+      repeating-linear-gradient(45deg, rgba(0,0,0,.18) 0 2px, transparent 2px 5px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.08) 0 2px, transparent 2px 5px),
+      #8e2a2a !important;
+    animation: hilo-b .25s ease-out;
+  }
+  .modo-historia[data-tema="tapiz"] #nonoBoard .sep-d { border-right-color: #c9a24a !important; }
+  .modo-historia[data-tema="tapiz"] #nonoBoard .sep-b { border-bottom-color: #c9a24a !important; }
+  .modo-historia.historia-exito[data-tema="tapiz"] #nonoBoard .puzzle-cell.filled { animation: brillo-tapiz-b 1.6s ease-in-out 2; }
+}
+@keyframes hilo-b { from { transform: scale(.6); } to { transform: scale(1); } }
+@keyframes brillo-tapiz-b { 50% { filter: brightness(1.5) saturate(1.3); } }
+
+/* ---------- Hitori → losas de piedra ---------- */
+:where(#tab-puzzles) {
+  .modo-historia[data-tema="losas"] #hitoriBoard {
+    padding: 8px; border-radius: 6px;
+    background: #2b2a27;
+    box-shadow: inset 0 0 18px #000, 0 0 0 3px #57524a, 0 10px 22px rgba(0,0,0,.6);
+  }
+  .modo-historia[data-tema="losas"] #hitoriBoard .puzzle-cell {
+    background:
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,.12), transparent 55%),
+      linear-gradient(135deg, #8d877b, #6b665c) !important;
+    border: 2px solid #3a3731 !important; border-radius: 5px;
+    color: #22201c; text-shadow: 0 1px 0 rgba(255,255,255,.35);
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.25);
+  }
+  /* losa hundida: sombreada */
+  .modo-historia[data-tema="losas"] #hitoriBoard .puzzle-cell.shade {
+    background: #191816 !important; color: #3d3a35; text-shadow: none;
+    box-shadow: inset 0 4px 10px #000; transform: scale(.94); transition: transform .2s;
+  }
+  .modo-historia[data-tema="losas"] #hitoriBoard .puzzle-cell.circulo span { border-color: #6fbf8f; color: #1d4a2e; }
+  .modo-historia[data-tema="losas"] #hitoriBoard .puzzle-cell.repetido { color: #8a1c1c; }
+
+  /* ---------- Carpas → campamento ---------- */
+  .modo-historia[data-tema="campamento"] #puzzleTable {
+    padding: 8px; border-radius: 8px;
+    background: radial-gradient(ellipse at 50% 120%, rgba(255,140,40,.25), transparent 60%), #1c2a16;
+    box-shadow: 0 0 0 3px #5a4020, 0 10px 22px rgba(0,0,0,.6);
+  }
+  .modo-historia[data-tema="campamento"] #puzzleTable .clue { color: #f0c27a; font-family: var(--fuente-encabezado); }
+  .modo-historia[data-tema="campamento"] #puzzleTable .puzzle-cell {
+    background: radial-gradient(circle at 40% 30%, #4d6b35, #3a5428) !important;
+    border-color: #24361a !important;
+  }
+  .modo-historia[data-tema="campamento"] #puzzleTable .puzzle-cell.tree { background: radial-gradient(circle, #23401f, #142812) !important; }
+  .modo-historia[data-tema="campamento"] #puzzleTable .puzzle-cell.carpa i { color: #f3d08a; filter: drop-shadow(0 0 4px rgba(255,160,60,.7)); }
+  .modo-historia[data-tema="campamento"] #puzzleTable .puzzle-cell.hierba i { color: #7fa860; }
+  /* hoguera que parpadea bajo el tablero */
+  .modo-historia[data-tema="campamento"] #puzzleTable { position: relative; }
+  .modo-historia[data-tema="campamento"] #puzzleTable::after {
+    content: ""; position: absolute; left: 50%; bottom: -10px; width: 60%; height: 14px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(255,150,50,.45), transparent 70%);
+    animation: hoguera-b 2.4s ease-in-out infinite; pointer-events: none;
+  }
+}
+@keyframes hoguera-b { 50% { opacity: .5; transform: translateX(-50%) scaleX(.85); } }
+
+/* ---------- Star Battle → cielo nocturno ---------- */
+:where(#tab-puzzles) {
+  .modo-historia[data-tema="cielo"] #starBoard {
+    padding: 8px; border-radius: 8px; position: relative;
+    background:
+      radial-gradient(1px 1px at 15% 20%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 80%, #fff, transparent),
+      radial-gradient(1px 1px at 85% 10%, #cde, transparent),
+      linear-gradient(#0a0f26, #1a1440);
+    box-shadow: 0 0 0 3px #2c2f5a, 0 10px 24px rgba(0,0,0,.7);
+  }
+  /* las regiones conservan su color, oscurecido como constelaciones en el cielo */
+  .modo-historia[data-tema="cielo"] #starBoard .puzzle-cell { filter: brightness(.75) saturate(.8); }
+  .modo-historia[data-tema="cielo"] #starBoard .puzzle-cell i {
+    color: #fff7c2; filter: drop-shadow(0 0 5px #ffe680);
+    animation: titila-b 3s ease-in-out infinite;
+  }
+  .modo-historia[data-tema="cielo"] #starBoard .punto { background: rgba(200,210,255,.45); }
+  .modo-historia.historia-exito[data-tema="cielo"] #starBoard .puzzle-cell i { animation: titila-b .6s ease-in-out 4; }
+}
+@keyframes titila-b { 50% { opacity: .65; transform: scale(.88); } }
+
+/* ---------- Galaxias → agua con remolinos ---------- */
+:where(#tab-puzzles) {
+  .modo-historia[data-tema="remolinos"] #galaxyBoard {
+    background: linear-gradient(160deg, #0d3a4a, #082530);
+    box-shadow: 0 0 0 3px #08202a, 0 0 0 5px #4a8fa0, 0 10px 24px rgba(0,0,0,.6);
+  }
+  .modo-historia[data-tema="remolinos"] #galaxyBoard .gal-celda { filter: saturate(.7) hue-rotate(-20deg); }
+  .modo-historia[data-tema="remolinos"] #galaxyBoard .gal-celda:not([style*="background"]) {
+    background:
+      radial-gradient(circle at 50% 50%, transparent 30%, rgba(150,220,240,.08) 32%, transparent 36%),
+      #0f3442;
+  }
+  /* el centro de cada galaxia es el ojo del remolino */
+  .modo-historia[data-tema="remolinos"] #galaxyBoard .gal-punto {
+    background: conic-gradient(#e8fbff, #6fc3d6, #e8fbff, #6fc3d6, #e8fbff);
+    border-color: #062029;
+    animation: gira-b 6s linear infinite;
+  }
+  .modo-historia[data-tema="remolinos"] #galaxyBoard .gal-punto.elegido { box-shadow: 0 0 0 3px #9fe6f5, 0 0 14px #9fe6f5; }
+}
+@keyframes gira-b { from { rotate: 0deg; } to { rotate: 360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+
+  :where(#tab-puzzles) {
+    .modo-historia[data-tema="tapiz"] #nonoBoard .puzzle-cell.filled,
+      .modo-historia[data-tema="campamento"] #puzzleTable::after,
+      .modo-historia[data-tema="cielo"] #starBoard .puzzle-cell i,
+      .modo-historia[data-tema="remolinos"] #galaxyBoard .gal-punto { animation: none !important; }
+  }
+}

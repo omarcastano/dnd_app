@@ -1,3 +1,45 @@
+/* Zona común: título y pie de cada pestaña (todas las pestañas los usan) */
+/* Título de cada sección */
+.tab-subtitle {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.tab-subtitle h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 5vw, 1.8rem);
+  color: var(--oro);
+  text-shadow: 0 2px 0 #000, 0 0 16px rgba(217, 140, 50, 0.45);
+  margin-bottom: 6px;
+}
+
+.tab-subtitle h2 i {
+  font-size: 0.8em;
+  margin-right: 10px;
+  vertical-align: 0.05em;
+  filter: drop-shadow(0 0 6px rgba(217, 169, 63, 0.6));
+}
+
+.tab-subtitle p {
+  font-family: var(--fuente-sabor);
+  font-style: italic;
+  color: var(--texto-tenue);
+  font-size: 1.05rem;
+}
+
+.tab-subtitle::after {
+  content: '';
+  display: block;
+  height: 14px;
+  max-width: 280px;
+  margin: 14px auto 0;
+  background:
+    linear-gradient(45deg, transparent 38%, var(--oro) 38% 62%, transparent 62%) center / 14px 14px no-repeat,
+    linear-gradient(90deg, transparent, var(--oro-oscuro)) left center / calc(50% - 14px) 1px no-repeat,
+    linear-gradient(270deg, transparent, var(--oro-oscuro)) right center / calc(50% - 14px) 1px no-repeat;
+}
+
 /* Pie de cada sección */
 .tab-footer {
   text-align: center;

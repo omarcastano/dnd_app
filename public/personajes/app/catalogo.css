@@ -1,97 +1,136 @@
 /* Pestaña «Héroes» (contenedor .heroes dentro de index.html). Catálogo pensado para móvil: una carta a la vez, deslizando de lado (scroll-snap). En pantallas grandes se muestran en rejilla. */
 .tab-heroes { max-width: none; padding: 0; }
-.heroes { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; background: radial-gradient(120% 60% at 50% 0%, #24402c 0%, #12201a 70%) fixed; min-height: 100vh; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
-.heroes * { box-sizing: border-box; }
+:where(#tab-heroes) {
+  .heroes { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; background: radial-gradient(120% 60% at 50% 0%, #24402c 0%, #12201a 70%) fixed; min-height: 100vh; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
+  .heroes * { box-sizing: border-box; }
 
-.barra { position: relative; z-index: 10; background: #0d1610ee; backdrop-filter: blur(6px); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #8a6a2a88; }
-.barra h1 { font-family: "Cinzel", Georgia, serif; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; white-space: nowrap; }
-.barra nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
-.barra nav::-webkit-scrollbar { display: none; }
-.barra a { flex: none; color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; text-transform: capitalize; min-height: 36px; display: inline-flex; align-items: center; }
-.barra a:active { background: #d4af5a33; }
+  .barra { position: relative; z-index: 10; background: #0d1610ee; backdrop-filter: blur(6px); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #8a6a2a88; }
+  .barra h1 { font-family: "Cinzel", Georgia, serif; font-size: 15px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; white-space: nowrap; }
+  .barra nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+  .barra nav::-webkit-scrollbar { display: none; }
+  .barra a { flex: none; color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; text-transform: capitalize; min-height: 36px; display: inline-flex; align-items: center; }
+  .barra a:active { background: #d4af5a33; }
 
-.clase { padding: 16px 0 8px; scroll-margin-top: 80px; /* deja libres las pestañas fijas del sitio */ }
-.clase h2 { font-family: "Cinzel", Georgia, serif; text-transform: capitalize; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; padding: 0 16px; }
-.estado { font-weight: 400; font-size: 12px; opacity: .7; margin: 2px 16px 0; }
-.estado.alerta { color: #ffd37a; opacity: 1; }
+  .clase { padding: 16px 0 8px; scroll-margin-top: 80px; /* deja libres las pestañas fijas del sitio */ }
+  .clase h2 { font-family: "Cinzel", Georgia, serif; text-transform: capitalize; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; padding: 0 16px; }
+}
+:where(#tab-heroes, #tab-bestiario) {
+  .estado { font-weight: 400; font-size: 12px; opacity: .7; margin: 2px 16px 0; }
+  .estado.alerta { color: #ffd37a; opacity: 1; }
+}
 
 /* Contador y pista de deslizamiento */
-.contador { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px 0; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .2em; color: #d4af5a; }
-.puntos { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-.puntos i { width: 7px; height: 7px; border-radius: 50%; background: #d4af5a44; transition: .2s; }
-.puntos i.activo { background: #f2dc9b; transform: scale(1.35); }
+:where(#tab-heroes) {
+  .contador { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px 0; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .2em; color: #d4af5a; }
+  .puntos { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .puntos i { width: 7px; height: 7px; border-radius: 50%; background: #d4af5a44; transition: .2s; }
+  .puntos i.activo { background: #f2dc9b; transform: scale(1.35); }
+}
 
 /* Móvil: carrusel horizontal. La carta se escala (variable --escala, la calcula carrusel.js) para caber en pantalla */
 @media (max-width: 760px) {
-  .hoja-p { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 14px calc((100vw - 306px * var(--escala, 1)) / 2) 18px; scroll-padding: 0 calc((100vw - 306px * var(--escala, 1)) / 2); -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .hoja-p::-webkit-scrollbar { display: none; }
-  .hoja-p .carta-p { zoom: var(--escala, 1); scroll-snap-align: center; scroll-snap-stop: always; }
+
+  :where(#tab-heroes) {
+    .hoja-p { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 14px calc((100vw - 306px * var(--escala, 1)) / 2) 18px; scroll-padding: 0 calc((100vw - 306px * var(--escala, 1)) / 2); -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain; }
+      .hoja-p::-webkit-scrollbar { display: none; }
+      .hoja-p .carta-p { zoom: var(--escala, 1); scroll-snap-align: center; scroll-snap-stop: always; }
+  }
 }
 /* Pantallas grandes: rejilla con margen */
 @media (min-width: 761px) {
-  .clase { padding-left: 24px; padding-right: 24px; }
-  .hoja-p { padding-left: 0; padding-right: 0; }
-  .contador { display: none; }
+
+  :where(#tab-heroes) {
+    .clase { padding-left: 24px; padding-right: 24px; }
+      .hoja-p { padding-left: 0; padding-right: 0; }
+      .contador { display: none; }
+  }
 }
 
 /* ===== Asistente de selección ===== */
-.paso, .resumen { padding: 8px 16px 0; text-align: center; }
-.progreso { font-family: "Cinzel", Georgia, serif; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af5a; margin-top: 6px; }
-.paso h3 { font-family: "Cinzel", Georgia, serif; font-size: 22px; letter-spacing: .06em; color: #f2dc9b; margin: 6px 0 16px; }
-.btn-sec { all: unset; cursor: pointer; display: inline-block; margin-top: 18px; padding: 10px 18px; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 14px; }
-.btn-sec:active { background: #d4af5a33; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0 10px; }
-.chips span { padding: 5px 12px; border-radius: 999px; background: #d4af5a22; border: 1px solid #d4af5a; color: #f2dc9b; font-size: 13px; }
-/* Resumen: vida (corazón + / −) a la izquierda y "Elegir de nuevo" a la derecha, en una sola fila compacta */
-.resumen { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.resumen .btn-sec { margin-top: 0; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
-.vida { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid #d4af5a; border-radius: 999px; background: #d4af5a14; }
-.vida-btn { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; line-height: 1; color: #f2dc9b; user-select: none; -webkit-tap-highlight-color: transparent; }
-.vida-btn:active { background: #d4af5a44; }
-.vida-btn:disabled { opacity: .3; cursor: default; }
-.vida-valor { position: relative; display: grid; place-items: center; width: 52px; height: 48px; }
-.vida-corazon { position: absolute; inset: 0; width: 100%; height: 100%; fill: #b8281c; stroke: #f2dc9b; stroke-width: 1.2; filter: drop-shadow(0 0 5px #c0392b88); }
-.vida-valor b { position: relative; margin-top: -3px; font-family: "Cinzel", Georgia, serif; font-size: 19px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px #000a; }
-.vida.baja .vida-valor { animation: latido 1s ease-in-out infinite; }
+:where(#tab-heroes) {
+  .paso, .resumen { padding: 8px 16px 0; text-align: center; }
+  .progreso { font-family: "Cinzel", Georgia, serif; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #d4af5a; margin-top: 6px; }
+  .paso h3 { font-family: "Cinzel", Georgia, serif; font-size: 22px; letter-spacing: .06em; color: #f2dc9b; margin: 6px 0 16px; }
+  .btn-sec { all: unset; cursor: pointer; display: inline-block; margin-top: 18px; padding: 10px 18px; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 14px; }
+  .btn-sec:active { background: #d4af5a33; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0 10px; }
+  .chips span { padding: 5px 12px; border-radius: 999px; background: #d4af5a22; border: 1px solid #d4af5a; color: #f2dc9b; font-size: 13px; }
+  /* Resumen: vida (corazón + / −) a la izquierda y "Elegir de nuevo" a la derecha, en una sola fila compacta */
+  .resumen { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .resumen .btn-sec { margin-top: 0; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
+}
+:where(#tab-heroes, #tab-bestiario) {
+  .vida { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid #d4af5a; border-radius: 999px; background: #d4af5a14; }
+  .vida-btn { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; line-height: 1; color: #f2dc9b; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .vida-btn:active { background: #d4af5a44; }
+  .vida-btn:disabled { opacity: .3; cursor: default; }
+  .vida-valor { position: relative; display: grid; place-items: center; width: 52px; height: 48px; }
+  .vida-corazon { position: absolute; inset: 0; width: 100%; height: 100%; fill: #b8281c; stroke: #f2dc9b; stroke-width: 1.2; filter: drop-shadow(0 0 5px #c0392b88); }
+  .vida-valor b { position: relative; margin-top: -3px; font-family: "Cinzel", Georgia, serif; font-size: 19px; font-weight: 700; color: #fff; text-shadow: 0 1px 2px #000a; }
+  .vida.baja .vida-valor { animation: latido 1s ease-in-out infinite; }
+}
 @keyframes latido { 50% { transform: scale(1.18); } }
-@media (prefers-reduced-motion: reduce) { .vida.baja .vida-valor { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+
+  :where(#tab-heroes, #tab-bestiario) {
+    .vida.baja .vida-valor { animation: none; }
+  } 
+}
 
 /* Opciones de la selección: son las propias cartas (cartas.css), una tras otra. Botón "Elegir" debajo */
-.ayuda { font-size: 13px; opacity: .75; margin-bottom: 4px; }
-.opciones { display: flex; flex-wrap: nowrap; justify-content: safe center; overflow-x: auto; gap: 24px; padding: 8px 8px 12px; margin: 0 auto; }
-.opcion-caja { flex: none; width: calc(306px * var(--escala-sel, 1)); display: flex; flex-direction: column; gap: 12px; }
-.btn-pri { all: unset; cursor: pointer; text-align: center; padding: 12px 14px; border-radius: 999px; background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-family: "Cinzel", Georgia, serif; font-weight: 700; letter-spacing: .06em; font-size: 14px; box-shadow: 0 3px 10px #0006; }
-.btn-pri:active { filter: brightness(.9); transform: scale(.98); }
-.btn-pri:focus-visible { outline: 3px solid #f2dc9b; outline-offset: 2px; }
-@media (max-width: 760px) {
-  .paso { padding: 8px 0 0; }
-  .paso > .progreso, .paso > h3, .paso > .ayuda, .paso > .btn-sec { padding: 0 16px; }
-  .opciones { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 8px calc((100vw - 306px * var(--escala-sel, 1)) / 2) 8px; scrollbar-width: none; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
-  .opciones::-webkit-scrollbar { display: none; }
-  .opcion-caja { scroll-snap-align: center; scroll-snap-stop: always; }
-  .paso .contador, .contenido > .contador { display: flex; }
+:where(#tab-heroes) {
+  .ayuda { font-size: 13px; opacity: .75; margin-bottom: 4px; }
+  .opciones { display: flex; flex-wrap: nowrap; justify-content: safe center; overflow-x: auto; gap: 24px; padding: 8px 8px 12px; margin: 0 auto; }
+  .opcion-caja { flex: none; width: calc(306px * var(--escala-sel, 1)); display: flex; flex-direction: column; gap: 12px; }
 }
-.carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
-/* Volteo 3D: frente y dorso de la misma opción */
-.volteo { width: 306px; height: 572px; perspective: 1400px; }
-.volteo.gira { cursor: pointer; }
-/* Chrome móvil no deja hacer scroll ni deslizar sobre capas con transformaciones 3D: las cartas que no giran no llevan perspectiva ni transform */
-.volteo:not(.gira) { perspective: none; }
-.volteo:not(.gira) .volteo-in { transform: none; transform-style: flat; transition: none; }
-.volteo:not(.gira) .cara { backface-visibility: visible; -webkit-backface-visibility: visible; }
-.volteo-in { position: relative; width: 100%; height: 100%; transition: transform .6s cubic-bezier(.4, .2, .2, 1); transform-style: preserve-3d; transform: rotateY(calc(var(--giro, 0) * 180deg)); }
+:where(#tab-heroes, .visor) {
+  .btn-pri { all: unset; cursor: pointer; text-align: center; padding: 12px 14px; border-radius: 999px; background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-family: "Cinzel", Georgia, serif; font-weight: 700; letter-spacing: .06em; font-size: 14px; box-shadow: 0 3px 10px #0006; }
+  .btn-pri:active { filter: brightness(.9); transform: scale(.98); }
+  .btn-pri:focus-visible { outline: 3px solid #f2dc9b; outline-offset: 2px; }
+}
+@media (max-width: 760px) {
 
-.cara { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.cara.dorso { transform: rotateY(180deg); }
-.pista-voltear { text-align: center; font-size: 13px; color: #d4af5a; opacity: .85; margin: -2px 0 0; }
-@media (prefers-reduced-motion: reduce) { .volteo-in { transition: none; } }
+  :where(#tab-heroes) {
+    .paso { padding: 8px 0 0; }
+      .paso > .progreso, .paso > h3, .paso > .ayuda, .paso > .btn-sec { padding: 0 16px; }
+      .opciones { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding: 8px calc((100vw - 306px * var(--escala-sel, 1)) / 2) 8px; scrollbar-width: none; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+      .opciones::-webkit-scrollbar { display: none; }
+      .opcion-caja { scroll-snap-align: center; scroll-snap-stop: always; }
+      .paso .contador, .contenido > .contador { display: flex; }
+  }
+}
+:where(#tab-heroes, #tab-bestiario) {
+  .carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
+  /* Volteo 3D: frente y dorso de la misma opción */
+  .volteo { width: 306px; height: 572px; perspective: 1400px; }
+  .volteo.gira { cursor: pointer; }
+  /* Chrome móvil no deja hacer scroll ni deslizar sobre capas con transformaciones 3D: las cartas que no giran no llevan perspectiva ni transform */
+  .volteo:not(.gira) { perspective: none; }
+  .volteo:not(.gira) .volteo-in { transform: none; transform-style: flat; transition: none; }
+  .volteo:not(.gira) .cara { backface-visibility: visible; -webkit-backface-visibility: visible; }
+  .volteo-in { position: relative; width: 100%; height: 100%; transition: transform .6s cubic-bezier(.4, .2, .2, 1); transform-style: preserve-3d; transform: rotateY(calc(var(--giro, 0) * 180deg)); }
+
+  .cara { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .cara.dorso { transform: rotateY(180deg); }
+}
+:where(#tab-heroes) {
+  .pista-voltear { text-align: center; font-size: 13px; color: #d4af5a; opacity: .85; margin: -2px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+
+  :where(#tab-heroes, #tab-bestiario) {
+    .volteo-in { transition: none; }
+  } 
+}
 
 /* Portada de las opciones con niveles */
-.carta-p.portada { align-items: center; text-align: center; justify-content: flex-start; gap: 6px; padding-top: 40px; }
-.icono-portada { width: 150px; height: 150px; margin: 36px 0 10px; display: grid; place-items: center; border-radius: 50%;
-  background: radial-gradient(circle, #2f5a3a 0%, #12271a 75%); box-shadow: 0 0 0 2px var(--oro), 0 0 28px #d4af5a44; }
-.icono-portada img { width: 90px; height: 90px; }
-.detalle-portada { font-size: 17px; line-height: 1.35; color: var(--pergamino); padding: 0 10px; }
+:where(#tab-heroes) {
+  .carta-p.portada { align-items: center; text-align: center; justify-content: flex-start; gap: 6px; padding-top: 40px; }
+  .icono-portada { width: 150px; height: 150px; margin: 36px 0 10px; display: grid; place-items: center; border-radius: 50%;
+    background: radial-gradient(circle, #2f5a3a 0%, #12271a 75%); box-shadow: 0 0 0 2px var(--oro), 0 0 28px #d4af5a44; }
+  .icono-portada img { width: 90px; height: 90px; }
+  .detalle-portada { font-size: 17px; line-height: 1.35; color: var(--pergamino); padding: 0 10px; }
+}
 
 /* Animaciones de elección (efectos.js) */
 .efecto { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; animation: ef-entra .3s ease-out both; }
@@ -99,40 +138,56 @@
 @keyframes ef-entra { from { opacity: 0; } }
 
 /* Ambiente de la pantalla final (fondo y partículas según la elección) */
-.heroes { transition: background .8s; }
-#heroes-catalogo { position: relative; z-index: 1; }
-.ambiente { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.ambiente i { position: absolute; bottom: -12px; width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; animation: amb-sube var(--t) linear var(--r) infinite; }
+:where(#tab-heroes) {
+  .heroes { transition: background .8s; }
+  #heroes-catalogo { position: relative; z-index: 1; }
+  .ambiente { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .ambiente i { position: absolute; bottom: -12px; width: var(--s); height: var(--s); border-radius: 50%; opacity: 0; animation: amb-sube var(--t) linear var(--r) infinite; }
+}
 @keyframes amb-sube { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: .9; } 85% { opacity: .6; } 100% { transform: translate(var(--dx), -105vh); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .ambiente { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+
+  :where(#tab-heroes) {
+    .ambiente { display: none; }
+  } 
+}
 
 /* Selección de personaje: fondo negro, rayos de luz dorados que giran, latido de luz y polvo dorado ascendente */
-.heroes.tema-seleccion { background: #000; }
-.heroes.tema-seleccion .barra { background: #000000dd; }
-.ambiente-seleccion::before { content: ''; position: absolute; left: 50%; top: 42%; width: 220vmax; height: 220vmax; margin: -110vmax 0 0 -110vmax;
-  background: repeating-conic-gradient(from 0deg, #d4af5a22 0deg 6deg, transparent 6deg 24deg);
-  -webkit-mask: radial-gradient(circle, #000 0%, transparent 38%); mask: radial-gradient(circle, #000 0%, transparent 38%);
-  animation: amb-gira 90s linear infinite; }
-.ambiente-seleccion::after { content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 42%, #d4af5a33 0%, #8a6a2a14 30%, transparent 60%), radial-gradient(circle at 50% 50%, transparent 55%, #000 100%);
-  animation: amb-latido 5s ease-in-out infinite; }
-.ambiente-seleccion i { background: #ffe9a8; box-shadow: 0 0 10px 3px #d4af5a; }
+:where(#tab-heroes) {
+  .heroes.tema-seleccion { background: #000; }
+  .heroes.tema-seleccion .barra { background: #000000dd; }
+  .ambiente-seleccion::before { content: ''; position: absolute; left: 50%; top: 42%; width: 220vmax; height: 220vmax; margin: -110vmax 0 0 -110vmax;
+    background: repeating-conic-gradient(from 0deg, #d4af5a22 0deg 6deg, transparent 6deg 24deg);
+    -webkit-mask: radial-gradient(circle, #000 0%, transparent 38%); mask: radial-gradient(circle, #000 0%, transparent 38%);
+    animation: amb-gira 90s linear infinite; }
+  .ambiente-seleccion::after { content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 42%, #d4af5a33 0%, #8a6a2a14 30%, transparent 60%), radial-gradient(circle at 50% 50%, transparent 55%, #000 100%);
+    animation: amb-latido 5s ease-in-out infinite; }
+  .ambiente-seleccion i { background: #ffe9a8; box-shadow: 0 0 10px 3px #d4af5a; }
+}
 @keyframes amb-gira { to { transform: rotate(360deg); } }
 @keyframes amb-latido { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
 
 /* ===== Elegir clase: scroll vertical entre clases; al elegir algo, solo queda esa clase ===== */
-.heroes.con-clase .clase:not(.activa) { display: none; }
-.clase { min-height: calc(100dvh - 60px); }
-.pagina-clases { display: none; }
+:where(#tab-heroes) {
+  .heroes.con-clase .clase:not(.activa) { display: none; }
+  .clase { min-height: calc(100dvh - 60px); }
+  .pagina-clases { display: none; }
+}
 /* Móvil, lista de clases: se pasa de una a otra como páginas (1/2, 2/2) con snap vertical, sin scroll libre. Alto con svh = estable aunque la barra del navegador se oculte */
 @media (max-width: 760px) {
+
   html:has(.tab-heroes.active .heroes:not(.con-clase) .clase) { scroll-snap-type: y proximity; }
+
   .tab-heroes.active .heroes:not(.con-clase) .clase { min-height: calc(100svh - 60px); scroll-snap-align: start; scroll-snap-stop: always; scroll-margin-top: 56px; }
+
   .tab-heroes.active .heroes:not(.con-clase) .pagina-clases { display: block; position: fixed; right: 12px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 20; padding: 6px 12px; border-radius: 999px; background: #000c; border: 1px solid #d4af5a; color: #f2dc9b; font-family: "Cinzel", Georgia, serif; font-size: 12px; letter-spacing: .15em; pointer-events: none; }
 }
 /* Sin scroll-snap vertical: las clases son más altas que la pantalla y el snap devolvía la vista al inicio, ocultando «Elegir» */
-.atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
-.atras[hidden], .barra nav[hidden] { display: none; }
+:where(#tab-heroes) {
+  .atras { color: #f2dc9b; text-decoration: none; border: 1px solid #d4af5a; border-radius: 999px; padding: 8px 14px; font-size: 13px; }
+  .atras[hidden], .barra nav[hidden] { display: none; }
+}
 
 /* Ventana con el texto completo de una carta (se abre al tocar un texto recortado) */
 /* El visor cuelga de <body> (no de .heroes): así ningún ancestro con transform/animación/zoom desplaza el `fixed` */
@@ -140,43 +195,58 @@
   --titulo: "Cinzel", Georgia, serif; --texto: "EB Garamond", Georgia, serif;
   position: fixed; inset: 0; z-index: 1000; background: #000d; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; display: flex; flex-direction: column; align-items: center; padding: 20px 14px calc(20px + env(safe-area-inset-bottom)); box-sizing: border-box; color: var(--tinta); font-family: var(--texto); line-height: 1.35; }
 .visor * { box-sizing: border-box; }
-.visor-caja { flex: none !important; zoom: 1.3; width: min(calc((100vw - 28px) / 1.3), 360px); height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; margin: auto 0 14px; padding: 18px 20px; }
-.visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 32px; position: sticky; bottom: 0; }
-/* El cuerpo completo de una carta de tabla no lleva marco propio: cada bloque ya tiene el suyo */
-.visor-caja.cuerpo-p { padding: 0; gap: 10px; }
-.visor-caja.cuerpo-p > .bloque { flex: none !important; min-height: auto !important; height: auto !important; max-height: none !important; overflow: visible !important; }
-.visor-caja.cuerpo-p .desc-p { max-height: none !important; overflow: visible !important; }
-/* Don en el visor: el título siempre arriba y el texto debajo (fuera de .carta-p.ilustrada el bloque sería una fila) */
-.visor-caja .bloque.desc { flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; }
-.visor-caja .bloque.desc > * { margin-block: 0; }
+:where(.visor) {
+  .visor-caja { flex: none !important; zoom: 1.3; width: min(calc((100vw - 28px) / 1.3), 360px); height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; margin: auto 0 14px; padding: 18px 20px; }
+  .visor-cerrar { flex: none; margin: 0 auto auto; padding: 12px 32px; position: sticky; bottom: 0; }
+  /* El cuerpo completo de una carta de tabla no lleva marco propio: cada bloque ya tiene el suyo */
+  .visor-caja.cuerpo-p { padding: 0; gap: 10px; }
+  .visor-caja.cuerpo-p > .bloque { flex: none !important; min-height: auto !important; height: auto !important; max-height: none !important; overflow: visible !important; }
+  .visor-caja.cuerpo-p .desc-p { max-height: none !important; overflow: visible !important; }
+  /* Don en el visor: el título siempre arriba y el texto debajo (fuera de .carta-p.ilustrada el bloque sería una fila) */
+  .visor-caja .bloque.desc { flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; }
+  .visor-caja .bloque.desc > * { margin-block: 0; }
+}
 body.visor-abierto { overflow: hidden; }
 /* ===== Móvil: una sola carta a la vez, grande y centrada (sin asomar la siguiente) ===== */
-.ayuda, .pista-voltear { display: none !important; } /* el gesto de deslizar/tocar se explica en persona */
+:where(#tab-heroes) {
+  .ayuda, .pista-voltear { display: none !important; }
+} /* el gesto de deslizar/tocar se explica en persona */
 @media (max-width: 760px) {
+
   .tab-content.tab-heroes { padding: 0 0 80px; }
-  .opciones { gap: calc((100vw - 306px * var(--escala-sel, 1)) / 2 + 4px); }
-  .hoja-p { gap: calc((100vw - 306px * var(--escala, 1)) / 2 + 4px); }
-  .clase h2 { padding: 0 16px; }
-  .paso h3 { margin: 0 0 2px; }
-  .paso .progreso { margin-top: 0; }
+
+  :where(#tab-heroes) {
+    .opciones { gap: calc((100vw - 306px * var(--escala-sel, 1)) / 2 + 4px); }
+      .hoja-p { gap: calc((100vw - 306px * var(--escala, 1)) / 2 + 4px); }
+      .clase h2 { padding: 0 16px; }
+      .paso h3 { margin: 0 0 2px; }
+      .paso .progreso { margin-top: 0; }
+  }
 }
 
 /* En la selección de una clase el título «La Taberna» sobra; el botón «¿Quién eres?» va dentro del título de la clase (misma fila, pegado bajo las pestañas) */
-.heroes.con-clase .barra { display: none; }
-.heroes.con-clase .clase.activa { scroll-margin-top: var(--tabs-h, 44px); padding-top: 0; }
-.heroes.con-clase .clase.activa h2 { position: sticky; top: var(--tabs-h, 44px); z-index: 25; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #000c; }
-.heroes.con-clase .clase.activa h2 .atras { padding: 6px 12px; font-family: system-ui, sans-serif; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+:where(#tab-heroes) {
+  .heroes.con-clase .barra { display: none; }
+  .heroes.con-clase .clase.activa { scroll-margin-top: var(--tabs-h, 44px); padding-top: 0; }
+  .heroes.con-clase .clase.activa h2 { position: sticky; top: var(--tabs-h, 44px); z-index: 25; height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #000c; }
+  .heroes.con-clase .clase.activa h2 .atras { padding: 6px 12px; font-family: system-ui, sans-serif; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+}
 
 /* Dentro de una clase (pasos y resultado): las pestañas y el título no se quedan fijos; se ven al subir con el scroll y la carta tiene todo el foco */
 .tab-heroes.active .heroes.con-clase .clase.activa h2 { position: static; }
-.heroes.con-clase .paso, .heroes.con-clase .resumen, .heroes.con-clase .contador { scroll-margin-top: 8px; }
+:where(#tab-heroes) {
+  .heroes.con-clase .paso, .heroes.con-clase .resumen, .heroes.con-clase .contador { scroll-margin-top: 8px; }
+}
 body:has(.tab-heroes.active) .tabs { position: relative; }
 /* La clase debe ser más alta que la pantalla: así el scroll alcanza para dejar las pestañas y el título arriba y la carta en primer plano */
-.heroes.con-clase .clase.activa { min-height: calc(100svh + 70px); }
+:where(#tab-heroes) {
+  .heroes.con-clase .clase.activa { min-height: calc(100svh + 70px); }
+}
 /* Dentro de una clase el botón Admin tampoco se queda fijo: se va con el scroll junto a las pestañas */
 body:has(.tab-heroes.active) .admin-corner { position: absolute; }
 
 /* Lista de clases (móvil): cada clase ocupa la pantalla entera y se ajusta arriba, sin pestañas encima */
 @media (max-width: 760px) {
+
   .tab-heroes.active .heroes:not(.con-clase) .clase { min-height: 100svh; scroll-margin-top: 8px; }
 }

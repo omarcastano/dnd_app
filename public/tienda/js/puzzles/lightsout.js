@@ -1,4 +1,9 @@
 import { copyGrid, directions, entero, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado, fallarHistoria } from "./historia.js";
+
+const ID = "lightsout";
+// Modo historia: pulsaciones permitidas = mínimo + 50 %, redondeando hacia arriba
+const limiteHistoria = () => Math.ceil(par * 1.5);
 
 const N = 6;
 let estado = gridOf(N, N, false);
@@ -6,6 +11,7 @@ let inicio = gridOf(N, N, false);
 let historial = [];
 let par = 0;
 let resuelto = false;
+let gastadas = 0; // pulsaciones totales en modo historia (deshacer o reiniciar no las devuelve)
 
 function pulsar(g, r, c) {
   for (const [dr, dc] of [[0, 0], ...directions]) {
@@ -69,6 +75,7 @@ function nuevo() {
   estado = copyGrid(g);
   par = p;
   historial = [];
+  gastadas = 0;
   resuelto = false;
   setPuzzleMsg("lightsMessage", "");
   render();
@@ -84,18 +91,29 @@ function render() {
   const t = document.getElementById("lightsBoard");
   t.style.setProperty("--n", N);
   t.innerHTML = html;
+  document.getElementById("lightsCheck").style.display = enHistoria(ID) ? "" : "none";
   const encendidas = estado.flat().filter(Boolean).length;
+  if (enHistoria(ID)) {
+    document.getElementById("lightsInfo").innerHTML = `Pulsaciones: <strong>${gastadas} de ${limiteHistoria()}</strong> · Mínimo posible: <strong>${par}</strong>`;
+    return;
+  }
   document.getElementById("lightsInfo").innerHTML = `Movimientos: <strong>${historial.length}</strong> · Mínimo posible: <strong>${par}</strong> · Luces encendidas: <strong>${encendidas}</strong>`;
 }
 
 export function initLightsOut() {
   document.getElementById("lightsBoard").addEventListener("click", e => {
     const cell = e.target.closest("[data-r]");
-    if (!cell || resuelto) return;
+    if (!cell || resuelto || bloqueado(ID)) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     pulsar(estado, r, c);
     historial.push([r, c]);
     render();
+    if (enHistoria(ID)) {
+      gastadas++;
+      // sin autocomprobar: solo se vigila el límite de pulsaciones
+      if (gastadas > limiteHistoria()) fallarHistoria(ID, "Las runas se han apagado para siempre: demasiadas pulsaciones.");
+      return;
+    }
     if (apagado(estado)) {
       resuelto = true;
       const extra = historial.length === par ? " ¡Con el mínimo de movimientos, perfecto!" : ` Lo hiciste en ${historial.length} (mínimo ${par}).`;
@@ -103,6 +121,7 @@ export function initLightsOut() {
     } else setPuzzleMsg("lightsMessage", "");
   });
   document.getElementById("lightsUndo").addEventListener("click", () => {
+    if (bloqueado(ID)) return;
     const ultimo = historial.pop();
     if (!ultimo) return;
     pulsar(estado, ultimo[0], ultimo[1]);
@@ -110,11 +129,22 @@ export function initLightsOut() {
     setPuzzleMsg("lightsMessage", "");
     render();
   });
-  document.getElementById("lightsNew").addEventListener("click", nuevo);
+  document.getElementById("lightsNew").addEventListener("click", () => { if (!enHistoria(ID)) nuevo(); });
+  document.getElementById("lightsCheck").addEventListener("click", () => {
+    if (enHistoria(ID)) comprobarHistoria(ID, apagado(estado));
+  });
   document.getElementById("lightsReset").addEventListener("click", () => {
+    if (bloqueado(ID)) return;
     estado = copyGrid(inicio); historial = []; resuelto = false;
     setPuzzleMsg("lightsMessage", "");
     render();
   });
+  // Al entrar en modo historia: tablero nuevo; al salir, se vuelve a dibujar el normal
+  const vista = document.getElementById("view-" + ID);
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

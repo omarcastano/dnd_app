@@ -1,4 +1,5 @@
 import { directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
 
 // Star Battle: N×N, K estrellas por fila, columna y región; sin tocarse (ni en diagonal).
 const N = 9;
@@ -196,31 +197,34 @@ export function initStarBattle() {
   const tabla = document.getElementById("starBoard");
   tabla.addEventListener("click", e => {
     const cell = e.target.closest("[data-r]");
-    if (!cell || resuelto) return;
+    if (!cell || resuelto || bloqueado("stars")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     estado[r][c] = (estado[r][c] + 1) % 3;
     setPuzzleMsg("starMessage", "");
     render();
-    if (!starError()) { resuelto = true; setPuzzleMsg("starMessage", "¡Puzzle resuelto!", true); }
+    if (!enHistoria("stars") && !starError()) { resuelto = true; setPuzzleMsg("starMessage", "¡Puzzle resuelto!", true); }
   });
   tabla.addEventListener("contextmenu", e => {
     const cell = e.target.closest("[data-r]");
     if (!cell) return;
     e.preventDefault();
+    if (resuelto || bloqueado("stars")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     estado[r][c] = estado[r][c] === 2 ? 0 : 2;
     render();
   });
   document.getElementById("starCheck").addEventListener("click", () => {
     const error = starError();
+    if (comprobarHistoria("stars", !error)) return;
     if (error) setPuzzleMsg("starMessage", error);
     else { resuelto = true; setPuzzleMsg("starMessage", "¡Puzzle resuelto!", true); }
   });
   document.getElementById("starReset").addEventListener("click", () => {
+    if (bloqueado("stars")) return;
     estado = gridOf(N, N, 0); resuelto = false;
     setPuzzleMsg("starMessage", "");
     render();
   });
-  document.getElementById("starNew").addEventListener("click", nuevo);
+  document.getElementById("starNew").addEventListener("click", () => { if (!enHistoria("stars")) nuevo(); });
   nuevo();
 }

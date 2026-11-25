@@ -1,4 +1,7 @@
 import { entero, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado, intentosRestantes } from "./historia.js";
+
+const ID = "mastermind";
 
 // 5 posiciones, 8 colores (con repeticiones), 10 intentos.
 const HUECOS = 5;
@@ -19,6 +22,7 @@ let intentos = [];
 let actual = [];
 let color = 0;
 let terminado = false;
+let maximo = MAX_INTENTOS; // en modo historia, nunca más que los intentos que da la historia
 
 export function evaluar(intento, clave) {
   const negras = intento.filter((c, i) => c === clave[i]).length;
@@ -39,6 +43,7 @@ function nuevaPartida() {
   actual = Array(HUECOS).fill(null);
   color = 0;
   terminado = false;
+  maximo = enHistoria(ID) ? Math.min(MAX_INTENTOS, intentosRestantes(ID)) : MAX_INTENTOS;
   setPuzzleMsg("mastermindMessage", "");
   render();
 }
@@ -69,18 +74,26 @@ function render() {
   document.getElementById("mastermindBoard").innerHTML = html;
   document.getElementById("mastermindPaleta").innerHTML = colores.map((c, i) =>
     `<button type="button" class="mastermind-color${i === color ? " elegido" : ""}" data-color="${i}" title="${c.nombre}">${ficha(c.id)}</button>`).join("");
-  document.getElementById("mastermindInfo").textContent = terminado ? "" : `Intento ${intentos.length + 1} de ${MAX_INTENTOS}`;
+  document.getElementById("mastermindInfo").textContent = terminado ? "" : `Intento ${intentos.length + 1} de ${maximo}`;
 }
 
 function comprobar() {
-  if (terminado) return;
+  if (terminado || bloqueado(ID)) return;
   if (actual.includes(null)) { setPuzzleMsg("mastermindMessage", `Completa los ${HUECOS} huecos primero.`); return; }
   const res = evaluar(actual, secreto);
   intentos.push({ colores: actual.slice(), res });
+  if (enHistoria(ID)) {
+    // cada combinación gasta un intento de la historia; las pistas negras/blancas se siguen mostrando
+    comprobarHistoria(ID, res.negras === HUECOS);
+    if (bloqueado(ID) || intentos.length >= maximo) terminado = true;
+    else { setPuzzleMsg("mastermindMessage", `${res.negras} en su sitio, ${res.blancas} de color correcto en otro sitio.`); actual = Array(HUECOS).fill(null); }
+    render();
+    return;
+  }
   if (res.negras === HUECOS) {
     terminado = true;
     setPuzzleMsg("mastermindMessage", `¡Código descifrado en ${intentos.length} intentos!`, true);
-  } else if (intentos.length >= MAX_INTENTOS) {
+  } else if (intentos.length >= maximo) {
     terminado = true;
     setPuzzleMsg("mastermindMessage", "Te quedaste sin intentos. El código secreto está abajo.");
   } else {
@@ -93,7 +106,7 @@ function comprobar() {
 export function initMastermind() {
   document.getElementById("mastermindPaleta").addEventListener("click", e => {
     const b = e.target.closest("[data-color]");
-    if (!b) return;
+    if (!b || bloqueado(ID)) return;
     color = Number(b.dataset.color);
     // si hay un hueco vacío, el color se coloca directamente en el primero libre
     const libre = actual.indexOf(null);
@@ -102,13 +115,20 @@ export function initMastermind() {
   });
   document.getElementById("mastermindBoard").addEventListener("click", e => {
     const h = e.target.closest("[data-hueco]");
-    if (!h || terminado) return;
+    if (!h || terminado || bloqueado(ID)) return;
     const i = Number(h.dataset.hueco);
     actual[i] = actual[i] === colores[color].id ? null : colores[color].id;
     render();
   });
   document.getElementById("mastermindCheck").addEventListener("click", comprobar);
-  document.getElementById("mastermindClear").addEventListener("click", () => { actual = Array(HUECOS).fill(null); render(); });
-  document.getElementById("mastermindReset").addEventListener("click", nuevaPartida);
+  document.getElementById("mastermindClear").addEventListener("click", () => { if (bloqueado(ID)) return; actual = Array(HUECOS).fill(null); render(); });
+  document.getElementById("mastermindReset").addEventListener("click", () => { if (!enHistoria(ID)) nuevaPartida(); });
+  // Al entrar o salir del modo historia: código nuevo y límite de intentos ajustado
+  const vista = document.getElementById("view-" + ID);
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevaPartida(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevaPartida();
 }

@@ -1,4 +1,5 @@
 import { directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
 
 const N = 7;
 let valores = [];
@@ -159,12 +160,12 @@ function hitoriError() {
 export function initHitori() {
   document.getElementById("hitoriBoard").addEventListener("click", e => {
     const cell = e.target.closest("[data-r]");
-    if (!cell || resuelto) return;
+    if (!cell || resuelto || bloqueado("hitori")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     estado[r][c] = (estado[r][c] + 1) % 3;
     setPuzzleMsg("hitoriMessage", "");
     render();
-    if (!hitoriError() && estado.some(f => f.includes(1))) {
+    if (!enHistoria("hitori") && !hitoriError() && estado.some(f => f.includes(1))) {
       resuelto = true;
       setPuzzleMsg("hitoriMessage", "¡Puzzle resuelto!", true);
     }
@@ -173,20 +174,23 @@ export function initHitori() {
     const cell = e.target.closest("[data-r]");
     if (!cell) return;
     e.preventDefault();
+    if (resuelto || bloqueado("hitori")) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
     estado[r][c] = estado[r][c] === 2 ? 0 : 2;
     render();
   });
   document.getElementById("hitoriCheck").addEventListener("click", () => {
     const error = hitoriError();
+    if (comprobarHistoria("hitori", !error)) return;
     if (error) setPuzzleMsg("hitoriMessage", error);
     else { resuelto = true; setPuzzleMsg("hitoriMessage", "¡Puzzle resuelto!", true); }
   });
   document.getElementById("hitoriReset").addEventListener("click", () => {
+    if (bloqueado("hitori")) return;
     estado = gridOf(N, N, 0); resuelto = false;
     setPuzzleMsg("hitoriMessage", "");
     render();
   });
-  document.getElementById("hitoriNew").addEventListener("click", nuevo);
+  document.getElementById("hitoriNew").addEventListener("click", () => { if (!enHistoria("hitori")) nuevo(); });
   nuevo();
 }

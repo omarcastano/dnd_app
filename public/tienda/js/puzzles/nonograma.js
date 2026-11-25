@@ -1,4 +1,5 @@
 import { arrastrar, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
 
 // 0 = vacío, 1 = relleno, 2 = marca «aquí no» (X)
 const N = 10;
@@ -104,13 +105,15 @@ function nuevo() {
 }
 
 function pintar() {
+  // En modo historia las pistas no se atenúan: delatarían que el tablero está resuelto.
+  const ocultar = enHistoria("nonogram");
   const filas = tablero.map(f => f.map(v => (v === 1 ? 1 : 0)));
   pistasF.forEach((p, r) => {
-    const ok = igual(rachas(filas[r]), p);
+    const ok = !ocultar && igual(rachas(filas[r]), p);
     document.querySelector(`#nonoBoard [data-pf="${r}"]`)?.classList.toggle("cumplida", ok);
   });
   pistasC.forEach((p, c) => {
-    const ok = igual(rachas(filas.map(f => f[c])), p);
+    const ok = !ocultar && igual(rachas(filas.map(f => f[c])), p);
     document.querySelector(`#nonoBoard [data-pc="${c}"]`)?.classList.toggle("cumplida", ok);
   });
 }
@@ -135,7 +138,7 @@ function render() {
 }
 
 function aplicar(r, c, valor) {
-  if (resuelto) return;
+  if (resuelto || bloqueado("nonogram")) return;
   const actual = tablero[r][c];
   if (valor === 1 && actual === 2) return;
   if (valor === 2 && actual === 1) return;
@@ -148,6 +151,7 @@ function aplicar(r, c, valor) {
 }
 
 function comprobarAuto() {
+  if (enHistoria("nonogram")) return;
   const filas = tablero.map(f => f.map(v => (v === 1 ? 1 : 0)));
   const ok = pistasF.every((p, r) => igual(rachas(filas[r]), p)) && pistasC.every((p, c) => igual(rachas(filas.map(f => f[c])), p));
   if (ok) {
@@ -186,14 +190,16 @@ export function initNonograma() {
 
   document.getElementById("nonoCheck").addEventListener("click", () => {
     const error = nonoError();
+    if (comprobarHistoria("nonogram", !error)) return;
     if (error) setPuzzleMsg("nonoMessage", error);
     else setPuzzleMsg("nonoMessage", "¡Puzzle resuelto!", true);
   });
   document.getElementById("nonoReset").addEventListener("click", () => {
+    if (bloqueado("nonogram")) return;
     tablero = gridOf(N, N, 0); resuelto = false;
     setPuzzleMsg("nonoMessage", "");
     render();
   });
-  document.getElementById("nonoNew").addEventListener("click", nuevo);
+  document.getElementById("nonoNew").addEventListener("click", () => { if (!enHistoria("nonogram")) nuevo(); });
   nuevo();
 }
