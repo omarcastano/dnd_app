@@ -5,7 +5,7 @@ import { MEDALLON } from '../../../personajes/app/cartas.js';
 import { atenderNarracion } from '../../../personajes/app/narracion.js';
 
 const RAIZ = new URL('../../../mapas/', import.meta.url);
-const V = '?v=12';
+const V = '?v=13';
 const ROMANOS = ['I', 'II', 'III', 'IV'];
 const MONEDAS_EVENTOS = [5, 10, 15, 30];
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -21,7 +21,8 @@ export async function initMapas() {
   const zonaLibro = document.getElementById('mapas-campanas');
   const zonaCatalogo = document.getElementById('mapas-catalogo');
   if (!zonaLibro || !zonaCatalogo) return;
-  const [{ mapas, ambientes }, { campanas }] = await Promise.all([leer('mapas.json'), leer('campanas.json')]);
+  const [{ mapas, ambientes }, { campanas }, bestiario] = await Promise.all([leer('mapas.json'), leer('campanas.json'),
+    fetch(new URL('../enemigos/enemigos.json' + V, RAIZ)).then((r) => r.json()).catch(() => ({ enemigos: [] }))]);
   const mapaDe = Object.fromEntries(mapas.map((m) => [m.id, m]));
   const raiz = zonaLibro.closest('.mapas-zona');
 
@@ -33,7 +34,7 @@ export async function initMapas() {
 
   const portada = () => `<div class="libro-portadas">${campanas.map((c, i) => `<button type="button" class="libro-portada${c.final ? ' portada-final' : ''}" data-abrir-campana="${i}">
     <span class="portada-mapas">${c.escenarios.map((e) => `<img src="${img(e.mapa)}" alt="" loading="lazy">`).join('')}</span>
-    <span class="portada-texto"><small>${c.final ? 'Gran final' : `Campaña ${i + 1}`}</small><b>${esc(c.nombre)}</b><em>${esc(c.gancho)}</em>
+    <span class="portada-texto"><small>${c.final ? 'Gran final' : `Campaña ${i + 1}`}${c.dificultad === 'alta' ? ' · <span class="portada-dificultad">Dificultad alta</span>' : ''}</small><b>${esc(c.nombre)}</b><em>${esc(c.gancho)}</em>
     ${c.requisito ? `<span class="portada-requisito"><i class="fa-solid fa-lock"></i> ${esc(c.requisito)}</span>` : ''}<span class="portada-ruta">${c.escenarios.map((e) => esc(mapaDe[e.mapa]?.nombre)).join(' → ')}</span></span></button>`).join('')}</div>`;
 
   const indice = (c) => `<ol class="libro-indice">${['Prólogo', ...c.escenarios.map((e, i) => `${nombreCap(c, i)}. ${e.titulo}`), 'Epílogo']
@@ -43,11 +44,13 @@ export async function initMapas() {
     <li><i class="fa-solid fa-lock"></i><b>Requisito</b><span>${esc(c.requisito ?? 'Completar las cinco campañas')}</span></li>
     <li><i class="fa-solid fa-dragon"></i><b>Jefe final</b><span><span class="nivel nivel-7">Nivel 7</span></span></li>
     <li><i class="fa-solid fa-khanda"></i><b>Combates</b><span>${c.escenarios[0].pasos.filter((p) => p.combate).length}, el último contra la Hidra</span></li></ul>`;
-  const ficha = (i) => `<ul class="capitulo-ficha">
+  const NIVEL_BESTIA = Object.fromEntries(bestiario.enemigos.map((b) => [b.id, b.nivel]));
+  const ficha = (i, c) => `<ul class="capitulo-ficha">
     <li><i class="fa-solid fa-dragon"></i><b>Bestias</b><span><span class="nivel nivel-${i + 1}">Nivel ${i + 1}</span> <span class="nivel nivel-${i + 2}">Nivel ${i + 2}</span></span></li>
     <li><i class="fa-solid fa-khanda"></i><b>Combates</b><span>4 obligatorios, de 1–2 bestias</span></li>
     <li><i class="fa-solid fa-box-open"></i><b>Cofres</b><span>2 de nivel ${i + 1} + 2 de nivel ${i + 2}, al superar el mapa</span></li>
-    <li><i class="fa-solid fa-coins"></i><b>Monedas de eventos</b><span>${MONEDAS_EVENTOS[i]} al terminar${i === 3 ? ', antes del jefe final' : ''}</span></li></ul>`;
+    <li><i class="fa-solid fa-coins"></i><b>Monedas de eventos</b><span>${MONEDAS_EVENTOS[i]} al terminar${i === 3 ? ', antes del jefe final' : ''}</span></li>
+    ${i === 3 && c.villano ? `<li class="ficha-jefe"><i class="fa-solid fa-crown"></i><b>Jefe final</b><span>${esc(c.villano.nombre)} <span class="nivel nivel-${NIVEL_BESTIA[c.villano.bestia] ?? 6}">Nivel ${NIVEL_BESTIA[c.villano.bestia] ?? 6}</span></span></li>` : ''}</ul>`;
 
   const paso = (p, k) => `<li class="paso">
     <div class="paso-num">${k + 1}</div>
@@ -68,7 +71,7 @@ export async function initMapas() {
     return `<header class="capitulo-cabecera">
       <button type="button" class="capitulo-mapa" data-ver-mapa="${esc(e.mapa)}" aria-label="Ver el mapa en grande"><img src="${img(e.mapa)}" alt="${esc(m?.nombre)}"><span><i class="fa-solid fa-magnifying-glass-plus"></i> Ver mapa</span></button>
       <div><p class="capitulo-num">${final ? 'Gran final' : `Capítulo ${ROMANOS[i]}`} · ${esc(m?.nombre)}</p><h3>${esc(e.titulo)}</h3>
-      <p class="capitulo-objetivo"><i class="fa-solid fa-bullseye"></i> ${esc(e.objetivo)}</p>${final ? fichaFinal(c) : ficha(i)}</div></header>
+      <p class="capitulo-objetivo"><i class="fa-solid fa-bullseye"></i> ${esc(e.objetivo)}</p>${final ? fichaFinal(c) : ficha(i, c)}</div></header>
       <section class="capitulo-seccion"><h4>Llegada</h4>${lectura(e.llegada, e.audio_llegada)}</section>
       <section class="capitulo-seccion"><h4>Desarrollo</h4><ol class="pasos">${e.pasos.map(paso).join('')}</ol></section>
       <section class="capitulo-seccion"><h4>${final || i === 3 ? 'Desenlace' : 'Cierre del capítulo'}</h4>${lectura(e.cierre, e.audio_cierre)}
@@ -76,7 +79,7 @@ export async function initMapas() {
   };
 
   const prologo = (c) => `<section class="capitulo-seccion"><h3 class="libro-titulo-pagina">Prólogo</h3>${lectura(c.introduccion, c.audio_introduccion)}
-    ${c.villano ? `<div class="libro-villano"><i class="fa-solid fa-skull"></i><div><b>${esc(c.villano.nombre)}</b><p>${esc(c.villano.descripcion)}</p></div></div>` : ''}
+    ${c.villano ? `<div class="libro-villano"><i class="fa-solid fa-skull"></i><div><small>Jefe final${NIVEL_BESTIA[c.villano.bestia] ? ` · nivel ${NIVEL_BESTIA[c.villano.bestia]}` : ''}</small><b>${esc(c.villano.nombre)}</b><p>${esc(c.villano.descripcion)}</p></div></div>` : ''}
     ${c.villano?.lugarteniente ? `<div class="libro-villano libro-lugarteniente"><i class="fa-solid fa-crown"></i><div><small>En las sombras · nivel 6</small><b>${esc(c.villano.lugarteniente.nombre)}</b><p>${esc(c.villano.lugarteniente.descripcion)}</p></div></div>` : ''}
     <h4>La ruta</h4><ol class="libro-ruta">${c.escenarios.map((e, i) => `<li><button type="button" data-pagina="${i + 1}">
       <img src="${img(e.mapa)}" alt="" loading="lazy"><span><small>${c.final ? 'Gran final' : `Capítulo ${ROMANOS[i]}`} · ${esc(mapaDe[e.mapa]?.nombre)}</small><b>${esc(e.titulo)}</b>

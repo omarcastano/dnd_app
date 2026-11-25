@@ -3,17 +3,13 @@
     {
       "id": "el-aliento-helado",
       "nombre": "El Aliento Helado",
-      "gancho": "Un invierno que no termina congela la costa, y su origen es Velgrima, la dragona blanca que alguien ha despertado bajo los glaciares.",
+      "gancho": "Un invierno que no termina congela la costa: Velgrima, la dragona blanca, ha despertado encadenada a la voluntad de una gárgola que sueña con reinar sobre el hielo.",
       "villano": {
-        "nombre": "Velgrima, la Dragona Blanca",
-        "descripcion": "Antigua dragona de escarcha despertada por la Hermandad del Hueso, una secta que ha construido una nave con los huesos de su antiguo compañero para guiarla hacia la costa. Nunca combate directamente: los héroes deben derribar la nave que la azuza y clavarle su propio arpón para hacerla huir a las cumbres.",
-        "lugarteniente": {
-          "nombre": "Vórtiga, la Alabarda del Hielo",
-          "bestia": "gargola-alabardera",
-          "descripcion": "Gárgola de roca agrietada que sirve a la cabeza helada de la Hidra Quíntuple. Fue ella quien despertó a Velgrima y entregó a la Hermandad del Hueso los planos de la nave. Espera en lo alto de los mástiles para arrebatar a quien sobreviva a la dragona."
-        }
+        "nombre": "Vórtiga, la Alabarda del Hielo",
+        "descripcion": "Gárgola de roca agrietada que encadenó a la dragona Velgrima con un hechizo de hielo azul y fundó la Hermandad del Hueso para guiarla hacia la costa; quiere un reino helado donde ella sea la única estatua que no se rompe. Vigila todo desde lo alto, y solo baja a combatir en su nave de hueso cuando sus sirvientes han caído.",
+        "bestia": "gargola-alabardera"
       },
-      "introduccion": "Este invierno no termina. Los barcos duermen atrapados en el hielo, las redes salen vacías y cada noche baja de las montañas un viento que huele a hierro. En la taberna, junto al fuego, los viejos pronuncian en susurros un nombre que nadie quería recordar: Velgrima, la dragona blanca que dormía bajo los glaciares. Alguien la ha despertado, y algunos juran haber visto sobre el hielo una silueta alada y cornuda que no era la de ninguna dragona. El alcalde deja sobre la mesa una bolsa de monedas y un encargo sencillo: seguid el rastro del frío hasta su origen. La última noticia llegó del viejo Tormund, el pescador de la costa norte, que dio la alarma hace tres días y no ha vuelto. El camino empieza en su casa.",
+      "introduccion": "Este invierno no termina. Los barcos duermen en el hielo y cada noche baja de las montañas un viento que huele a hierro. En la taberna los viejos susurran que Velgrima, la dragona blanca de los glaciares, ha despertado. Pero el leñero jura otra cosa: sobre el lomo de la dragona vio posada una silueta alada y cornuda, de piedra gris, que la guiaba con una alabarda como un pastor guía a su rebaño. El alcalde deja sobre la mesa una bolsa de monedas y un encargo sencillo: seguid el rastro del frío hasta quien lo manda. La última noticia llegó del viejo Tormund, el pescador de la costa norte, que dio la alarma hace tres días y no ha vuelto. El camino empieza en su casa.",
       "escenarios": [
         {
           "mapa": "casa-del-pescador",
@@ -55,8 +51,8 @@
               "lugar": "Casa de Tormund",
               "ubicacion": "lado derecho, mesa redonda del salón de piedra",
               "cuando": "Al registrar la casa tras vencer a la tarántula",
-              "narracion": "Bajo la mesa redonda encontráis el cuaderno del pescador, húmedo y arrugado. Habla de noches sin estrellas, de un viento con olor a hierro y de una sombra enorme que cruzó la luna rumbo al viejo faro del cabo. La última página está escrita con prisa: unos encapuchados con amuletos de hueso le compraron cuerdas y aceite, y le pagaron con monedas tan frías que quemaban la mano. Tormund pensaba seguirlos al amanecer.",
-              "prueba": "Tirada de d20: con doce o más descubrís además una moneda helada con un dragón grabado, que no se calienta nunca.",
+              "narracion": "Bajo la mesa redonda encontráis el cuaderno del pescador, húmedo y arrugado. Habla de noches sin estrellas, de un viento con olor a hierro y de una sombra enorme que cruzó la luna rumbo al viejo faro del cabo, con algo pequeño y cornudo sentado en su cuello. La última página está escrita con prisa: unos encapuchados con amuletos de hueso le compraron cuerdas y aceite, y le pagaron con monedas tan frías que quemaban la mano. Tormund pensaba seguirlos al amanecer.",
+              "prueba": "Tirada de d20: con doce o más descubrís además una moneda helada con una gárgola alada grabada, que no se calienta nunca.",
               "pista": "Los encapuchados de los amuletos de hueso llevan suministros al faro del cabo.",
               "audio": "narraciones/el-aliento-helado-1-paso-3.mp3"
             },
@@ -80,7 +76,7 @@
               "lugar": "Embarcadero de la barca",
               "ubicacion": "borde izquierdo, la barca de remos junto al muelle largo",
               "cuando": "Tras limpiar el almacén, al intentar tomar la barca",
-              "narracion": "La barca de Tormund sigue amarrada en el borde del muelle largo, con los remos dentro. Cuando os acercáis, unas notas de flauta suenan sobre el hielo. Un sátiro sentado en la proa os sonríe con dientes afilados; lleva al cuello un amuleto de hueso idéntico al que describe el cuaderno. Canta que la dama blanca le prometió una corona de escarcha, y que nadie zarpará de aquí mientras él toque.",
+              "narracion": "La barca de Tormund sigue amarrada en el borde del muelle largo, con los remos dentro. Cuando os acercáis, unas notas de flauta suenan sobre el hielo. Un sátiro sentado en la proa os sonríe con dientes afilados; lleva al cuello un amuleto de hueso idéntico al que describe el cuaderno. Canta que la señora de piedra le prometió una corona de escarcha cuando la costa sea suya, y que nadie zarpará de aquí mientras él toque.",
               "combate": {
                 "enemigos": [
                   "Sátiro Trovador",
@@ -152,14 +148,14 @@
               "lugar": "Torre del faro",
               "ubicacion": "esquina superior izquierda, la torre redonda",
               "cuando": "Tras vencer en el almacén, al subir a la torre",
-              "narracion": "Subís por la escalera de madera hasta la sala redonda de la torre. Allí, atado junto a la gran lente, está Tormund, pálido pero vivo. La lente no da luz: guarda un fragmento de hielo azul que palpita. Detrás aparece una figura encapuchada con una guadaña y una voz como de piedra rota. Dice que la dragona necesita un faro para encontrar la costa, y que nadie apagará su guía.",
+              "narracion": "Subís por la escalera de madera hasta la sala redonda de la torre. Allí, atado junto a la gran lente, está Tormund, pálido pero vivo. La lente no da luz: guarda un fragmento de hielo azul que palpita. Detrás aparece una figura encapuchada con una guadaña y una voz como de piedra rota. Dice que su señora Vórtiga necesita un faro para traer a la dragona hasta la costa, y que nadie apagará su guía.",
               "combate": {
                 "enemigos": [
                   "La Parca"
                 ],
                 "nota": "Se coloca entre los héroes y Tormund; si alguien libera al pescador, la Parca lo persigue."
               },
-              "pista": "En la base de la gran lente, bajo el fragmento de hielo, hay grabada a cuchillo la marca de los cinco colmillos en círculo. Uno de los colmillos está pintado de azul escarcha.",
+              "pista": "En la base de la gran lente hay grabada la silueta de una gárgola que sostiene una cadena atada al cuello de un dragón.",
               "audio": "narraciones/el-aliento-helado-2-paso-4.mp3"
             },
             {
@@ -167,12 +163,12 @@
               "lugar": "Torre del faro",
               "ubicacion": "esquina superior izquierda, junto a la lente",
               "cuando": "Al terminar el combate en la torre",
-              "narracion": "Arrancáis el fragmento de hielo azul y la luz se apaga con un suspiro. Tormund os agarra del brazo. Os cuenta que los encapuchados hablaban de un camino por las estribaciones, siguiendo el arroyo helado hasta un altar entre las grietas, y de una nave de hueso que esperan desde el cielo. En la mesa de la torre encontráis un mapa con el arroyo marcado y tres piedras pintadas de azul.",
+              "narracion": "Arrancáis el fragmento de hielo azul y la luz se apaga con un suspiro. Tormund os agarra del brazo. Os cuenta que los encapuchados obedecen a una gárgola llamada Vórtiga, que encadenó a Velgrima con hielo azul, y que hablaban de un altar en las estribaciones, siguiendo el arroyo helado, y de una nave de hueso. En la mesa de la torre encontráis un mapa con el arroyo marcado y tres piedras pintadas de azul.",
               "pista": "El mapa de la torre marca el arroyo helado y tres piedras azules que señalan el camino al altar.",
               "audio": "narraciones/el-aliento-helado-2-paso-5.mp3"
             }
           ],
-          "cierre": "Bajáis del faro con Tormund apoyado en vuestros hombros y el fragmento de hielo envuelto en una manta. Cuando la llama azul se apaga, desde las montañas responde un rugido lejano que hace temblar el agua del cabo. Velgrima ha perdido su guía y está furiosa. Lleváis al pescador a la taberna, donde le dan sopa caliente y a vosotros vino. Mañana seguiréis el mapa de la Hermandad hacia las estribaciones.",
+          "cierre": "Bajáis del faro con Tormund apoyado en vuestros hombros y el fragmento de hielo envuelto en una manta. Cuando la llama azul se apaga, desde las montañas responde un rugido lejano, y tras él una carcajada seca, como de piedra que se agrieta. Vórtiga sabe ya quiénes sois. Lleváis al pescador a la taberna, donde le dan sopa caliente y a vosotros vino. Mañana seguiréis el mapa de la Hermandad hacia las estribaciones.",
           "audio_llegada": "narraciones/el-aliento-helado-2-llegada.mp3",
           "audio_cierre": "narraciones/el-aliento-helado-2-cierre.mp3"
         },
@@ -187,7 +183,7 @@
               "lugar": "Orilla del arroyo",
               "ubicacion": "parte superior, junto a las piedras al oeste del arroyo",
               "cuando": "Al encontrar la primera piedra azul",
-              "narracion": "Os acercáis a la primera piedra azul junto al arroyo. Alguien ha dejado ofrendas de hueso a su alrededor. Del bosque de la ladera oeste bajan dos enanos de barba blanca de escarcha, con picos de minero y los mismos amuletos que ya conocéis. Gritan que el camino al altar está cerrado y que la dama blanca ya ha olido vuestra sangre.",
+              "narracion": "Os acercáis a la primera piedra azul junto al arroyo. Alguien ha dejado ofrendas de hueso a su alrededor. Del bosque de la ladera oeste bajan dos enanos de barba blanca de escarcha, con picos de minero y los mismos amuletos que ya conocéis. Gritan que el camino al altar está cerrado y que la señora de piedra ya ha visto vuestras caras desde el cielo.",
               "combate": {
                 "enemigos": [
                   "Enano Corrompido",
@@ -226,7 +222,7 @@
               "lugar": "Altar de la Escarcha",
               "ubicacion": "esquina inferior derecha, el claro rodeado de rocas y árboles",
               "cuando": "Tras vencer al paquidermo, siguiendo la tercera piedra",
-              "narracion": "La tercera piedra azul os lleva a un claro cerrado por rocas y pinos. En el centro, sobre un tronco cubierto de escarcha, se alza un altar de hielo como el fragmento del faro. Una mujer hecha de cristal reza de rodillas, y a su lado una bruja con una ristra de calaveras al cinto canta hacia el cielo. Al veros, la bruja sonríe: dice que la nave ya viene a buscarlas.",
+              "narracion": "La tercera piedra azul os lleva a un claro cerrado por rocas y pinos. En el centro se alza un altar de hielo como el fragmento del faro, rodeado de eslabones azules: aquí se forjan las cadenas de Velgrima. Una mujer hecha de cristal reza de rodillas, y a su lado una bruja con una ristra de calaveras al cinto canta hacia el cielo. Al veros, la bruja sonríe: dice que Vórtiga ya viene a buscarlas en su nave.",
               "combate": {
                 "enemigos": [
                   "Dama de Cristal",
@@ -241,26 +237,26 @@
               "lugar": "Altar de la Escarcha",
               "ubicacion": "esquina inferior derecha, junto al altar",
               "cuando": "Al terminar el combate",
-              "narracion": "Rompéis el altar y el fragmento del faro se deshace con él. En la nieve, junto a la bruja, hay una carta sellada con un dragón: la Hermandad espera la nave de hueso al anochecer en el claro alto del norte. Mientras la leéis, una sombra larga cruza el valle. Os escondéis entre los peñascos y la veis bajar: una nave de madera y hueso, con alas de dragón, que flota a ras de las copas.",
+              "narracion": "Rompéis el altar y el fragmento del faro se deshace con él. En la nieve, junto a la bruja, hay una carta sellada con una gárgola: Vórtiga recogerá a sus fieles al anochecer en el claro alto del norte. Mientras la leéis, una sombra larga cruza el valle. Os escondéis entre los peñascos y la veis bajar: una nave de madera y hueso, con alas de dragón, que flota a ras de las copas.",
               "combate": {
                 "enemigos": [
                   "Devorador de Mentes"
                 ],
                 "nota": "Baja de la nave para reclamar la carga; si cae, la nave queda esperando con la rampa abierta."
               },
-              "pista": "La nave de hueso lleva arpones de ballesta capaces de herir a Velgrima.",
+              "pista": "La nave de hueso lleva arpones de ballesta capaces de romper las cadenas de hielo de Velgrima, y Vórtiga viaja a bordo.",
               "audio": "narraciones/el-aliento-helado-3-paso-5.mp3"
             }
           ],
-          "cierre": "El devorador cae sobre la nieve y la nave de hueso queda flotando sobre el claro, con la rampa de cuerdas colgando. Nadie la vigila. Volvéis a la taberna en silencio a por provisiones, porque sabéis que esta es vuestra única oportunidad. Antes de amanecer subís por las cuerdas y os escondéis entre los barriles de la popa. Cuando la nave despega hacia las cumbres, el viento helado de Velgrima os golpea la cara.",
+          "cierre": "El devorador cae sobre la nieve y la nave de hueso queda flotando sobre el claro, con la rampa de cuerdas colgando. En lo alto del mástil, algo gris permanece inmóvil como una estatua. Volvéis a la taberna en silencio a por provisiones, porque sabéis que esta es vuestra única oportunidad. Antes de amanecer subís por las cuerdas y os escondéis entre los barriles de la popa. Cuando la nave despega hacia las cumbres, el viento helado de Velgrima os golpea la cara.",
           "audio_llegada": "narraciones/el-aliento-helado-3-llegada.mp3",
           "audio_cierre": "narraciones/el-aliento-helado-3-cierre.mp3"
         },
         {
           "mapa": "vuelo-del-dragon",
           "titulo": "El vuelo del dragón",
-          "objetivo": "Tomar la nave de hueso, vencer a su tripulación y usar sus arpones para ahuyentar a Velgrima.",
-          "llegada": "Salís de vuestro escondite entre los barriles de la popa. La nave de hueso vuela sobre un mar de nubes rosadas, sostenida por dos enormes alas membranosas que crujen a cada golpe de viento. En la proa, una calavera de dragón mira al frente. A los costados hay cuatro ballestas con arpones, como os reveló el devorador, y dos cañones en el centro de la cubierta. Delante, entre las nubes, una silueta blanca y gigantesca vuela hacia vosotros.",
+          "objetivo": "Tomar la nave de hueso, vencer a su tripulación y derrotar a Vórtiga para liberar a Velgrima de sus cadenas.",
+          "llegada": "Salís de vuestro escondite entre los barriles de la popa. La nave de hueso vuela sobre un mar de nubes rosadas, sostenida por dos enormes alas membranosas que crujen a cada golpe de viento. En la proa, una calavera de dragón mira al frente. A los costados hay cuatro ballestas con arpones, y dos cañones en el centro de la cubierta. Delante, entre las nubes, vuela Velgrima con cadenas de hielo azul al cuello, y en lo alto del mástil la estatua gris os observa.",
           "pasos": [
             {
               "titulo": "La popa",
@@ -281,7 +277,7 @@
               "lugar": "Escalera central",
               "ubicacion": "centro, las escaleras que bajan a la bodega",
               "cuando": "Tras el primer combate",
-              "narracion": "Avanzáis hacia la gran escalera central. Desde la bodega suben ruidos de pasos y un olor a pólvora. Sabéis que, si llegáis a las ballestas, podréis herir a la dragona. Pero antes tendréis que cerrar las compuertas para que no os ataquen por la espalda. Bajo vuestros pies, las tablas de hueso tiemblan cada vez que la nave cambia de rumbo.",
+              "narracion": "Avanzáis hacia la gran escalera central. Desde la bodega suben ruidos de pasos y un olor a pólvora. Sabéis que, si llegáis a las ballestas, podréis romper las cadenas de la dragona. Pero antes tendréis que cerrar las compuertas para que no os ataquen por la espalda. Bajo vuestros pies, las tablas de hueso tiemblan cada vez que la nave cambia de rumbo, y desde el mástil llega una risa de piedra.",
               "prueba": "Tirada de d20: con doce o más cerráis la compuerta a tiempo y el siguiente combate empieza con ventaja para vosotros.",
               "audio": "narraciones/el-aliento-helado-4-paso-2.mp3"
             },
@@ -290,7 +286,7 @@
               "lugar": "Ballestas de los costados",
               "ubicacion": "costados izquierdo y derecho, las cuatro ballestas",
               "cuando": "Al llegar al centro de la cubierta",
-              "narracion": "Llegáis junto a las ballestas. Un golem de piedra, cargado de arpones, se interpone en vuestro camino. Sus ojos brillan con la misma luz azul del faro. Velgrima ya está tan cerca que su aliento cubre de escarcha las velas. Tenéis que limpiar los costados antes de que la dragona os alcance.",
+              "narracion": "Llegáis junto a las ballestas. Un golem de piedra, cargado de arpones, se interpone en vuestro camino. Sus ojos brillan con la misma luz azul del faro, y lleva grabada en el pecho la gárgola de Vórtiga. Velgrima ya está tan cerca que su aliento cubre de escarcha las velas. Tenéis que limpiar los costados antes de que la dragona, obligada por sus cadenas, os alcance.",
               "combate": {
                 "enemigos": [
                   "Golem de Piedra"
@@ -304,7 +300,7 @@
               "lugar": "Proa de la nave",
               "ubicacion": "parte superior, junto a la calavera del dragón",
               "cuando": "Tras vencer al golem",
-              "narracion": "Desde las nubes cae en picado un pájaro gigantesco con plumas de hielo, criatura de las cumbres al servicio de Velgrima. Aterriza en la proa con un chillido y arranca tablas con el pico. Si no lo derribáis, la nave entera se partirá. Sus alas levantan un remolino de escarcha que ciega a quien mira hacia arriba.",
+              "narracion": "Desde las nubes cae en picado un pájaro gigantesco con plumas de hielo, criatura de las cumbres que Vórtiga ha domado con el mismo hielo azul. Aterriza en la proa con un chillido y arranca tablas con el pico. Si no lo derribáis, la nave entera se partirá. Sus alas levantan un remolino de escarcha que ciega a quien mira hacia arriba.",
               "combate": {
                 "enemigos": [
                   "Pajarón Coloso"
@@ -318,55 +314,51 @@
               "lugar": "Cañones de cubierta",
               "ubicacion": "centro, junto a los dos cañones",
               "cuando": "Tras derribar al pajarón",
-              "narracion": "De la bodega sube el capitán de la Hermandad, un soldado con armadura de hueso que arrastra un cañón. Se ríe: dice que la dama blanca reinará sobre la costa y que vosotros seréis su primera ofrenda. Apunta el cañón hacia vosotros. Es el último obstáculo antes de las ballestas, y Velgrima abre las fauces para soltar su aliento.",
+              "narracion": "De la bodega sube el capitán de la Hermandad, un soldado con armadura de hueso que arrastra un cañón. Se ríe: dice que Vórtiga reinará sobre una costa de hielo y que vosotros seréis su primera ofrenda. Apunta el cañón hacia vosotros. Es el último sirviente que le queda a la gárgola, y Velgrima, a su orden, abre las fauces para soltar su aliento.",
               "combate": {
                 "enemigos": [
                   "Soldado Cañonero"
                 ],
-                "nota": "Jefe final: dispara desde lejos; acercaos a él y usad los cañones como cobertura."
+                "nota": "Dispara desde lejos; acercaos a él y usad los cañones como cobertura."
               },
               "audio": "narraciones/el-aliento-helado-4-paso-5.mp3"
             },
             {
-              "titulo": "La sombra de los mástiles",
+              "titulo": "Vórtiga, la Alabarda del Hielo",
               "lugar": "Palo mayor de la nave",
               "ubicacion": "centro, en lo alto del mástil y la cubierta que lo rodea",
               "cuando": "Tras derrotar al capitán de la Hermandad",
-              "narracion": "Cuando el capitán cae, una carcajada de piedra resuena sobre vuestras cabezas. Agazapada en lo alto del mástil, una gárgola de alas membranosas abre los ojos. Es Vórtiga, la que despertó a Velgrima. Lleva grabados en el pecho cinco colmillos en círculo y blande una alabarda enorme. Os dice que la dragona era solo un juguete para entretener a la costa mientras su ama despierta. Luego se lanza en picado.",
+              "narracion": "Cuando el capitán cae, la estatua del mástil abre los ojos. Vórtiga despliega sus alas de piedra y blande una alabarda enorme de la que cuelgan las cadenas azules de Velgrima. Os dice que la dragona es solo su bestia de tiro, que el faro, el altar y la Hermandad eran piezas de su juego, y que vosotros ya habéis jugado demasiado. Luego se lanza en picado sobre la cubierta.",
               "combate": {
                 "enemigos": [
                   "Gárgola Alabardera"
                 ],
-                "nota": "Combate final extra: lugarteniente de nivel 6"
+                "nota": "Jefe final: Vórtiga ataca desde el aire y vuelve al mástil; quien rompa sus cadenas con una ballesta distrae a la dragona."
               },
-              "pista": "Un colmillo azul de hielo que nunca se derrite, el primer colmillo de la Hidra, arrancado de la alabarda de Vórtiga.",
+              "pista": "La alabarda de Vórtiga, de la que cuelgan las cadenas de hielo azul de Velgrima.",
               "jefe": true,
               "audio": "narraciones/el-aliento-helado-4-paso-6.mp3"
             }
           ],
-          "cierre": "Vórtiga se estrella contra la cubierta y se parte como una estatua vieja. Corréis a las ballestas. El primer arpón se clava en el ala de Velgrima, el segundo en su costado. La dragona ruge y gira hacia las cumbres, herida y vencida. La nave de hueso, sin tripulación, desciende despacio hasta posarse en la nieve. A lo lejos, el hielo de la costa empieza a crujir y, por primera vez en meses, a deshacerse.",
+          "cierre": "Vórtiga se estrella contra la cubierta y se parte como una estatua vieja. Su alabarda cae, y con ella se quiebran las cadenas azules del cuello de Velgrima. La dragona ruge, libre, os mira un largo instante y gira hacia las cumbres sin atacar. La nave de hueso, sin tripulación, desciende despacio hasta posarse en la nieve. A lo lejos, el hielo de la costa empieza a crujir y, por primera vez en meses, a deshacerse.",
           "audio_llegada": "narraciones/el-aliento-helado-4-llegada.mp3",
           "audio_cierre": "narraciones/el-aliento-helado-4-cierre.mp3"
         }
       ],
-      "epilogo": "Volvéis al pueblo a pie, guiados por el humo de las chimeneas. El mar ya no es una placa de hielo y los barcos vuelven a mecerse en el puerto. Tormund os espera en la taberna con jarras calientes y el alcalde os entrega la bolsa prometida. Pero el colmillo azul que guardáis no deja de estar frío. Esa noche, la tierra tiembla bajo la costa y, muy hondo, algo que no es Velgrima abre un ojo helado. Una de las cinco cabezas ha perdido a su sirviente, y lo sabe.",
+      "epilogo": "Volvéis al pueblo a pie, guiados por el humo de las chimeneas. El mar ya no es una placa de hielo y los barcos vuelven a mecerse en el puerto. Tormund os espera en la taberna con jarras calientes y el alcalde os entrega la bolsa prometida. Colgáis la alabarda de Vórtiga sobre la chimenea, donde por fin se calienta. Esa noche cae una nevada suave, la última del invierno, y desde las cumbres llega un rugido lejano que suena casi a gratitud. Velgrima vuelve a dormir bajo sus glaciares.",
       "audio_introduccion": "narraciones/el-aliento-helado-introduccion.mp3",
       "audio_epilogo": "narraciones/el-aliento-helado-epilogo.mp3"
     },
     {
       "id": "la-cosecha-de-huesos",
       "nombre": "La Cosecha de Huesos",
-      "gancho": "El trigo del valle de Doraespiga crece negro, y alguien lo está abonando con huesos molidos para despertar al gigante que duerme bajo la tierra.",
+      "gancho": "El trigo del valle de Doraespiga crece negro porque un guerrero sepultado bajo los campos ha ordenado abonarlo con huesos molidos para cosechar las almas del valle y volver a caminar entre los vivos.",
       "villano": {
-        "nombre": "La Segadora",
-        "descripcion": "Una antigua sacerdotisa que muele huesos en el molino del río y los siembra en los campos para despertar al gigante enterrado y cosechar las almas del valle. Canta su ritual final en el cementerio y, cuando se ve perdida, se funde con el musgo de las tumbas y se alza como un wendigo.",
-        "lugarteniente": {
-          "nombre": "Morgast, el Heraldo de Abajo",
-          "bestia": "guerrero-del-inframundo",
-          "descripcion": "Guerrero del inframundo que sirve a la cabeza de hueso de la Hidra Quíntuple. Enseñó a la Segadora el ritual del gigante, porque cada alma cosechada en el valle baja por las raíces hasta las fauces de su ama."
-        }
+        "nombre": "Morgast, el Señor de Abajo",
+        "descripcion": "Antiguo caudillo enterrado bajo el valle junto al gigante que lo mató, ahora guerrero del inframundo; desde su tumba susurra a la Segadora, su sacerdotisa, para que siembre huesos y le coseche las almas con las que romper su prisión. Es orgulloso, paciente y habla de los vivos como de trigo.",
+        "bestia": "guerrero-del-inframundo"
       },
-      "introduccion": "En el valle de Doraespiga siempre se ha dicho que la tierra es fértil porque debajo duerme un gigante. Nadie lo creía, hasta que este otoño el trigo empezó a brotar negro y los espantapájaros amanecieron mirando hacia el pueblo. Las vacas enferman, los molinos se detienen y por las noches se oye un tañido lejano, como de campana enterrada. Algunos granjeros juran que, bajo el tañido, se oye también el paso pesado de alguien con armadura que camina por debajo de los campos. Han juntado sus pocas monedas para pagaros en la taberna. Subís a la carreta y tomáis el camino de tierra hacia la granja de los Almendro, la más castigada de todas.",
+      "introduccion": "En el valle de Doraespiga siempre se ha dicho que la tierra es fértil porque debajo duerme un gigante, y que junto a él yace el caudillo que lo mató, Morgast, enterrado con su armadura de calaveras. Nadie lo creía, hasta que este otoño el trigo empezó a brotar negro y los espantapájaros amanecieron mirando hacia el pueblo. Las vacas enferman, los molinos se detienen y por las noches se oye un tañido lejano, como de campana enterrada. Bajo el tañido, los granjeros juran oír el paso pesado de alguien con armadura que camina por debajo de los campos, buscando la salida. Han juntado sus pocas monedas para pagaros en la taberna. Subís a la carreta hacia la granja de los Almendro, la más castigada de todas.",
       "escenarios": [
         {
           "mapa": "granja",
@@ -440,7 +432,7 @@
               "lugar": "Patio de tierra",
               "ubicacion": "centro superior, junto al rastrillo abandonado",
               "cuando": "Al amanecer, tras el cuarto combate",
-              "narracion": "El abuelo Almendro mira el polvo de hueso con las manos temblorosas. Os cuenta que solo hay un molino en todo el valle con ese sello, el viejo molino del río, abandonado desde hace veinte años. Su padre le contaba que allí vivía una mujer que cantaba mientras molía, y que nadie quería comprar su harina. La llamaban la Segadora.",
+              "narracion": "El abuelo Almendro mira el polvo de hueso con las manos temblorosas. Os cuenta que solo hay un molino con ese sello, el viejo molino del río, abandonado hace veinte años. Allí vivía una mujer que cantaba mientras molía, y que juraba servir al señor que duerme bajo los campos. La llamaban la Segadora. El abuelo baja la voz: dice que esta noche, bajo el granero, ha vuelto a oír los pasos con armadura.",
               "audio": "narraciones/la-cosecha-de-huesos-1-paso-5.mp3"
             }
           ],
@@ -481,7 +473,7 @@
                 ],
                 "nota": "Lucha desde el borde del agua; el que caiga al río pierde su siguiente turno."
               },
-              "pista": "Entre los sacos de la barca hay una nota: llevad el polvo al campo del gigante, la siembra debe terminar con la luna roja.",
+              "pista": "Entre los sacos de la barca hay una nota firmada con una calavera con cuernos: llevad el polvo al campo del gigante, mi señor Morgast exige que la siembra termine con la luna roja.",
               "audio": "narraciones/la-cosecha-de-huesos-2-paso-2.mp3"
             },
             {
@@ -519,7 +511,7 @@
               "lugar": "Rueda del molino",
               "ubicacion": "borde derecho del molino, sobre el agua",
               "cuando": "Al terminar el cuarto combate",
-              "narracion": "Atascáis la rueda con un tablón y el molino calla por primera vez en semanas. En el silencio oís el tañido, ahora más claro, que llega desde el valle, del otro lado de los acantilados. El enano, ya libre del hechizo, os mira con tristeza antes de morir. Os dice con su último aliento que la Segadora no muele huesos al azar: busca despertar al gigante, y el polvo es su comida.",
+              "narracion": "Atascáis la rueda con un tablón y el molino calla por primera vez en semanas. En el silencio oís el tañido, ahora más claro, que llega desde el valle. El enano, libre del hechizo, os mira con tristeza antes de morir. Con su último aliento os dice que la Segadora no muele para el gigante: el gigante es solo la tierra que se come las almas, y quien las espera al fondo es Morgast, su señor.",
               "audio": "narraciones/la-cosecha-de-huesos-2-paso-5.mp3"
             }
           ],
@@ -553,15 +545,15 @@
               "lugar": "Calavera gigante",
               "ubicacion": "parte superior izquierda, junto a la enorme calavera",
               "cuando": "Al acercarse a la cabeza del gigante",
-              "narracion": "La sombra de la calavera gigante se alarga aunque el sol no se mueve. De su interior sale una figura encapuchada con una guadaña, tan delgada que el viento parece atravesarla. No es la Segadora, sino uno de sus heraldos. Su voz suena hueca, como dentro de un pozo. Os dice que el valle ya está sembrado, y que solo falta recoger.",
+              "narracion": "La sombra de la calavera gigante se alarga aunque el sol no se mueve. De su interior sale una figura encapuchada con una guadaña, tan delgada que el viento parece atravesarla. No es la Segadora, sino uno de sus heraldos. Su voz suena hueca, como dentro de un pozo. Os dice que el valle ya está sembrado, que solo falta recoger, y que el señor de abajo ya siente vuestros pasos sobre su tumba.",
               "combate": {
                 "enemigos": [
                   "La Parca"
                 ],
                 "nota": "Usad la calavera como cobertura frente a su guadaña; golpea fuerte a quien esté a su lado."
               },
-              "audio": "narraciones/la-cosecha-de-huesos-3-paso-2.mp3",
-              "pista": "Al caer la Parca, su guadaña deja en la tierra la marca de los cinco colmillos en círculo. Uno de ellos está teñido de negro hueso, y bajo la marca alguien ha escrito un nombre: Morgast."
+              "pista": "Al caer la Parca, su guadaña deja en la tierra la marca de una calavera con cuernos, la misma de la nota de la barca, y bajo ella un nombre escrito en hueso: Morgast.",
+              "audio": "narraciones/la-cosecha-de-huesos-3-paso-2.mp3"
             },
             {
               "titulo": "La bruja de las costillas",
@@ -602,14 +594,14 @@
               "audio": "narraciones/la-cosecha-de-huesos-3-paso-5.mp3"
             }
           ],
-          "cierre": "El campo queda en silencio y el trigo negro se marchita hasta volverse ceniza. Sin embargo, el cielo se tiñe de rojo al anochecer: la luna roja de la nota ha llegado. La Segadora ha llevado lo que queda del poder del gigante al cementerio, donde reposan todos los muertos del valle, para cosecharlos de una vez. Descansáis unas horas en la taberna, comed lo que podáis y afilad las armas, porque esta noche se decide el destino de Doraespiga.",
+          "cierre": "El campo queda en silencio y el trigo negro se marchita hasta volverse ceniza. Sin embargo, el cielo se tiñe de rojo al anochecer: la luna roja de la nota ha llegado. La Segadora ha llevado lo que queda del poder del gigante al cementerio, donde reposan los muertos del valle y donde, según las viejas canciones, está la tumba de Morgast. Descansáis unas horas en la taberna y afiláis las armas, porque esta noche se decide el destino de Doraespiga.",
           "audio_llegada": "narraciones/la-cosecha-de-huesos-3-llegada.mp3",
           "audio_cierre": "narraciones/la-cosecha-de-huesos-3-cierre.mp3"
         },
         {
           "mapa": "cementerio",
           "titulo": "La noche de la siega",
-          "objetivo": "Detener el canto de la Segadora en la plaza del ángel y derrotarla antes del amanecer.",
+          "objetivo": "Romper el canto de la Segadora en la plaza del ángel y derrotar a Morgast antes de que salga de su tumba al amanecer.",
           "llegada": "Bajo la luna roja, seguís el tañido de la campana hasta el cementerio del valle. La campanilla de la bruja tiembla en vuestra bolsa a cada paso. Dos caminos de piedra se cruzan en el centro, donde una plaza redonda guarda la estatua de un ángel con las alas abiertas. Alrededor, las lápidas se agrietan una a una y las tumbas se abren en la hierba. Junto al ángel, la Segadora alza su guadaña y canta en una lengua que duele escuchar.",
           "pasos": [
             {
@@ -670,55 +662,51 @@
               "lugar": "Cruce de los caminos",
               "ubicacion": "centro del mapa, donde se cruzan los cuatro caminos de piedra",
               "cuando": "Tras romper la campana",
-              "narracion": "Del musgo se levanta algo enorme. La Segadora ya no tiene rostro de mujer: tiene astas de ciervo, costillas de musgo y el aliento helado de las tumbas. Allí donde pisa, la hierba se seca y las lápidas se inclinan hacia ella. Es todo lo que ha cosechado en el valle, unido en un solo cuerpo hambriento. Ruge, y la luna roja tiembla con ella.",
+              "narracion": "Del musgo se levanta algo enorme. La Segadora ya no tiene rostro de mujer: tiene astas de ciervo, costillas de musgo y el aliento helado de las tumbas. Grita el nombre de su señor y le ofrece su propio cuerpo como última cosecha. Allí donde pisa, la hierba se seca y las lápidas se inclinan hacia ella. Ruge, y bajo la plaza algo enorme golpea la tierra desde dentro.",
               "combate": {
                 "enemigos": [
                   "Wendigo del Musgo"
                 ],
-                "nota": "Jefe final: el tanque al frente, el sanador detrás de las lápidas y todos los golpes a la vez."
+                "nota": "La sacerdotisa de Morgast: el tanque al frente, el sanador detrás de las lápidas y todos los golpes a la vez."
               },
               "audio": "narraciones/la-cosecha-de-huesos-4-paso-5.mp3"
             },
             {
-              "titulo": "El heraldo de abajo",
+              "titulo": "El Señor de Abajo",
               "lugar": "Cruce de los caminos",
               "ubicacion": "centro del mapa, sobre la tierra donde cayó la Segadora",
               "cuando": "Tras derrotar a la Segadora del musgo",
-              "narracion": "La tierra oscura donde cayó la Segadora empieza a hundirse. De la grieta sube un guerrero con armadura de calaveras, casco de cuernos y un escudo enorme. Es Morgast, el nombre que leísteis en el campo. Os mira con desprecio y dice que la Segadora era solo una hoz, que él es la mano que la empuñaba. Las almas del valle son de su ama, y piensa llevárselas todas antes del alba.",
+              "narracion": "La tierra donde cayó la Segadora se hunde y se abre como una tumba. De la grieta sube un guerrero con armadura de calaveras, casco de cuernos y un escudo enorme. Es Morgast, el nombre de la nota, de la guadaña y de los pasos bajo los campos. Os mira con desprecio: la Segadora era solo su hoz, y vosotros, el último trigo. Alza la espada para cobrarse las almas del valle antes del alba.",
               "combate": {
                 "enemigos": [
                   "Guerrero del Inframundo"
                 ],
-                "nota": "Combate final extra: lugarteniente de nivel 6"
+                "nota": "Jefe final: Morgast. Que el tanque aguante su espada y el sanador no se separe del grupo."
               },
-              "pista": "Un colmillo negro como hueso quemado, el segundo colmillo de la Hidra, que Morgast llevaba clavado en el escudo.",
+              "pista": "Sin la Segadora, cada golpe que recibe Morgast hace temblar su armadura de calaveras: su poder venía de la cosecha y ya no le llega.",
               "jefe": true,
               "audio": "narraciones/la-cosecha-de-huesos-4-paso-6.mp3"
             }
           ],
-          "cierre": "Morgast cae de rodillas y su armadura se desmorona en un montón de calaveras que la tierra se traga. La luna recupera su color plata y, una a una, las tumbas se cierran solas. Bajo el valle sentís un último suspiro, largo y tranquilo: el gigante vuelve a dormir. Cuando el sol asoma por las tapias, la campana de la Segadora yace partida sobre el pedestal del ángel, y en la hierba brotan las primeras espigas doradas.",
+          "cierre": "Morgast cae de rodillas y su armadura se desmorona en un montón de calaveras que la tierra se traga para siempre. La luna recupera su color plata y, una a una, las tumbas se cierran solas. Bajo el valle sentís un último suspiro, largo y tranquilo: el gigante vuelve a dormir, ya sin nadie que le robe las almas. Cuando el sol asoma por las tapias, la campana de la Segadora yace partida sobre el pedestal del ángel, y en la hierba brotan espigas doradas.",
           "audio_llegada": "narraciones/la-cosecha-de-huesos-4-llegada.mp3",
           "audio_cierre": "narraciones/la-cosecha-de-huesos-4-cierre.mp3"
         }
       ],
-      "epilogo": "Volvéis al pueblo con la campana partida como prueba, y el valle entero sale a recibiros. Los Almendro han cocido pan con el primer trigo dorado y en la taberna no os dejan pagar ni una jarra. El molino vuelve a moler grano y el pozo da agua clara. Aun así, algunas noches, los viejos apoyan la oreja en la tierra. Dicen que el gigante sueña tranquilo, pero que más abajo, mucho más abajo, otra cosa se revuelve hambrienta, una cabeza que ha perdido su cosecha.",
+      "epilogo": "Volvéis al pueblo con la campana partida como prueba, y el valle entero sale a recibiros. Los Almendro han cocido pan con el primer trigo dorado y en la taberna no os dejan pagar ni una jarra. El molino vuelve a moler grano y el pozo da agua clara. Los viejos aún apoyan la oreja en la tierra algunas noches, pero ya no oyen pasos con armadura: solo el sueño tranquilo del gigante, y bajo él, nada más que silencio.",
       "audio_introduccion": "narraciones/la-cosecha-de-huesos-introduccion.mp3",
       "audio_epilogo": "narraciones/la-cosecha-de-huesos-epilogo.mp3"
     },
     {
       "id": "el-estandarte-rojo",
       "nombre": "El Estandarte Rojo",
-      "gancho": "Una banda de forajidos bajo un estandarte rojo se está convirtiendo en un ejército que cruzará las montañas cuando se derrita la nieve.",
+      "gancho": "Un señor de fuego encadenado bajo las montañas reparte ceniza negra a una capitana despechada para que su ejército encienda la guerra que lo libere.",
       "villano": {
-        "nombre": "La Garra",
-        "descripcion": "Antigua capitana de mercenarios traicionada por el reino, que compra hambrientos con pan y promesas de tierra. Lleva un guantelete rojo con tres cuchillas y lucha al frente de los suyos rodeada de su guardia de cañoneros.",
-        "lugarteniente": {
-          "nombre": "Ignarok, el Rey Ceniza",
-          "bestia": "senor-de-las-brasas",
-          "descripcion": "Elemental de lava que sirve a la cabeza de fuego de la Hidra Quíntuple. Ofreció a la Garra la ceniza que corrompe a los reclutas a cambio de un ejército que siembre guerra y muerte para alimentar a su ama."
-        }
+        "nombre": "Ignarok, el Señor de las Brasas",
+        "descripcion": "Elemental de lava atrapado bajo las montañas que se alimenta de la guerra y del miedo; dio a la Garra la ceniza negra que esclaviza a los reclutas a cambio de un ejército que siembre fuego. La Garra cree ser su aliada, pero solo es su capitana y su instrumento.",
+        "bestia": "senor-de-las-brasas"
       },
-      "introduccion": "Esta noche la taberna huele a lluvia y a miedo. Los mercaderes que llegan del camino del norte ya no hablan de precios, sino de carretas quemadas, de aldeas vacías y de un estandarte rojo con una garra negra que ondea cada vez más cerca. Dicen que su caudillo promete tierra y oro a cualquiera que empuñe un arma, y que tras ella, en las noches de marcha, arde una hoguera que nadie enciende. Los soldados del reino están lejos y el invierno aprieta. Justo entonces, un niño cubierto de hollín irrumpe por la puerta y grita que están saqueando la granja de los Zarzalejo, al borde del bosque. Recogéis vuestras armas. El humo ya se ve desde la ventana.",
+      "introduccion": "Esta noche la taberna huele a lluvia y a miedo. Los mercaderes que llegan del camino del norte ya no hablan de precios, sino de carretas quemadas, de aldeas vacías y de un estandarte rojo con una garra negra que ondea más cerca. Dicen que su capitana promete tierra y oro a quien empuñe un arma, y que sus reclutas tienen las venas negras de ceniza. Dicen también que tras ella, en las noches de marcha, arde una hoguera que nadie enciende y que de esas llamas sale una voz grave que la llama por su nombre. Justo entonces, un niño cubierto de hollín irrumpe por la puerta y grita que están saqueando la granja de los Zarzalejo. Recogéis vuestras armas. El humo ya se ve desde la ventana.",
       "escenarios": [
         {
           "mapa": "granja",
@@ -790,13 +778,13 @@
               "lugar": "Carro junto al bosque",
               "ubicacion": "lado derecho, al borde del bosque y junto al riachuelo",
               "cuando": "Al terminar el último combate",
-              "narracion": "Atrapáis al muchacho junto al pozo. Es flaco, con hambre de semanas, y confiesa que se unió a la Garra por un plato caliente. El grano va a un campamento en el bosque, al otro lado de un puente de troncos. En ese momento el carro intenta escapar hacia la arboleda, y lo detenéis justo antes del barro.",
+              "narracion": "Atrapáis al muchacho junto al pozo. Es flaco, con hambre de semanas, y confiesa que se unió a la Garra por un plato caliente. Dice que el grano va a un campamento al otro lado de un puente de troncos, y que de noche la capitana habla a solas con una hoguera que le contesta. En ese momento el carro intenta escapar hacia la arboleda, y lo detenéis justo antes del barro.",
               "prueba": "Tirada de d20: con diez o más sujetáis las riendas y salváis el grano para la familia.",
               "pista": "El muchacho os dice la contraseña de los centinelas del puente: pan para el invierno.",
               "audio": "narraciones/el-estandarte-rojo-1-paso-5.mp3"
             }
           ],
-          "cierre": "La familia Zarzalejo sale de la casa llorando de alivio y abraza el grano recuperado. El muchacho os dibuja en el barro el camino al campamento y pide quedarse con ellos para ganarse el pan honradamente. Volvéis a la taberna con el mapa garabateado y la contraseña grabada en la memoria. Junto al fuego, mientras cenáis, comprendéis que esto no era un simple robo. Mañana cruzaréis el barranco.",
+          "cierre": "La familia Zarzalejo sale de la casa llorando de alivio y abraza el grano recuperado. El muchacho os dibuja en el barro el camino al campamento y pide quedarse con ellos para ganarse el pan honradamente. Volvéis a la taberna con el mapa garabateado y la contraseña grabada en la memoria. Junto al fuego, mientras cenáis, no dejáis de pensar en esa hoguera que habla. Esto no era un simple robo. Mañana cruzaréis el barranco.",
           "audio_llegada": "narraciones/el-estandarte-rojo-1-llegada.mp3",
           "audio_cierre": "narraciones/el-estandarte-rojo-1-cierre.mp3"
         },
@@ -811,7 +799,7 @@
               "lugar": "Puente de troncos, lado izquierdo",
               "ubicacion": "mitad izquierda del mapa, donde el puente toca la pared de roca",
               "cuando": "Al llegar al puente",
-              "narracion": "Decís pan para el invierno y el centinela os deja pasar con un gruñido. A mitad del puente, un hombre de ojos vidriosos y venas negras os corta el paso. No es un recluta corriente. Huele a ceniza y murmura que la Garra ve a través de él. Silba, y desde las estacas responde un maullido metálico.",
+              "narracion": "Decís pan para el invierno y el centinela os deja pasar con un gruñido. A mitad del puente, un hombre de ojos vidriosos y venas negras os corta el paso. No es un recluta corriente. Huele a ceniza caliente y murmura que el señor del fuego ve a través de sus ojos. Silba, y desde las estacas responde un maullido metálico.",
               "prueba": "Tirada de d20: con doce o más el engaño aguanta y empezáis el combate con ventaja de posición.",
               "combate": {
                 "enemigos": [
@@ -848,7 +836,7 @@
                 ],
                 "nota": "Golpea muy fuerte pero es lento; repartid el daño y no os quedéis todos juntos."
               },
-              "pista": "Entre las cajas hay una carta sellada con la garra roja: el grano debe subir al Paso del Centinela antes de la primera nevada.",
+              "pista": "Entre las cajas hay una carta sellada con la garra roja: el grano debe subir al Paso del Centinela antes de la primera nevada, y la ceniza negra llegará del fuego de las montañas.",
               "audio": "narraciones/el-estandarte-rojo-2-paso-3.mp3"
             },
             {
@@ -907,14 +895,14 @@
               "lugar": "Torre izquierda",
               "ubicacion": "mitad izquierda, sobre las plataformas de madera y su escalera",
               "cuando": "Tras el primer combate",
-              "narracion": "Subís la escalera de la torre izquierda. Arriba os espera una bruja con un collar de cráneos pequeños que tintinea al moverse. Es ella quien corrompe a los reclutas con ceniza y sangre. Os sonríe y dice que la Garra le ha prometido un cráneo por cada héroe. Las tablas crujen bajo vuestros pies.",
+              "narracion": "Subís la escalera de la torre izquierda. Arriba os espera una bruja con un collar de cráneos pequeños que tintinea al moverse. Es ella quien corrompe a los reclutas con la ceniza negra. Os sonríe y dice que su amo de fuego le ha prometido un cráneo por cada héroe. Las tablas crujen bajo vuestros pies.",
               "combate": {
                 "enemigos": [
                   "Bruja Cazacráneos"
                 ],
                 "nota": "Está en altura; subid por la escalera de abajo y por la de arriba a la vez."
               },
-              "pista": "Entre los cráneos del collar de la bruja cuelga una placa de hierro al rojo con la marca de los cinco colmillos en círculo. Uno de los colmillos arde como una brasa. La bruja muere susurrando que la ceniza no es suya, sino de Ignarok.",
+              "pista": "La bruja guarda un frasco de ceniza negra todavía tibia. Muere susurrando que la ceniza no es suya ni de la Garra, sino de Ignarok, el Señor de las Brasas, que duerme bajo la montaña y despertará cuando la guerra arda.",
               "audio": "narraciones/el-estandarte-rojo-3-paso-2.mp3"
             },
             {
@@ -958,7 +946,7 @@
               "audio": "narraciones/el-estandarte-rojo-3-paso-5.mp3"
             }
           ],
-          "cierre": "El eco del cuerno se pierde entre los picos y, muy lejos, una torre del reino responde con una hoguera. Os han oído, pero los refuerzos tardarán días. Bajáis a la taberna con el frasco de ceniza de la bruja y el cuerno a la espalda. Un explorador os trae la peor noticia: la Garra marcha mañana. No podéis esperar al reino. Esta noche coméis en silencio y al alba bajaréis al valle.",
+          "cierre": "El eco del cuerno se pierde entre los picos y, muy lejos, una torre del reino responde con una hoguera. Os han oído, pero los refuerzos tardarán días. Bajáis a la taberna con el frasco de ceniza de la bruja y el cuerno a la espalda. Esa noche el fuego de la chimenea se vuelve rojo oscuro un instante, como si algo os mirase. Un explorador trae la peor noticia: la Garra marcha mañana. Al alba bajaréis al valle.",
           "audio_llegada": "narraciones/el-estandarte-rojo-3-llegada.mp3",
           "audio_cierre": "narraciones/el-estandarte-rojo-3-cierre.mp3"
         },
@@ -966,7 +954,7 @@
           "mapa": "campamento-de-guerra",
           "titulo": "Bajo el estandarte rojo",
           "objetivo": "Entrar en el campamento, liberar a los prisioneros, destruir la ceniza y vencer a la Garra ante su ejército.",
-          "llegada": "Bajáis del paso al anochecer, escondidos entre los carros de suministros que aún esperan el grano que nunca llegará. Ante vosotros se alza el campamento de guerra, una ciudad de lona encerrada tras una empalizada de troncos. Hay tiendas blancas y rojas, una hoguera central y jaulas llenas de prisioneros. Suenan tambores y martillos. Al norte, la gran tienda con la garra pintada. Recordáis el frasco de ceniza y entendéis por qué tantos obedecen sin pensar.",
+          "llegada": "Bajáis del paso al anochecer, escondidos entre los carros de suministros que aún esperan el grano que nunca llegará. Ante vosotros se alza el campamento de guerra, una ciudad de lona encerrada tras una empalizada de troncos. Hay tiendas blancas y rojas, jaulas llenas de prisioneros y, en el centro, una hoguera enorme que arde sin leña con llamas casi negras. Al norte, la gran tienda con la garra pintada. Recordáis las palabras de la bruja y sabéis quién os espera en ese fuego.",
           "pasos": [
             {
               "titulo": "Las jaulas",
@@ -1027,28 +1015,28 @@
               "lugar": "Gran tienda del norte",
               "ubicacion": "centro superior, la tienda cuadrada con la garra pintada",
               "cuando": "Al llegar a la gran tienda",
-              "narracion": "La lona se abre y sale la Garra, con su guantelete de tres cuchillas rojas y un cañón de mano al hombro. Os mira sin miedo y alza la voz para que todo el campamento la oiga. Dice que el reino os abandonó como la abandonó a ella. Luego levanta el guantelete y os reta delante de los suyos.",
+              "narracion": "La lona se abre y sale la Garra, con su guantelete de tres cuchillas rojas y un cañón de mano al hombro. Os mira sin miedo y alza la voz para que todo el campamento la oiga. Dice que el reino os abandonó como la abandonó a ella, y que el fuego le prometió justicia. Luego levanta el guantelete y os reta delante de los suyos.",
               "combate": {
                 "enemigos": [
                   "Soldado Cañonero"
                 ],
-                "nota": "Jefe final: la Garra usa la carta del Soldado Cañonero y lucha sola, porque su guardia huyó al arder la ceniza."
+                "nota": "La Garra usa la carta del Soldado Cañonero y lucha sola, porque su guardia huyó al arder la ceniza."
               },
               "audio": "narraciones/el-estandarte-rojo-4-paso-5.mp3"
             },
             {
-              "titulo": "El rey de la ceniza",
+              "titulo": "El Señor de las Brasas",
               "lugar": "Hoguera central",
               "ubicacion": "centro superior del mapa, entre los tablones de la gran hoguera",
               "cuando": "Tras derrotar a la Garra",
-              "narracion": "La Garra cae y la hoguera central ruge como si respirara. De las llamas emerge un torso de lava con una cresta de fuego y púas en los hombros. Es Ignarok, el que entregó la ceniza a la Garra. La capitana lo mira con horror. Ignarok se ríe: una guerra más o una menos, poco importa, mientras las almas bajen hacia su ama. Los tablones empiezan a arder bajo vuestros pies.",
+              "narracion": "La Garra cae y la hoguera central ruge como si respirara. De las llamas emerge un torso de lava con una cresta de fuego y púas en los hombros. Es Ignarok, el Señor de las Brasas, la voz que hablaba desde el fuego. La capitana lo mira con horror al entender que solo era su herramienta. Ignarok se ríe: con la ceniza quemada necesita nuevas almas, y las vuestras servirán. Los tablones empiezan a arder bajo vuestros pies.",
               "combate": {
                 "enemigos": [
                   "Señor de las Brasas"
                 ],
-                "nota": "Combate final extra: lugarteniente de nivel 6"
+                "nota": "Combate contra el jefe final: Ignarok usa la carta del Señor de las Brasas. Los tablones arden; no os quedéis quietos junto a la hoguera."
               },
-              "pista": "Un colmillo rojo que humea siempre caliente, el tercer colmillo de la Hidra, que queda entre las brasas cuando Ignarok se apaga.",
+              "pista": "Cuando Ignarok se apaga, entre las brasas solo queda una piedra negra y fría, el corazón muerto del Señor de las Brasas.",
               "jefe": true,
               "audio": "narraciones/el-estandarte-rojo-4-paso-6.mp3"
             }
@@ -1058,24 +1046,20 @@
           "audio_cierre": "narraciones/el-estandarte-rojo-4-cierre.mp3"
         }
       ],
-      "epilogo": "Cuando la nieve se derrite, ningún ejército cruza las montañas. Los reclutas vuelven a sus aldeas con grano para sembrar, y los Zarzalejo os guardan la mejor mesa de cada cosecha. El cuerno rojo cuelga sobre la chimenea de la taberna. Pero el colmillo que trajisteis de la hoguera sigue humeando dentro de su caja de hierro. Una noche, el fuego de la chimenea se vuelve rojo oscuro y en las llamas veis una cabeza enorme de reptil que se agita, furiosa, bajo la tierra.",
+      "epilogo": "Cuando la nieve se derrite, ningún ejército cruza las montañas. Los reclutas vuelven a sus aldeas con grano para sembrar, y los Zarzalejo os guardan la mejor mesa de cada cosecha. La Garra, juzgada por el reino, pide servir reconstruyendo las aldeas que quemó. El cuerno rojo cuelga sobre la chimenea de la taberna junto a la piedra negra de Ignarok, fría para siempre. Y cuando el fuego crepita por las noches, ya no habla con nadie.",
       "audio_introduccion": "narraciones/el-estandarte-rojo-introduccion.mp3",
       "audio_epilogo": "narraciones/el-estandarte-rojo-epilogo.mp3"
     },
     {
       "id": "la-campana-sin-voz",
       "nombre": "La Campana sin Voz",
-      "gancho": "La campana sagrada de Puertoalba ha enmudecido y, con su silencio, la ciudad entera ha dejado de dormir.",
+      "gancho": "La campana sagrada de Puertoalba ha enmudecido y, bajo la ciudad desvelada, un hechicero enmascarado bebe los sueños de todos.",
       "villano": {
-        "nombre": "La Hermana Sin Ojos",
-        "descripcion": "Una sacerdotisa expulsada de la iglesia que se arrancó los ojos para oír la voz que susurra bajo la ciudad. Ha cubierto la campana con cera negra y bebe el sueño de Puertoalba para despertar al guardián de piedra que custodia el campanario.",
-        "lugarteniente": {
-          "nombre": "Sombral, la Voz bajo la Ciudad",
-          "bestia": "hechicero-demoniaco",
-          "descripcion": "Hechicero demoníaco que sirve a la cabeza sombría de la Hidra Quíntuple. Es la voz que la Hermana Sin Ojos oía bajo Puertoalba: le enseñó a beber el sueño de la ciudad para que su ama soñara a través de miles de mentes desveladas."
-        }
+        "nombre": "Sombral, la Voz bajo la Ciudad",
+        "descripcion": "Hechicero demoníaco de máscara de calavera que vive en la cripta bajo la iglesia y bebe los sueños de Puertoalba para abrir una puerta al infierno. La Hermana Sin Ojos es su devota más fiel: se arrancó los ojos para oír solo su voz y silenció la campana por orden suya.",
+        "bestia": "hechicero-demoniaco"
       },
-      "introduccion": "Hace siete noches que nadie duerme en Puertoalba. Desde que la campana de la iglesia dejó de sonar, los vecinos vagan por las calles con los ojos hundidos y, desde la prisión, llegan risas que no parecen humanas. Esta noche, en el rincón más oscuro de la taberna, un monje encapuchado se sienta a vuestra mesa con un mensaje del obispo. La campana no está rota, os dice, alguien la ha silenciado. Y añade, casi sin voz, que los que no duermen sueñan despiertos con una figura enmascarada que les habla desde debajo de la ciudad. La noche del silencio atracó en los muelles un barco sin bandera. El obispo os ruega que empecéis por allí.",
+      "introduccion": "Hace siete noches que nadie duerme en Puertoalba. Desde que la campana de la iglesia dejó de sonar, los vecinos vagan por las calles con los ojos hundidos y, desde la prisión, llegan risas que no parecen humanas. Esta noche, en el rincón más oscuro de la taberna, un monje encapuchado se sienta a vuestra mesa con un mensaje del obispo. La campana no está rota, os dice, alguien la ha silenciado. Y añade, casi sin voz, que todos los desvelados sueñan despiertos con lo mismo, una figura con máscara de calavera que les habla desde debajo de la ciudad y se hace llamar Sombral. La noche del silencio atracó en los muelles un barco sin bandera. El obispo os ruega que empecéis por allí.",
       "escenarios": [
         {
           "mapa": "puerto",
@@ -1132,8 +1116,8 @@
               "lugar": "Los cañones de proa",
               "ubicacion": "derecha, la proa con los cañones y los barriles de pólvora",
               "cuando": "Al registrar la proa tras vaciar la bodega",
-              "narracion": "Entre los cañones encontráis a un marinero hecho un ovillo, con los ojos abiertos de par en par. Repite un nombre sin descanso, la Hermana Sin Ojos. Os cuenta que en las cajas viajaban sus fieles, que bajaron a la ciudad con velas negras encendidas, y que su gato los guía por los tejados. Cada vela que arde, susurra, roba un poco más del sueño de la gente.",
-              "pista": "Los fieles de la Hermana Sin Ojos encienden velas negras por la ciudad y los guía un gato con hacha.",
+              "narracion": "Entre los cañones encontráis a un marinero hecho un ovillo, con los ojos abiertos de par en par. Repite un nombre sin descanso, la Hermana Sin Ojos. Os cuenta que en las cajas viajaban sus fieles, que bajaron a la ciudad con velas negras encendidas, y que su gato los guía por los tejados. Cada vela que arde, susurra, roba un poco del sueño de la gente y se lo lleva a la máscara de calavera que espera abajo.",
+              "pista": "Los fieles de la Hermana Sin Ojos encienden velas negras por la ciudad, los guía un gato con hacha, y el sueño robado acaba en manos de Sombral.",
               "audio": "narraciones/la-campana-sin-voz-1-paso-4.mp3"
             },
             {
@@ -1211,7 +1195,7 @@
               "lugar": "La casa del alquimista",
               "ubicacion": "arriba a la derecha, la casa con el toldo rojo y varias habitaciones",
               "cuando": "Al entrar en la casa del toldo rojo",
-              "narracion": "Dentro hay frascos rotos, montones de cera negra y un caldero aún tibio. Aquí se fabricaban las velas. En una de las habitaciones, un aprendiz corrompido remueve el caldero sin parar, y a su lado otro gato hachero afila su arma con paciencia. Sobre la mesa hay una lista de entregas: la última, con letra apretada, dice que la cera sobrante debe llevarse a la celda del círculo rojo.",
+              "narracion": "Dentro hay frascos rotos, montones de cera negra y un caldero aún tibio. Aquí se fabricaban las velas, y en la pared alguien ha pintado una máscara de calavera con un orbe rojo. Un aprendiz corrompido remueve el caldero sin parar, y a su lado otro gato hachero afila su arma. Sobre la mesa hay una lista de entregas: la última dice que la cera sobrante debe llevarse a la celda del círculo rojo.",
               "combate": {
                 "enemigos": [
                   "Humano Corrompido",
@@ -1268,7 +1252,7 @@
               "cuando": "Al registrar el ala del alcaide",
               "narracion": "En un cuarto aislado, junto a una cama roja y una alfombra verde, encontráis al alcaide atado a una silla. Tiene los labios agrietados y apenas puede hablar. Os cuenta que la Hermana Sin Ojos tomó la prisión para fabricar sus fieles, y que su criatura más leal vigila el círculo rojo. Antes de desmayarse, os entrega una llave de hierro con forma de campana.",
               "prueba": "Tirada de d20: con once o más, lo reanimáis y añade que la Hermana espera en la iglesia la luna nueva.",
-              "pista": "El alcaide os enseña su muñeca: tiene marcada a fuego la marca de los cinco colmillos en círculo. Dice que la Hermana no habla sola, que obedece a una voz que se hace llamar Sombral, y que uno de los colmillos de la marca brilla de color carmesí.",
+              "pista": "El alcaide os enseña su muñeca, marcada a fuego con una máscara de calavera. Dice que la Hermana no manda, que obedece a una voz llamada Sombral que habla desde la cripta bajo el altar de la iglesia, y que todo el sueño robado baja hasta él.",
               "audio": "narraciones/la-campana-sin-voz-3-paso-3.mp3"
             },
             {
@@ -1298,7 +1282,7 @@
                 ],
                 "nota": "Ataca la mente; apagad velas del círculo para debilitarlo."
               },
-              "pista": "La voz del devorador revela que la Hermana despertará al guardián de piedra cuando la campana suene al revés.",
+              "pista": "La voz del devorador revela que, cuando la campana suene al revés, el guardián de piedra despertará y la cripta de Sombral quedará abierta para su amo.",
               "audio": "narraciones/la-campana-sin-voz-3-paso-5.mp3"
             }
           ],
@@ -1310,7 +1294,7 @@
           "mapa": "iglesia",
           "titulo": "La campana al revés",
           "objetivo": "Atravesar la iglesia, entrar en la sacristía con la llave y derrotar al guardián de piedra antes de que la campana suene.",
-          "llegada": "Bajo la luna nueva subís hasta la iglesia de Puertoalba. El jardín de rosas está marchito y los setos tienen gotas de cera negra en cada hoja. En lo alto del campanario, la gran campana cuelga envuelta en cera, inmóvil. Por las vidrieras se escapa el resplandor de muchas velas. La llave del alcaide pesa en vuestro bolsillo y recordáis las palabras del devorador: si la campana suena al revés, el guardián de piedra despertará.",
+          "llegada": "Bajo la luna nueva subís hasta la iglesia de Puertoalba. El jardín de rosas está marchito y los setos tienen gotas de cera negra en cada hoja. En lo alto del campanario, la gran campana cuelga envuelta en cera, inmóvil. Por las vidrieras se escapa el resplandor de muchas velas, y bajo vuestros pies notáis un latido lento, como un corazón bajo la tierra. La llave del alcaide pesa en vuestro bolsillo. Sombral os espera en la cripta, y su guardián de piedra vigila la entrada.",
           "pasos": [
             {
               "titulo": "La bruja de los setos",
@@ -1345,7 +1329,7 @@
               "lugar": "La nave de los bancos",
               "ubicacion": "centro, las filas de bancos a ambos lados de la alfombra roja",
               "cuando": "Al avanzar por la alfombra roja",
-              "narracion": "Por la alfombra roja camina hacia vosotros una mujer alta y delgada, de piel transparente como el cristal. No tiene ojos, solo dos cuencas pálidas donde reflejan las velas. Es la Hermana Sin Ojos. Sonríe y os dice que llegáis tarde, que la ciudad ya le pertenece. Su piel se agrieta y brilla como un vitral roto mientras levanta las manos.",
+              "narracion": "Por la alfombra roja camina hacia vosotros una mujer alta y delgada, de piel transparente como el cristal. No tiene ojos, solo dos cuencas pálidas donde se reflejan las velas. Es la Hermana Sin Ojos. Sonríe y os dice que llegáis tarde, que su señor Sombral ya ha bebido la ciudad entera. Su piel se agrieta y brilla como un vitral roto mientras levanta las manos.",
               "combate": {
                 "enemigos": [
                   "Dama de Cristal",
@@ -1367,7 +1351,7 @@
                 "enemigos": [
                   "Golem de Piedra"
                 ],
-                "nota": "Jefe final; el tanque aguanta, los demás rompen las grietas de cera."
+                "nota": "Guardián de la cripta; el tanque aguanta, los demás rompen las grietas de cera."
               },
               "audio": "narraciones/la-campana-sin-voz-4-paso-4.mp3"
             },
@@ -1376,41 +1360,36 @@
               "lugar": "La cripta bajo el altar",
               "ubicacion": "derecha, la trampilla al pie del altar, junto a la sacristía",
               "cuando": "Tras derrotar al guardián de piedra",
-              "narracion": "Cuando el guardián se desmorona, el suelo del altar se abre y una escalera baja hacia la oscuridad. Allí os espera una figura de túnica larga y máscara de calavera, con un báculo coronado por un orbe carmesí. Es Sombral, la voz que la Hermana oía bajo la ciudad. Su orbe late con los sueños robados de Puertoalba. Os condena con un gesto lento y la cripta se llena de fuego infernal.",
+              "narracion": "Cuando el guardián se desmorona, el suelo del altar se abre y una escalera baja hacia la oscuridad. Allí os espera por fin la figura de túnica larga y máscara de calavera que os ha mirado desde cada vela, con un báculo coronado por un orbe carmesí. Es Sombral, la voz bajo la ciudad. Su orbe late con los sueños robados de Puertoalba. Os condena con un gesto lento y la cripta se llena de fuego infernal.",
               "combate": {
                 "enemigos": [
                   "Hechicero Demoníaco"
                 ],
-                "nota": "Combate final extra: lugarteniente de nivel 6"
+                "nota": "Jefe final de nivel seis; romped el orbe para liberar los sueños."
               },
-              "pista": "Un colmillo carmesí que susurra en sueños, el cuarto colmillo de la Hidra, encajado en el orbe roto del báculo de Sombral.",
               "jefe": true,
               "audio": "narraciones/la-campana-sin-voz-4-paso-5.mp3"
             }
           ],
-          "cierre": "El orbe de Sombral estalla y los sueños robados escapan como una bandada de luces. Subís al campanario, arrancáis la cera negra de la campana y, con el badajo en su sitio, tiráis de la cuerda con todas vuestras fuerzas. Un tañido limpio y profundo recorre Puertoalba, del puerto a la prisión. Por toda la ciudad las velas negras se apagan, y miles de personas cierran por fin los ojos.",
+          "cierre": "El orbe de Sombral estalla y los sueños robados escapan como una bandada de luces. Su máscara se parte en dos y la grieta del infierno se cierra con un gemido. Subís al campanario, arrancáis la cera negra de la campana y, con el badajo en su sitio, tiráis de la cuerda con todas vuestras fuerzas. Un tañido limpio y profundo recorre Puertoalba, del puerto a la prisión. Las velas negras se apagan y miles de personas cierran por fin los ojos.",
           "audio_llegada": "narraciones/la-campana-sin-voz-4-llegada.mp3",
           "audio_cierre": "narraciones/la-campana-sin-voz-4-cierre.mp3"
         }
       ],
-      "epilogo": "Puertoalba duerme tres días seguidos. Cuando despierta, el obispo hace sonar la campana en vuestro honor y el alcaide os entrega las llaves de la ciudad. Entre los restos de la nave nadie encontró a la Hermana Sin Ojos, solo una vela negra apagada. Esa noche brindáis en la taberna, pero el colmillo carmesí murmura sin descanso. Al fin os dormís, y soñáis con una cabeza de escamas que se alza en la negrura y os mira, sabiendo ya vuestros nombres.",
+      "epilogo": "Puertoalba duerme tres días seguidos. Cuando despierta, el obispo hace sonar la campana en vuestro honor y el alcaide os entrega las llaves de la ciudad. La cripta bajo el altar se sella con piedra bendita, y los trozos de la máscara de Sombral se arrojan al mar desde el muelle donde empezó todo. Esa noche brindáis en la taberna, y por primera vez en mucho tiempo nadie en la ciudad sueña con voces. Os dormís con la campana sonando a lo lejos.",
       "audio_introduccion": "narraciones/la-campana-sin-voz-introduccion.mp3",
       "audio_epilogo": "narraciones/la-campana-sin-voz-epilogo.mp3"
     },
     {
       "id": "el-corazon-del-bosque",
       "nombre": "El Corazón del Bosque",
-      "gancho": "El bosque antiguo se está muriendo y algo devora su magia desde lo más profundo de la tierra.",
+      "gancho": "El bosque antiguo se está muriendo porque una criatura insaciable devora su magia desde lo más profundo de la tierra.",
       "villano": {
-        "nombre": "Wendigo del Musgo",
-        "descripcion": "Un espíritu hambriento que se arrastró desde las cuevas bajo el bosque y se alimenta de la savia del árbol milenario. Ha esclavizado a la druida Ailen para que le abra el camino hasta el altar donde late el corazón del bosque.",
-        "lugarteniente": {
-          "nombre": "Gulmor, el Vientre sin Fondo",
-          "bestia": "gloton-tragaalmas",
-          "descripcion": "Abominación de cuatro brazos que sirve a la cabeza verde de la Hidra Quíntuple. Sacó al Wendigo de las cuevas y lo puso a beber la savia del árbol milenario, porque todo lo que el Wendigo devora acaba en su vientre, y de ahí en las fauces de su ama."
-        }
+        "nombre": "Gulmor, el Vientre sin Fondo",
+        "bestia": "gloton-tragaalmas",
+        "descripcion": "Abominación obesa de cuatro brazos y boca en el vientre que despertó bajo las raíces del bosque y quiere tragarse su corazón mágico. Corrompe el agua, esclaviza enanos y brujas, sacó al Wendigo del Musgo de las cuevas para que bebiera la savia por él y obligó a la druida Ailen a abrirle el camino hasta el altar."
       },
-      "introduccion": "Los leñadores de Ramaverde han vuelto del bosque con las hachas intactas y las caras pálidas. Cuentan que los árboles se secan de dentro hacia fuera, que los arroyos bajan turbios y que por las noches algo enorme camina entre los troncos sin romper una sola rama. Uno de ellos jura que, en la boca de una cueva, oyó masticar algo que parecía tragarse el bosque entero. La druida Ailen, que cuidaba el círculo sagrado, lleva semanas sin bajar al pueblo. El alcalde os pone en la mano una bolsa de pan y un mapa dibujado con carbón. Seguid el sendero de los leñadores hasta su cabaña, encontradla y averiguad qué enferma el bosque.",
+      "introduccion": "Los leñadores de Ramaverde han vuelto del bosque con las hachas intactas y las caras pálidas. Cuentan que los árboles se secan de dentro hacia fuera, que los arroyos bajan turbios y que por las noches algo enorme camina entre los troncos sin romper una sola rama. Uno de ellos jura que, en la boca de una cueva, oyó masticar algo que parecía tragarse el bosque entero, un ruido húmedo y lento que no terminaba nunca. La druida Ailen, que cuidaba el círculo sagrado, lleva semanas sin bajar al pueblo. El alcalde os pone en la mano una bolsa de pan y un mapa dibujado con carbón. Seguid el sendero de los leñadores hasta su cabaña, encontradla y averiguad qué se está comiendo el bosque.",
       "escenarios": [
         {
           "mapa": "cabana-de-troncos",
@@ -1447,7 +1426,7 @@
                 ],
                 "nota": "Se esconde tras los tocones y la leña; rodeadlo para que no pueda huir tocando."
               },
-              "pista": "Antes de caer, el sátiro balbucea que el barro negro viene de la cascada, donde la druida va cada noche a cantarle al agua.",
+              "pista": "Antes de caer, el sátiro balbucea que el barro negro viene de la cascada, que allí abajo vive uno que nunca se sacia y que la druida va cada noche a cantarle al agua para calmarlo.",
               "audio": "narraciones/el-corazon-del-bosque-1-paso-2.mp3"
             },
             {
@@ -1527,14 +1506,14 @@
               "lugar": "Puente de piedra",
               "ubicacion": "centro del mapa, sobre la poza",
               "cuando": "Al intentar cruzar hacia la cascada",
-              "narracion": "En mitad del puente os espera un enano de barba enmarañada, con la piel cubierta de vetas negras como raíces enfermas. Murmura una y otra vez que el hambre de abajo debe ser alimentada. Lleva al cinto una linterna de minero y un pico manchado de aceite. Cuando os ve, levanta el arma y os cierra el paso sin decir nada más.",
+              "narracion": "En mitad del puente os espera un enano de barba enmarañada, con la piel cubierta de vetas negras como raíces enfermas. Murmura una y otra vez que el Vientre sin Fondo tiene hambre y que hay que alimentarlo. Lleva al cinto una linterna de minero y un pico manchado de aceite. Cuando os ve, levanta el arma y os cierra el paso sin decir nada más.",
               "combate": {
                 "enemigos": [
                   "Enano Corrompido"
                 ],
                 "nota": "El puente es estrecho: un solo héroe puede enfrentarlo de frente, el resto debe apoyar desde los extremos."
               },
-              "pista": "La linterna del enano sigue encendida y servirá para iluminar las galerías bajo la cascada.",
+              "pista": "La linterna del enano sigue encendida y servirá para iluminar las galerías bajo la cascada, donde trabaja para el Vientre sin Fondo.",
               "audio": "narraciones/el-corazon-del-bosque-2-paso-3.mp3"
             },
             {
@@ -1598,14 +1577,14 @@
               "lugar": "Mesas y cajas del campamento",
               "ubicacion": "esquina superior derecha, al final de las escaleras de madera",
               "cuando": "Al seguir el canto hasta lo alto de las escaleras",
-              "narracion": "Allí está Ailen, atada a una mesa con raíces vivas, cantando con los ojos cerrados. Ante ella, una bruja con un collar de cráneos remueve un caldero lleno de agua negra. Cada nota de la druida hace brotar una raíz que se hunde en la roca, hacia arriba, hacia el bosque. La bruja ríe: el canto abre el camino para su señor. Os ve y suelta el cucharón.",
+              "narracion": "Allí está Ailen, atada a una mesa con raíces vivas, cantando con los ojos cerrados. Ante ella, una bruja con un collar de cráneos remueve un caldero lleno de agua negra. Cada nota de la druida hace brotar una raíz que se hunde en la roca, hacia arriba, hacia el bosque. La bruja ríe: el canto abre el camino para Gulmor, su señor hambriento. Os ve y suelta el cucharón.",
               "combate": {
                 "enemigos": [
                   "Bruja Cazacráneos"
                 ],
                 "nota": "Volcad el caldero cuanto antes; mientras hierva, la bruja se cura."
               },
-              "pista": "En el fondo del caldero de la bruja, bajo el agua negra, está pintada la marca de los cinco colmillos en círculo. Ailen la reconoce: el Wendigo no vino solo de las cuevas, lo llamó algo más hondo, un ser que ella oyó tragar y tragar bajo la roca.",
+              "pista": "En el fondo del caldero hay pintada una boca abierta en un vientre. Ailen la reconoce: es la marca de Gulmor, el Vientre sin Fondo, que despertó bajo la roca y sacó al Wendigo del Musgo de estas cuevas para que bebiera la savia del bosque por él.",
               "audio": "narraciones/el-corazon-del-bosque-3-paso-3.mp3"
             },
             {
@@ -1613,25 +1592,25 @@
               "lugar": "Lago subterráneo",
               "ubicacion": "parte superior del mapa, en la orilla del lago",
               "cuando": "Al bajar con Ailen hacia la salida",
-              "narracion": "El lago se vuelve liso como un espejo y del agua emerge una dama hecha de cristal, hermosa y helada. Es la última guardiana que dejó el Wendigo para que nadie lo siguiera. Ailen, aún débil, os susurra que su cuerpo se agrieta con el fuego y con los golpes fuertes. La dama alza las manos y el aire se llena de esquirlas brillantes.",
+              "narracion": "El lago se vuelve liso como un espejo y del agua emerge una dama hecha de cristal, hermosa y helada. Es la última guardiana que dejó Gulmor para que nadie siguiera a su criatura. Ailen, aún débil, os susurra que su cuerpo se agrieta con el fuego y con los golpes fuertes. La dama alza las manos y el aire se llena de esquirlas brillantes.",
               "combate": {
                 "enemigos": [
                   "Dama de Cristal"
                 ],
                 "nota": "Proteged a la druida, que no combate; quien la cubra no puede moverse."
               },
-              "pista": "Al romperse, la dama deja un fragmento de cristal que brilla cerca del Wendigo y revelará dónde se oculta.",
+              "pista": "Al romperse, la dama deja un fragmento de cristal que brilla cuando se acerca a la magia robada y revelará dónde se esconden el Wendigo y su amo.",
               "audio": "narraciones/el-corazon-del-bosque-3-paso-4.mp3"
             }
           ],
-          "cierre": "La dama estalla en mil pedazos y la caverna queda en silencio. Ailen se apoya en vosotros, agotada, y señala las raíces negras que trepan por la roca. Allí arriba, dice, en el claro del árbol milenario, el Wendigo se está bebiendo el corazón del bosque. Si llega a terminar, no quedará ni una hoja viva. La sacáis a la luz y la lleváis a la taberna. Esa noche apenas dormís: mañana subiréis a la arboleda.",
+          "cierre": "La dama estalla en mil pedazos y la caverna queda en silencio. Ailen se apoya en vosotros, agotada, y señala las raíces negras que trepan por la roca. Allí arriba, dice, en el claro del árbol milenario, el Wendigo bebe el corazón del bosque, y todo lo que traga acaba en el vientre de Gulmor. Si terminan, no quedará ni una hoja viva. La lleváis a la taberna. Mañana subiréis a la arboleda.",
           "audio_llegada": "narraciones/el-corazon-del-bosque-3-llegada.mp3",
           "audio_cierre": "narraciones/el-corazon-del-bosque-3-cierre.mp3"
         },
         {
           "mapa": "arboleda",
           "titulo": "El corazón del bosque",
-          "objetivo": "Llegar al altar bajo el árbol milenario y derrotar al Wendigo del Musgo antes de que devore el corazón del bosque.",
+          "objetivo": "Llegar al altar bajo el árbol milenario, derrotar al Wendigo del Musgo y acabar con Gulmor antes de que devore el corazón del bosque.",
           "llegada": "Al alba partís de la taberna con Ailen guiándoos entre los árboles secos. El fragmento de cristal brilla cada vez más fuerte en vuestra mano. Por fin llegáis a la arboleda sagrada: el árbol milenario ya no está, solo queda un tocón gigantesco que tapa la vista, rodeado de raíces que salen de la tierra como dedos. Más allá se adivina un claro con un altar de piedra y, en una esquina, un estanque que todavía brilla limpio.",
           "pasos": [
             {
@@ -1654,7 +1633,7 @@
               "lugar": "Estanque",
               "ubicacion": "esquina del mapa, junto al agua limpia",
               "cuando": "Al acercarse al estanque para lavar las heridas",
-              "narracion": "Del estanque, la única agua limpia que queda en el bosque, se alza una mujer de piel dorada y cola de serpiente. Os ofrece beber con una voz dulce, pero Ailen os sujeta del brazo: es una lamia que el Wendigo atrajo con promesas de riquezas, y su agua os dormiría para siempre. Al ver descubierto su engaño, la lamia sisea y se lanza a por vosotros.",
+              "narracion": "Del estanque, la única agua limpia que queda en el bosque, se alza una mujer de piel dorada y cola de serpiente. Os ofrece beber con una voz dulce, pero Ailen os sujeta del brazo: es una lamia que Gulmor atrajo con promesas de riquezas, y su agua os dormiría para siempre. Al ver descubierto su engaño, la lamia sisea y se lanza a por vosotros.",
               "combate": {
                 "enemigos": [
                   "Lamia Dorada"
@@ -1668,7 +1647,7 @@
               "lugar": "Tocón gigante",
               "ubicacion": "centro del mapa, tapando la vista del altar",
               "cuando": "Al rodear el tocón hacia el altar",
-              "narracion": "Detrás del tocón os espera otra bruja de cráneos, hermana de la que encontrasteis en la cueva. Ha trazado un círculo de huesos alrededor del tronco y canta para que el Wendigo termine su banquete. Lleva colgado un cráneo nuevo, todavía limpio, y lo acaricia mirando a Ailen. Al veros, se ríe y promete que el vuestro será el siguiente.",
+              "narracion": "Detrás del tocón os espera otra bruja de cráneos, hermana de la que encontrasteis en la cueva. Ha trazado un círculo de huesos alrededor del tronco y canta para que el Wendigo termine el banquete de su amo. Lleva colgado un cráneo nuevo, todavía limpio, y lo acaricia mirando a Ailen. Al veros, se ríe y promete que el vuestro será el siguiente.",
               "combate": {
                 "enemigos": [
                   "Bruja Cazacráneos"
@@ -1688,7 +1667,7 @@
                 "enemigos": [
                   "Wendigo del Musgo"
                 ],
-                "nota": "Es el jefe final: mantened al tanque delante, que el sanador no se separe del grupo y no dejéis que vuelva a beber del altar."
+                "nota": "La criatura de Gulmor: mantened al tanque delante, que el sanador no se separe del grupo y no dejéis que vuelva a beber del altar. Guardad fuerzas, su amo aún no ha salido."
               },
               "audio": "narraciones/el-corazon-del-bosque-4-paso-4.mp3"
             },
@@ -1697,129 +1676,343 @@
               "lugar": "Altar de piedra",
               "ubicacion": "claro central del mapa, junto al altar y el tocón",
               "cuando": "Tras derrotar al Wendigo del Musgo",
-              "narracion": "Las hojas podridas del Wendigo no se dispersan: el viento las arrastra hacia una grieta junto al altar, donde algo las sorbe con un ruido húmedo. De la tierra sale una mole obesa de cuatro brazos y cabeza diminuta, con una boca llena de colmillos en el vientre. Es Gulmor, el que alimentaba al Wendigo. Su lengua de ventosas busca la luz verde del altar. Si se la traga, el bosque morirá.",
+              "narracion": "Las hojas podridas del Wendigo no se dispersan: el viento las arrastra hacia una grieta junto al altar, donde algo las sorbe con el mismo ruido húmedo que oyeron los leñadores. De la tierra sale una mole obesa de cuatro brazos y cabeza diminuta, con una boca enorme en el vientre. Es Gulmor, el Vientre sin Fondo, el que movía todos los hilos. Su lengua de ventosas busca la luz verde del altar. Si se la traga, el bosque morirá.",
               "combate": {
                 "enemigos": [
                   "Glotón Tragaalmas"
                 ],
-                "nota": "Combate final extra: lugarteniente de nivel 6"
+                "nota": "Combate contra el jefe final de la campaña, de nivel seis."
               },
-              "pista": "Un colmillo verde cubierto de musgo vivo, el quinto colmillo de la Hidra, que Gulmor escupe al caer.",
+              "pista": "Al caer, Gulmor escupe toda la savia que había robado y la luz del altar vuelve a latir.",
               "jefe": true,
               "audio": "narraciones/el-corazon-del-bosque-4-paso-5.mp3"
             }
           ],
-          "cierre": "Gulmor se desploma y su vientre escupe toda la savia robada, que corre de vuelta hacia el altar. La luz verde vuelve a latir, primero despacio y luego con fuerza. Ailen se arrodilla, apoya las manos en la piedra y canta. Del tocón milenario brota un retoño diminuto, y a vuestro alrededor el bosque respira por primera vez en semanas. Habéis salvado el corazón del bosque.",
+          "cierre": "Gulmor se desploma y su vientre escupe toda la savia robada, que corre de vuelta hacia el altar. La luz verde vuelve a latir, primero despacio y luego con fuerza. Ailen se arrodilla, apoya las manos en la piedra y canta. Del tocón milenario brota un retoño diminuto, y la grieta por la que subió el glotón se cierra para siempre. A vuestro alrededor, el bosque respira por primera vez en semanas.",
           "audio_llegada": "narraciones/el-corazon-del-bosque-4-llegada.mp3",
           "audio_cierre": "narraciones/el-corazon-del-bosque-4-cierre.mp3"
         }
       ],
-      "epilogo": "Cuando volvéis a Ramaverde, los arroyos ya bajan claros y los leñadores os reciben con vítores. Ailen se queda cuidando el retoño, pero antes de despediros os pide que le enseñéis el colmillo verde. Lo toca y palidece. Os cuenta que bajo todas las tierras que conocéis duerme una hidra de cinco cabezas, y que esta noche, por primera vez en mil años, la quinta se ha despertado de hambre. Esa noche, la taberna se llena de música, pero vosotros apenas bebéis.",
+      "epilogo": "Cuando volvéis a Ramaverde, los arroyos ya bajan claros y los leñadores os reciben con vítores. Los enanos de las cuevas, libres de las vetas negras, bajan días después a dar las gracias. Ailen se queda en la arboleda cuidando el retoño y os promete que, mientras ella cante, ninguna boca hambrienta volverá a morder la raíz del bosque. Esa noche la taberna se llena de música, y por fin, en el silencio del bosque, nadie oye masticar.",
       "audio_introduccion": "narraciones/el-corazon-del-bosque-introduccion.mp3",
       "audio_epilogo": "narraciones/el-corazon-del-bosque-epilogo.mp3"
     },
     {
       "id": "la-guarida-de-la-hidra",
       "nombre": "La Guarida de la Hidra",
-      "gancho": "Cinco colmillos, cinco victorias y una sola bestia que despierta bajo la tierra.",
-      "final": true,
-      "requisito": "Se juega tras completar las cinco campañas",
+      "dificultad": "alta",
+      "gancho": "Una hidra de cinco cabezas ha despertado bajo las montañas y un culto de fanáticos le lleva ofrendas vivas río arriba, hasta la cueva donde duerme.",
       "villano": {
-        "nombre": "Nhazaroth, la Hidra Quíntuple",
-        "descripcion": "Hidra de cinco cabezas con crestas de piedra que duerme bajo todas las tierras conocidas desde antes de los primeros reinos. Cada cabeza tenía un lugarteniente: Vórtiga el hielo, Morgast el hueso, Ignarok el fuego, Sombral el sueño y Gulmor el hambre. Su marca son cinco colmillos en círculo. Sus cuellos rebrotan, y solo muere si sus cinco cabezas caen a la vez."
+        "nombre": "Vorgaz, la Hidra Quíntuple",
+        "descripcion": "Hidra antiquísima de cinco cabezas con crestas de piedra que duerme en el lago de una cueva y despierta cada pocas generaciones para devorar comarcas enteras. La Orden del Cuello Eterno la venera y le entrega ofrendas creyendo que quien la alimente heredará su don de renacer.",
+        "bestia": "hidra-de-cinco-cabezas"
       },
-      "introduccion": "Habéis devuelto el deshielo a la costa, el trigo dorado a Doraespiga, la paz al valle del estandarte, el sueño a Puertoalba y la savia al bosque de Ramaverde. Cinco victorias, y en cada una de ellas un lugarteniente caído y un colmillo arrancado. Ahora los cinco colmillos descansan sobre la mesa de la taberna y tiemblan a la vez, apuntando todos hacia el mismo lugar. La tierra ruge bajo el suelo y las jarras se vuelcan. Ailen, Tormund y el obispo han venido a despediros, porque saben que esta vez el camino baja. Bajo las montañas, en una caverna que ningún mapa recuerda, Nhazaroth, la Hidra Quíntuple, ha despertado. Ha perdido a sus cinco sirvientes, y viene a por vosotros. Bajad antes de que suba ella.",
+      "introduccion": "La lluvia lleva tres semanas golpeando los tejados del valle, y con ella han llegado las desapariciones. Primero fueron las ovejas, luego los perros, y anoche la familia entera de los Brenda, en la granja del camino del río. En la taberna nadie habla en voz alta. Un viejo barquero, con las manos temblando sobre la jarra, os cuenta que su abuelo vio algo igual hace setenta inviernos: marcas de cinco mordiscos distintos en un mismo cadáver y hombres encapuchados cantando junto al agua. Lo llamaban Vorgaz, la Hidra que siempre vuelve. El alguacil deja una bolsa sobre la mesa y os mira sin esperanza. Id a la granja, encontrad a los Brenda y averiguad qué se los llevó.",
       "escenarios": [
         {
-          "mapa": "cueva",
-          "titulo": "Las fauces bajo el mundo",
-          "objetivo": "Descender a la guarida, abrir el sello con los cinco colmillos y matar a la Hidra Quíntuple cortando sus cinco cabezas a la vez.",
-          "llegada": "Los colmillos os guían hasta una grieta en las montañas que exhala un aliento tibio y podrido. Bajáis durante horas por galerías que se retuercen como cuellos de serpiente. Por fin llegáis a una caverna inmensa. Pasarelas de madera podrida cruzan el abismo, hay cajas y herramientas de mineros que nunca volvieron, y al fondo un lago de aguas verdes humea despacio. Algo enorme respira bajo esa agua. Las paredes están cubiertas de la marca de los cinco colmillos.",
+          "mapa": "granja",
+          "titulo": "La granja vacía",
+          "objetivo": "Registrar la granja de los Brenda, expulsar a las bestias que la ocupan y descubrir adónde se llevaron a la familia.",
+          "llegada": "Llegáis a la granja con el barro hasta los tobillos. La casa de piedra tiene la puerta arrancada de cuajo y el corral está vacío, con la cerca partida hacia el bosque. No hay humo en la chimenea ni ladridos. Solo el chirrido del cubo del pozo, que se mece solo con el viento, y un olor dulzón a pantano que no debería estar aquí, tan lejos del río. Algo se mueve entre las coles del huerto.",
           "pasos": [
             {
-              "titulo": "El campamento de los perdidos",
-              "lugar": "Plataforma de madera del oeste",
-              "ubicacion": "lado izquierdo, la gran plataforma de madera con la grúa",
-              "cuando": "Al llegar al fondo de la galería de entrada",
-              "narracion": "Sobre la plataforma de madera hay mantas, cuencos y un diario abierto. Aquí acamparon mineros que buscaban el lago verde, y ninguno salió. Junto a la grúa, lo que parecía un montón de rocas se incorpora despacio: un gólem de piedra con la marca de los cinco colmillos tallada en el pecho. La Hidra lo dejó de guardia a la entrada de su guarida, y avanza hacia vosotros haciendo temblar las tablas.",
+              "titulo": "Las coles que se mueven",
+              "lugar": "El huerto",
+              "ubicacion": "Hileras de cultivo junto a la casa",
+              "cuando": "Al llegar",
+              "narracion": "Entre las coles pisoteadas asoman unos ojos amarillos. Una rana enorme, con el lomo erizado de púas como virotes, os observa desde el surco, y otra más croa detrás de la leñera. Han venido siguiendo el rastro de agua y sangre que alguien dejó al arrastrar algo pesado. Antes de que deis un paso, el primer pincho silba junto a vuestras orejas.",
               "combate": {
                 "enemigos": [
-                  "Golem de Piedra"
+                  "Rana Ballestera",
+                  "Rana Ballestera"
                 ],
-                "nota": "Primer combate previo: el guardián de la entrada, nivel cinco."
+                "nota": "Disparan a distancia desde el huerto; acercaos rápido usando la casa como cobertura."
               },
               "audio": "narraciones/la-guarida-de-la-hidra-1-paso-1.mp3"
             },
             {
-              "titulo": "La pasarela de los cinco",
-              "lugar": "Pasarela larga",
-              "ubicacion": "centro superior, la gran pasarela de madera que cruza el abismo",
-              "cuando": "Tras el primer combate",
-              "narracion": "La pasarela larga cruje sobre el vacío. A mitad de camino, cinco tablas están marcadas cada una con un colmillo de color distinto. Cuando las pisáis, los colmillos que lleváis se calientan. Comprendéis que cada héroe debe cruzar sosteniendo uno y pisar su tabla, o la pasarela entera se hundirá.",
-              "prueba": "Cada héroe que lleve un colmillo tira un d20: con diez o más cruza sin daño; si falla, recibe dos de daño. Si sois menos de cinco, alguien debe llevar dos colmillos y tirar dos veces.",
-              "pista": "Al cruzar, los cinco colmillos brillan a la vez y señalan el lago verde.",
+              "titulo": "La casa revuelta",
+              "lugar": "La casa de piedra",
+              "ubicacion": "Habitaciones interiores",
+              "cuando": "Tras limpiar el huerto",
+              "narracion": "Dentro, las sillas están volcadas y la mesa aún tiene el pan de la cena. En la alcoba de los niños, sobre la pared, alguien ha pintado con barro un círculo con cinco trazos que salen de él como cuellos. Bajo la cama algo chisporrotea: un diablillo diminuto, rodeado de brasas, roe las cuerdas de una arpillera mientras otro se ríe desde el fogón.",
+              "prueba": "Registrar la alcoba con calma permite encontrar el símbolo de los cinco cuellos antes de que los diablillos prendan fuego a la casa.",
+              "combate": {
+                "enemigos": [
+                  "Diablillo del Fogón",
+                  "Diablillo del Fogón"
+                ],
+                "nota": "Si no los matáis pronto pueden prender la casa; acabad primero con el del fogón."
+              },
               "audio": "narraciones/la-guarida-de-la-hidra-1-paso-2.mp3"
             },
             {
-              "titulo": "Los fieles de la cabeza",
-              "lugar": "Campamento del este",
-              "ubicacion": "esquina superior derecha, la cueva alta con mesas y cajas",
-              "cuando": "Al llegar al otro lado de la pasarela",
-              "narracion": "En la cueva alta os esperan los últimos fieles de la Hidra, una bruja de collar de cráneos y un soldado con armadura oxidada que carga un cañón de mano. Han oído caer a los cinco lugartenientes y saben que son los últimos. La bruja canta para despertar a su ama y el soldado os apunta sin pestañear.",
+              "titulo": "El pozo que respira",
+              "lugar": "El pozo de piedra",
+              "ubicacion": "Centro del patio",
+              "cuando": "Al salir de la casa",
+              "narracion": "El cubo del pozo deja de mecerse de golpe. De la oscuridad sube un silbido grave y, por el brocal, trepan unas patas peludas y largas. Una araña del tamaño de un ternero sale arrastrando tras ella un hilo de seda empapada, y al fondo, colgado de la cuerda, brilla un medallón con el mismo círculo de cinco cuellos que visteis en la alcoba.",
+              "pista": "El medallón lleva grabado el nombre de la Orden del Cuello Eterno y un dibujo del molino del río.",
               "combate": {
                 "enemigos": [
-                  "Bruja Cazacráneos",
-                  "Soldado Cañonero"
+                  "Tarántula Gigante"
                 ],
-                "nota": "Segundo combate previo: si la bruja termina su canto, la Hidra empieza el combate final con una cabeza regenerada de más."
+                "nota": "Su veneno castiga a quien quede solo; rodeadla entre varios."
               },
               "audio": "narraciones/la-guarida-de-la-hidra-1-paso-3.mp3"
             },
             {
-              "titulo": "El sello de los colmillos",
-              "lugar": "Plataforma central",
-              "ubicacion": "centro, la pequeña plataforma de madera entre las rocas",
-              "cuando": "Tras vencer a los fieles",
-              "narracion": "En la plataforma central hay un disco de piedra con cinco huecos en círculo, del tamaño exacto de vuestros colmillos. Es el sello que mantiene dormida a la Hidra y, a la vez, lo único que la protege. Si colocáis los cinco colmillos, el sello se romperá y la bestia emergerá débil, sin el escudo de su sueño. Si os equivocáis de orden, despertará en plena furia.",
-              "prueba": "Colocad los colmillos en el orden en que los ganasteis: hielo, hueso, fuego, sueño y hambre. Cada colmillo bien colocado quita una cabeza regenerada a la Hidra durante su primer turno. Si alguno falta o se coloca mal, la Hidra empieza con Cuellos furiosos activo.",
-              "audio": "narraciones/la-guarida-de-la-hidra-1-paso-4.mp3"
-            },
-            {
-              "titulo": "El guardián del lago",
-              "lugar": "Orilla del lago verde",
-              "ubicacion": "parte inferior, la orilla del lago junto a la pasarela que baja",
-              "cuando": "Al romperse el sello",
-              "narracion": "El sello estalla y el lago verde hierve. Antes de que asome la Hidra, de las aguas sale un paquidermo enorme con placas de hueso, su bestia de carga, enloquecido por el despertar de su ama. Embiste contra la pasarela que baja a la orilla. Si la derriba, quedaréis atrapados en lo alto mientras la Hidra se alza.",
+              "titulo": "El carro de las ofrendas",
+              "lugar": "El carro junto al bosque",
+              "ubicacion": "Linde del bosque",
+              "cuando": "Siguiendo las huellas",
+              "narracion": "Las huellas de pies descalzos y de una carreta llevan hasta el borde del bosque, donde un carro abandonado tiene las ruedas hundidas en el lodo. Dentro hay cuerdas cortadas y un zapato de niño. Al acercaros, dos cráneos envueltos en llamas verdes se alzan del pescante, guardianes que la Orden dejó para que nadie siguiera el rastro.",
               "combate": {
                 "enemigos": [
-                  "Paquidermo Acorazado"
+                  "Calavera Ardiente",
+                  "Calavera Ardiente"
                 ],
-                "nota": "Tercer combate previo: protege la pasarela de la orilla; si cae, el combate final empieza sin posibilidad de retirada."
+                "nota": "Arden y castigan a quien las golpea cuerpo a cuerpo; repartid el daño."
               },
-              "audio": "narraciones/la-guarida-de-la-hidra-1-paso-5.mp3"
+              "audio": "narraciones/la-guarida-de-la-hidra-1-paso-4.mp3"
+            }
+          ],
+          "cierre": "Cuando el último cráneo se apaga, el bosque queda en silencio. Las huellas del carro continúan hacia el río, y el medallón pesa frío en vuestra mano, con su dibujo del molino. Los Brenda siguen vivos, o eso queréis creer: la Orden no lleva muertos a su dios. Volvéis a la taberna a secaros, a comer y a afilar las armas. Mañana bajaréis al molino abandonado del río.",
+          "audio_llegada": "narraciones/la-guarida-de-la-hidra-1-llegada.mp3",
+          "audio_cierre": "narraciones/la-guarida-de-la-hidra-1-cierre.mp3"
+        },
+        {
+          "mapa": "molino-abandonado",
+          "titulo": "El molino de la Orden",
+          "objetivo": "Asaltar el molino donde la Orden embarca a sus prisioneros y averiguar adónde los llevan río arriba.",
+          "llegada": "Al amanecer bajáis por la senda de los acantilados siguiendo el dibujo del medallón. El río ruge crecido entre las paredes de roca y, junto a él, el viejo molino de piedra gira su rueda aunque nadie lo ha usado en años. En el embarcadero hay barcas amarradas con cuerdas nuevas, y en la pared del acantilado se abre una cueva de la que sale humo. Alguien vive aquí.",
+          "pasos": [
+            {
+              "titulo": "Los perros del embarcadero",
+              "lugar": "El embarcadero",
+              "ubicacion": "Orilla del río junto al molino",
+              "cuando": "Al acercarse a las barcas",
+              "narracion": "Un gato enorme, erguido sobre dos patas y con un hacha de leñador en las garras, vigila las barcas. Lleva al cuello una cinta con el círculo de los cinco cuellos. Os ve, bufa y golpea el muelle con el mango del hacha, y de debajo de las tablas sale otro, más flaco y con los ojos rojos. La Orden ha domado a sus guardianes.",
+              "combate": {
+                "enemigos": [
+                  "Gato Hachero",
+                  "Gato Hachero"
+                ],
+                "nota": "Golpean fuerte y en pareja; separadlos para que no se cubran."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-2-paso-1.mp3"
             },
             {
-              "titulo": "Nhazaroth, la Hidra Quíntuple",
-              "lugar": "Lago verde",
-              "ubicacion": "parte inferior derecha, en el lago y la pasarela que lo cruza",
-              "cuando": "Tras derrotar al paquidermo",
-              "narracion": "El agua se abre y se alzan cinco cuellos, cinco cabezas con crestas de piedra que os miran a la vez. Una exhala escarcha, otra huele a tumba, otra humea, otra susurra y la última babea de hambre. Son las cabezas que perdieron a sus sirvientes, y todas os reconocen. Nhazaroth ruge con cinco voces y la caverna entera se estremece. No hay vuelta atrás. Cortad las cinco cabezas a la vez, o moriréis aquí abajo.",
+              "titulo": "La rueda que no muele",
+              "lugar": "El molino de piedra",
+              "ubicacion": "Interior del molino",
+              "cuando": "Tras asegurar el embarcadero",
+              "narracion": "Dentro del molino no hay grano, sino jaulas. Están vacías, pero en los barrotes quedan jirones de ropa de niño. La piedra de moler está teñida de algo oscuro y, en el suelo, entre runas de tiza, se retuerce una criatura gelatinosa de muchas bocas, invocada para custodiar el lugar. Al veros, todas sus bocas se abren a la vez.",
+              "prueba": "Borrar las runas de tiza del suelo debilita al engendro y revela un mapa del río con la cascada marcada.",
+              "combate": {
+                "enemigos": [
+                  "Engendro del Abismo"
+                ],
+                "nota": "Mientras sigan las runas regenera; que alguien las borre mientras los demás lo frenan."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-2-paso-2.mp3"
+            },
+            {
+              "titulo": "Los hermanos del cuello",
+              "lugar": "La orilla bajo el acantilado",
+              "ubicacion": "Entre el molino y la pared de roca",
+              "cuando": "Al salir del molino",
+              "narracion": "Dos hombres con túnicas grises y la piel cubierta de escamas pintadas bajan corriendo desde la cueva del acantilado. Sus ojos están vacíos y sus venas negras. Gritan el nombre de Vorgaz como un rezo, y uno de ellos levanta una hoz oxidada. Son fieles de la Orden, pero algo en su sangre los ha corrompido hasta dejarlos medio bestias.",
+              "pista": "Uno de los fieles, al caer, murmura que las ofrendas suben ya hacia la cascada, donde el sacerdote las purifica antes de entregarlas.",
+              "combate": {
+                "enemigos": [
+                  "Humano Corrompido",
+                  "Gato Hachero"
+                ],
+                "nota": "El corrompido aguanta mucho; acabad antes con el gato que lo acompaña."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-2-paso-3.mp3"
+            },
+            {
+              "titulo": "La boca humeante",
+              "lugar": "La cueva del acantilado",
+              "ubicacion": "Pared de roca sobre el río",
+              "cuando": "Al trepar hasta la cueva",
+              "narracion": "En la cueva hay un altar de huesos con cinco cráneos de buey dispuestos en abanico y un brasero aún caliente. Sobre él, una calavera envuelta en fuego vela el humo, y a su lado se alza un enano de barba ennegrecida con un martillo, otro fiel que bebió la sangre que la Orden reparte. Ruge al veros profanar su santuario.",
+              "combate": {
+                "enemigos": [
+                  "Enano Corrompido",
+                  "Calavera Ardiente"
+                ],
+                "nota": "El enano golpea muy duro; que el tanque lo sujete mientras los demás apagan la calavera."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-2-paso-4.mp3"
+            }
+          ],
+          "cierre": "Con el altar derribado, encontráis entre los cráneos un cuaderno de cuentas: nombres de familias, fechas y una palabra repetida, cascada. Las barcas que faltaban han subido río arriba esta misma noche. Bajo el puente de la cascada, dice el cuaderno, el sacerdote lava las ofrendas antes de entregarlas a Vorgaz. Regresáis a la taberna con el cuaderno ensangrentado y el tiempo en contra.",
+          "audio_llegada": "narraciones/la-guarida-de-la-hidra-2-llegada.mp3",
+          "audio_cierre": "narraciones/la-guarida-de-la-hidra-2-cierre.mp3"
+        },
+        {
+          "mapa": "cascada",
+          "titulo": "El puente del sacerdote",
+          "objetivo": "Remontar el río hasta la cascada, detener el ritual de purificación y rescatar a los prisioneros que queden.",
+          "llegada": "Tras un día remontando el río llegáis a la cascada. El agua cae con un estruendo que os obliga a hablar a gritos y, entre la niebla, se adivinan ruinas de piedra, un puente estrecho sobre la poza y una tarima de madera donde arden antorchas. Sobre la tarima, figuras encapuchadas rodean a gente atada. Los Brenda están ahí. Y en la poza, algo muy grande acaba de moverse.",
+          "pasos": [
+            {
+              "titulo": "Los guardias de las ruinas",
+              "lugar": "Los muros en ruinas",
+              "ubicacion": "Orilla de la poza",
+              "cuando": "Al llegar",
+              "narracion": "Entre los muros derruidos esperan los guardianes del ritual: una figura encapuchada con una guadaña negra que no proyecta sombra y un gigante calvo, desnudo hasta la cintura, con el cuerpo cubierto de tatuajes de cinco cuellos. La Orden los ha colocado aquí para que nadie interrumpa la purificación. El gigante se ríe y hace crujir los nudillos.",
+              "combate": {
+                "enemigos": [
+                  "La Parca",
+                  "Coloso Calvo"
+                ],
+                "nota": "Usad los muros como cobertura y no os dejéis rodear entre ambos."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-3-paso-1.mp3"
+            },
+            {
+              "titulo": "La poza que hierve",
+              "lugar": "La poza profunda",
+              "ubicacion": "Al pie de la cascada",
+              "cuando": "Al acercarse al puente",
+              "narracion": "La superficie de la poza se abre y emerge una cabeza escamosa, luego otra. No es la Hidra, sino dos de sus crías, nacidas de la sangre que la Orden vierte en el agua. Tienen el tamaño de un caballo y ya muestran las crestas de piedra de su madre. Silban al unísono y se lanzan contra la orilla.",
+              "prueba": "Quien observe a las crías descubre que la herida de una se cierra mientras la otra siga viva: hay que acabarlas a la vez.",
+              "combate": {
+                "enemigos": [
+                  "Humano Corrompido",
+                  "Humano Corrompido"
+                ],
+                "nota": "Las crías de la Hidra usan estas fichas; repartid el daño para que caigan juntas."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-3-paso-2.mp3"
+            },
+            {
+              "titulo": "El puente estrecho",
+              "lugar": "El puente de piedra",
+              "ubicacion": "Sobre la poza",
+              "cuando": "Al cruzar hacia la tarima",
+              "narracion": "El puente apenas deja pasar a uno de vosotros cada vez, y la piedra está resbaladiza por la niebla. En su centro os cierra el paso una dama de piel cristalina que refleja las antorchas en mil destellos. Es la mano derecha del sacerdote, y su voz suena como copas que se rompen cuando os ordena volver por donde habéis venido.",
+              "combate": {
+                "enemigos": [
+                  "Dama de Cristal"
+                ],
+                "nota": "En el puente solo cabe uno al frente; que vaya el tanque y el resto ataque a distancia."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-3-paso-3.mp3"
+            },
+            {
+              "titulo": "La tarima del ritual",
+              "lugar": "La tarima de madera",
+              "ubicacion": "Plataforma elevada junto a la cascada",
+              "cuando": "Al alcanzar la tarima",
+              "narracion": "El sacerdote de la Orden, una anciana de ojos blancos con un collar de cráneos diminutos, deja caer el cuchillo y extiende los brazos. A su lado se alza un fiel corrompido, enorme y deforme. Detrás, atados a los postes, los Brenda os miran con esperanza. La anciana os maldice en una lengua que suena a agua estancada.",
+              "pista": "La sacerdotisa, al morir, ríe y dice que Vorgaz ya ha despertado en su lago bajo la montaña, y que la cueva está detrás de la cascada.",
+              "combate": {
+                "enemigos": [
+                  "Bruja Cazacráneos",
+                  "Enano Corrompido"
+                ],
+                "nota": "La bruja es la más peligrosa; centrad los ataques en ella antes de que robe vida."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-3-paso-4.mp3"
+            }
+          ],
+          "cierre": "Cortáis las cuerdas de los Brenda. Están heridos y aterrados, pero vivos, y el pequeño se aferra a vuestras piernas. Detrás de la cortina de agua, donde señaló la sacerdotisa, se abre una grieta oscura que respira un aliento frío y fétido. Desde muy hondo llega un rugido a cinco voces. Escoltáis a la familia hasta la taberna, descansáis una última noche y volvéis a la cascada.",
+          "audio_llegada": "narraciones/la-guarida-de-la-hidra-3-llegada.mp3",
+          "audio_cierre": "narraciones/la-guarida-de-la-hidra-3-cierre.mp3"
+        },
+        {
+          "mapa": "cueva",
+          "titulo": "El lago de Vorgaz",
+          "objetivo": "Descender por las galerías hasta el lago subterráneo y acabar con la Hidra Quíntuple antes de que salga a devorar el valle.",
+          "llegada": "Cruzáis la cortina de agua y la luz del día desaparece a vuestra espalda. Las galerías bajan en espiral, con pasarelas y escaleras de madera que la Orden ha clavado en la roca. Hay cajas de provisiones, mesas con velas y huesos por todas partes. El aire es húmedo y caliente, y el rugido a cinco voces se oye ahora más cerca, tan grave que hace vibrar las tablas bajo vuestros pies.",
+          "pasos": [
+            {
+              "titulo": "Los últimos fieles",
+              "lugar": "Las cajas de provisiones",
+              "ubicacion": "Entrada de las galerías",
+              "cuando": "Al entrar",
+              "narracion": "Entre las cajas apiladas os aguardan los guardianes más fieles de la Orden. Uno es un soldado cubierto de placas de hierro que carga un cañón de mano, y a su lado se arrastra un gólem de piedra tallado con cinco cabezas de serpiente. Os esperaban. El soldado prende la mecha con una sonrisa y el gólem avanza haciendo temblar la cueva.",
+              "combate": {
+                "enemigos": [
+                  "Soldado Cañonero",
+                  "Golem de Piedra"
+                ],
+                "nota": "Cubríos tras las cajas del cañón; el gólem es lento pero devastador."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-4-paso-1.mp3"
+            },
+            {
+              "titulo": "La pasarela colgante",
+              "lugar": "Las pasarelas de madera",
+              "ubicacion": "Sobre el lago subterráneo",
+              "cuando": "Al bajar hacia el lago",
+              "narracion": "Las pasarelas cuelgan sobre un abismo de agua negra. Al avanzar, un pájaro descomunal de plumas grises, que anida en las bóvedas, se lanza en picado contra vosotros, y por las escaleras sube un paquidermo cubierto de placas óseas que la Orden usaba para cargar las ofrendas. Las tablas crujen bajo su peso.",
+              "combate": {
+                "enemigos": [
+                  "Pajarón Coloso",
+                  "Paquidermo Acorazado"
+                ],
+                "nota": "La pasarela es estrecha; aguantad la carga del paquidermo y derribad al pájaro desde lejos."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-4-paso-2.mp3"
+            },
+            {
+              "titulo": "La mente del lago",
+              "lugar": "Los pasillos estrechos",
+              "ubicacion": "Galerías laterales",
+              "cuando": "Al buscar el camino al fondo",
+              "narracion": "Los pasillos se estrechan hasta obligaros a avanzar de lado. En una cámara llena de velas encontráis a una criatura de cabeza tentacular que flota sobre el suelo: el verdadero consejero de la Orden, que susurraba a la sacerdotisa los deseos de Vorgaz. Sus pensamientos invaden los vuestros y, a su lado, una mujer serpiente de escamas doradas desenvaina dos cimitarras.",
+              "prueba": "Resistir los susurros del devorador revela la debilidad de la Hidra: sus cuellos solo dejan de renacer si caen todos a la vez.",
+              "combate": {
+                "enemigos": [
+                  "Devorador de Mentes",
+                  "Lamia Dorada"
+                ],
+                "nota": "El devorador confunde a quien se le acerque; atacadlo en grupo y rápido."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-4-paso-3.mp3"
+            },
+            {
+              "titulo": "El guardián del musgo",
+              "lugar": "La escalera final",
+              "ubicacion": "Descenso a la orilla del lago",
+              "cuando": "Antes de la orilla",
+              "narracion": "En la última escalera os cierra el paso un ser alto y famélico, cubierto de musgo y astas, que se alimenta de los restos que la Hidra deja. Huele vuestra carne viva y abre unas fauces llenas de dientes negros. Detrás de él, la orilla del lago brilla con el reflejo de tesoros y huesos, y el agua empieza a agitarse.",
+              "combate": {
+                "enemigos": [
+                  "Wendigo del Musgo"
+                ],
+                "nota": "Guardad comida y fuerzas: tras este combate llega la Hidra sin descanso."
+              },
+              "audio": "narraciones/la-guarida-de-la-hidra-4-paso-4.mp3"
+            },
+            {
+              "titulo": "Vorgaz despierta",
+              "lugar": "El lago subterráneo",
+              "ubicacion": "Orilla y aguas oscuras",
+              "cuando": "Al pisar la orilla",
+              "jefe": true,
+              "narracion": "El lago entero se levanta. Cinco cuellos larguísimos emergen del agua negra, coronados por crestas de piedra, y cinco pares de ojos os miran a la vez. Vorgaz, la Hidra que siempre vuelve, abre sus cinco bocas y el rugido apaga todas las velas de la cueva. Entre sus escamas cuelgan las armas de cien héroes que fallaron antes que vosotros. Este es el final del camino.",
               "combate": {
                 "enemigos": [
                   "Hidra Quíntuple"
                 ],
-                "nota": "Jefe final. Cada cabeza tiene su propia vida y regenera una cabeza caída por turno, dos bajo la mitad. Repartid el daño para dejar las cinco cabezas casi a cero y rematadlas en el mismo turno; cortar una cabeza salpica baba que hace daño sin armadura, así que el tanque debe ir delante y el sanador detrás."
+                "nota": "Cada cabeza tiene su propia vida y rebrota una por turno, dos cuando la hidra baja de la mitad; cortar una salpica baba que daña sin armadura. Bajad todas las cabezas casi a cero y rematadlas en el mismo turno, porque solo muere con las cinco caídas a la vez. Que el tanque absorba los mordiscos corales y el sanador guarde curación para la baba."
               },
-              "jefe": true,
-              "audio": "narraciones/la-guarida-de-la-hidra-1-paso-6.mp3"
+              "audio": "narraciones/la-guarida-de-la-hidra-4-paso-5.mp3"
             }
           ],
-          "cierre": "La última cabeza cae al mismo tiempo que las otras cuatro, y esta vez ningún cuello rebrota. Nhazaroth se hunde en el lago con un gemido que recorre la tierra de la costa al bosque. El agua verde se aclara, las marcas de las paredes se borran una a una y los cinco colmillos se convierten en polvo en vuestras manos. Subís hacia la luz en silencio, cubiertos de baba y de gloria.",
-          "audio_llegada": "narraciones/la-guarida-de-la-hidra-1-llegada.mp3",
-          "audio_cierre": "narraciones/la-guarida-de-la-hidra-1-cierre.mp3"
+          "cierre": "La última cabeza cae a la vez que las otras cuatro, y esta vez ningún cuello vuelve a brotar. El cuerpo de Vorgaz se hunde lentamente en el lago con un suspiro que hace temblar la montaña. Entre sus placas recogéis el oro y las armas de quienes os precedieron. Subís por las galerías hacia la luz, cubiertos de baba y de sangre, y al cruzar la cascada veis por primera vez en semanas que ha dejado de llover.",
+          "audio_llegada": "narraciones/la-guarida-de-la-hidra-4-llegada.mp3",
+          "audio_cierre": "narraciones/la-guarida-de-la-hidra-4-cierre.mp3"
         }
       ],
-      "epilogo": "Cuando salís de la grieta, amanece sobre todas las tierras a la vez. En la costa se funde el último hielo, en Doraespiga suenan las campanas de la cosecha, en el valle del estandarte los niños juegan en las viejas trincheras, Puertoalba duerme en paz y el bosque de Ramaverde florece fuera de temporada. La taberna os espera con las puertas abiertas y todos vuestros amigos dentro. Esa noche nadie paga, nadie duerme y nadie deja de cantar. La Hidra Quíntuple ha muerto, y vuestros nombres se contarán junto al fuego durante mil inviernos.",
+      "epilogo": "El valle os recibe con campanas. Los Brenda vuelven a su granja, el molino del río se derriba piedra a piedra y en el lugar del altar se planta un roble. De la Orden del Cuello Eterno no queda nadie que cante junto al agua. En la taberna, el viejo barquero levanta su jarra y brinda por vosotros, los que bajaron al lago y volvieron. Dicen que la Hidra siempre vuelve, pero esta vez los abuelos tendrán otra historia que contar: la de quienes le cortaron las cinco cabezas a la vez.",
       "audio_introduccion": "narraciones/la-guarida-de-la-hidra-introduccion.mp3",
       "audio_epilogo": "narraciones/la-guarida-de-la-hidra-epilogo.mp3"
     }

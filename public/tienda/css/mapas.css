@@ -286,3 +286,6 @@
 .portada-final .portada-mapas { grid-template-columns: 1fr; max-height: 220px; overflow: hidden; }
 .portada-final .portada-mapas img { aspect-ratio: auto; height: 220px; }
 .portada-requisito { font-size: .8rem; color: #e0b060; }
+.portada-dificultad { color: #ff8a6a; font-weight: 700; }
+.capitulo-ficha .ficha-jefe { background: rgba(184, 134, 11, .15); border-color: rgba(184, 134, 11, .5); }
+.capitulo-ficha .ficha-jefe i { color: #b8860b; }
