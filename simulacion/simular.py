@@ -75,7 +75,7 @@ TAUNT_A_TODOS = True       # la provocación del tanque (Grito de guerra) obliga
 SANADOR_PRIORIZA_TANQUE = True   # el sanador cura primero al tanque si está herido (si no, al más herido)
 DESTREZA_INICIATIVA = True   # el dado de destreza (1d4) se suma a la tirada de iniciativa de quien lo lleve
 DADO_DESTREZA_AL_TANQUE = True   # en la taberna el grupo le compra al tanque el dado de destreza (después del escudo y el nivel 2)
-MONEDAS_EVENTOS = 5          # monedas que el EQUIPO (en total) gana por los eventos de mundo al terminar cada mapa; se reparten de una en una al héroe con menos monedas
+MONEDAS_EVENTOS = [5, 10, 15, 30]   # monedas que el EQUIPO (en total) gana por los eventos de mundo al terminar cada mapa (1-4); se reparten de una en una al héroe con menos monedas
 RUNA_REDUCCION = 3           # puntos de daño que quita la Runa de Resguardo del sacerdote a cada golpe (+ los del escudo del aliado, que se duplican)
 ESCENARIOS = [(1, 2), (2, 3), (3, 4), (4, 5)]      # campaña: nivel mínimo y máximo de las bestias de cada mapa (mapas 1 a 4)
 
@@ -197,7 +197,8 @@ class Enemigo:
         nv = NIVELES[datos["nivel"]]
         self.id, self.nombre, self.nivel = datos["id"], datos["nombre"], datos["nivel"]
         self.pvmax = self.pv = nv["vida"][{4: 0, 5: 1, 6: 2}[jugadores]]   # la tabla del bestiario da la vida para 4, 5 y 6 jugadores
-        self.basico, self.fuerte = nv["basico"], nv["fuerte"]
+        col = {4: 0, 5: 1, 6: 2}[jugadores]
+        self.basico, self.fuerte = (nv[k][col] if isinstance(nv[k], list) else nv[k] for k in ("basico", "fuerte"))   # número o lista [4, 5, 6 jugadores]
         sub = datos["ataques"][1]["subtitulo"].lower()
         desc = datos["habilidades"][0]["descripcion"].lower() if datos.get("habilidades") else ""
         self.efecto = next((e for e in ("sangrado", "veneno", "quemadura", "miedo", "marca") if e in sub or e in desc), None)
@@ -755,12 +756,15 @@ def simular_equipo(tarea):
             if r["superado"]:
                 a["mon_n"] += p.n_jug; a["mon_sum"] += sum(j.monedas for j in p.jug); a["mon_cero"] += sum(j.monedas == 0 for j in p.jug)
                 a["mon_nivel"] += sum(j.nivel_carta == 1 and j.monedas >= PRECIO_NIVEL for j in p.jug)
-                for _ in range(MONEDAS_EVENTOS):
+                for _ in range(MONEDAS_EVENTOS[i]):
                     min(p.jug, key=lambda j: j.monedas).monedas += 1
                 gastos = Counter()
                 entre_mapas(p, gastos)
                 for k, x in gastos.items():
                     a["compra:" + k] += x
+                a["fin_n2"] += sum(j.nivel_carta >= 2 for j in p.jug)                          # cómo salen del tabernero (= cómo empiezan el mapa siguiente)
+                a["fin_full"] += sum(bool(j.armadura) and (bool(j.armas) or not PUEDE_ARMA[j.clase]) for j in p.jug)
+                a["fin_todo"] += sum(j.nivel_carta >= 2 and bool(j.armadura) and (bool(j.armas) or not PUEDE_ARMA[j.clase]) for j in p.jug)
                 siguiente.append(p.jug)
         etapas.append(dict(a))
         puntos = siguiente
@@ -804,6 +808,7 @@ h3{margin:22px 0 6px;font-size:16px}p.sub,p.nota{color:var(--mut);margin:4px 0 1
 .tabla{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
 table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--mut);background:rgba(0,0,0,.03)}
+div.ordenable th{cursor:pointer;user-select:none}div.ordenable th:hover{color:var(--acc)}div.ordenable th[data-orden=desc]::after{content:' ▼'}div.ordenable th[data-orden=asc]::after{content:' ▲'}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}
 .sv{font-weight:700;color:var(--acc)}.roles span{display:inline-block;background:rgba(142,59,42,.12);border-radius:6px;padding:1px 7px;margin:1px 3px 1px 0;white-space:nowrap;font-size:13px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
@@ -999,17 +1004,17 @@ def bloque_panel(args, comps, res):
     for i, a in enumerate(tot):
         n = a["n"]
         if not n:
-            filas.append([etiqueta_mapa(i)] + ["—"] * 11)
+            filas.append([etiqueta_mapa(i)] + ["—"] * 14)
             continue
         ok = sum((sv_et(et[i]) or 0) >= u for et in res)
         mon = a["mon_n"]
         filas.append([etiqueta_mapa(i), f"{n:,}", pct(sup_et(a)), pct(a["vivos"] / a["heroes"]), f"{ok} de {n_eq} ({pct(ok / n_eq)})",
                       f'{a.get("log:rondas_ganadas", 0) / max(1, a["ganados"]):.1f}', f'{a["rondas"] / n:.1f}',
                       f'{a["log:botin_monedas"] / n:.1f}', f'{a["log:botin_items"] / n:.1f}',
-                      f'{a["mon_sum"] / mon:.1f}' if mon else "—", pct(a["mon_nivel"] / mon) if mon else "—",
-                      f'{a.get("compra:nivel 2", 0) / max(1, a["superado"]):.2f}'])
+                      f'{a["mon_sum"] / mon:.1f}' if mon else "—", f"{MONEDAS_EVENTOS[i]}", pct(a["fin_n2"] / mon) if mon else "—",
+                      pct(a["fin_full"] / mon) if mon else "—", pct(a["fin_todo"] / mon) if mon else "—"])
     por_mapa = tabla(["Mapa", "Ejecuciones que llegan", "Superan el mapa", "Héroes que terminan vivos", f"Equipos con supervivencia ≥ {100 * u:.0f} %",
-                      "Rondas para derrotar un grupo", "Rondas por mapa", "Monedas por partida (bestias + cofres)", "Ítems por partida (bestias + cofres)", "Monedas por héroe al tabernero", "Podrían pagar nivel 2", "Héroes que suben a nivel 2 (por partida superada)"],
+                      "Rondas para derrotar un grupo", "Rondas por mapa", "Monedas por partida (bestias + cofres)", "Ítems por partida (bestias + cofres)", "Monedas por héroe al tabernero (sin eventos)", "Monedas de eventos que debes dar al EQUIPO al terminar este mapa", "Tras el tabernero de este mapa: en nivel 2", "Tras el tabernero de este mapa: con arma y armadura", "Tras el tabernero de este mapa: full equipados (nivel 2 + arma + armadura)"],
                      filas, num=range(1, 12))
     def tabla_tanque(gt, extra=False):
         """¿Está tanqueando este tanque? Una fila por mapa, solo con los equipos que lo llevan; los héroes de equipos sin tanque van de referencia."""
@@ -1071,12 +1076,9 @@ def bloque_panel(args, comps, res):
 {campana}
 <p class="nota">«Superan mapa N» = entre las ejecuciones que llegan a ese mapa (el checkpoint), las que lo superan. «Completan los 4 mapas» = producto de las cuatro tasas, porque cada mapa depende del checkpoint del anterior. Hay {sum(.4 <= sv <= .6 for sv in sv_eq)} equipos con supervivencia media entre 40 y 60 %, {sum(sv < .5 for sv in sv_eq)} por debajo del 50 % y {sum(sv >= .5 for sv in sv_eq)} por encima. Todos los equipos y mapas están además en <b>sets.csv</b>.</p>
 
-<h2>Los {len(cerca)} equipos con supervivencia media más cercana al {100 * u:.0f} %</h2>
-{t_eq(cerca)}
-<h2>Los {top} equipos más fuertes (por supervivencia media)</h2>
-{t_eq(ord_f[:top])}
-<h2>Los {top} equipos más débiles (por supervivencia media)</h2>
-{t_eq(ord_f[::-1][:top])}
+<h2>Todos los equipos ({n_eq})</h2>
+<p class="nota">Toca el título de una columna para ordenarla (mayor a menor; otro toque, menor a mayor). Empieza ordenada por supervivencia media. Las columnas de rondas se ordenan por la media de los 4 mapas.</p>
+{t_eq(ord_f).replace('<div class="tabla">', '<div class="tabla ordenable">', 1)}
 
 <h2>Detalle por mapa</h2>
 {detalles}
@@ -1152,7 +1154,7 @@ def seccion_reglas(datos):
                     "5 jug.: vivos mapa 2", "5 jug.: vivos mapa 3", "5 jug.: vivos mapa 4"], filas, num=range(2, 8))
     return f"""
 <h2>Reglas para la vida de las bestias</h2>
-<p class="nota">Las reglas de potencia parten de 10 de vida en nivel 1 y 100 en nivel 7 (4 jugadores) y cambian solo la curva: <b>{html.escape("10 + 90·((nivel − 1)/6)^p")}</b>; para 5 y 6 jugadores la vida se multiplica por {F5} y {F6}. La regla en uso baja todo escalando desde un nivel 1 de 8 / 12 / 14 (4 / 5 / 6 jugadores): <b>{html.escape("vida_nivel_1 · (1 + 9·((nivel − 1)/6)^2,5)")}</b>. «Tabla a mano» es la que había antes de usar una regla. Se midió la campaña con los {datos["equipos"]} equipos que llevan <b>tanque y sanador</b> ({datos["ejecuciones"]} ejecuciones por mapa y equipo); la cifra es el % de héroes que terminan vivos en ese mapa. Cuanto más curva (p mayor), menos vida en los niveles del medio y mejor sobreviven los equipos, pero más grande es el salto de los niveles 5 a 7. Se recalcula con <b>--reglas-vida</b>.</p>
+<p class="nota">Las reglas de potencia parten de 10 de vida en nivel 1 y 100 en nivel 7 (4 jugadores) y cambian solo la curva: <b>{html.escape("10 + 90·((nivel − 1)/6)^p")}</b>; para 5 y 6 jugadores la vida se multiplica por {F5} y {F6}. La regla en uso baja todo escalando desde un nivel 1 de 8 / 11 / 14 (4 / 5 / 6 jugadores): <b>{html.escape("vida_nivel_1 · (1 + 9·((nivel − 1)/6)^2)")}</b>. «Tabla a mano» es la que había antes de usar una regla. Se midió la campaña con los {datos["equipos"]} equipos que llevan <b>tanque y sanador</b> ({datos["ejecuciones"]} ejecuciones por mapa y equipo); la cifra es el % de héroes que terminan vivos en ese mapa. Cuanto más curva (p mayor), menos vida en los niveles del medio y mejor sobreviven los equipos, pero más grande es el salto de los niveles 5 a 7. Se recalcula con <b>--reglas-vida</b>.</p>
 {tabla_}
 """
 
@@ -1197,6 +1199,27 @@ document.querySelectorAll(".pestana").forEach(function (b) {{
   b.addEventListener("click", function () {{
     document.querySelectorAll(".pestana").forEach(function (x) {{ x.classList.toggle("activa", x === b); }});
     document.querySelectorAll(".panel").forEach(function (p) {{ p.classList.toggle("activo", p.id === b.dataset.panel); }});
+  }});
+}});
+function valorCelda(td) {{
+  var t = td.textContent.trim();
+  if (t.indexOf("·") >= 0) {{ var xs = t.split("·").map(parseFloat).filter(function (x) {{ return !isNaN(x); }}); return xs.length ? xs.reduce(function (a, b) {{ return a + b; }}, 0) / xs.length : -Infinity; }}
+  var x = parseFloat(t.replace(",", ""));
+  return isNaN(x) ? (t === "—" ? -Infinity : t.toLowerCase()) : x;
+}}
+document.querySelectorAll("div.ordenable table").forEach(function (tabla) {{
+  tabla.querySelectorAll("th").forEach(function (th, col) {{
+    th.addEventListener("click", function () {{
+      var desc = th.dataset.orden !== "desc";
+      tabla.querySelectorAll("th").forEach(function (x) {{ delete x.dataset.orden; }});
+      th.dataset.orden = desc ? "desc" : "asc";
+      var cuerpo = tabla.tBodies[0];
+      Array.from(cuerpo.rows).sort(function (a, b) {{
+        var x = valorCelda(a.cells[col]), y = valorCelda(b.cells[col]);
+        var r = (typeof x === "string" || typeof y === "string") ? String(x).localeCompare(String(y)) : x - y;
+        return desc ? -r : r;
+      }}).forEach(function (f) {{ cuerpo.appendChild(f); }});
+    }});
   }});
 }});
 </script>

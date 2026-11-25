@@ -15,6 +15,9 @@ const CORAZON = '<svg viewBox="0 0 32 29" class="vida-corazon" aria-hidden="true
 // Rango del d20 de cada tipo de golpe (los mismos para todos los enemigos)
 const D20 = { basico: '5-15', fuerte: '16+' };
 
+// Daño de un golpe: un número, o una lista [4, 5, 6 jugadores] como la vida
+const danoDe = (n, golpe, jugadores) => (Array.isArray(n[golpe]) ? n[golpe][JUGADORES.indexOf(jugadores)] : n[golpe]);
+
 // ---------- Cartas ----------
 const frente = (e) => `${ESQUINAS}
   <div class="retrato-p"><img src="${new URL(`imagenes/${e.id}.webp`, RAIZ).href}" alt="${esc(e.nombre)}"${e.encuadre ? ` style="object-position:${esc(e.encuadre)}"` : ''}></div>
@@ -24,7 +27,7 @@ const frente = (e) => `${ESQUINAS}
 const filaAtaque = (a, n) => `<div class="fila-p fila-enemigo">
   <div class="hex"><span><small>D20</small>${D20[a.golpe]}</span></div>
   <div class="quien"><div><b>${esc(a.nombre)}</b><em>${esc(a.subtitulo)}</em></div></div>
-  <div class="valor-p" title="Daño">${n[a.golpe]}</div></div>`;
+  <div class="valor-p" title="Daño" data-golpe="${a.golpe}">${danoDe(n, a.golpe, 4)}</div></div>`;
 
 const dorso = (e, n) => `${ESQUINAS}
   <div class="placa"><h3>${esc(e.nombre)}</h3><div class="nivel-p">Nivel ${ROMANOS[e.nivel]}</div></div>
@@ -162,6 +165,7 @@ function abrirEnemigo(zona, d, e) {
     q('[data-vida="-1"]').disabled = vida <= 0;
     q('[data-vida="1"]').disabled = vida >= maximo();
     zona.querySelectorAll('[data-jugadores]').forEach((b) => b.classList.toggle('activo', Number(b.dataset.jugadores) === jugadores));
+    zona.querySelectorAll('[data-golpe]').forEach((el) => { el.textContent = danoDe(n, el.dataset.golpe, jugadores); });
     q('.estado-derrota').hidden = vida > 0;
     if (vida > 0) olvidar(claveBotin(e.id, jugadores)); // el botín solo existe mientras el enemigo está derrotado
     else {

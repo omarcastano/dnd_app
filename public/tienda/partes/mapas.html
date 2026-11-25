@@ -5,8 +5,59 @@
 
 <article class="mapa">
   <header class="mapa-cabecera">
+    <span class="mapa-numero">Cómo montar la campaña</span>
+    <span class="mapa-estado">Balance probado</span>
+    <p>Todo lo que hay que preparar para jugar la campaña tal como se probó en el simulador (miles de partidas por cada equipo posible de 4 y 5 héroes). Si cambias algo de esta lista, el balance deja de estar garantizado.</p>
+  </header>
+
+  <h4>Los 4 mapas de un vistazo</h4>
+  <table class="loot-table mapa-tabla">
+    <thead>
+      <tr><th>Mapa</th><th>Bestias</th><th>Grupos</th><th>Cofres (se abren al superar el mapa)</th><th>Monedas de eventos al terminar</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="roll-cell">1</td><td class="loot-cell"><span class="nivel nivel-1">Nivel 1</span> <span class="nivel nivel-2">Nivel 2</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 1 + 2 de nivel 2</td><td class="loot-cell"><b>5</b></td></tr>
+      <tr><td class="roll-cell">2</td><td class="loot-cell"><span class="nivel nivel-2">Nivel 2</span> <span class="nivel nivel-3">Nivel 3</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 2 + 2 de nivel 3</td><td class="loot-cell"><b>10</b></td></tr>
+      <tr><td class="roll-cell">3</td><td class="loot-cell"><span class="nivel nivel-3">Nivel 3</span> <span class="nivel nivel-4">Nivel 4</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 3 + 2 de nivel 4</td><td class="loot-cell"><b>15</b></td></tr>
+      <tr><td class="roll-cell">4</td><td class="loot-cell"><span class="nivel nivel-4">Nivel 4</span> <span class="nivel nivel-5">Nivel 5</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 4 + 2 de nivel 5</td><td class="loot-cell"><b>30</b> (antes del jefe final)</td></tr>
+    </tbody>
+  </table>
+  <p class="mapa-nota">En total son <b>16 cofres</b>, <b>16 combates obligatorios</b> (entre 16 y 32 bestias) y <b>60 monedas de eventos</b>. Las monedas de eventos son para el <b>equipo entero</b>, no para cada héroe: se reparten dándole cada moneda al héroe que menos tenga. Con ellas, los héroes terminan de armarse (nivel 2 + arma + armadura) justo en el tabernero del mapa 4.</p>
+
+  <h4>Bestias por nivel</h4>
+  <table class="loot-table mapa-tabla">
+    <thead>
+      <tr><th>Nivel</th><th>Vida con 4 héroes</th><th>Vida con 5 héroes</th><th>Daño básico (d20 5–15)</th><th>Daño fuerte (d20 16+)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="roll-cell"><span class="nivel nivel-1">1</span></td><td class="loot-cell">8</td><td class="loot-cell">11</td><td class="loot-cell">1</td><td class="loot-cell">2</td></tr>
+      <tr><td class="roll-cell"><span class="nivel nivel-2">2</span></td><td class="loot-cell">10</td><td class="loot-cell">14</td><td class="loot-cell">1</td><td class="loot-cell">3</td></tr>
+      <tr><td class="roll-cell"><span class="nivel nivel-3">3</span></td><td class="loot-cell">16</td><td class="loot-cell">22</td><td class="loot-cell">3</td><td class="loot-cell">5</td></tr>
+      <tr><td class="roll-cell"><span class="nivel nivel-4">4</span></td><td class="loot-cell">26</td><td class="loot-cell">36</td><td class="loot-cell">7</td><td class="loot-cell">10</td></tr>
+      <tr><td class="roll-cell"><span class="nivel nivel-5">5</span></td><td class="loot-cell">40</td><td class="loot-cell">55</td><td class="loot-cell">9</td><td class="loot-cell">12</td></tr>
+    </tbody>
+  </table>
+  <p class="mapa-nota">Los números salen del Bestiario (elige 4 o 5 jugadores en la bestia). Con 1–4 en el d20 la bestia falla. La bestia concreta de cada nivel se elige al azar del Bestiario.</p>
+
+  <h4>Qué esperar</h4>
+  <table class="loot-table mapa-tabla">
+    <thead>
+      <tr><th>Equipo</th><th>Supera mapa 1 · 2 · 3 · 4</th><th>Completa la campaña</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="roll-cell">Tanque + sanador + dps</td><td class="loot-cell">99 · 98 · 83 · 69 %</td><td class="loot-cell"><b>≈ 55 %</b></td></tr>
+      <tr><td class="roll-cell">Con tanque, sin sanador</td><td class="loot-cell">≈ 99 · 97 · 74 · 50 %</td><td class="loot-cell">≈ 35–40 %</td></tr>
+      <tr><td class="roll-cell">Con sanador, sin tanque</td><td class="loot-cell">≈ 99 · 85 · 30 · 20 %</td><td class="loot-cell">≈ 5 %</td></tr>
+      <tr><td class="roll-cell">Ni tanque ni sanador</td><td class="loot-cell">≈ 99 · 75 · 25 · 15 %</td><td class="loot-cell">≈ 2–5 %</td></tr>
+    </tbody>
+  </table>
+  <p class="mapa-nota">Los mapas 1 y 2 son de calentamiento; la dificultad sube en el 3 y el 4. La mejor apuesta es siempre llevar un tanque y un sanador. Se cuenta como «superar» un mapa no caer en ninguno de sus combates. Las reglas del tabernero están en «Entre mapa y mapa».</p>
+</article>
+
+<article class="mapa">
+  <header class="mapa-cabecera">
     <span class="mapa-numero">Mapa 1</span>
-    <span class="mapa-estado">Primera propuesta</span>
+    <span class="mapa-estado">Probado en el simulador</span>
     <p>Cuatro guaridas con pocas bestias cada una. Hay 4 cofres fijos: el botín viene de las bestias y de los cofres. Es el primero de los cuatro mapas.</p>
   </header>
 
@@ -16,6 +67,7 @@
     <li><i class="fa-solid fa-skull"></i><b>Nivel 1–2</b><span>cada bestia, al azar</span></li>
     <li><i class="fa-solid fa-flag"></i><b>4</b><span>combates obligatorios</span></li>
     <li><i class="fa-solid fa-box-archive"></i><b>4</b><span>cofres: 2 de nivel 1 y 2 de nivel 2</span></li>
+    <li><i class="fa-solid fa-coins"></i><b>5</b><span>monedas de eventos para el equipo al terminar</span></li>
     <li><i class="fa-solid fa-users"></i><b>4–5</b><span>héroes</span></li>
   </ul>
 
@@ -49,7 +101,7 @@
 <article class="mapa">
   <header class="mapa-cabecera">
     <span class="mapa-numero">Mapa 2</span>
-    <span class="mapa-estado">Propuesta</span>
+    <span class="mapa-estado">Probado en el simulador</span>
     <p>La escalada: las bestias empiezan a pegar de verdad. Se llega con lo comprado tras el Mapa 1.</p>
   </header>
 
@@ -59,6 +111,7 @@
     <li><i class="fa-solid fa-skull"></i><b>Nivel 2–3</b><span>cada bestia, al azar</span></li>
     <li><i class="fa-solid fa-flag"></i><b>4</b><span>combates obligatorios</span></li>
     <li><i class="fa-solid fa-box-archive"></i><b>4</b><span>cofres: 2 de nivel 2 y 2 de nivel 3</span></li>
+    <li><i class="fa-solid fa-coins"></i><b>10</b><span>monedas de eventos para el equipo al terminar</span></li>
     <li><i class="fa-solid fa-users"></i><b>4–5</b><span>héroes</span></li>
   </ul>
 
@@ -83,7 +136,7 @@
 <article class="mapa">
   <header class="mapa-cabecera">
     <span class="mapa-numero">Mapa 3</span>
-    <span class="mapa-estado">Propuesta</span>
+    <span class="mapa-estado">Probado en el simulador</span>
     <p>Bestias con habilidades peligrosas. Sin nivel 2 y sin buen equipo, cuesta sobrevivir.</p>
   </header>
 
@@ -93,6 +146,7 @@
     <li><i class="fa-solid fa-skull"></i><b>Nivel 3–4</b><span>cada bestia, al azar</span></li>
     <li><i class="fa-solid fa-flag"></i><b>4</b><span>combates obligatorios</span></li>
     <li><i class="fa-solid fa-box-archive"></i><b>4</b><span>cofres: 2 de nivel 3 y 2 de nivel 4</span></li>
+    <li><i class="fa-solid fa-coins"></i><b>15</b><span>monedas de eventos para el equipo al terminar</span></li>
     <li><i class="fa-solid fa-users"></i><b>4–5</b><span>héroes</span></li>
   </ul>
 
@@ -117,7 +171,7 @@
 <article class="mapa">
   <header class="mapa-cabecera">
     <span class="mapa-numero">Mapa 4</span>
-    <span class="mapa-estado">Propuesta</span>
+    <span class="mapa-estado">Probado en el simulador</span>
     <p>El último mapa. Aquí se decide la campaña.</p>
   </header>
 
@@ -127,6 +181,7 @@
     <li><i class="fa-solid fa-skull"></i><b>Nivel 4–5</b><span>cada bestia, al azar</span></li>
     <li><i class="fa-solid fa-flag"></i><b>4</b><span>combates obligatorios</span></li>
     <li><i class="fa-solid fa-box-archive"></i><b>4</b><span>cofres: 2 de nivel 4 y 2 de nivel 5</span></li>
+    <li><i class="fa-solid fa-coins"></i><b>30</b><span>monedas de eventos para el equipo al terminar</span></li>
     <li><i class="fa-solid fa-users"></i><b>4–5</b><span>héroes</span></li>
   </ul>
 
@@ -156,7 +211,7 @@
   </header>
 
   <ol class="mapa-pasos">
-    <li>Los eventos de mundo del mapa dan <b>5 monedas</b> al equipo (en total), que se reparten entre los héroes.</li>
+    <li>Los eventos de mundo dan monedas al equipo (en total, se reparten entre los héroes): <b>5</b> al terminar el mapa 1, <b>10</b> al terminar el 2, <b>15</b> al terminar el 3 y <b>30</b> al terminar el 4 (antes del jefe final).</li>
     <li>Los héroes caídos vuelven con <b>1 punto de vida</b>.</li>
     <li><b>El tanque va primero</b>: el grupo le compra antes que a nadie un <b>escudo</b> (si su clase lo usa), su <b>nivel 2</b> y un <b>dado de destreza</b>, poniendo entre todos las monedas que le falten.</li>
     <li><b>Subir a nivel 2</b> cuesta 5 monedas y solo se hace aquí. Sin 5 monedas no se sube.</li>

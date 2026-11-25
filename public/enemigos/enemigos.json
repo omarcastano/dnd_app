@@ -13,11 +13,7 @@
     {
       "nivel": 1,
       "nombre": "Sin equipo",
-      "vida": [
-        8,
-        12,
-        14
-      ],
+      "vida": [8, 11, 14],
       "basico": 1,
       "fuerte": 2,
       "habilidades": 1,
@@ -48,11 +44,7 @@
     {
       "nivel": 2,
       "nombre": "Un par de comidas y armas",
-      "vida": [
-        9,
-        13,
-        15
-      ],
+      "vida": [10, 14, 18],
       "basico": 1,
       "fuerte": 3,
       "habilidades": 1,
@@ -84,13 +76,9 @@
     {
       "nivel": 3,
       "nombre": "Armas y algo de armadura",
-      "vida": [
-        13,
-        19,
-        22
-      ],
-      "basico": 2,
-      "fuerte": 4,
+      "vida": [16, 22, 28],
+      "basico": 3,
+      "fuerte": 5,
       "habilidades": 1,
       "efecto": 2,
       "botin": {
@@ -120,13 +108,9 @@
     {
       "nivel": 4,
       "nombre": "Equipo completo",
-      "vida": [
-        21,
-        31,
-        36
-      ],
-      "basico": 6,
-      "fuerte": 9,
+      "vida": [26, 36, 46],
+      "basico": 7,
+      "fuerte": 10,
       "habilidades": 1,
       "efecto": 2,
       "botin": {
@@ -156,13 +140,9 @@
     {
       "nivel": 5,
       "nombre": "Equipo completo y nivel 2",
-      "vida": [
-        34,
-        51,
-        60
-      ],
-      "basico": 7,
-      "fuerte": 10,
+      "vida": [40, 55, 70],
+      "basico": 9,
+      "fuerte": 12,
       "habilidades": 1,
       "efecto": 2,
       "botin": {
@@ -192,13 +172,9 @@
     {
       "nivel": 6,
       "nombre": "Mini jefe",
-      "vida": [
-        54,
-        80,
-        94
-      ],
-      "basico": 6,
-      "fuerte": 9,
+      "vida": [58, 80, 102],
+      "basico": 10,
+      "fuerte": 13,
       "habilidades": 2,
       "botin": {
         "pesos": {
@@ -227,13 +203,9 @@
     {
       "nivel": 7,
       "nombre": "Jefe final",
-      "vida": [
-        80,
-        120,
-        140
-      ],
-      "basico": 7,
-      "fuerte": 10,
+      "vida": [80, 110, 140],
+      "basico": 11,
+      "fuerte": 14,
       "habilidades": 3,
       "botin": {
         "pesos": {
