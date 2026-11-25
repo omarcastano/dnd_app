@@ -11,7 +11,8 @@
         "Grietas que separan las terrazas",
         "Peñascos con musgo como cobertura",
         "Nieve resbaladiza en las laderas"
-      ]
+      ],
+      "ambiente": "extremo"
     },
     {
       "id": "molino-abandonado",
@@ -24,7 +25,8 @@
         "Molino de piedra con embarcadero",
         "Barcas amarradas en la corriente",
         "Boca de cueva en la pared de roca"
-      ]
+      ],
+      "ambiente": "bosque"
     },
     {
       "id": "campo-de-esqueletos",
@@ -37,7 +39,8 @@
         "Costillas que forman pasillos",
         "Surcos de cultivo que frenan el paso",
         "Muros de piedra derrumbados"
-      ]
+      ],
+      "ambiente": "campo"
     },
     {
       "id": "cascada",
@@ -50,7 +53,8 @@
         "Poza profunda al pie de la cascada",
         "Muros en ruinas como cobertura",
         "Tarima de madera elevada"
-      ]
+      ],
+      "ambiente": "bosque"
     },
     {
       "id": "cabana-de-troncos",
@@ -63,7 +67,8 @@
         "Puente de tablas sobre el arroyo",
         "Tocones y leña como cobertura",
         "Árboles densos en los bordes"
-      ]
+      ],
+      "ambiente": "bosque"
     },
     {
       "id": "arboleda",
@@ -76,7 +81,8 @@
         "Raíces que dificultan el paso",
         "Altar de piedra en un claro",
         "Estanque en una esquina"
-      ]
+      ],
+      "ambiente": "bosque"
     },
     {
       "id": "cueva",
@@ -89,7 +95,8 @@
         "Lago subterráneo de aguas oscuras",
         "Pasillos estrechos entre la roca",
         "Cajas y mesas como cobertura"
-      ]
+      ],
+      "ambiente": "extremo"
     },
     {
       "id": "casa-del-pescador",
@@ -102,7 +109,8 @@
         "Agua helada alrededor de la casa",
         "Casa con habitaciones y puertas",
         "Barca amarrada junto al muelle"
-      ]
+      ],
+      "ambiente": "costa"
     },
     {
       "id": "campamento-de-guerra",
@@ -115,7 +123,8 @@
         "Empalizada de troncos en el borde",
         "Jaulas y carros como cobertura",
         "Hoguera central"
-      ]
+      ],
+      "ambiente": "campo"
     },
     {
       "id": "cementerio",
@@ -128,7 +137,8 @@
         "Caminos de piedra en cruz",
         "Plaza central con estatuas",
         "Tumbas abiertas en la hierba"
-      ]
+      ],
+      "ambiente": "campo"
     },
     {
       "id": "iglesia",
@@ -141,7 +151,8 @@
         "Pasillo central con alfombra roja",
         "Altar y sacristía con puertas",
         "Jardín con setos alrededor"
-      ]
+      ],
+      "ambiente": "ciudad"
     },
     {
       "id": "campamento-bandido",
@@ -154,7 +165,8 @@
         "Empalizadas improvisadas",
         "Árboles grandes para emboscadas",
         "Paredes de roca en los flancos"
-      ]
+      ],
+      "ambiente": "bosque"
     },
     {
       "id": "prision",
@@ -167,7 +179,8 @@
         "Pasillos estrechos",
         "Rastrillo de hierro con ruedas",
         "Cuarto del alcaide aislado"
-      ]
+      ],
+      "ambiente": "ciudad"
     },
     {
       "id": "paso-del-centinela",
@@ -180,7 +193,8 @@
         "Escaleras y pasarelas de madera",
         "Plataformas de piedra descubiertas",
         "Peñascos que estrechan el camino"
-      ]
+      ],
+      "ambiente": "campo"
     },
     {
       "id": "ciudad",
@@ -193,7 +207,8 @@
         "Casas con puertas y escaleras",
         "Puestos de mercado como cobertura",
         "Callejones estrechos"
-      ]
+      ],
+      "ambiente": "ciudad"
     },
     {
       "id": "faro",
@@ -206,7 +221,8 @@
         "Acantilado y rocas en el agua",
         "Barcos varados con cubiertas",
         "Almacén con cajas y barriles"
-      ]
+      ],
+      "ambiente": "costa"
     },
     {
       "id": "puerto",
@@ -219,7 +235,8 @@
         "Escotilla a la bodega",
         "Muelles y pasarelas sobre el agua",
         "Barriles y toldos como cobertura"
-      ]
+      ],
+      "ambiente": "costa"
     },
     {
       "id": "granja",
@@ -232,7 +249,8 @@
         "Corral cercado",
         "Pozo de piedra",
         "Carro junto al bosque"
-      ]
+      ],
+      "ambiente": "campo"
     },
     {
       "id": "vuelo-del-dragon",
@@ -245,7 +263,15 @@
         "Escaleras y compuertas a la bodega",
         "Alas del dragón a los costados",
         "Viento que empuja hacia el borde"
-      ]
+      ],
+      "ambiente": "extremo"
     }
-  ]
+  ],
+  "ambientes": {
+    "bosque": "Bosque y río",
+    "campo": "Campo y caminos",
+    "costa": "Costa y mar",
+    "ciudad": "Ciudad y edificios",
+    "extremo": "Montaña, cueva y cielo"
+  }
 }

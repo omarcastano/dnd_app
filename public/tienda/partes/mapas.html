@@ -1,35 +1,22 @@
 <div class="tab-subtitle">
-  <h2><i class="fa-solid fa-map-location-dot"></i> Mapas</h2>
-  <p>Cuatro mapas seguidos, cada uno con bestias más duras: lo que hay que preparar en cada uno.</p>
+  <h2><i class="fa-solid fa-map-location-dot"></i> Mapas y campañas</h2>
+  <p>Elige una campaña y léela como un libro de aventuras, capítulo a capítulo. O explora los mapas sueltos.</p>
 </div>
 
-<article class="mapa">
-  <h4>Los 4 mapas de un vistazo</h4>
-  <table class="loot-table mapa-tabla">
-    <thead>
-      <tr><th>Mapa</th><th>Bestias</th><th>Grupos</th><th>Cofres (se abren al superar el mapa)</th><th>Monedas de eventos al terminar</th></tr>
-    </thead>
-    <tbody>
-      <tr><td class="roll-cell">1</td><td class="loot-cell"><span class="nivel nivel-1">Nivel 1</span> <span class="nivel nivel-2">Nivel 2</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 1 + 2 de nivel 2</td><td class="loot-cell"><b>5</b></td></tr>
-      <tr><td class="roll-cell">2</td><td class="loot-cell"><span class="nivel nivel-2">Nivel 2</span> <span class="nivel nivel-3">Nivel 3</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 2 + 2 de nivel 3</td><td class="loot-cell"><b>10</b></td></tr>
-      <tr><td class="roll-cell">3</td><td class="loot-cell"><span class="nivel nivel-3">Nivel 3</span> <span class="nivel nivel-4">Nivel 4</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 3 + 2 de nivel 4</td><td class="loot-cell"><b>15</b></td></tr>
-      <tr><td class="roll-cell">4</td><td class="loot-cell"><span class="nivel nivel-4">Nivel 4</span> <span class="nivel nivel-5">Nivel 5</span></td><td class="loot-cell">4 grupos de 1–2 bestias (4–8 en total)</td><td class="loot-cell">2 de nivel 4 + 2 de nivel 5</td><td class="loot-cell"><b>30</b> (antes del jefe final)</td></tr>
-    </tbody>
-  </table>
-</article>
-
 <div class="mapas-zona">
-<article class="mapa">
-  <h4>Catálogo de mapas</h4>
-  <p class="mapa-nota">Toca un mapa para verlo en grande.</p>
-  <div id="mapas-catalogo" class="mapas-catalogo"></div>
-</article>
+  <nav class="mapas-pestanas" role="tablist">
+    <button type="button" class="activa" data-vista-mapas="campanas" role="tab"><i class="fa-solid fa-book-open"></i> Libro de campañas</button>
+    <button type="button" data-vista-mapas="catalogo" role="tab"><i class="fa-solid fa-map"></i> Catálogo de mapas</button>
+  </nav>
 
-<article class="mapa">
-  <h4>Campañas</h4>
-  <p class="mapa-nota">Cada campaña son 4 escenarios seguidos, con bestias cada vez más fuertes. Escucha la introducción antes de empezar y la narración de cada escenario al llegar a él.</p>
-  <div id="mapas-campanas" class="mapas-campanas"></div>
-</article>
+  <section class="mapas-vista" data-vista="campanas">
+    <div id="mapas-campanas"></div>
+  </section>
+
+  <section class="mapas-vista" data-vista="catalogo" hidden>
+    <div id="mapas-filtros" class="mapas-filtros"></div>
+    <div id="mapas-catalogo" class="mapas-catalogo"></div>
+  </section>
 </div>
 
 <div class="tab-footer">
