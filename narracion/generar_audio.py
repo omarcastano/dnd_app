@@ -171,7 +171,7 @@ def main():
     args = parser.parse_args()
 
     crudo = json.loads(args.archivo.read_text(encoding="utf-8"))
-    cartas = crudo.get("cartas") or crudo["enemigos"]
+    cartas = crudo.get("cartas") or crudo.get("mapas") or crudo["enemigos"]
     if args.id:
         cartas = [c for c in cartas if c["id"] == args.id]
         if not cartas:

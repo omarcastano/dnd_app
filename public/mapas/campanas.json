@@ -1,0 +1,1379 @@
+{
+  "campanas": [
+    {
+      "id": "el-aliento-helado",
+      "nombre": "El Aliento Helado",
+      "gancho": "Un dragón de escarcha ha despertado en las cumbres y la costa entera se está congelando.",
+      "descripcion": "Este invierno no termina. Los barcos quedan atrapados en el hielo, las redes salen vacías y cada noche un viento que huele a hierro baja de las montañas. Los viejos de la taberna hablan en susurros de Velgrima, la dragona blanca que dormía bajo los glaciares desde antes de que existieran los mapas. Dicen que alguien la ha despertado, y que con ella han vuelto criaturas que nadie había visto en generaciones. Vosotros no sois héroes de canción, todavía no. Sois los únicos que aceptan la bolsa de monedas del alcalde y el encargo de seguir el rastro del frío hasta su origen. Abrigaos bien, afilad las armas y despedíos de la chimenea, porque el camino empieza en la costa y termina en el cielo.",
+      "escenarios": [
+        {
+          "mapa": "casa-del-pescador",
+          "titulo": "Los muelles callados",
+          "objetivo": "Averiguar qué ha pasado con el pescador desaparecido y limpiar los muelles de alimañas.",
+          "amenazas": [
+            "Lobo Espinoso",
+            "Tarántula Gigante"
+          ],
+          "descripcion": "Llegáis a la casa del pescador con la nieve hasta las rodillas. El mar alrededor se ha convertido en placas de hielo que crujen y se empujan unas a otras. Los muelles de madera están cubiertos de escarcha y la puerta de la cabaña golpea con el viento, abierta de par en par. Nadie responde a vuestras voces. Entre las redes congeladas hay huellas de lobo y algo más, unas marcas finas y largas que suben por las paredes. El viejo Tormund, el pescador que dio la primera alarma, lleva tres días sin aparecer por el pueblo.",
+          "narracion": "narraciones/el-aliento-helado-1.mp3",
+          "escenas": [
+            {
+              "titulo": "Ojos en la nieve",
+              "cuando": "Al llegar a los muelles",
+              "texto": "Apenas pisáis las tablas del muelle, un aullido corta el aire. De entre los pinos nevados salen lobos flacos, con espinas de hielo brotándoles del lomo. No cazan por hambre, huyen de algo que los ha echado de las montañas, y ahora vosotros estáis en su camino. Desenvainad, porque el hielo no perdona a quien resbala, y los lobos no esperan a que encontréis buen suelo.",
+              "narracion": "narraciones/el-aliento-helado-1-escena-1.mp3"
+            },
+            {
+              "titulo": "La casa del pescador",
+              "cuando": "Al entrar en la casa grande",
+              "texto": "Dentro, la chimenea lleva días apagada. Hay cuencos con sopa convertida en hielo y una silla volcada junto a la ventana, como si Tormund se hubiera levantado de golpe para mirar algo en el mar. Las marcas largas de las paredes siguen hacia el techo. Arriba, entre las vigas, algo se mueve despacio y tensa los hilos de una telaraña cubierta de escarcha.",
+              "narracion": "narraciones/el-aliento-helado-1-escena-2.mp3"
+            },
+            {
+              "titulo": "El cuaderno de Tormund",
+              "cuando": "Tras el tercer combate",
+              "texto": "Bajo la mesa de la casa de piedra encontráis el cuaderno del pescador, húmedo y arrugado. Habla de noches sin estrellas, de un viento que huele a hierro y de una sombra enorme que cruzó la luna. La última línea está escrita con mano temblorosa: la luz del faro se ha vuelto azul, voy a ver quién la ha encendido. Fuera, algo grande espera junto a la barca.",
+              "narracion": "narraciones/el-aliento-helado-1-escena-3.mp3"
+            },
+            {
+              "titulo": "Rumbo al faro",
+              "cuando": "Al terminar el último combate",
+              "texto": "Cuando cae la última bestia, el silencio vuelve a los muelles. Desde aquí, al otro lado de la bahía helada, se distingue un punto de luz azul que parpadea en lo alto del acantilado. No calienta, no ilumina, solo llama. Si Tormund sigue con vida, está allí. Recoged lo que os sirva, abrigaos y tomad el sendero de la costa antes de que esa luz atraiga algo peor.",
+              "narracion": "narraciones/el-aliento-helado-1-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El muelle del oeste",
+              "ubicacion": "Borde izquierdo, la pasarela de tablones junto a la barca varada en el hielo",
+              "que_hay": "Huellas de lobo frescas y una red desgarrada desde dentro. La barca tiene el casco rajado por el hielo.",
+              "prueba": "Tirada de d20: con diez o más descubrís que las huellas vienen de las montañas, no del bosque.",
+              "combate": "Primer combate: Lobo Espinoso"
+            },
+            {
+              "nombre": "La casa grande",
+              "ubicacion": "Arriba en el centro, la cabaña de madera con la grúa de pesca en el tejado",
+              "que_hay": "Cajas de pescado congelado, cuerdas y una telaraña escarchada que cubre el techo del almacén.",
+              "prueba": "Si alguien registra las vigas, tirada de d20: con doce o más evitáis quedar atrapados en la red.",
+              "combate": "Segundo combate: Tarántula Gigante"
+            },
+            {
+              "nombre": "La casa de piedra",
+              "ubicacion": "Derecha del mapa, la vivienda con chimenea redonda, mesa y camas",
+              "que_hay": "El cuaderno de Tormund bajo la mesa y una lámpara de aceite que aún guarda combustible.",
+              "prueba": "Tirada de d20: con once o más encontráis también unas monedas escondidas bajo el colchón.",
+              "combate": "Tercer combate: dos Lobos Espinosos que entran por la puerta de la escalera de madera"
+            },
+            {
+              "nombre": "El embarcadero del sur",
+              "ubicacion": "Abajo, el muelle estrecho que baja hacia el agua helada y las rocas",
+              "que_hay": "Una cuerda de amarre cortada limpiamente y un rastro de seda que lleva hacia la costa del faro.",
+              "combate": "Cuarto combate: Tarántula Gigante y Lobo Espinoso"
+            }
+          ]
+        },
+        {
+          "mapa": "faro",
+          "titulo": "La luz azul",
+          "objetivo": "Subir al faro, apagar la llama embrujada y registrar el barco encallado.",
+          "amenazas": [
+            "Calavera Ardiente",
+            "Gato Hachero"
+          ],
+          "descripcion": "Llegáis al faro por el sendero del acantilado, con el viento intentando arrancaros de la roca. La torre de piedra se alza a vuestra izquierda, y en lo alto arde una llama azul que no da calor. Abajo, entre peñascos y placas de hielo, un barco grande yace partido en dos, con el mástil caído como un puente sobre el agua. Del almacén junto al faro sale humo y risas ásperas. Alguien ha convertido esta torre en una baliza, y no llama a los barcos. Llama a algo que vuela.",
+          "narracion": "narraciones/el-aliento-helado-2.mp3",
+          "escenas": [
+            {
+              "titulo": "Los saqueadores del naufragio",
+              "cuando": "Al acercarse al almacén",
+              "texto": "Junto al almacén, unos gatos enormes con hachas al cinto rebuscan entre barriles y cajas del barco. Os miran con desprecio, relamiéndose. Uno de ellos lleva al cuello la bufanda de lana de Tormund. Cuando le preguntáis por el pescador, sonríe y señala la torre con la cabeza. Luego levanta el hacha. Por lo visto, los ladrones del naufragio no comparten el botín con nadie.",
+              "narracion": "narraciones/el-aliento-helado-2-escena-1.mp3"
+            },
+            {
+              "titulo": "La llama que no calienta",
+              "cuando": "Al subir la escalera del faro",
+              "texto": "La escalera de caracol sube entre muros cubiertos de escarcha. Arriba, en la sala de la lámpara, unas calaveras envueltas en fuego azul giran alrededor de la llama como polillas. Atado a una silla, temblando, está Tormund. Os mira con alivio y con miedo. Grita que no apaguéis la llama sin romper antes el cristal negro que la alimenta, o la torre entera estallará.",
+              "narracion": "narraciones/el-aliento-helado-2-escena-2.mp3"
+            },
+            {
+              "titulo": "Lo que contó Tormund",
+              "cuando": "Tras apagar la llama",
+              "texto": "Envuelto en vuestras capas, Tormund os cuenta lo que vio. Unos guerreros de ojos vacíos llegaron en ese barco con cadenas tan gruesas como un brazo. Encendieron la llama para guiar a la dragona Velgrima hasta la costa, porque quieren atarla y montarla. Algo sigue moviéndose en la bodega del barco. Si queréis saber adónde fueron, tendréis que bajar a buscarlo.",
+              "narracion": "narraciones/el-aliento-helado-2-escena-3.mp3"
+            },
+            {
+              "titulo": "El mapa de las cadenas",
+              "cuando": "Al terminar el último combate",
+              "texto": "En la bodega encontráis los eslabones que sobraron, tan grandes que no podéis levantarlos entre dos, y un mapa clavado en la mesa del capitán. Muestra un camino marcado en rojo hacia las estribaciones nevadas, junto a un río helado, y una palabra repetida tres veces: domar. Tormund se queda vigilando la costa. Vosotros partís hacia las montañas, siguiendo el rastro del frío.",
+              "narracion": "narraciones/el-aliento-helado-2-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El almacén del acantilado",
+              "ubicacion": "Abajo a la izquierda, la sala con cajas, barriles y la mesa redonda",
+              "que_hay": "Botín del naufragio: barriles de salazón, cuerdas y la bufanda de Tormund.",
+              "prueba": "Tirada de d20: con doce o más encontráis una caja intacta con comida para el viaje.",
+              "combate": "Primer combate: Gato Hachero"
+            },
+            {
+              "nombre": "La torre del faro",
+              "ubicacion": "Arriba a la izquierda, la torre redonda con la lámpara en el centro",
+              "que_hay": "Tormund atado a una silla y la llama azul alimentada por un cristal negro.",
+              "prueba": "Romper el cristal: tirada de d20, con trece o más se parte al primer golpe; si falla, la llama quema a quien esté más cerca.",
+              "combate": "Segundo combate: Calavera Ardiente"
+            },
+            {
+              "nombre": "El mástil caído",
+              "ubicacion": "Centro derecha, el mástil cruzado sobre el agua entre las rocas",
+              "que_hay": "Un puente improvisado y resbaladizo para llegar al barco sin mojarse.",
+              "prueba": "Tirada de d20 para cruzar: con nueve o más llegáis; si no, caéis al agua helada y perdéis un punto de vida.",
+              "combate": "Tercer combate: Gato Hachero y Calavera Ardiente esperan en la proa"
+            },
+            {
+              "nombre": "El barco encallado",
+              "ubicacion": "Borde derecho, el casco partido en dos con la bodega abierta",
+              "que_hay": "Cadenas gigantes, la mesa del capitán y el mapa marcado hacia las estribaciones.",
+              "combate": "Cuarto combate: dos Gatos Hacheros que vigilan la bodega"
+            }
+          ]
+        },
+        {
+          "mapa": "estribaciones",
+          "titulo": "El río que no corre",
+          "objetivo": "Seguir el rastro de los cazadores de dragones por las colinas y cruzar el río helado.",
+          "amenazas": [
+            "Enano Corrompido",
+            "Humano Corrompido",
+            "Coloso Calvo"
+          ],
+          "descripcion": "Llegáis a las estribaciones tras dos días de marcha. Las colinas nevadas bajan en terrazas, partidas por grietas profundas, y un río de agua turquesa serpentea entre ellas tan frío que duele solo mirarlo. Grandes peñascos cubiertos de musgo salpican la ladera. En la nieve hay rastros de botas pesadas y de algo arrastrado, quizá las mismas cadenas que visteis en el barco. Más arriba se ve el humo de un campamento. Los cazadores de dragones están cerca, y por el sonido de sus tambores, se preparan para algo grande.",
+          "narracion": "narraciones/el-aliento-helado-3.mp3",
+          "escenas": [
+            {
+              "titulo": "Centinelas en las grietas",
+              "cuando": "Al cruzar la primera terraza",
+              "texto": "Las grietas no están vacías. De una de ellas sale un enano de barba gris y ojos sin brillo, con la piel cubierta de vetas oscuras como raíces. Lleva al cuello el mismo símbolo que el mapa del barco, una cadena cerrada sobre un ala. No habla. Solo levanta su martillo y da la alarma golpeando la roca, y el eco rueda ladera arriba.",
+              "narracion": "narraciones/el-aliento-helado-3-escena-1.mp3"
+            },
+            {
+              "titulo": "El río que no corre",
+              "cuando": "Al llegar al río helado",
+              "texto": "Junto al río encontráis un campamento abandonado a toda prisa. Hay un fuego aún caliente, mantas y un cuaderno de órdenes con letra apretada. Dice que la dragona fue encontrada dormida bajo el glaciar y que esta noche, con la luna llena, le pondrán las cadenas. Dice también que el capitán no quiere testigos. En ese momento, al otro lado del río, se alzan unas figuras enormes.",
+              "narracion": "narraciones/el-aliento-helado-3-escena-2.mp3"
+            },
+            {
+              "titulo": "El prisionero",
+              "cuando": "Tras el tercer combate",
+              "texto": "Uno de los cazadores, herido, se arrastra por la nieve hacia vosotros. La oscuridad se le va de los ojos y por un momento parece un hombre corriente, asustado. Os cuenta que el capitán les dio a beber algo negro que les quitó el miedo y la voluntad. Os suplica que lo detengáis. Ha construido un barco que se sujeta al lomo de la dragona.",
+              "narracion": "narraciones/el-aliento-helado-3-escena-3.mp3"
+            },
+            {
+              "titulo": "El rugido",
+              "cuando": "Al terminar el último combate",
+              "texto": "Cuando cae el último cazador, el cielo se oscurece de golpe. Un rugido hace temblar el hielo bajo vuestros pies y una sombra blanca y gigantesca pasa sobre vosotros, tapando la luna. Velgrima ha despertado, y lleva sobre el lomo un barco de madera atado con cadenas. Una cuerda cuelga hasta la ladera, todavía al alcance. No hay tiempo para pensarlo. Saltad.",
+              "narracion": "narraciones/el-aliento-helado-3-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Las grietas del norte",
+              "ubicacion": "Arriba a la izquierda, las grietas oscuras que parten las terrazas",
+              "que_hay": "Un puesto de vigía escondido con un cuerno y raciones.",
+              "prueba": "Tirada de d20: con doce o más os acercáis sin que suene el cuerno y empezáis el combate con ventaja.",
+              "combate": "Primer combate: Enano Corrompido"
+            },
+            {
+              "nombre": "El río turquesa",
+              "ubicacion": "Centro izquierda, el arroyo helado que cruza el mapa de arriba abajo",
+              "que_hay": "Placas de hielo fino sobre el agua y el campamento abandonado en la orilla.",
+              "prueba": "Cruzar sobre el hielo: tirada de d20, con diez o más pasáis; si no, el frío quita un punto de vida.",
+              "combate": "Segundo combate: Humano Corrompido"
+            },
+            {
+              "nombre": "Los peñascos del este",
+              "ubicacion": "Derecha del mapa, los grandes peñascos con musgo entre las grietas",
+              "que_hay": "Un nido de piedras ordenadas y huesos de reno. Algo enorme ha dormido aquí.",
+              "combate": "Tercer combate: Coloso Calvo"
+            },
+            {
+              "nombre": "La terraza baja",
+              "ubicacion": "Abajo a la derecha, el círculo de peñascos junto a la roca hueca",
+              "que_hay": "Las cadenas de repuesto y la cuerda por la que subirán al barco de la dragona.",
+              "prueba": "Tirada de d20: con once o más encontráis un frasco del líquido negro, prueba de la corrupción.",
+              "combate": "Cuarto combate: Enano Corrompido y Humano Corrompido"
+            }
+          ]
+        },
+        {
+          "mapa": "vuelo-del-dragon",
+          "titulo": "A lomos de la tormenta",
+          "objetivo": "Abordar el barco atado a la dragona, derrotar a su capitán y romper las cadenas.",
+          "amenazas": [
+            "Paquidermo Acorazado",
+            "Soldado Cañonero",
+            "Golem de Piedra"
+          ],
+          "descripcion": "Os agarráis a la cuerda con las manos ardiendo de frío y trepáis hasta la popa. Bajo la cubierta de madera no hay agua, sino escamas blancas y el batir de unas alas inmensas que ocupan todo el cielo. El viento empuja hacia el borde, las nubes pasan a vuestro lado como fantasmas y a lo lejos se ven las montañas, diminutas. A proa, junto a la cabeza de la dragona, el capitán de los cazadores sujeta las riendas de hierro. Cuatro cadenas rojas bajan desde el barco hasta el cuello de Velgrima.",
+          "narracion": "narraciones/el-aliento-helado-4.mp3",
+          "escenas": [
+            {
+              "titulo": "Polizones",
+              "cuando": "Al pisar la cubierta de popa",
+              "texto": "En la popa, entre cajas y barriles amarrados, una bestia acorazada mastica las cuerdas de la carga. Los cazadores la trajeron para arrastrar las cadenas. Al veros, baja la cabeza y embiste, y toda la cubierta se inclina con el golpe. Cualquier paso en falso os mandará al vacío. Agarraos a lo que podáis y luchad de espaldas al centro del barco.",
+              "narracion": "narraciones/el-aliento-helado-4-escena-1.mp3"
+            },
+            {
+              "titulo": "La bodega de las cadenas",
+              "cuando": "Al bajar por una de las escotillas",
+              "texto": "Por la escotilla de popa bajáis a una bodega que retumba con el corazón de la dragona. Aquí están los tornos que tensan las cuatro cadenas. Si los soltáis, Velgrima podrá sacudirse el barco, pero un soldado con un cañón al hombro custodia los mecanismos. Detrás de él, en un cofre abierto, brilla el mismo líquido negro que corrompió a los cazadores.",
+              "narracion": "narraciones/el-aliento-helado-4-escena-2.mp3"
+            },
+            {
+              "titulo": "El capitán en la proa",
+              "cuando": "Tras soltar los tornos",
+              "texto": "Las cadenas se aflojan y Velgrima ruge de alivio. El barco se sacude. En la proa, el capitán os espera con el rostro surcado de venas negras y una sonrisa helada. Dice que la dragona es suya, que sin él la costa seguirá congelada para siempre. Tras él se alza una mole de piedra viva que hace crujir las tablas a cada paso. Es el momento.",
+              "narracion": "narraciones/el-aliento-helado-4-escena-3.mp3"
+            },
+            {
+              "titulo": "El deshielo",
+              "cuando": "Al derrotar al capitán",
+              "texto": "Cuando el capitán cae, el último eslabón se rompe con un chasquido que suena como un trueno. Velgrima se sacude, desciende entre las nubes y deja el barco, con suavidad, sobre la nieve de la costa. Os mira un instante con ojos del color del hielo antiguo y vuelve a las cumbres. Esa noche, por primera vez en meses, el hielo de los muelles empieza a llorar, y en la taberna brindan por vosotros.",
+              "narracion": "narraciones/el-aliento-helado-4-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La popa de carga",
+              "ubicacion": "Abajo, la cubierta de popa con cajas, barriles y el cañón pequeño",
+              "que_hay": "Carga amarrada con cuerdas; un barril de pólvora que puede hacerse estallar contra los enemigos.",
+              "prueba": "Tirada de d20: con trece o más hacéis rodar el barril sin que os alcance la explosión.",
+              "combate": "Primer combate: Paquidermo Acorazado"
+            },
+            {
+              "nombre": "Las escotillas de la bodega",
+              "ubicacion": "Centro, las dos escotillas oscuras de la cubierta, una a proa y otra a popa",
+              "que_hay": "Los tornos que tensan las cadenas y un cofre con frascos de líquido negro.",
+              "prueba": "Soltar cada torno: tirada de d20, con once o más se suelta; hacen falta dos éxitos.",
+              "combate": "Segundo combate: Soldado Cañonero"
+            },
+            {
+              "nombre": "Las alas de la dragona",
+              "ubicacion": "A los lados del barco, las alas membranosas extendidas sobre el vacío",
+              "que_hay": "Las cadenas rojas pasan por encima de las alas; un héroe puede caminar por el hueso del ala para cortarlas.",
+              "prueba": "Tirada de d20 para no resbalar: con doce o más; si falla, queda colgando y pierde su turno.",
+              "combate": "Tercer combate: Soldado Cañonero y Paquidermo Acorazado vienen a impedirlo"
+            },
+            {
+              "nombre": "La proa del capitán",
+              "ubicacion": "Arriba, la punta del barco junto al mástil y la cabeza de la dragona",
+              "que_hay": "Las riendas de hierro del capitán y el último eslabón que sujeta a Velgrima.",
+              "combate": "Cuarto combate: Soldado Cañonero, que es el capitán, junto a un Golem de Piedra"
+            }
+          ]
+        }
+      ],
+      "narracion": "narraciones/el-aliento-helado.mp3"
+    },
+    {
+      "id": "la-cosecha-de-huesos",
+      "nombre": "La Cosecha de Huesos",
+      "gancho": "Las cosechas del valle crecen negras y los muertos del cementerio han dejado de descansar.",
+      "descripcion": "En el valle de Doraespiga siempre se contaba que la tierra era fértil porque debajo dormía un gigante. Nadie lo creía, hasta que este otoño el trigo empezó a crecer negro y los espantapájaros amanecieron mirando hacia el pueblo. Los animales enferman, los molinos se detienen y por las noches se oye un tañido lejano, como de campana bajo la tierra. Los granjeros han juntado sus pocas monedas para pagaros. No saben a quién culpar, pero sí saben que algo está cosechando el valle, y que no busca trigo. Coged la carreta, seguid el camino de tierra y preparaos para descubrir qué siembra quien siembra con huesos.",
+      "escenarios": [
+        {
+          "mapa": "granja",
+          "titulo": "El trigo negro",
+          "objetivo": "Proteger la granja de los Almendro y descubrir qué está pudriendo los campos.",
+          "amenazas": [
+            "Diablillo del Fogón",
+            "Rana Ballestera"
+          ],
+          "descripcion": "Llegáis a la granja de los Almendro al atardecer. Las gallinas no cacarean, el perro tiembla bajo el porche y más allá del corral el trigo, negro como el carbón, se mueve sin viento. La familia os recibe en el patio empedrado con una lámpara en la mano y el miedo en los ojos. Cada noche algo entra al granero y deja las cosechas podridas, y el pozo ya no da agua limpia. Os ofrecen la cena y un rincón donde dormir, si conseguís que esta noche termine en paz.",
+          "narracion": "narraciones/la-cosecha-de-huesos-1.mp3",
+          "escenas": [
+            {
+              "titulo": "Risas en la cocina",
+              "cuando": "Al caer la noche",
+              "texto": "Cuando la familia se acuesta, oís risitas agudas en la cocina. Unos diablillos del tamaño de un gato, con la piel roja como brasas, saltan sobre los fogones y tiran puñados de polvo gris en las ollas de mañana. Al veros, chillan de rabia y escupen chispas. Si el fuego alcanza la paja, la casa entera arderá con los Almendro dentro.",
+              "narracion": "narraciones/la-cosecha-de-huesos-1-escena-1.mp3"
+            },
+            {
+              "titulo": "El pozo enfermo",
+              "cuando": "Tras el primer combate",
+              "texto": "El abuelo Almendro os lleva al pozo del patio. Al subir el cubo, el agua sale turbia y huele a harina vieja. Algo croa ahí abajo, y no es una rana corriente. Desde el borde del bosque, junto al carro abandonado, os llega el chasquido de una ballesta. Las criaturas del pozo no están solas, y parecen bien organizadas.",
+              "narracion": "narraciones/la-cosecha-de-huesos-1-escena-2.mp3"
+            },
+            {
+              "titulo": "Los saquitos grises",
+              "cuando": "Tras el tercer combate",
+              "texto": "Entre los restos de las criaturas encontráis saquitos de tela con un polvo gris y áspero. No es harina. Al frotarlo entre los dedos notáis astillas diminutas, blancas, como hueso molido. En cada saquito hay un sello grabado, una rueda de molino. El abuelo palidece. Solo hay un molino en el valle, y lleva veinte años abandonado junto al río.",
+              "narracion": "narraciones/la-cosecha-de-huesos-1-escena-3.mp3"
+            },
+            {
+              "titulo": "La rueda que llama",
+              "cuando": "Al terminar el último combate",
+              "texto": "Con la última criatura vencida, el trigo deja de moverse. La familia Almendro os da pan, queso y las gracias. Pero en el silencio de la madrugada oís algo a lo lejos, río arriba, un crujido lento y constante de piedra contra piedra. El viejo molino está moliendo otra vez. Al amanecer tomáis el camino del río, siguiendo el rastro de polvo gris.",
+              "narracion": "narraciones/la-cosecha-de-huesos-1-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La casa de los Almendro",
+              "ubicacion": "Abajo a la izquierda, la casa de varias habitaciones con cocina y bañera",
+              "que_hay": "Fogones encendidos, ollas espolvoreadas de gris y la despensa de la familia.",
+              "prueba": "Tirada de d20: con diez o más apagáis las brasas antes de que prenda la paja.",
+              "combate": "Primer combate: dos Diablillos del Fogón"
+            },
+            {
+              "nombre": "El pozo de piedra",
+              "ubicacion": "Abajo a la derecha, el pozo redondo con su torno, junto al bosque",
+              "que_hay": "Agua turbia con polvo gris en el fondo y un nido de ranas armadas.",
+              "prueba": "Bajar con la cuerda: tirada de d20, con doce o más encontráis un saquito con sello de molino.",
+              "combate": "Segundo combate: Rana Ballestera"
+            },
+            {
+              "nombre": "El carro junto al bosque",
+              "ubicacion": "Arriba a la derecha, el carro de madera al lado del camino de piedras",
+              "que_hay": "Sacos de grano robado y huellas pequeñas que van y vienen del pozo.",
+              "combate": "Tercer combate: Rana Ballestera y Diablillo del Fogón"
+            },
+            {
+              "nombre": "El corral y el trigo negro",
+              "ubicacion": "Arriba a la izquierda, el corral cercado con el rastrillo y la tina",
+              "que_hay": "Animales enfermos y espigas negras que crujen como si estuvieran huecas.",
+              "prueba": "Tirada de d20: con once o más veis que el trigo negro crece en línea hacia el río.",
+              "combate": "Cuarto combate: dos Diablillos del Fogón salen de entre las espigas"
+            }
+          ]
+        },
+        {
+          "mapa": "molino-abandonado",
+          "titulo": "La rueda que gira sola",
+          "objetivo": "Entrar al molino abandonado y destruir el polvo maldito que se muele allí.",
+          "amenazas": [
+            "Engendro del Abismo",
+            "Calavera Ardiente",
+            "Gato Hachero"
+          ],
+          "descripcion": "Llegáis al molino abandonado siguiendo el rumor del río. El agua corre azul y rápida entre dos paredes de roca y golpea los pilares de un viejo edificio de piedra, con la mitad del tejado hundido. Lleva veinte años vacío, pero su rueda gira. Se oye el crujido de la piedra moliendo día y noche, y el aire se llena de un polvo gris que pica en la garganta. Al otro lado del río, en la pared del acantilado, la boca de una cueva os observa. Alguien trabaja aquí, y no quiere visitas.",
+          "narracion": "narraciones/la-cosecha-de-huesos-2.mp3",
+          "escenas": [
+            {
+              "titulo": "Lo que sale del agua",
+              "cuando": "Al acercarse a la orilla",
+              "texto": "Antes de llegar a la puerta, el río se agita. Una masa de carne y tentáculos, del color de la harina mojada, trepa por las rocas de la orilla. Ha crecido alimentándose de los restos que caen de la rueda. Se arrastra hacia vosotros con un sonido húmedo y, al moverse, suelta nubes de polvo gris que os hacen toser.",
+              "narracion": "narraciones/la-cosecha-de-huesos-2-escena-1.mp3"
+            },
+            {
+              "titulo": "La piedra que muele huesos",
+              "cuando": "Al entrar en el molino",
+              "texto": "Dentro, la gran piedra de moler gira sola, empujada por una fuerza que no es el agua. Sobre ella hay huesos enormes, partidos, del tamaño de un hombre. Alrededor flotan calaveras envueltas en llamas, que vigilan el trabajo como capataces. Una de ellas habla con voz de ceniza: la Segadora necesita más polvo. El valle entero debe ser sembrado.",
+              "narracion": "narraciones/la-cosecha-de-huesos-2-escena-2.mp3"
+            },
+            {
+              "titulo": "El origen de los huesos",
+              "cuando": "Tras romper la piedra de moler",
+              "texto": "Con la piedra partida, el molino calla por primera vez en semanas. Entre los sacos encontráis un registro escrito con tinta parda. Cada carga de huesos viene del mismo lugar, el campo hundido al este, donde la tierra se abrió el verano pasado. Junto a la última anotación alguien ha dibujado un cráneo gigante y una guadaña. Desde la cueva, algo os ha estado escuchando.",
+              "narracion": "narraciones/la-cosecha-de-huesos-2-escena-3.mp3"
+            },
+            {
+              "titulo": "Camino del campo hundido",
+              "cuando": "Al terminar el último combate",
+              "texto": "La cueva escondía el almacén de los ladrones de huesos, y ahora está vacía. Salís al aire limpio y miráis hacia el este. Sobre el horizonte, donde la tierra se hundió, vuelan cuervos en círculos. El viejo cuento del valle hablaba de un gigante dormido bajo los campos. Empezáis a sospechar que no era un cuento, y que alguien lo está desenterrando a pedazos.",
+              "narracion": "narraciones/la-cosecha-de-huesos-2-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La orilla de las barcas",
+              "ubicacion": "Centro, las rocas del río junto a los restos de barcas y el embarcadero",
+              "que_hay": "Barcas podridas y un rastro de baba gris que sale del agua.",
+              "prueba": "Tirada de d20: con once o más veis venir a la criatura y atacáis primero.",
+              "combate": "Primer combate: Engendro del Abismo"
+            },
+            {
+              "nombre": "La rueda de piedra",
+              "ubicacion": "Centro abajo, el interior del molino con la gran piedra de moler",
+              "que_hay": "Huesos gigantes partidos, sacos de polvo gris y la piedra encantada.",
+              "prueba": "Romper la piedra: tirada de d20, con trece o más se agrieta; hacen falta dos golpes certeros.",
+              "combate": "Segundo combate: Calavera Ardiente"
+            },
+            {
+              "nombre": "La cueva del acantilado",
+              "ubicacion": "Arriba a la derecha, la boca de la cueva en la pared de roca",
+              "que_hay": "El almacén de los ladrones: herramientas de excavar, cuerdas y un cuaderno de cargas.",
+              "combate": "Tercer combate: dos Gatos Hacheros que cargan huesos"
+            },
+            {
+              "nombre": "El sendero de la ribera",
+              "ubicacion": "Borde izquierdo, el camino de tierra entre árboles y peñascos",
+              "que_hay": "Rodadas de carro cargado que van hacia el este y huesos caídos por el camino.",
+              "prueba": "Tirada de d20: con diez o más encontráis un atajo que os ahorra una noche de marcha.",
+              "combate": "Cuarto combate: Calavera Ardiente y Gato Hachero emboscados"
+            }
+          ]
+        },
+        {
+          "mapa": "campo-de-esqueletos",
+          "titulo": "Las costillas del gigante",
+          "objetivo": "Atravesar los cultivos que crecen sobre el gigante y encontrar el altar del cosechador.",
+          "amenazas": [
+            "La Parca",
+            "Bruja Cazacráneos",
+            "Humano Corrompido"
+          ],
+          "descripcion": "Llegáis al campo hundido cuando la niebla se levanta. La leyenda era cierta. Entre los surcos verdes yace el esqueleto de un gigante, con una calavera tan grande como una cabaña y un brazo extendido como si aún quisiera agarrar algo. Las costillas se alzan como arcos de una iglesia en ruinas, y alrededor han cavado zanjas profundas. Los cultivos crecen retorcidos y oscuros allí donde tocan el hueso. Un sendero de barro cruza el campo, y por él camina alguien con guadaña que no proyecta sombra.",
+          "narracion": "narraciones/la-cosecha-de-huesos-3.mp3",
+          "escenas": [
+            {
+              "titulo": "Los cosechadores",
+              "cuando": "Al pisar los surcos",
+              "texto": "Entre los surcos trabajan hombres y mujeres del valle, con la mirada perdida y las uñas negras de tierra. Cavan alrededor de los huesos sin descanso. Algunos son vecinos que desaparecieron hace semanas. Al veros, dejan las palas y levantan las hoces, y por un momento dudáis. Pero en sus ojos no queda nadie a quien convencer.",
+              "narracion": "narraciones/la-cosecha-de-huesos-3-escena-1.mp3"
+            },
+            {
+              "titulo": "La figura sin sombra",
+              "cuando": "Al llegar a las costillas",
+              "texto": "Bajo los arcos de las costillas os espera una figura encapuchada, alta y delgada, con una guadaña que brilla sin luz. Es una de las siervas de la Segadora. No habla. Solo señala la calavera del gigante y, después, a vosotros. El viento deja de soplar y el frío os sube por los pies como si la tierra os tirara hacia abajo.",
+              "narracion": "narraciones/la-cosecha-de-huesos-3-escena-2.mp3"
+            },
+            {
+              "titulo": "El altar de velas negras",
+              "cuando": "Al entrar en la calavera",
+              "texto": "Dentro del cráneo gigante hay un altar cubierto de velas negras y huesos pequeños, colocados en círculo. En el centro, una lista de nombres escrita en piel. Son los muertos del cementerio del pueblo, todos ellos, y junto a cada nombre la misma frase: despertará en la noche de la siega. Detrás del altar, una bruja de dientes afilados os da la bienvenida riendo.",
+              "narracion": "narraciones/la-cosecha-de-huesos-3-escena-3.mp3"
+            },
+            {
+              "titulo": "Esta noche",
+              "cuando": "Al terminar el último combate",
+              "texto": "La bruja cae entre las velas y, antes de morir, se ríe. Dice que llegáis tarde, que la luna ya se está tiñendo de rojo y que la Segadora está en el cementerio, preparando la cosecha. Miráis al cielo y es verdad, la luna sale del color de la sangre. El cementerio está a una hora de carrera. Coged la lista, corred y no miréis atrás.",
+              "narracion": "narraciones/la-cosecha-de-huesos-3-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Los surcos del oeste",
+              "ubicacion": "Izquierda del mapa, las filas de cultivo junto a los muros caídos",
+              "que_hay": "Herramientas de cavar y vecinos desaparecidos que trabajan bajo un hechizo.",
+              "prueba": "Tirada de d20: con catorce o más uno de ellos despierta y os avisa de la trampa de las costillas.",
+              "combate": "Primer combate: Humano Corrompido"
+            },
+            {
+              "nombre": "Las costillas del gigante",
+              "ubicacion": "Centro abajo, los arcos de hueso que forman pasillos",
+              "que_hay": "Pasillos estrechos entre los huesos; una zanja oculta bajo la hierba.",
+              "prueba": "Tirada de d20: con doce o más evitáis caer en la zanja y perder un punto de vida.",
+              "combate": "Segundo combate: La Parca"
+            },
+            {
+              "nombre": "La mano del gigante",
+              "ubicacion": "Abajo a la derecha, los dedos de hueso que se hunden entre los surcos",
+              "que_hay": "Entre los dedos hay una ofrenda de cuervos muertos y una llave de hueso que abre el altar.",
+              "combate": "Tercer combate: Humano Corrompido y La Parca"
+            },
+            {
+              "nombre": "La calavera",
+              "ubicacion": "Arriba a la izquierda, el cráneo gigante junto al sendero de barro",
+              "que_hay": "El altar de velas negras y la lista de los muertos del cementerio.",
+              "prueba": "Con la llave de hueso se abre un cofre del altar sin tirada; sin ella, tirada de d20 con quince o más.",
+              "combate": "Cuarto combate: Bruja Cazacráneos"
+            }
+          ]
+        },
+        {
+          "mapa": "cementerio",
+          "titulo": "La noche de la siega",
+          "objetivo": "Detener el ritual en el cementerio y derrotar a la Segadora antes del amanecer.",
+          "amenazas": [
+            "Wendigo del Musgo",
+            "Golem de Piedra",
+            "Dama de Cristal"
+          ],
+          "descripcion": "Llegáis al cementerio corriendo, con la luna roja sobre vuestras cabezas. Dos caminos de piedra se cruzan en el centro, donde una plaza redonda guarda la estatua de un ángel con las alas abiertas. Alrededor, entre la hierba, cientos de lápidas se agrietan una a una y la tierra se abre como si respirara. Manos huesudas arañan la niebla. Junto al ángel, la Segadora alza su guadaña y canta en una lengua que duele escuchar. Si termina su canción antes del amanecer, todo el valle será su cosecha.",
+          "narracion": "narraciones/la-cosecha-de-huesos-4.mp3",
+          "escenas": [
+            {
+              "titulo": "La tierra se abre",
+              "cuando": "Al cruzar la verja del sur",
+              "texto": "En cuanto pisáis el camino de piedra, la tierra a ambos lados se revuelve. De las tumbas abiertas no salen esqueletos, sino algo peor, una criatura de musgo y astas que se alimenta del miedo de los vivos. Sus pasos no hacen ruido, pero allí donde pisa la hierba se seca. Detrás de ella, la Segadora sigue cantando sin prisa.",
+              "narracion": "narraciones/la-cosecha-de-huesos-4-escena-1.mp3"
+            },
+            {
+              "titulo": "La estatua despierta",
+              "cuando": "Al llegar a la plaza del ángel",
+              "texto": "La estatua del ángel gira la cabeza hacia vosotros. Las alas de piedra crujen y la figura baja del pedestal, pesada y lenta, para custodiar a su señora. Los muertos se detienen, atentos, como un público. La Segadora deja de cantar un instante y sonríe. Dice que conoce vuestros nombres, porque también están en su lista.",
+              "narracion": "narraciones/la-cosecha-de-huesos-4-escena-2.mp3"
+            },
+            {
+              "titulo": "La Segadora",
+              "cuando": "Cuando la Segadora queda sola",
+              "texto": "La Segadora baja su capucha. Debajo hay un rostro de cristal, frío y hermoso, en el que se reflejan todas las caras de los muertos del valle. Su voz suena como cien voces a la vez. Os ofrece un trato, la vida de vuestro grupo a cambio de que os marchéis. Detrás de vosotros, en el pueblo, los perros han empezado a aullar.",
+              "narracion": "narraciones/la-cosecha-de-huesos-4-escena-3.mp3"
+            },
+            {
+              "titulo": "El trigo dorado",
+              "cuando": "Al derrotar a la Segadora",
+              "texto": "El cristal se rompe en mil pedazos y su último grito se apaga con el canto del gallo. La luna recupera su color y los muertos regresan despacio a sus tumbas, como quien vuelve a casa tras una larga jornada. Al amanecer, el trigo del valle brilla dorado. Los Almendro os esperan en la puerta con pan caliente, y los granjeros juran que la tierra, por fin, suspira tranquila.",
+              "narracion": "narraciones/la-cosecha-de-huesos-4-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Las tumbas abiertas del sur",
+              "ubicacion": "Abajo, a ambos lados del camino de piedra que entra por el sur",
+              "que_hay": "Lápidas volcadas y tierra removida; flores rojas frescas sobre una tumba reciente.",
+              "prueba": "Tirada de d20: con doce o más avanzáis por el camino sin que os agarre ninguna mano del suelo.",
+              "combate": "Primer combate: Wendigo del Musgo"
+            },
+            {
+              "nombre": "La plaza del ángel",
+              "ubicacion": "Centro, el círculo de piedra donde se cruzan los caminos",
+              "que_hay": "La estatua del ángel y el círculo de sal y sangre del ritual.",
+              "prueba": "Romper el círculo de sal: tirada de d20, con trece o más; si lo lográis, los muertos dejan de levantarse.",
+              "combate": "Segundo combate: Golem de Piedra"
+            },
+            {
+              "nombre": "La esquina de los árboles",
+              "ubicacion": "Arriba a la izquierda, las raíces y el muro roto junto a las lápidas viejas",
+              "que_hay": "Un panteón antiguo con la puerta forzada; dentro, frascos de agua bendita olvidados.",
+              "prueba": "Tirada de d20: con diez o más encontráis dos frascos que curan un punto de vida cada uno.",
+              "combate": "Tercer combate: Wendigo del Musgo y Golem de Piedra"
+            },
+            {
+              "nombre": "Los escalones del este",
+              "ubicacion": "Derecha, los escalones de piedra del camino que lleva al pueblo",
+              "que_hay": "El lugar donde la Segadora planea abrir la puerta hacia el valle.",
+              "combate": "Cuarto combate: Dama de Cristal, la Segadora, con un Golem de Piedra"
+            }
+          ]
+        }
+      ],
+      "narracion": "narraciones/la-cosecha-de-huesos.mp3"
+    },
+    {
+      "id": "el-estandarte-rojo",
+      "nombre": "El Estandarte Rojo",
+      "gancho": "Una banda de forajidos se está convirtiendo en un ejército que amenaza con cruzar las montañas.",
+      "descripcion": "Primero fueron gallinas robadas y carretas asaltadas en el camino. Luego, aldeas enteras quemadas. Ahora, los mercaderes que llegan a la taberna hablan de un estandarte rojo que ondea cada vez más cerca, y de un caudillo al que llaman la Garra, que promete tierras y oro a cualquiera que empuñe un arma por él. Los soldados del reino están lejos y el invierno se acerca. Si nadie hace nada, cuando la nieve se derrita la Garra cruzará el paso con un ejército. Vosotros vais a hacer algo. Empezaréis donde empezó todo, en una granja saqueada al borde del bosque, y seguiréis el humo hasta su corazón.",
+      "escenarios": [
+        {
+          "mapa": "granja",
+          "titulo": "Humo en el horizonte",
+          "objetivo": "Expulsar a los saqueadores de la granja y capturar a uno para interrogarlo.",
+          "amenazas": [
+            "Lobo Espinoso",
+            "Sátiro Trovador"
+          ],
+          "descripcion": "Desde lejos ya veis el humo. Cuando llegáis a la granja, el patio empedrado está lleno de grano derramado y un carro cargado espera junto al bosque. Unos saqueadores con pañuelos rojos al cuello sacan sacos del granero mientras sus perros de presa, lobos de lomo espinoso, rodean a los animales del corral. La familia se ha encerrado en la casa y grita desde las ventanas. Los bandidos no esperaban resistencia, y esa es vuestra mejor arma. Expulsadlos, salvad lo que podáis y, si la suerte acompaña, atrapad a uno con vida.",
+          "narracion": "narraciones/el-estandarte-rojo-1.mp3",
+          "escenas": [
+            {
+              "titulo": "Los perros de la Garra",
+              "cuando": "Al entrar en el patio",
+              "texto": "Un silbido corta el aire y los lobos dejan a las gallinas para mirar hacia vosotros. Tienen el lomo cubierto de púas y collares de cuero con una garra roja pintada. Un bandido os grita que os vayáis, que esta tierra ya tiene dueño. Los lobos no esperan a que respondáis. Se lanzan a la carrera por el patio, gruñendo.",
+              "narracion": "narraciones/el-estandarte-rojo-1-escena-1.mp3"
+            },
+            {
+              "titulo": "Música en el corral",
+              "cuando": "Tras el primer combate",
+              "texto": "Del corral llega una melodía alegre y retorcida. Un sátiro con flauta de caña baila sobre la cerca, y a su ritmo los animales se golpean contra los tablones. Es el encargado de distraer a la gente mientras los demás roban. Os saluda con una reverencia burlona y empieza a tocar más rápido. Notáis que los pies se os mueven solos.",
+              "narracion": "narraciones/el-estandarte-rojo-1-escena-2.mp3"
+            },
+            {
+              "titulo": "El prisionero",
+              "cuando": "Tras el tercer combate",
+              "texto": "El último saqueador cae junto al pozo y suplica por su vida. Es un muchacho flaco, con hambre de semanas. Dice que se unió a la Garra por un plato caliente, como tantos otros. El grano va a un campamento en el bosque, al otro lado del barranco, donde los reclutas se juntan antes de marchar. Antes de que termine, el carro arranca solo.",
+              "narracion": "narraciones/el-estandarte-rojo-1-escena-3.mp3"
+            },
+            {
+              "titulo": "Siguiendo el humo",
+              "cuando": "Al terminar el último combate",
+              "texto": "Detenéis el carro en el borde del bosque y recuperáis el grano. La familia sale de la casa llorando de alivio. El muchacho os dibuja en el barro el camino hacia el campamento, con un puente de tablas sobre el barranco y centinelas aburridos. Lo dejáis al cuidado de los granjeros, que necesitan manos. Vosotros os adentráis en el bosque, siguiendo el rastro del grano robado.",
+              "narracion": "narraciones/el-estandarte-rojo-1-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El patio empedrado",
+              "ubicacion": "Centro del mapa, el patio de piedra entre la casa y el granero",
+              "que_hay": "Grano derramado, sacos a medio cargar y un estandarte rojo clavado en el suelo.",
+              "combate": "Primer combate: dos Lobos Espinosos"
+            },
+            {
+              "nombre": "El corral cercado",
+              "ubicacion": "Arriba a la izquierda, el corral con la tina, el barril y los animales asustados",
+              "que_hay": "Animales hechizados por la música y una flauta de repuesto tirada en la hierba.",
+              "prueba": "Tirada de d20: con doce o más resistís la melodía; si falla, perdéis el primer turno bailando.",
+              "combate": "Segundo combate: Sátiro Trovador"
+            },
+            {
+              "nombre": "El pozo de piedra",
+              "ubicacion": "Abajo a la derecha, el pozo junto al bosque",
+              "que_hay": "Un saqueador escondido dentro del cubo con una bolsa de monedas robadas.",
+              "prueba": "Tirada de d20: con diez o más lo encontráis antes de que escape.",
+              "combate": "Tercer combate: Sátiro Trovador y Lobo Espinoso"
+            },
+            {
+              "nombre": "El carro junto al bosque",
+              "ubicacion": "Arriba a la derecha, el carro cargado al borde del camino",
+              "que_hay": "El grano de la familia y un pañuelo rojo con un mapa bordado del bosque.",
+              "combate": "Cuarto combate: Lobo Espinoso tirando del carro"
+            }
+          ]
+        },
+        {
+          "mapa": "campamento-bandido",
+          "titulo": "Entre lonas y fogatas",
+          "objetivo": "Asaltar el campamento bandido y robar las órdenes de marcha de la Garra.",
+          "amenazas": [
+            "Gato Hachero",
+            "Rana Ballestera",
+            "Enano Corrompido"
+          ],
+          "descripcion": "Llegáis al campamento bandido por el camino del bosque, agachados entre la maleza. Está escondido entre árboles altos y dos paredes de roca, y un barranco lo parte en dos, cruzado por un puente de tablas y troncos. A ambos lados hay empalizadas improvisadas, montones de leña y un carro con cajas. Huele a humo y a guiso quemado. Los reclutas de la Garra juegan a los dados y los centinelas bostezan. Aquí llegan las órdenes del caudillo, y en algún lugar del campamento está el pergamino que necesitáis.",
+          "narracion": "narraciones/el-estandarte-rojo-2.mp3",
+          "escenas": [
+            {
+              "titulo": "Los centinelas",
+              "cuando": "Al acercarse a las empalizadas",
+              "texto": "Las empalizadas del norte tienen estacas afiladas, pero también huecos. Tras una de ellas, un gato enorme con un hacha al hombro afila el filo mientras canturrea. Es el jefe de los centinelas, y lleva colgada del cinturón una llave de hierro. Si dais la alarma, todo el campamento caerá sobre vosotros. Si sois rápidos, solo él.",
+              "narracion": "narraciones/el-estandarte-rojo-2-escena-1.mp3"
+            },
+            {
+              "titulo": "El puente de tablas",
+              "cuando": "Al cruzar el puente",
+              "texto": "El puente cruje bajo vuestro peso, y abajo el barranco es tan hondo que no se ve el fondo. A mitad del camino, desde los árboles del otro lado, llueven virotes de ballesta. Unas ranas con armaduras de cuero disparan desde las ramas, croando órdenes entre ellas. No hay dónde esconderse. Solo podéis avanzar o retroceder.",
+              "narracion": "narraciones/el-estandarte-rojo-2-escena-2.mp3"
+            },
+            {
+              "titulo": "La tienda del jefe",
+              "cuando": "Tras el tercer combate",
+              "texto": "En el carro junto a los árboles del sur encontráis la carga más valiosa del campamento, cofres con el sello de la Garra. Dentro hay un pergamino lacrado con cera roja. La Garra planea tomar el paso del centinela dentro de tres noches, para que nadie pueda avisar al reino cuando su ejército marche. Y aún queda alguien que no quiere dejaros salir.",
+              "narracion": "narraciones/el-estandarte-rojo-2-escena-3.mp3"
+            },
+            {
+              "titulo": "Tres noches",
+              "cuando": "Al terminar el último combate",
+              "texto": "Con el jefe vencido, los reclutas huyen al bosque. Desde lo alto de las rocas veis, muy lejos, dos torres de vigía en un paso de montaña. Si cae el paso, nadie avisará al reino. Tres noches no es mucho tiempo, pero es suficiente si no os detenéis. Recoged provisiones del campamento, curad vuestras heridas y partid hacia las montañas.",
+              "narracion": "narraciones/el-estandarte-rojo-2-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Las empalizadas del norte",
+              "ubicacion": "Arriba, a ambos lados del camino, las estacas y los montones de piedras",
+              "que_hay": "El puesto de guardia con un cuerno de alarma y la llave de hierro del jefe.",
+              "prueba": "Tirada de d20: con doce o más os coláis por un hueco sin que suene el cuerno.",
+              "combate": "Primer combate: Gato Hachero"
+            },
+            {
+              "nombre": "El puente de tablas",
+              "ubicacion": "Centro, el puente que cruza el barranco de izquierda a derecha",
+              "que_hay": "Tablas sueltas y una cuerda que sujeta todo el puente.",
+              "prueba": "Tirada de d20 por cada héroe que cruce corriendo: con nueve o más pasa; si falla, queda colgando y pierde un turno.",
+              "combate": "Segundo combate: Rana Ballestera"
+            },
+            {
+              "nombre": "El carro de los cofres",
+              "ubicacion": "Abajo a la derecha, el carro con cajas bajo el árbol grande",
+              "que_hay": "Cofres con el sello de la Garra y el pergamino de las órdenes de marcha.",
+              "prueba": "Abrir el cofre: con la llave de hierro, sin tirada; sin ella, tirada de d20 con catorce o más.",
+              "combate": "Tercer combate: Rana Ballestera y Gato Hachero"
+            },
+            {
+              "nombre": "La pared de roca del oeste",
+              "ubicacion": "Borde izquierdo, la pared de roca junto a la leña apilada",
+              "que_hay": "Una cueva estrecha donde el jefe del campamento guarda su botín.",
+              "combate": "Cuarto combate: Enano Corrompido, el jefe del campamento"
+            }
+          ]
+        },
+        {
+          "mapa": "paso-del-centinela",
+          "titulo": "Las torres del paso",
+          "objetivo": "Defender las torres de vigía y encender la señal de alarma para el reino.",
+          "amenazas": [
+            "Humano Corrompido",
+            "Coloso Calvo",
+            "Bruja Cazacráneos"
+          ],
+          "descripcion": "Llegáis al paso del centinela cuando el sol se pone. El camino serpentea entre peñascos y dos torres de vigía de madera se alzan a cada lado, unidas por escaleras y pasarelas. En lo alto de la torre del este hay un montón de leña cubierto con una lona, la gran hoguera de aviso que alerta al reino. Los pocos guardias que quedan os miran como si fuerais un milagro. Al caer la noche, se oyen pasos en la ladera, el tintineo de las escaleras de asalto y el brillo de cien antorchas.",
+          "narracion": "narraciones/el-estandarte-rojo-3.mp3",
+          "escenas": [
+            {
+              "titulo": "Las escaleras de asalto",
+              "cuando": "Al caer la noche",
+              "texto": "Los primeros hombres de la Garra suben por el camino del sur con escudos y antorchas. Tienen los ojos inyectados de oscuridad, los mismos que el reclutador del campamento. El capitán de la guardia os grita que defendáis la torre del oeste, porque si cae, desde allí podrán quemar la hoguera antes de encenderla. La batalla del paso ha comenzado.",
+              "narracion": "narraciones/el-estandarte-rojo-3-escena-1.mp3"
+            },
+            {
+              "titulo": "El gigante calvo",
+              "cuando": "Tras el primer combate",
+              "texto": "La tierra tiembla. Por el camino sube un coloso de piel gris y cabeza calva, arrastrando un tronco como si fuera una maza. Va directo hacia la torre del este, la de la hoguera. Si la derriba, no habrá aviso. Los guardias retroceden aterrados. Solo vosotros os interponéis en su camino.",
+              "narracion": "narraciones/el-estandarte-rojo-3-escena-2.mp3"
+            },
+            {
+              "titulo": "La bruja de las calaveras",
+              "cuando": "Tras el tercer combate",
+              "texto": "Cuando creéis que el asalto ha terminado, una risa os eriza la piel. Sobre los peñascos aparece una bruja con un collar de cráneos, la consejera de la Garra. Ha venido a apagar la hoguera con un viento de ceniza. Os dice que la Garra no teme a los reyes, porque ella le ha prometido que ninguna espada podrá tocarla.",
+              "narracion": "narraciones/el-estandarte-rojo-3-escena-3.mp3"
+            },
+            {
+              "titulo": "La señal",
+              "cuando": "Al encender la hoguera",
+              "texto": "La leña prende y una columna de fuego sube hacia las estrellas. Al otro lado de las montañas, otra hoguera responde, y luego otra. El reino ha sido avisado. Los atacantes huyen ladera abajo. Al amanecer, desde lo alto de la torre, veis por fin el campamento de guerra en el valle, una ciudad de lona con el estandarte rojo ondeando en su centro.",
+              "narracion": "narraciones/el-estandarte-rojo-3-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La torre del oeste",
+              "ubicacion": "Izquierda del mapa, la torre de madera con escaleras junto a la roca",
+              "que_hay": "Armas de repuesto de los guardias y un barril de agua para apagar flechas incendiarias.",
+              "prueba": "Tirada de d20: con diez o más apagáis el fuego de la escalera antes de que se extienda.",
+              "combate": "Primer combate: Humano Corrompido"
+            },
+            {
+              "nombre": "El camino del paso",
+              "ubicacion": "Centro, el camino de tierra entre las dos torres",
+              "que_hay": "Los peñascos estrechan el paso; se pueden empujar rocas sobre los atacantes.",
+              "prueba": "Empujar una roca: tirada de d20, con trece o más hace daño al enemigo más cercano.",
+              "combate": "Segundo combate: Coloso Calvo"
+            },
+            {
+              "nombre": "La torre del este y la hoguera",
+              "ubicacion": "Arriba a la derecha, la torre con la escalera y la leña bajo una lona",
+              "que_hay": "La gran hoguera de aviso y la yesca seca para encenderla.",
+              "prueba": "Encender la hoguera: tirada de d20, con doce o más prende; solo se puede intentar tras vencer al tercer grupo.",
+              "combate": "Tercer combate: Humano Corrompido y Coloso Calvo"
+            },
+            {
+              "nombre": "La meseta de roca",
+              "ubicacion": "Abajo a la derecha, la gran roca plana junto a las cajas y los troncos",
+              "que_hay": "El puesto desde donde la bruja lanza sus hechizos y un saco de cráneos tallados.",
+              "combate": "Cuarto combate: Bruja Cazacráneos"
+            }
+          ]
+        },
+        {
+          "mapa": "campamento-de-guerra",
+          "titulo": "La caída de la Garra",
+          "objetivo": "Infiltraros en el campamento de guerra y derrotar a la Garra ante su propio ejército.",
+          "amenazas": [
+            "Soldado Cañonero",
+            "Paquidermo Acorazado",
+            "Lamia Dorada"
+          ],
+          "descripcion": "Llegáis al campamento de guerra al anochecer, ocultos entre los carros de suministros. Es una ciudad de lona encerrada tras una empalizada de troncos, con tiendas blancas y rojas, una hoguera central y jaulas llenas de prisioneros. Se oyen tambores, el martilleo de las fraguas y miles de voces. Vuestra señal llegó al reino, pero los refuerzos tardarán días, y la Garra marchará mañana. Solo queda una opción: entrar, llegar hasta la gran tienda del norte y vencer a la Garra delante de los suyos.",
+          "narracion": "narraciones/el-estandarte-rojo-4.mp3",
+          "escenas": [
+            {
+              "titulo": "Las jaulas",
+              "cuando": "Al pasar la empalizada",
+              "texto": "Junto a la empalizada del sur hay jaulas de madera con aldeanos encerrados, muchos de las aldeas quemadas. Si los liberáis, sembrarán el caos en el campamento y nadie se fijará en vosotros. Pero la guardia de las jaulas es una bestia acorazada como un ariete, con un jinete que grita órdenes desde su lomo. Os ha visto.",
+              "narracion": "narraciones/el-estandarte-rojo-4-escena-1.mp3"
+            },
+            {
+              "titulo": "Los cañones",
+              "cuando": "Tras liberar a los prisioneros",
+              "texto": "Los prisioneros corren entre las tiendas y prenden fuego a los carros. El campamento entero despierta. Junto a la hoguera central, un soldado con un cañón al hombro apunta hacia la multitud. Detrás de él, en los establos del este, varios caballos de guerra relinchan atados. Si llega la caballería, no saldréis vivos de aquí.",
+              "narracion": "narraciones/el-estandarte-rojo-4-escena-2.mp3"
+            },
+            {
+              "titulo": "La Garra",
+              "cuando": "Al llegar a la gran tienda",
+              "texto": "La gran tienda del norte está abierta. Dentro os espera la Garra, con armadura roja y una sonrisa cansada. No es una bestia ni un demonio, sino una mujer que perdió su aldea hace años y juró que nadie volvería a tener hambre. A su lado, una lamia de escamas doradas le susurra al oído. Ella es quien la hizo invencible.",
+              "narracion": "narraciones/el-estandarte-rojo-4-escena-3.mp3"
+            },
+            {
+              "titulo": "El estandarte arde",
+              "cuando": "Al derrotar a la Garra",
+              "texto": "Cuando la lamia cae, la Garra baja la espada. Sin el hechizo, solo es una mujer agotada. Se rinde ante su propio ejército, y el estandarte rojo arde sobre la hoguera central. Los soldados, sin nadie que les prometa oro, arrojan las armas. Al amanecer llegan los jinetes del reino. El paso está a salvo, y vuestros nombres empiezan a sonar en las canciones de la taberna.",
+              "narracion": "narraciones/el-estandarte-rojo-4-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Las jaulas del sur",
+              "ubicacion": "Abajo en el centro, las jaulas de madera junto a la empalizada",
+              "que_hay": "Aldeanos prisioneros y un llavero colgado de un poste.",
+              "prueba": "Abrir las jaulas: tirada de d20, con once o más; cada éxito libera a un grupo de aldeanos.",
+              "combate": "Primer combate: Paquidermo Acorazado"
+            },
+            {
+              "nombre": "La hoguera central",
+              "ubicacion": "Centro, el fuego de piedras rodeado de bancos",
+              "que_hay": "El punto de reunión de las tropas; mapas de la marcha sobre una mesa.",
+              "combate": "Segundo combate: Soldado Cañonero"
+            },
+            {
+              "nombre": "Los establos",
+              "ubicacion": "Derecha, los caballos atados junto a la empalizada de troncos",
+              "que_hay": "Caballos de guerra que pueden soltarse para sembrar el caos.",
+              "prueba": "Tirada de d20: con doce o más los soltáis y los refuerzos enemigos no llegan.",
+              "combate": "Tercer combate: Soldado Cañonero y Paquidermo Acorazado"
+            },
+            {
+              "nombre": "La gran tienda",
+              "ubicacion": "Arriba en el centro, la tienda blanca con el estandarte",
+              "que_hay": "El trono de campaña de la Garra y el cofre de la paga del ejército.",
+              "combate": "Cuarto combate: Lamia Dorada y la Garra, una Soldado Cañonero"
+            }
+          ]
+        }
+      ],
+      "narracion": "narraciones/el-estandarte-rojo.mp3"
+    },
+    {
+      "id": "la-campana-sin-voz",
+      "nombre": "La Campana sin Voz",
+      "gancho": "Una secta ha robado la campana sagrada de la ciudad y con ella el sueño de todos sus habitantes.",
+      "descripcion": "La ciudad de Puertoalba nunca duerme, pero ahora es distinto. Desde que la campana de la iglesia enmudeció, nadie consigue dormir. La gente camina por las calles con ojos hundidos, los marineros se pelean en el puerto y en la prisión se oyen risas que no son humanas. El obispo os ha llamado en secreto. La campana no se ha roto: alguien la ha silenciado, y en su silencio algo susurra desde abajo, desde los sótanos y las alcantarillas. Debéis encontrar a los responsables antes de que la ciudad entera pierda la razón. Empezad por los muelles, donde dicen que la noche del silencio atracó un barco sin bandera.",
+      "escenarios": [
+        {
+          "mapa": "puerto",
+          "titulo": "El barco sin bandera",
+          "objetivo": "Registrar los muelles y descubrir qué descargó el barco sin bandera.",
+          "amenazas": [
+            "Rana Ballestera",
+            "Tarántula Gigante",
+            "Calavera Ardiente"
+          ],
+          "descripcion": "Llegáis al puerto de Puertoalba con la marea alta. Huele a sal, a pescado y a algo dulzón que no sabéis nombrar. Las pasarelas de madera crujen sobre el agua verde, y amarrado al muelle central hay un barco sin bandera, con la cubierta llena de toldos, cajas y barriles. Los estibadores tienen los ojos hundidos de no dormir y se apartan al veros. Nadie quiere hablar del barco que atracó la noche en que la campana enmudeció. Debéis registrarlo, y descubrir qué descargó.",
+          "narracion": "narraciones/la-campana-sin-voz-1.mp3",
+          "escenas": [
+            {
+              "titulo": "Guardias del barco",
+              "cuando": "Al subir por la pasarela",
+              "texto": "Al pisar la cubierta, unas ranas con ballestas asoman detrás de los barriles de la popa. Llevan pañuelos negros y croan entre ellas en una lengua extraña. Alguien les ha pagado para que nadie suba a bordo. Uno de los virotes se clava a un palmo de vuestras botas. El siguiente no fallará.",
+              "narracion": "narraciones/la-campana-sin-voz-1-escena-1.mp3"
+            },
+            {
+              "titulo": "La bodega",
+              "cuando": "Al abrir la escotilla de la bodega",
+              "texto": "La reja de la bodega se abre con un chirrido. Abajo, en la oscuridad, hay cajas alargadas con forma de ataúd, todas vacías, y un olor dulzón que marea. Las paredes están cubiertas de telarañas gruesas como cuerdas. Algo enorme, con muchas patas, os observa desde el techo. La cera negra gotea por las tablas.",
+              "narracion": "narraciones/la-campana-sin-voz-1-escena-2.mp3"
+            },
+            {
+              "titulo": "El marinero sin sueño",
+              "cuando": "Tras el tercer combate",
+              "texto": "Escondido tras los cañones encontráis a un marinero acurrucado, que no ha dormido en días. Repite un nombre una y otra vez, la Hermana Sin Ojos. Os cuenta que las cajas traían a sus fieles, y que bajaron a la ciudad con velas negras encendidas. Cada vela que arde en Puertoalba roba un poco más del sueño de la gente.",
+              "narracion": "narraciones/la-campana-sin-voz-1-escena-3.mp3"
+            },
+            {
+              "titulo": "El rastro de cera",
+              "cuando": "Al terminar el último combate",
+              "texto": "Desde la bodega sale un rastro de gotas de cera negra que cruza la cubierta, baja por la pasarela y sube por las calles del puerto hacia la ciudad. Parece que alguien quisiera que lo siguierais. El marinero os da las gracias y, por primera vez en días, se queda dormido. Vosotros seguís el rastro hacia los canales de Puertoalba.",
+              "narracion": "narraciones/la-campana-sin-voz-1-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La popa del barco",
+              "ubicacion": "Izquierda, la cubierta con el toldo de rayas verdes y blancas",
+              "que_hay": "Barriles, una mesa con cartas y la bolsa de pago de los guardias.",
+              "combate": "Primer combate: Rana Ballestera"
+            },
+            {
+              "nombre": "La escotilla de la bodega",
+              "ubicacion": "Centro, la gran reja de madera en mitad de la cubierta",
+              "que_hay": "Cajas con forma de ataúd, telarañas y cera negra.",
+              "prueba": "Tirada de d20: con doce o más bajáis sin quedar pegados a las telarañas.",
+              "combate": "Segundo combate: Tarántula Gigante"
+            },
+            {
+              "nombre": "Los cañones de proa",
+              "ubicacion": "Derecha, la proa con los cañones y los barriles de pólvora",
+              "que_hay": "El marinero escondido y un cañón cargado que puede dispararse una vez.",
+              "prueba": "Disparar el cañón: tirada de d20, con trece o más alcanza a un enemigo.",
+              "combate": "Tercer combate: Calavera Ardiente"
+            },
+            {
+              "nombre": "Las pasarelas del muelle",
+              "ubicacion": "Arriba y abajo, los muelles de madera que rodean el barco",
+              "que_hay": "El rastro de cera negra hacia la ciudad y un bote amarrado.",
+              "prueba": "Tirada de d20: con diez o más encontráis una vela negra sin encender, útil como prueba.",
+              "combate": "Cuarto combate: Rana Ballestera y Tarántula Gigante"
+            }
+          ]
+        },
+        {
+          "mapa": "ciudad",
+          "titulo": "Calles de insomnio",
+          "objetivo": "Seguir el rastro de cera por la ciudad y capturar a un sectario.",
+          "amenazas": [
+            "Engendro del Abismo",
+            "Gato Hachero",
+            "Humano Corrompido"
+          ],
+          "descripcion": "Llegáis a las calles de Puertoalba siguiendo el rastro de cera negra. Un canal de agua cruza la ciudad de lado a lado, con un tablón de madera como único paso. Las casas de piedra se apiñan entre callejones estrechos y puestos de mercado con toldos de colores. Las tabernas no cierran, la gente camina con ojos hundidos y las peleas estallan por nada. Entre la multitud se mueven figuras con capucha que reparten velas negras. Debéis atrapar a una de ellas.",
+          "narracion": "narraciones/la-campana-sin-voz-2.mp3",
+          "escenas": [
+            {
+              "titulo": "El tablón del canal",
+              "cuando": "Al cruzar el canal",
+              "texto": "El rastro de cera cruza el canal por el tablón. Al pisarlo, el agua se agita y algo sube desde el fondo, una masa de tentáculos que se alimenta de lo que tiran al canal. Las velas negras que flotan en el agua la han vuelto rabiosa. Si caéis, os arrastrará al fondo.",
+              "narracion": "narraciones/la-campana-sin-voz-2-escena-1.mp3"
+            },
+            {
+              "titulo": "El mercado sin sueño",
+              "cuando": "Al llegar al mercado",
+              "texto": "En el mercado, los vendedores pelean por una manzana y los niños lloran sin parar. Un gato con un hacha roba en los puestos con total descaro. Lleva en la mochila un fardo de velas negras. Cuando le cerráis el paso, os ofrece una vela como regalo, diciendo que con ella nunca más tendréis que dormir.",
+              "narracion": "narraciones/la-campana-sin-voz-2-escena-2.mp3"
+            },
+            {
+              "titulo": "El encapuchado",
+              "cuando": "Tras el tercer combate",
+              "texto": "Por fin acorraláis a uno de los encapuchados en un callejón. Al quitarle la capucha veis una marca en la frente con forma de ojo cerrado. Antes de desmayarse sonríe y dice que la Hermana os espera, encerrada donde nadie la buscaría. Pero alguien más ha visto la captura, y no quiere que el prisionero hable.",
+              "narracion": "narraciones/la-campana-sin-voz-2-escena-3.mp3"
+            },
+            {
+              "titulo": "Hacia la prisión",
+              "cuando": "Al terminar el último combate",
+              "texto": "El último atacante cae sobre los adoquines. En su bolsillo hay una llave de hierro con el escudo de la ciudad, la llave de la prisión. Los guardias de la ciudad no han dado señales de vida en días. Ahora sabéis por qué. La secta se ha apoderado de la prisión, y la Hermana Sin Ojos espera allí, entre presos que ríen.",
+              "narracion": "narraciones/la-campana-sin-voz-2-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El canal y el tablón",
+              "ubicacion": "Arriba, el canal de agua que cruza el mapa con el tablón de madera a la derecha",
+              "que_hay": "Velas negras flotando y un rastro de cera sobre el tablón.",
+              "prueba": "Cruzar el tablón: tirada de d20, con diez o más pasáis; si no, caéis al agua y perdéis un turno.",
+              "combate": "Primer combate: Engendro del Abismo"
+            },
+            {
+              "nombre": "Los puestos del mercado",
+              "ubicacion": "Centro y abajo, los toldos de colores a ambos lados de la calle",
+              "que_hay": "Fruta, pan y velas negras escondidas entre la mercancía.",
+              "prueba": "Tirada de d20: con doce o más encontráis pan y fruta para el viaje.",
+              "combate": "Segundo combate: Gato Hachero"
+            },
+            {
+              "nombre": "La casa del alquimista",
+              "ubicacion": "Arriba a la derecha, la casa con el toldo rojo y varias habitaciones",
+              "que_hay": "Un alquimista que no ha dormido en días; vende pociones a buen precio si le ayudáis.",
+              "combate": "Tercer combate: Humano Corrompido, el encapuchado"
+            },
+            {
+              "nombre": "El callejón de la escalera",
+              "ubicacion": "Abajo a la izquierda, junto a la escalera de piedra",
+              "que_hay": "La llave de la prisión en el bolsillo de un sectario.",
+              "combate": "Cuarto combate: Humano Corrompido y Gato Hachero"
+            }
+          ]
+        },
+        {
+          "mapa": "prision",
+          "titulo": "Los presos que ríen",
+          "objetivo": "Entrar en la prisión tomada por la secta y liberar a los guardias.",
+          "amenazas": [
+            "Devorador de Mentes",
+            "Coloso Calvo",
+            "Enano Corrompido"
+          ],
+          "descripcion": "Llegáis a la prisión de Puertoalba con la llave en la mano. La puerta del rastrillo está levantada y nadie vigila la entrada. Dentro, pasillos estrechos de piedra unen dos bloques de celdas con barrotes de hierro, y una escalera de caracol baja hacia las mazmorras. Los guardias están encerrados en sus propias celdas, y los presos, con los ojos en blanco, recorren los pasillos riendo. Algo les controla la mente. Debéis liberar a los guardias y encontrar a quien maneja los hilos.",
+          "narracion": "narraciones/la-campana-sin-voz-3.mp3",
+          "escenas": [
+            {
+              "titulo": "Los presos que ríen",
+              "cuando": "Al cruzar el rastrillo",
+              "texto": "Tras el rastrillo, un enano corpulento os espera con un martillo de herrero. Era el carcelero de la prisión, y ahora tiene los ojos negros y la boca torcida en una sonrisa. Los presos le aplauden desde las celdas. Os grita que nadie sale de aquí sin permiso de la Hermana.",
+              "narracion": "narraciones/la-campana-sin-voz-3-escena-1.mp3"
+            },
+            {
+              "titulo": "Los guardias encerrados",
+              "cuando": "Al llegar al bloque de celdas",
+              "texto": "En las celdas del bloque norte encontráis a los guardias de la ciudad, encerrados y hambrientos. Os suplican que abráis las puertas. Mientras buscáis la llave adecuada, un gigante calvo, preso de la celda más grande, rompe los barrotes y avanza por el pasillo. La risa de los presos se vuelve ensordecedora.",
+              "narracion": "narraciones/la-campana-sin-voz-3-escena-2.mp3"
+            },
+            {
+              "titulo": "La celda más profunda",
+              "cuando": "Al bajar la escalera de caracol",
+              "texto": "Abajo, en la celda más profunda, una criatura de piel violeta y tentáculos en la cara flota sobre el suelo. Es el devorador de mentes que manejaba a los presos. Os habla dentro de vuestra cabeza, con la voz de vuestros seres queridos. Os dice que la Hermana ya no está aquí. Ha vuelto a por su campana.",
+              "narracion": "narraciones/la-campana-sin-voz-3-escena-3.mp3"
+            },
+            {
+              "titulo": "Medianoche",
+              "cuando": "Al terminar el último combate",
+              "texto": "Cuando la criatura se desploma, las risas cesan de golpe. Los presos caen dormidos donde están. En la pared, con tinta oscura, alguien ha escrito un último mensaje: la campana sonará a medianoche, pero tocará para ella. Los guardias liberados os ofrecen sus armas. Desde las ventanas veis la torre de la iglesia, y en lo alto, la campana empieza a moverse sola.",
+              "narracion": "narraciones/la-campana-sin-voz-3-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El rastrillo",
+              "ubicacion": "Abajo en el centro, la puerta de hierro con las dos ruedas",
+              "que_hay": "El mecanismo del rastrillo; se puede bajar para cortar la huida.",
+              "prueba": "Bajar el rastrillo: tirada de d20, con doce o más.",
+              "combate": "Primer combate: Enano Corrompido"
+            },
+            {
+              "nombre": "El bloque de celdas",
+              "ubicacion": "Centro y arriba, las celdas a ambos lados del pasillo",
+              "que_hay": "Los guardias de la ciudad encerrados y un preso gigante.",
+              "prueba": "Abrir cada celda: tirada de d20, con diez o más.",
+              "combate": "Segundo combate: Coloso Calvo"
+            },
+            {
+              "nombre": "El cuarto del alcaide",
+              "ubicacion": "Arriba a la izquierda, la habitación con la cama roja y la alfombra verde",
+              "que_hay": "El diario del alcaide y un armario con armas confiscadas.",
+              "prueba": "Tirada de d20: con trece o más encontráis una poción de curación.",
+              "combate": "Tercer combate: Enano Corrompido y Coloso Calvo"
+            },
+            {
+              "nombre": "La sala del círculo rojo",
+              "ubicacion": "Abajo a la derecha, la sala con el símbolo rojo pintado en el suelo",
+              "que_hay": "El círculo ritual donde la secta controlaba a los presos.",
+              "combate": "Cuarto combate: Devorador de Mentes"
+            }
+          ]
+        },
+        {
+          "mapa": "iglesia",
+          "titulo": "La medianoche de la Hermana",
+          "objetivo": "Recuperar la campana de la iglesia y derrotar a la Hermana Sin Ojos antes de medianoche.",
+          "amenazas": [
+            "Hechicero Demoníaco",
+            "Gárgola Alabardera",
+            "Dama de Cristal"
+          ],
+          "descripcion": "Llegáis a la iglesia corriendo por la ciudad dormida. El jardín de setos y rosas está pisoteado, y las puertas de la entrada, al oeste, están abiertas de par en par. Dentro, las filas de bancos de madera flanquean una alfombra roja que lleva hasta el altar, donde arden cientos de velas negras. Arriba, colgada de nuevo en su torre, la campana empieza a moverse sola. La Hermana Sin Ojos flota en el centro de la nave, rodeada de sus fieles y de gárgolas que han bajado de los tejados. Falta muy poco para la medianoche.",
+          "narracion": "narraciones/la-campana-sin-voz-4.mp3",
+          "escenas": [
+            {
+              "titulo": "Las gárgolas",
+              "cuando": "Al entrar por la puerta oeste",
+              "texto": "Al cruzar la puerta, dos sombras caen del techo. Son gárgolas de piedra con alabardas, que hasta ayer adornaban los tejados de la iglesia. Sus ojos brillan con la misma luz que las velas negras. Cierran el paso a la nave. La campana da su primer tañido sordo, y el suelo tiembla.",
+              "narracion": "narraciones/la-campana-sin-voz-4-escena-1.mp3"
+            },
+            {
+              "titulo": "El hechicero del altar",
+              "cuando": "Al llegar a la mitad de la nave",
+              "texto": "A mitad de la alfombra roja, un hechicero de piel roja y cuernos se alza entre los bancos. Es el sumo sacerdote de la secta, quien trajo a la Hermana desde las profundidades. Lanza llamas negras sobre los bancos, que empiezan a arder. Os dice que la ciudad entera dormirá para siempre en cuanto suene la última campanada.",
+              "narracion": "narraciones/la-campana-sin-voz-4-escena-2.mp3"
+            },
+            {
+              "titulo": "La Hermana Sin Ojos",
+              "cuando": "Al llegar al altar",
+              "texto": "Ante el altar, la Hermana Sin Ojos baja hasta el suelo. Su cuerpo es de cristal, y donde deberían estar los ojos solo hay dos huecos que reflejan vuestros miedos. Dice que solo quiere que la ciudad duerma en paz, para siempre. La campana suena por undécima vez. Solo queda una.",
+              "narracion": "narraciones/la-campana-sin-voz-4-escena-3.mp3"
+            },
+            {
+              "titulo": "La campana limpia",
+              "cuando": "Al derrotar a la Hermana",
+              "texto": "La Hermana se rompe en mil pedazos y las velas negras se apagan todas a la vez. Arriba, la campana tañe una última vez, clara y limpia. En toda Puertoalba la gente se queda dormida donde está, en las calles, en las tabernas, en los muelles. Por primera vez en semanas, la ciudad descansa. Al amanecer, el obispo os espera en la puerta con lágrimas en los ojos.",
+              "narracion": "narraciones/la-campana-sin-voz-4-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El jardín de setos",
+              "ubicacion": "Arriba y a la izquierda, el jardín de rosas y setos alrededor de la iglesia",
+              "que_hay": "Rosales pisoteados y un banco de piedra con una vela negra encendida.",
+              "prueba": "Tirada de d20: con diez o más apagáis la vela y la campana se retrasa un tañido."
+            },
+            {
+              "nombre": "La puerta oeste",
+              "ubicacion": "Izquierda, el vestíbulo de entrada con sus dos mesas",
+              "que_hay": "Las puertas abiertas y las gárgolas que bajan del techo.",
+              "combate": "Primer combate: Gárgola Alabardera"
+            },
+            {
+              "nombre": "La nave de los bancos",
+              "ubicacion": "Centro, las filas de bancos a ambos lados de la alfombra roja",
+              "que_hay": "Bancos que arden con llamas negras; se pueden usar como cobertura.",
+              "prueba": "Tirada de d20: con doce o más evitáis las llamas negras al cruzar la nave.",
+              "combate": "Segundo combate: Hechicero Demoníaco. Tercer combate: Gárgola Alabardera y Dama de Cristal al pie del altar"
+            },
+            {
+              "nombre": "El altar y la sacristía",
+              "ubicacion": "Derecha, el altar con las velas negras y las salas laterales",
+              "que_hay": "El altar ritual, la cuerda de la campana y la Hermana Sin Ojos.",
+              "prueba": "Cortar la cuerda de la campana: tirada de d20, con quince o más; si lo lográis, ganáis tiempo.",
+              "combate": "Cuarto combate: Dama de Cristal, la Hermana Sin Ojos"
+            }
+          ]
+        }
+      ],
+      "narracion": "narraciones/la-campana-sin-voz.mp3"
+    },
+    {
+      "id": "el-corazon-del-bosque",
+      "nombre": "El Corazón del Bosque",
+      "gancho": "El bosque antiguo se está muriendo y algo devora su magia desde lo más profundo de la tierra.",
+      "descripcion": "Los leñadores de Ramaverde han vuelto del bosque con las hachas intactas y las caras pálidas. Dicen que los árboles se están secando de dentro hacia fuera, que los ríos bajan turbios y que por las noches algo enorme camina entre los troncos sin hacer ruido. La druida que cuidaba el círculo sagrado lleva semanas sin bajar al pueblo. Si el bosque muere, morirá todo lo que depende de él: la caza, la madera, el agua. Os han pedido que encontréis a la druida y que averigüéis qué está enfermando el bosque. Tomad el sendero de los leñadores, cruzad la cascada y no os separéis, porque bajo estos árboles, hasta las sombras tienen hambre.",
+      "escenarios": [
+        {
+          "mapa": "cabana-de-troncos",
+          "titulo": "La cabaña de la druida",
+          "objetivo": "Llegar a la cabaña de la druida y averiguar adónde ha ido.",
+          "amenazas": [
+            "Lobo Espinoso",
+            "Sátiro Trovador",
+            "Tarántula Gigante"
+          ],
+          "descripcion": "Llegáis a la cabaña de la druida tras una mañana de camino por el sendero de los leñadores. Se alza en un claro, con el tejado de pizarra verde cubierto de musgo y una leñera adosada. De la chimenea no sale humo. Un arroyo cruza el claro por el sur, bajo un pequeño puente de tablas, y junto al huerto hay tocones y troncos a medio partir. Los árboles rodean la casa como guardianes callados. Los lobos rondan el claro con el lomo erizado, más flacos y furiosos de lo normal.",
+          "narracion": "narraciones/el-corazon-del-bosque-1.mp3",
+          "escenas": [
+            {
+              "titulo": "Los lobos hambrientos",
+              "cuando": "Al cruzar el puente de tablas",
+              "texto": "Apenas cruzáis el puente, los lobos salen de entre los árboles. Tienen el lomo erizado de espinas y los ojos llenos de miedo. No cazan, huyen de algo que ha enfermado su bosque. Al veros, gruñen y se lanzan contra vosotros, desesperados. Uno de ellos lleva enredado en el cuello un trozo de tela verde, como la capa de una druida. Defendeos sin perder de vista la cabaña.",
+              "narracion": "narraciones/el-corazon-del-bosque-1-escena-1.mp3"
+            },
+            {
+              "titulo": "El sátiro del huerto",
+              "cuando": "Tras el primer combate",
+              "texto": "En el huerto, un sátiro con una flauta se come las coles de la druida. Al veros, se echa a reír y toca una melodía que hace bailar a las hojas. Os dice que la druida se fue hace días y que él cuida de la casa. Pero las huellas del huerto dicen otra cosa.",
+              "narracion": "narraciones/el-corazon-del-bosque-1-escena-2.mp3"
+            },
+            {
+              "titulo": "La cabaña vacía",
+              "cuando": "Al entrar en la cabaña",
+              "texto": "La cabaña está fría. Sobre la mesa hay hierbas secas, un diario abierto y un dibujo de la cascada con unas ruinas antiguas. La última anotación dice que el agua del bosque nace enferma, y que va a buscar por qué. Las arañas han tejido sus redes en las ventanas, y una de ellas es enorme.",
+              "narracion": "narraciones/el-corazon-del-bosque-1-escena-3.mp3"
+            },
+            {
+              "titulo": "El agua enferma",
+              "cuando": "Al terminar el último combate",
+              "texto": "El claro queda en silencio. En el arroyo, el agua baja turbia y verdosa, con un brillo enfermizo. La druida tenía razón: el mal viene de río arriba. Recogéis el diario, unas hierbas curativas del huerto y os ponéis en marcha hacia la cascada, siguiendo el curso del agua. Antes de partir, colgáis un cuenco de leche en la puerta, como hacen los leñadores para pedir permiso al bosque.",
+              "narracion": "narraciones/el-corazon-del-bosque-1-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El puente de tablas",
+              "ubicacion": "Abajo en el centro, el puente de madera sobre el arroyo",
+              "que_hay": "Huellas de lobo en el barro y agua turbia bajo las tablas.",
+              "combate": "Primer combate: Lobo Espinoso"
+            },
+            {
+              "nombre": "El huerto",
+              "ubicacion": "Abajo a la derecha, las filas de coles y hierbas junto al tocón",
+              "que_hay": "Hierbas curativas y las huellas de la druida hacia el arroyo.",
+              "prueba": "Tirada de d20: con once o más recogéis hierbas que curan un punto de vida.",
+              "combate": "Segundo combate: Sátiro Trovador"
+            },
+            {
+              "nombre": "La cabaña",
+              "ubicacion": "Arriba en el centro, la casa de tejado de pizarra verde con chimenea",
+              "que_hay": "El diario de la druida, el dibujo de la cascada y telarañas en las ventanas.",
+              "prueba": "Tirada de d20: con doce o más encontráis en el diario la ruta más corta a la cascada.",
+              "combate": "Tercer combate: Tarántula Gigante"
+            },
+            {
+              "nombre": "La leñera",
+              "ubicacion": "Arriba a la derecha, el cobertizo de madera adosado a la casa",
+              "que_hay": "Leña, hachas y un nido de arañas detrás de los troncos.",
+              "combate": "Cuarto combate: Tarántula Gigante y Lobo Espinoso"
+            }
+          ]
+        },
+        {
+          "mapa": "cascada",
+          "titulo": "El agua enferma",
+          "objetivo": "Explorar las ruinas de la cascada y purificar la poza envenenada.",
+          "amenazas": [
+            "Rana Ballestera",
+            "Engendro del Abismo",
+            "Gato Hachero"
+          ],
+          "descripcion": "Llegáis a la cascada envueltos en su rugido constante. Una cortina de agua cae a una poza que antes era cristalina y ahora brilla con un tono verdoso. Muros de piedra en ruinas trepan por la ladera, junto a una tarima de madera, viejos carros y los restos de un campamento. Un puente de piedra cruza el agua de lado a lado, estrecho y resbaladizo. Algo ha anidado en las ruinas y envenena el agua que alimenta todo el bosque. Debéis encontrar el origen del veneno.",
+          "narracion": "narraciones/el-corazon-del-bosque-2.mp3",
+          "escenas": [
+            {
+              "titulo": "El puente resbaladizo",
+              "cuando": "Al pisar el puente de piedra",
+              "texto": "A mitad del puente, desde las rocas, salta una rana con ballesta y armadura de corteza. Croa una orden y otras le responden entre las ruinas. Las ranas han convertido la cascada en su fortaleza, y no quieren intrusos. El puente es estrecho y resbaladizo. Un paso en falso y caeréis a la poza envenenada.",
+              "narracion": "narraciones/el-corazon-del-bosque-2-escena-1.mp3"
+            },
+            {
+              "titulo": "Las ruinas antiguas",
+              "cuando": "Al llegar a las ruinas",
+              "texto": "Entre los muros en ruinas hay un campamento abandonado, con una hoguera fría y barriles volcados. Huellas de la druida, mezcladas con huellas de botas pesadas. Del fondo de la poza sube una burbuja enorme, y luego otra. Algo que no es una rana está despertando ahí abajo, y su piel brilla con el mismo verde enfermizo que el agua del arroyo de la cabaña.",
+              "narracion": "narraciones/el-corazon-del-bosque-2-escena-2.mp3"
+            },
+            {
+              "titulo": "La piedra negra",
+              "cuando": "Tras el tercer combate",
+              "texto": "Bajo la poza, encajada en una grieta, hay una piedra negra que late como un corazón. Alguien la puso aquí a propósito, para envenenar el agua. Al sacarla, el agua se aclara poco a poco. Junto a ella encontráis un amuleto de la druida, roto. Sus huellas se pierden hacia una cueva escondida tras la cortina de agua.",
+              "narracion": "narraciones/el-corazon-del-bosque-2-escena-3.mp3"
+            },
+            {
+              "titulo": "Tras la cortina de agua",
+              "cuando": "Al terminar el último combate",
+              "texto": "Con la poza limpia, la cascada recupera su color. Detrás de la cortina de agua, una grieta oscura se abre en la roca. De dentro sale un aire frío que huele a moho y a aceite de antorchas. La druida está ahí abajo, y no está sola. Encended las antorchas y entrad.",
+              "narracion": "narraciones/el-corazon-del-bosque-2-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "El puente de piedra",
+              "ubicacion": "Centro, el puente diagonal que cruza la poza",
+              "que_hay": "Piedras resbaladizas por la espuma y ranas apostadas en los extremos.",
+              "prueba": "Tirada de d20 para cruzar: con diez o más pasáis; si no, caéis a la poza y perdéis un punto de vida.",
+              "combate": "Primer combate: Rana Ballestera"
+            },
+            {
+              "nombre": "El campamento de las ruinas",
+              "ubicacion": "Arriba a la izquierda, los muros de piedra con la hoguera y los barriles",
+              "que_hay": "Barriles volcados, una carreta y las huellas de la druida.",
+              "prueba": "Tirada de d20: con doce o más encontráis provisiones intactas.",
+              "combate": "Segundo combate: Gato Hachero"
+            },
+            {
+              "nombre": "La poza",
+              "ubicacion": "Abajo a la izquierda, el agua verdosa al pie de la cascada",
+              "que_hay": "La piedra negra encajada en una grieta del fondo.",
+              "prueba": "Sacar la piedra: tirada de d20, con trece o más; si falla, el veneno quita un punto de vida.",
+              "combate": "Tercer combate: Engendro del Abismo"
+            },
+            {
+              "nombre": "La tarima del este",
+              "ubicacion": "Abajo a la derecha, la pequeña tarima de madera junto a los árboles",
+              "que_hay": "Un puesto de vigía con una mesa y un cofre pequeño.",
+              "combate": "Cuarto combate: Rana Ballestera y Gato Hachero"
+            }
+          ]
+        },
+        {
+          "mapa": "cueva",
+          "titulo": "Bajo las raíces",
+          "objetivo": "Recorrer la cueva, rescatar a la druida y descubrir quién siembra las piedras negras.",
+          "amenazas": [
+            "Enano Corrompido",
+            "La Parca",
+            "Bruja Cazacráneos"
+          ],
+          "descripcion": "Llegáis a la cueva tras cruzar la cortina de agua, y la oscuridad se os echa encima como una manta húmeda. El goteo del agua resuena en las galerías y las raíces de los árboles cuelgan del techo como dedos. Pasarelas y escaleras de madera unen los salientes de roca, y más abajo un lago subterráneo de aguas verdes brilla sin luz propia. Hay cajas, mesas y un campamento a medio desmontar. Incrustadas en las raíces, piedras negras laten como sanguijuelas.",
+          "narracion": "narraciones/el-corazon-del-bosque-3.mp3",
+          "escenas": [
+            {
+              "titulo": "El minero corrompido",
+              "cuando": "Al bajar la primera escalera",
+              "texto": "En la plataforma del oeste, un enano con el pico al hombro arranca piedras negras de la roca. Tiene la piel cubierta de vetas oscuras y los ojos vacíos. Trabaja para alguien que le promete riquezas. Al veros, levanta el pico y grita. El eco de su grito recorre las galerías.",
+              "narracion": "narraciones/el-corazon-del-bosque-3-escena-1.mp3"
+            },
+            {
+              "titulo": "La sombra con guadaña",
+              "cuando": "Al cruzar la pasarela larga",
+              "texto": "Sobre la pasarela que cruza la galería central, una figura encapuchada os cierra el paso. Lleva una guadaña y no proyecta sombra. Es la guardiana de la bruja, y su toque hiela la sangre. La pasarela cruje bajo vuestros pies. Abajo, el lago verde espera. Detrás de la figura, al final de la pasarela, oís una voz débil que pide ayuda. Es la druida, y está cerca.",
+              "narracion": "narraciones/el-corazon-del-bosque-3-escena-2.mp3"
+            },
+            {
+              "titulo": "La bruja de las piedras",
+              "cuando": "Al llegar a la cámara del este",
+              "texto": "En la cámara del este, una bruja con un collar de calaveras os espera rodeada de piedras negras. A sus pies, encadenada, está la druida, débil pero viva. La bruja ríe y dice que la magia del bosque ya ha sido ofrecida a su amo. Que el Wendigo ha despertado en el círculo sagrado.",
+              "narracion": "narraciones/el-corazon-del-bosque-3-escena-3.mp3"
+            },
+            {
+              "titulo": "La druida libre",
+              "cuando": "Al terminar el último combate",
+              "texto": "Cuando la bruja cae, las cadenas se abren. La druida se levanta con vuestra ayuda y os mira con miedo. La bruja solo era una sirvienta. Su amo, el Wendigo, el hambre del bosque, ya ha despertado en el círculo sagrado de la arboleda. Si devora el corazón del bosque, todo morirá. Debéis ir allí ahora.",
+              "narracion": "narraciones/el-corazon-del-bosque-3-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "La plataforma del oeste",
+              "ubicacion": "Arriba a la izquierda, la plataforma de madera con la grúa",
+              "que_hay": "Herramientas de minero y un saco de piedras negras.",
+              "prueba": "Tirada de d20: con doce o más encontráis el mapa de las galerías.",
+              "combate": "Primer combate: Enano Corrompido"
+            },
+            {
+              "nombre": "La pasarela central",
+              "ubicacion": "Centro, la gran escalera de madera que baja entre las rocas",
+              "que_hay": "Tablas podridas sobre el vacío.",
+              "prueba": "Tirada de d20 para cruzar: con diez o más pasáis; si no, caéis y perdéis un punto de vida.",
+              "combate": "Segundo combate: La Parca"
+            },
+            {
+              "nombre": "El lago subterráneo",
+              "ubicacion": "Abajo, las aguas verdes con la pasarela que las cruza",
+              "que_hay": "Raíces con piedras negras sumergidas; algo enorme se mueve en el agua.",
+              "combate": "Tercer combate: Enano Corrompido y La Parca"
+            },
+            {
+              "nombre": "La cámara del este",
+              "ubicacion": "Arriba a la derecha, la cámara con cajas, mesas y barriles",
+              "que_hay": "La druida encadenada y las piedras negras de la bruja.",
+              "prueba": "Romper las cadenas: tirada de d20, con trece o más.",
+              "combate": "Cuarto combate: Bruja Cazacráneos"
+            }
+          ]
+        },
+        {
+          "mapa": "arboleda",
+          "titulo": "El círculo del tocón",
+          "objetivo": "Defender el círculo sagrado y derrotar al Wendigo del Musgo antes de que devore el bosque.",
+          "amenazas": [
+            "Wendigo del Musgo",
+            "Golem de Piedra",
+            "Lamia Dorada"
+          ],
+          "descripcion": "Llegáis a la arboleda con la druida apoyada en vuestros hombros. La luz cae verde y temblorosa entre las copas. En el centro se alza el tocón de un árbol milenario, tan ancho como una torre, con raíces que reptan por el suelo como serpientes dormidas. Al sur, sobre un círculo de arena dorada, descansa el altar de piedra del círculo sagrado. Un estanque oscuro refleja las copas inmóviles. Los pájaros han dejado de cantar. Entre la maleza, algo enorme empieza a respirar al mismo ritmo que vosotros.",
+          "narracion": "narraciones/el-corazon-del-bosque-4.mp3",
+          "escenas": [
+            {
+              "titulo": "Los guardianes de piedra",
+              "cuando": "Al llegar a las raíces",
+              "texto": "Al pisar las raíces, el suelo tiembla. Un gólem de piedra, cubierto de musgo, se levanta de la tierra. Antes protegía el círculo sagrado, pero las piedras negras lo han corrompido. Ahora obedece al Wendigo. La druida os grita que no lo destruyáis del todo, que su corazón aún es del bosque.",
+              "narracion": "narraciones/el-corazon-del-bosque-4-escena-1.mp3"
+            },
+            {
+              "titulo": "La lamia del estanque",
+              "cuando": "Tras el primer combate",
+              "texto": "Del estanque surge una lamia de escamas doradas, que canta con una voz dulce y venenosa. Os invita a beber del agua oscura, a descansar, a olvidar. La druida se tapa los oídos y os grita que no la escuchéis. La lamia sonríe y desenvaina sus garras. Su cola dorada se enrosca en las raíces, y el agua del estanque empieza a hervir sin fuego.",
+              "narracion": "narraciones/el-corazon-del-bosque-4-escena-2.mp3"
+            },
+            {
+              "titulo": "El Wendigo",
+              "cuando": "Al llegar al altar",
+              "texto": "Cuando llegáis al altar, el Wendigo sale de entre los árboles. Es una criatura de corteza y musgo, con astas como ramas secas y una boca llena de espinas. Es el hambre del bosque. La druida se arrodilla ante el altar y empieza a cantar. Debéis protegerla hasta que termine su canto.",
+              "narracion": "narraciones/el-corazon-del-bosque-4-escena-3.mp3"
+            },
+            {
+              "titulo": "El retoño",
+              "cuando": "Al derrotar al Wendigo",
+              "texto": "Cuando el Wendigo se desmorona en hojas secas, el canto de la druida termina. El tocón milenario brota con un retoño verde. Los pájaros vuelven a cantar y las piedras negras se convierten en polvo. El bosque respira de nuevo. Cuando volváis a Ramaverde, los leñadores os recibirán como héroes, y el bosque, que tiene buena memoria, os recordará.",
+              "narracion": "narraciones/el-corazon-del-bosque-4-escena-4.mp3"
+            }
+          ],
+          "puntos_interes": [
+            {
+              "nombre": "Las raíces del oeste",
+              "ubicacion": "Izquierda, las raíces que reptan entre los árboles",
+              "que_hay": "Raíces que dificultan el paso y piedras negras incrustadas.",
+              "prueba": "Arrancar una piedra negra: tirada de d20, con doce o más debilita al Wendigo.",
+              "combate": "Primer combate: Golem de Piedra"
+            },
+            {
+              "nombre": "El estanque",
+              "ubicacion": "Abajo a la derecha, el agua oscura entre las raíces",
+              "que_hay": "Agua que adormece a quien la bebe y la guarida de la lamia.",
+              "prueba": "Tirada de d20: con trece o más resistís el canto de la lamia.",
+              "combate": "Segundo combate: Lamia Dorada"
+            },
+            {
+              "nombre": "El tocón milenario",
+              "ubicacion": "Arriba en el centro, el gran tocón con sus anillos",
+              "que_hay": "La cavidad del tocón, donde late el corazón del bosque.",
+              "combate": "Tercer combate: Golem de Piedra y Lamia Dorada"
+            },
+            {
+              "nombre": "El altar del círculo",
+              "ubicacion": "Abajo en el centro, el altar de piedra sobre la arena dorada",
+              "que_hay": "El lugar donde la druida debe cantar para salvar el bosque.",
+              "combate": "Cuarto combate: Wendigo del Musgo, con un Golem de Piedra"
+            }
+          ]
+        }
+      ],
+      "narracion": "narraciones/el-corazon-del-bosque.mp3"
+    }
+  ]
+}

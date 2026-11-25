@@ -1,0 +1,251 @@
+{
+  "mapas": [
+    {
+      "id": "estribaciones",
+      "nombre": "Estribaciones",
+      "resumen": "Laderas nevadas cortadas por un arroyo helado y grietas profundas.",
+      "descripcion": "Llegáis a las estribaciones cuando el viento helado os muerde la cara. La nieve cruje bajo vuestras botas y un arroyo de agua turquesa serpentea entre las rocas, tan frío que duele solo mirarlo. Grietas oscuras parten la ladera en terrazas, y grandes peñascos cubiertos de musgo ofrecen refugio a quien sepa esconderse. El silencio es tan hondo que oís vuestra propia respiración. Entonces, entre los peñascos, algo se mueve sin dejar huellas en la nieve, y un gruñido grave rueda montaña abajo.",
+      "narracion": "narraciones/estribaciones.mp3",
+      "elementos": [
+        "Arroyo helado que divide el mapa",
+        "Grietas que separan las terrazas",
+        "Peñascos con musgo como cobertura",
+        "Nieve resbaladiza en las laderas"
+      ]
+    },
+    {
+      "id": "molino-abandonado",
+      "nombre": "Molino abandonado",
+      "resumen": "Un viejo molino de piedra junto a un río entre acantilados.",
+      "descripcion": "Llegáis al molino abandonado siguiendo el rumor del río. El agua corre azul y rápida entre dos paredes de roca, golpeando los pilares podridos de un embarcadero donde aún flotan barcas olvidadas. La vieja rueda de piedra descansa en silencio y el aire huele a harina rancia y madera mojada. Al otro lado, la boca de una cueva bosteza en la pared del acantilado. Las tablas del molino crujen bajo un peso que no es el vuestro, y desde la oscuridad de la cueva os observan unos ojos que no parpadean.",
+      "narracion": "narraciones/molino-abandonado.mp3",
+      "elementos": [
+        "Río rápido entre acantilados",
+        "Molino de piedra con embarcadero",
+        "Barcas amarradas en la corriente",
+        "Boca de cueva en la pared de roca"
+      ]
+    },
+    {
+      "id": "campo-de-esqueletos",
+      "nombre": "Campo de esqueletos",
+      "resumen": "Un cultivo abandonado sobre los huesos de una criatura colosal.",
+      "descripcion": "Llegáis a un campo de cultivo que nadie ha segado en años. Entre los surcos verdes yace el esqueleto de una criatura gigantesca, con una calavera tan grande como una cabaña y unas costillas que se alzan como arcos de una iglesia en ruinas. El viento silba al pasar entre los huesos y trae olor a tierra removida. Un sendero de barro cruza el campo entre muros de piedra caídos. De pronto, la tierra junto a las costillas se agita, y una mano huesuda asoma buscando aire.",
+      "narracion": "narraciones/campo-de-esqueletos.mp3",
+      "elementos": [
+        "Calavera gigante como cobertura",
+        "Costillas que forman pasillos",
+        "Surcos de cultivo que frenan el paso",
+        "Muros de piedra derrumbados"
+      ]
+    },
+    {
+      "id": "cascada",
+      "nombre": "Cascada",
+      "resumen": "Ruinas de piedra y un puente sobre la poza de una cascada.",
+      "descripcion": "Llegáis a la cascada envueltos en su rugido constante. Una cortina de agua cae a una poza de color esmeralda, y la neblina os empapa la piel y el pelo. Muros de piedra en ruinas trepan por la ladera, junto a una tarima de madera y viejos carros abandonados. Un puente de piedra cruza el agua de lado a lado, estrecho y resbaladizo por la espuma. Desde lo alto de las rocas, por encima del estruendo, os llega un chillido agudo, y algo salta al puente para cortaros el paso.",
+      "narracion": "narraciones/cascada.mp3",
+      "elementos": [
+        "Puente de piedra estrecho sobre la poza",
+        "Poza profunda al pie de la cascada",
+        "Muros en ruinas como cobertura",
+        "Tarima de madera elevada"
+      ]
+    },
+    {
+      "id": "cabana-de-troncos",
+      "nombre": "Cabaña de troncos",
+      "resumen": "Una cabaña en el bosque con huerto, leñera y un arroyo.",
+      "descripcion": "Llegáis a un claro donde se alza una cabaña de troncos con el tejado cubierto de musgo. De la chimenea no sale humo, aunque el aire aún huele a leña quemada. Un arroyo cruza el claro bajo un pequeño puente de tablas, y junto al huerto descansan tocones y troncos a medio partir. Los árboles rodean la casa como guardianes callados. La puerta de la cabaña está entreabierta y se mece sola. Dentro, algo arrastra los pies sobre la madera, y deja de moverse justo cuando os acercáis.",
+      "narracion": "narraciones/cabana-de-troncos.mp3",
+      "elementos": [
+        "Cabaña con una sola puerta",
+        "Puente de tablas sobre el arroyo",
+        "Tocones y leña como cobertura",
+        "Árboles densos en los bordes"
+      ]
+    },
+    {
+      "id": "arboleda",
+      "nombre": "Arboleda",
+      "resumen": "Un árbol milenario cortado guarda un antiguo altar de piedra.",
+      "descripcion": "Llegáis a una arboleda tan espesa que la luz cae verde y temblorosa. En el centro se alza el tocón de un árbol milenario, tan ancho como una torre, con raíces que reptan por el suelo como serpientes dormidas. A sus pies, sobre un círculo de arena dorada, descansa un altar de piedra tallado con símbolos que nadie recuerda. Un estanque oscuro refleja las copas inmóviles. Los pájaros han dejado de cantar. Las raíces crujen bajo vuestros pies, y algo, entre la maleza, empieza a respirar al mismo ritmo que vosotros.",
+      "narracion": "narraciones/arboleda.mp3",
+      "elementos": [
+        "Tocón gigante que bloquea la vista",
+        "Raíces que dificultan el paso",
+        "Altar de piedra en un claro",
+        "Estanque en una esquina"
+      ]
+    },
+    {
+      "id": "cueva",
+      "nombre": "Cueva",
+      "resumen": "Galerías oscuras con pasarelas de madera sobre un lago subterráneo.",
+      "descripcion": "Llegáis a la cueva y la oscuridad se os echa encima como una manta húmeda. El goteo del agua resuena en las galerías y el aire huele a moho y a aceite de antorchas apagadas. Pasarelas y escaleras de madera unen los salientes de roca, y más abajo un lago subterráneo de aguas verdes brilla sin luz propia. Alguien vivió aquí: hay cajas, mesas y un campamento a medio desmontar. Un tablón cruje a vuestra espalda, y del lago surge un chapoteo lento, como si algo enorme se diera la vuelta.",
+      "narracion": "narraciones/cueva.mp3",
+      "elementos": [
+        "Pasarelas y escaleras de madera",
+        "Lago subterráneo de aguas oscuras",
+        "Pasillos estrechos entre la roca",
+        "Cajas y mesas como cobertura"
+      ]
+    },
+    {
+      "id": "casa-del-pescador",
+      "nombre": "Casa del pescador",
+      "resumen": "Una casa sobre pilotes en una costa helada con muelles.",
+      "descripcion": "Llegáis a la casa del pescador entre ráfagas de nieve y el olor salado del mar. Las olas rompen contra las rocas heladas y empujan una barca vacía que golpea el muelle una y otra vez. La casa se levanta sobre tablones y pilotes, con redes colgadas, barriles y una chimenea fría. Pasarelas de madera cubiertas de escarcha unen la orilla con la vivienda. Nadie responde a vuestra llamada. Bajo el muelle, entre el hielo, el agua burbujea, y unas garras arañan la madera desde abajo.",
+      "narracion": "narraciones/casa-del-pescador.mp3",
+      "elementos": [
+        "Muelles y pasarelas resbaladizas",
+        "Agua helada alrededor de la casa",
+        "Casa con habitaciones y puertas",
+        "Barca amarrada junto al muelle"
+      ]
+    },
+    {
+      "id": "campamento-de-guerra",
+      "nombre": "Campamento de guerra",
+      "resumen": "Tiendas y empalizadas de un ejército en plena marcha.",
+      "descripcion": "Llegáis al campamento de guerra al caer la tarde. Decenas de tiendas grises y rojas se alinean tras una empalizada de troncos afilados, y el humo de las hogueras se mezcla con el olor a cuero, sudor y hierro. Se oyen martillos en la forja y el relincho lejano de caballos. Pasarelas de tablas cruzan el barro, y junto a la puerta hay jaulas vacías con los barrotes doblados. De pronto, un cuerno de guerra suena tres veces, y todas las tiendas se vuelven hacia vosotros.",
+      "narracion": "narraciones/campamento-de-guerra.mp3",
+      "elementos": [
+        "Tiendas que tapan la línea de visión",
+        "Empalizada de troncos en el borde",
+        "Jaulas y carros como cobertura",
+        "Hoguera central"
+      ]
+    },
+    {
+      "id": "cementerio",
+      "nombre": "Cementerio",
+      "resumen": "Lápidas torcidas alrededor de una plaza de piedra en cruz.",
+      "descripcion": "Llegáis al cementerio mientras la niebla se arrastra entre las lápidas torcidas. Dos caminos de piedra se cruzan en una plaza circular, guardada por estatuas de alas rotas, y unas escalinatas bajan a cada lado hacia la hierba. El aire huele a tierra húmeda y a flores marchitas. Un cuervo os mira desde una tumba abierta. Las campanas de una capilla lejana tocan sin que nadie las mueva, y bajo vuestros pies, muy despacio, la tierra empieza a ceder.",
+      "narracion": "narraciones/cementerio.mp3",
+      "elementos": [
+        "Lápidas dispersas como cobertura",
+        "Caminos de piedra en cruz",
+        "Plaza central con estatuas",
+        "Tumbas abiertas en la hierba"
+      ]
+    },
+    {
+      "id": "iglesia",
+      "nombre": "Iglesia",
+      "resumen": "Una iglesia de piedra con bancos, alfombra roja y sacristía.",
+      "descripcion": "Llegáis a la iglesia por el pórtico de piedra. Dentro, las filas de bancos de madera flanquean una alfombra roja que lleva hasta el altar, y la luz entra en columnas polvorientas por los ventanales. Huele a cera fría e incienso viejo. Tras el altar, unas puertas dan a la sacristía y a las celdas de los monjes. Vuestros pasos resuenan bajo la bóveda. Entonces las velas se encienden todas a la vez, y desde el coro una voz que no es humana empieza a rezar al revés.",
+      "narracion": "narraciones/iglesia.mp3",
+      "elementos": [
+        "Bancos de madera en filas",
+        "Pasillo central con alfombra roja",
+        "Altar y sacristía con puertas",
+        "Jardín con setos alrededor"
+      ]
+    },
+    {
+      "id": "campamento-bandido",
+      "nombre": "Campamento bandido",
+      "resumen": "Un escondite en el bosque con un puente colgante entre rocas.",
+      "descripcion": "Llegáis al campamento bandido siguiendo un rastro de pisadas en el barro. Entre árboles enormes y paredes de roca, un puente de tablas cruza de un lado a otro del barranco. Hay empalizadas improvisadas, un carro volcado y restos de una hoguera que aún humea. Huele a carne asada y a pólvora de yesca. Todo está demasiado tranquilo. Un silbido corto cruza el bosque, otro le responde desde lo alto del puente, y comprendéis que llevabais un buen rato rodeados.",
+      "narracion": "narraciones/campamento-bandido.mp3",
+      "elementos": [
+        "Puente de tablas sobre el barranco",
+        "Empalizadas improvisadas",
+        "Árboles grandes para emboscadas",
+        "Paredes de roca en los flancos"
+      ]
+    },
+    {
+      "id": "prision",
+      "nombre": "Prisión",
+      "resumen": "Celdas, pasillos y un rastrillo en una fortaleza de piedra.",
+      "descripcion": "Llegáis a la prisión por un pasillo de piedra iluminado por antorchas temblorosas. A ambos lados se abren celdas con camastros vacíos y cadenas que aún se balancean. El aire es frío y huele a óxido y a paja podrida. Más allá, un enorme rastrillo de hierro con sus ruedas de cadena separa las celdas del patio, y en un rincón se esconde el cuarto del alcaide. Una celda está abierta. Al fondo del pasillo, alguien arrastra unas cadenas, y una risa ronca resuena entre los muros.",
+      "narracion": "narraciones/prision.mp3",
+      "elementos": [
+        "Celdas con puertas de barrotes",
+        "Pasillos estrechos",
+        "Rastrillo de hierro con ruedas",
+        "Cuarto del alcaide aislado"
+      ]
+    },
+    {
+      "id": "paso-del-centinela",
+      "nombre": "Paso del centinela",
+      "resumen": "Torres de vigía de madera custodian un camino entre montañas.",
+      "descripcion": "Llegáis al paso del centinela, donde el camino se estrecha entre peñascos grises. Dos torres de vigía de madera, unidas por escaleras y pasarelas, dominan el sendero desde lo alto. Las banderas cuelgan inmóviles, sin viento que las mueva, y en el patio hay tiendas de lona y armas apoyadas en la pared. Nadie da el alto. Al pie de las torres, unas losas de piedra forman una plataforma desnuda donde no hay dónde esconderse. Arriba, una cuerda de arco se tensa con un crujido.",
+      "narracion": "narraciones/paso-del-centinela.mp3",
+      "elementos": [
+        "Torres de vigía con altura",
+        "Escaleras y pasarelas de madera",
+        "Plataformas de piedra descubiertas",
+        "Peñascos que estrechan el camino"
+      ]
+    },
+    {
+      "id": "ciudad",
+      "nombre": "Ciudad",
+      "resumen": "Calles empedradas, casas, puestos de mercado y un canal.",
+      "descripcion": "Llegáis a la ciudad por una calle empedrada junto a un canal de aguas tranquilas. Las casas se apiñan unas contra otras, con puertas, escaleras y ventanas que dan a callejones estrechos. Los puestos del mercado, con toldos de rayas, siguen montados, pero no hay mercaderes. Huele a pan quemado y a agua estancada. Un tablón cruza el canal hacia el otro lado. Las contraventanas se cierran una a una a vuestro paso, y desde un tejado una sombra salta al siguiente sin hacer ruido.",
+      "narracion": "narraciones/ciudad.mp3",
+      "elementos": [
+        "Canal con un tablón para cruzar",
+        "Casas con puertas y escaleras",
+        "Puestos de mercado como cobertura",
+        "Callejones estrechos"
+      ]
+    },
+    {
+      "id": "faro",
+      "nombre": "Faro",
+      "resumen": "Un faro en un acantilado junto a barcos varados entre rocas.",
+      "descripcion": "Llegáis al faro mientras las olas revientan contra el acantilado. La torre redonda se aferra a la roca, con sus habitaciones, escaleras y almacenes de cajas y barriles. Abajo, entre peñascos que asoman del agua, dos barcos destrozados se mecen con los mástiles partidos. El aire sabe a sal y a algas, y las gaviotas chillan sin descanso. La luz del faro está apagada. De pronto se enciende sola, gira hacia el mar, y desde la cubierta de los barcos algo trepa por las rocas hacia vosotros.",
+      "narracion": "narraciones/faro.mp3",
+      "elementos": [
+        "Torre del faro con escaleras",
+        "Acantilado y rocas en el agua",
+        "Barcos varados con cubiertas",
+        "Almacén con cajas y barriles"
+      ]
+    },
+    {
+      "id": "puerto",
+      "nombre": "Puerto",
+      "resumen": "Muelles de madera y un barco amarrado con cañones en cubierta.",
+      "descripcion": "Llegáis al puerto entre gritos de gaviotas y el crujido de las maromas. Un gran barco está amarrado al muelle, con su cubierta llena de cañones, barriles y una escotilla de rejilla que da a la bodega. Pasarelas de madera lo unen con los almacenes y los puestos de lona de rayas. Huele a pescado, alquitrán y pólvora. El agua chapotea bajo los tablones. La tripulación no está, pero las mechas de los cañones humean, y alguien en la bodega acaba de cerrar la escotilla.",
+      "narracion": "narraciones/puerto.mp3",
+      "elementos": [
+        "Cubierta del barco con cañones",
+        "Escotilla a la bodega",
+        "Muelles y pasarelas sobre el agua",
+        "Barriles y toldos como cobertura"
+      ]
+    },
+    {
+      "id": "granja",
+      "nombre": "Granja",
+      "resumen": "Una granja con casa de piedra, corral, pozo y huerto.",
+      "descripcion": "Llegáis a la granja por un camino de tierra que cruza el patio. A un lado hay un corral cercado con la hierba pisoteada, y al otro un pozo de piedra y un carro abandonado junto al bosque. La casa, de piedra y madera, tiene varias habitaciones con la mesa aún puesta y la comida fría. Huele a heno, a estiércol y a algo más, dulzón y podrido. No se oye ni un animal. Del fondo del pozo sube un eco húmedo, y la puerta del granero se abre muy despacio.",
+      "narracion": "narraciones/granja.mp3",
+      "elementos": [
+        "Casa con varias habitaciones",
+        "Corral cercado",
+        "Pozo de piedra",
+        "Carro junto al bosque"
+      ]
+    },
+    {
+      "id": "vuelo-del-dragon",
+      "nombre": "Vuelo del dragón",
+      "resumen": "Una nave de madera surca el cielo a lomos de un dragón.",
+      "descripcion": "Llegáis al lomo del dragón cuando ya vuela sobre las nubes. Atada a su espalda viaja una nave de madera, con escaleras, compuertas y cubiertas estrechas, y a cada lado se extienden unas alas inmensas que baten como velas en la tormenta. El viento ruge en vuestros oídos y el aire huele a azufre y a relámpago. Abajo solo hay vacío. Cada aleteo hace temblar la madera bajo vuestros pies. Entonces el dragón gira la cabeza, os mira con un ojo de fuego, y se lanza en picado.",
+      "narracion": "narraciones/vuelo-del-dragon.mp3",
+      "elementos": [
+        "Cubierta estrecha sobre el vacío",
+        "Escaleras y compuertas a la bodega",
+        "Alas del dragón a los costados",
+        "Viento que empuja hacia el borde"
+      ]
+    }
+  ]
+}
