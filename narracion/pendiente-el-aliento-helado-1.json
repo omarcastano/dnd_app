@@ -1,3 +1,60 @@
 {
- "mapas": []
+ "mapas": [
+  {
+   "id": "el-aliento-helado-1-escena-rodear-almacen",
+   "descripcion": "Rodeáis el almacén por la orilla oeste de la lengua de arena, pasando bajo el cobertizo de los barriles. Allí abajo, amarrada en la orilla, se mece la barca de Tormund, con un farol apagado en la proa. Subís al muelle de tablas de la parte de atrás, donde la grúa se alza cubierta de carámbanos entre rollos de cuerda. La puerta trasera está atrancada por dentro: empujáis y el tablón ni se mueve, y al otro lado la risita aguda se ríe de vosotros. Al volver por la orilla, unas sombras flacas os esperan sobre la arena, junto a la pasarela. Los lobos han seguido vuestro rastro."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-llave-silencio",
+   "descripcion": "Leéis la nota de Tormund: «Los de hueso guardan aceite para el faro en mi almacén. Escondí la llave en la chimenea; que no la encuentren». Os acercáis a la chimenea apagada, metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado, el mismo del candado. Al cerrar el cuaderno se desliza de entre sus hojas una moneda helada, tan fría que quema, con una gárgola alada grabada. Fuera solo se oye el mar: nadie os ha oído."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-barca-con-llave",
+   "descripcion": "Cruzáis la playa y la pasarela ancha del oeste hasta su extremo, donde la barca de Tormund está amarrada contra la orilla de la lengua de arena. No tiene candado ni cadena: la llave no sirve aquí. Tiene los remos dentro, huele a aceite y las cuerdas del amarre son nuevas. En la nieve hay huellas de pezuña, no de bota, que van y vienen entre la barca y el almacén: alguien la está usando. En la proa cuelga un farol de hierro, apagado y negro de hollín rojizo, y mar adentro la niebla es tan espesa que no se ve la punta de un remo. Al volveros, veis un hilo de humo rojizo que sale del tejado del almacén sin que el viento lo tuerza. Ahí dentro arde un fuego que esta niebla no apaga."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-brasas-fallidas",
+   "descripcion": "Aviváis la chimenea de Tormund y llenáis de brasas un caldero de hierro. Salís con él envuelto en mantas, cruzáis el puente y corréis por la playa hasta la barca. Pero en cuanto acercáis las brasas al farol de proa, la niebla que sube del agua las envuelve y se apagan, una tras otra, hasta quedar en ceniza gris y fría. Esta niebla no es natural: se come el fuego. Solo hay en la cala un fuego que no se apaga: el que humea, rojo y quieto, en el tejado del almacén."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-almacen-puerta",
+   "descripcion": "Subís la rampa de tablas hasta la gran puerta del costado este. La llave de Tormund gira en el candado del pez, que cede con un chasquido sordo. Empujáis la puerta un palmo y os asomáis. Las cajas del viejo están reventadas y sus redes, apartadas en un rincón para dejar sitio a una hilera de toneles nuevos marcados con un hueso pintado. Al fondo, junto a la puerta trasera, una figurilla roja del tamaño de un gato sopla un brasero mientras mordisquea una raspa de pescado: un diablillo flaco y hambriento. Sobre las cajas del centro, una rana enorme y verde dormita abrazada a una ballesta. Ninguno mira hacia la puerta."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-almacen-frente",
+   "descripcion": "Decidís entrar de frente, sin rodeos. Abrís la puerta de una patada y avanzáis entre las cajas reventadas con las armas por delante. El olor a pescado podrido y a brasa os llega antes que la luz. En cuanto el primero de vosotros asoma por encima de las cajas, oís el chasquido seco de una ballesta tensándose: la rana enorme está despierta y os apunta. Junto al brasero, el diablillo suelta una risita aguda y agarra las brasas con las manos desnudas. Ya no hay sorpresa posible: el almacén entero despierta a vuestro alrededor."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-almacen-grua",
+   "descripcion": "Cruzáis la arena y rodeáis el almacén por la orilla oeste, pegados a la madera del cobertizo de los barriles, mientras el agua helada os lame las botas. Subís al muelle de atrás, donde el esqueleto de la grúa se alza cubierto de carámbanos. Cada tabla cruje bajo el hielo y contenéis el aliento a cada paso. La puerta trasera sigue sin atrancar. La empujáis un dedo y veis, a un palmo, la espalda del diablillo soplando su brasero y, más allá, la rana dormitando sobre las cajas. Ninguno se ha girado. Es ahora o nunca."
+  },
+  {
+   "id": "el-aliento-helado-1-paso-4-op-3",
+   "descripcion": "Os dejáis ver con las manos abiertas y le tendéis pan al diablillo. Os mira con desconfianza, pero el hambre puede más: salta de las cajas y lo devora a dentelladas, soltando migas y chispas. Con la boca llena os cuenta que él solo cuida el fuego, que el músico de las pezuñas viene cada noche al caer la niebla, desde que el viejo no está: carga el aceite en la barca del viejo, enciende el farol con sus brasas y cruza la niebla hasta el faro, cantando canciones sobre una señora de piedra. Abrís la boca para preguntar más, pero un chasquido seco os corta: desde lo alto de las cajas, la rana ha tensado su ballesta."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-almacen-combate-despues",
+   "descripcion": "El diablillo cae junto a su brasero con un último chisporroteo, y la rana se desploma de las cajas sobre las redes. El brasero sigue ardiendo con unas llamas rojas y quietas que no se tuercen ni con el viento helado que entra por la puerta: fuego de diablo, de ese que no se apaga. Sobre un tonel encontráis una hoja de carga con un hueso pintado: «Cada noche, con la niebla: el trovador carga el aceite en la barca del viejo, enciende el farol con el fuego del brasero y lo lleva al faro». Por las rendijas veis que la niebla del mar ya avanza hacia la cala. El trovador no tardará."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-barca-deshielo-despues",
+   "descripcion": "Cuando el último acorde se apaga, el sátiro cae de rodillas sobre las tablas y el lobo huye aullando hacia las rocas. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. A vuestra espalda, el farol de proa sigue ardiendo rojo entre la niebla: con esa luz, la barca de Tormund puede cruzar hasta el faro."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-emboscada",
+   "descripcion": "Tapáis el brasero con un caldero volcado para que su resplandor no os delate, os escondéis entre las cajas y los toneles y esperáis con las armas en la mano. La niebla entra por las rendijas como leche derramada. Entonces llegan unas notas de flauta, cada vez más cerca, y unos cascos sobre las tablas de la rampa. Un sátiro con un amuleto de hueso al cuello asoma por la gran puerta, con un lobo espinoso pegado a las piernas, canturreando sobre una señora de piedra que le prometió una corona de escarcha. No mira a los lados: viene a por su aceite, para cargarlo en la barca del viejo como cada noche."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-emboscada-despues",
+   "descripcion": "El sátiro cae sobre sus propios toneles y la flauta rueda por el suelo. El lobo huye aullando rampa abajo. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. Bajo el caldero, el brasero del diablillo sigue ardiendo, esperando."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-barca-libre",
+   "descripcion": "Envolvéis el brasero del diablillo en redes para no quemaros, bajáis la rampa y cruzáis la pasarela ancha del oeste hasta la barca. Metéis unas brasas en el farol de proa y prende una llama roja, quieta, que la niebla no consigue apagar. Su luz se abre paso entre la bruma y os deja ver las rocas a varios largos de remo. La barca de Tormund está lista para cruzar la niebla."
+  },
+  {
+   "id": "el-aliento-helado-1-escena-aceite",
+   "descripcion": "Sacáis los toneles marcados con el hueso uno por uno, los hacéis rodar rampa abajo y los reventáis contra la orilla del canal. El aceite se extiende sobre el agua azul en una mancha espesa que brilla con un azul enfermizo, más frío que el del mar, aunque no haya luz que lo ilumine. Huele dulce y frío, y la corriente se lo va llevando mar adentro. Al norte, lejos, sobre el acantilado del cabo, la luz azul del faro parpadea, como si algo allí arriba hubiera notado que le falta comida."
+  }
+ ]
 }

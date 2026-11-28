@@ -11,7 +11,7 @@ const TEMAS = { cipher: 'libro', lightsout: 'runas', lightup: 'velas', hanoi: 'p
   nonogram: 'tapiz', hitori: 'losas', tents: 'campamento', stars: 'cielo', galaxies: 'remolinos' };
 
 const RAIZ = new URL('../../../mapas/', import.meta.url);
-const V = '?v=34';
+const V = '?v=35';
 const ROMANOS = ['I', 'II', 'III', 'IV'];
 const MONEDAS_EVENTOS = [5, 10, 15, 30];
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);

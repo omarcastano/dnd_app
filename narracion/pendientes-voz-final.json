@@ -3,7 +3,7 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-aceite.mp3",
    "id": "el-aliento-helado-1-escena-aceite",
-   "texto": "Sacáis los toneles marcados con el hueso uno por uno y los hacéis rodar rampa abajo hasta el canal. Revientan contra la orilla y el aceite se extiende sobre el agua en una mancha espesa que brilla con un azul enfermizo, más frío que el del mar, aunque no haya luz que lo ilumine. Huele dulce y frío. Al norte, lejos, sobre el acantilado del cabo, la luz azul del faro parpadea, como si algo allí arriba hubiera notado que le falta comida."
+   "texto": "Sacáis los toneles marcados con el hueso uno por uno, los hacéis rodar rampa abajo y los reventáis contra la orilla del canal. El aceite se extiende sobre el agua azul en una mancha espesa que brilla con un azul enfermizo, más frío que el del mar, aunque no haya luz que lo ilumine. Huele dulce y frío, y la corriente se lo va llevando mar adentro. Al norte, lejos, sobre el acantilado del cabo, la luz azul del faro parpadea, como si algo allí arriba hubiera notado que le falta comida."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-cerrado.mp3",
@@ -13,12 +13,12 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-combate-despues.mp3",
    "id": "el-aliento-helado-1-escena-almacen-combate-despues",
-   "texto": "El diablillo cae junto a su brasero con un último chisporroteo, y la rana se desploma de las cajas sobre las redes. El brasero sigue ardiendo con unas llamas rojas que no se tuercen ni cuando la niebla entra por la puerta: fuego de diablo, de ese que no se apaga. Sobre un tonel encontráis una hoja de carga con un hueso pintado: «Cada noche, con la niebla: el trovador carga el aceite en la barca del viejo, enciende el farol con el fuego del brasero y lo lleva al faro». Fuera, la luz empieza a volverse gris. La niebla no tardará."
+   "texto": "El diablillo cae junto a su brasero con un último chisporroteo, y la rana se desploma de las cajas sobre las redes. El brasero sigue ardiendo con unas llamas rojas y quietas que no se tuercen ni con el viento helado que entra por la puerta: fuego de diablo, de ese que no se apaga. Sobre un tonel encontráis una hoja de carga con un hueso pintado: «Cada noche, con la niebla: el trovador carga el aceite en la barca del viejo, enciende el farol con el fuego del brasero y lo lleva al faro». Por las rendijas veis que la niebla del mar ya avanza hacia la cala. El trovador no tardará."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-frente.mp3",
    "id": "el-aliento-helado-1-escena-almacen-frente",
-   "texto": "Decidís entrar de frente, sin rodeos. Abrís la puerta de golpe y avanzáis entre las cajas con las armas por delante y el corazón golpeando en el pecho. El olor a pescado podrido y a brasa os llega antes que la luz. En cuanto el primero de vosotros asoma la cabeza por encima de las cajas, oís el chasquido seco de una ballesta tensándose en lo alto de las redes. La rana enorme os ha visto, y una risita aguda junto al brasero os dice que el diablillo también. Ya no hay sorpresa posible: el almacén entero despierta a vuestro alrededor."
+   "texto": "Decidís entrar de frente, sin rodeos. Abrís la puerta de una patada y avanzáis entre las cajas reventadas con las armas por delante. El olor a pescado podrido y a brasa os llega antes que la luz. En cuanto el primero de vosotros asoma por encima de las cajas, oís el chasquido seco de una ballesta tensándose: la rana enorme está despierta y os apunta. Junto al brasero, el diablillo suelta una risita aguda y agarra las brasas con las manos desnudas. Ya no hay sorpresa posible: el almacén entero despierta a vuestro alrededor."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-grua-esperados.mp3",
@@ -28,12 +28,17 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-grua.mp3",
    "id": "el-aliento-helado-1-escena-almacen-grua",
-   "texto": "Bajáis de nuevo a la arena y rodeáis el almacén por la orilla oeste, pegados a la madera del cobertizo, mientras el agua helada os lame las botas. Subís al muelle de atrás, donde el esqueleto de la grúa se alza cubierto de carámbanos. Cada tabla cruje bajo el hielo, y contenéis el aliento a cada paso. La puerta trasera sigue sin atrancar. La empujáis un dedo y veis, desde atrás, la espalda del diablillo soplando su brasero y la cola de la rana colgando de las cajas. Ninguno se ha girado. Es ahora o nunca."
+   "texto": "Cruzáis la arena y rodeáis el almacén por la orilla oeste, pegados a la madera del cobertizo de los barriles, mientras el agua helada os lame las botas. Subís al muelle de atrás, donde el esqueleto de la grúa se alza cubierto de carámbanos. Cada tabla cruje bajo el hielo y contenéis el aliento a cada paso. La puerta trasera sigue sin atrancar. La empujáis un dedo y veis, a un palmo, la espalda del diablillo soplando su brasero y, más allá, la rana dormitando sobre las cajas. Ninguno se ha girado. Es ahora o nunca."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-puerta-esperados.mp3",
+   "id": "el-aliento-helado-1-escena-almacen-puerta-esperados",
+   "texto": "Subís la rampa de tablas hasta la gran puerta del costado este. La llave de Tormund gira en el candado del pez, que cede con un chasquido. Dentro no se oye nada. Empujáis la puerta un palmo: el brasero del fondo está tapado con una tapa de hierro y apenas deja escapar un hilo de luz roja sobre los toneles marcados con un hueso. Entonces, desde lo alto de las cajas, una voz chillona canturrea: «¡Ya están aquí, ya están aquí!». Una rana enorme y verde os apunta a la rendija con la ballesta tensada, y a su lado un diablillo flaco da saltitos de alegría. Os han oído llegar y llevan un buen rato esperándoos."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-puerta.mp3",
    "id": "el-aliento-helado-1-escena-almacen-puerta",
-   "texto": "Subís la rampa hasta la gran puerta del costado este. La llave de Tormund entra en el candado, que cede con un chasquido. Empujáis un palmo y miráis dentro: las cajas están reventadas y los barriles abiertos, pero no los de Tormund; hay toneles de aceite nuevos, marcados con un hueso pintado. Entre las redes congeladas brillan dos lucecitas rojas: al fondo, junto a la puerta trasera, un diablillo sopla brasas robadas en un brasero, y una rana enorme con una ballesta vigila desde lo alto de las cajas. Todavía no os han visto. ¿Cómo entráis?"
+   "texto": "Subís la rampa de tablas hasta la gran puerta del costado este. La llave de Tormund gira en el candado del pez, que cede con un chasquido sordo. Empujáis la puerta un palmo y os asomáis. Las cajas del viejo están reventadas y sus redes, apartadas en un rincón para dejar sitio a una hilera de toneles nuevos marcados con un hueso pintado. Al fondo, junto a la puerta trasera, una figurilla roja del tamaño de un gato sopla un brasero mientras mordisquea una raspa de pescado: un diablillo flaco y hambriento. Sobre las cajas del centro, una rana enorme y verde dormita abrazada a una ballesta. Ninguno mira hacia la puerta."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-tras-lobos.mp3",
@@ -48,12 +53,12 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-con-llave.mp3",
    "id": "el-aliento-helado-1-escena-barca-con-llave",
-   "texto": "Cruzáis la pasarela ancha del oeste hasta la barca, pero no tiene candado ni cadena: lo que le falta es luz. El farol de proa está apagado, y la niebla del mar no deja ver ni la punta de los remos. Una llave no enciende nada. Al volveros, veis un hilo de humo rojizo escapando por el tejado del almacén. Alguien tiene ahí dentro un fuego que la niebla no apaga, y es justo lo que le falta a ese farol."
+   "texto": "Cruzáis la playa y la pasarela ancha del oeste hasta su extremo, donde la barca de Tormund está amarrada contra la orilla de la lengua de arena. No tiene candado ni cadena: la llave no sirve aquí. Tiene los remos dentro, huele a aceite y las cuerdas del amarre son nuevas. En la nieve hay huellas de pezuña, no de bota, que van y vienen entre la barca y el almacén: alguien la está usando. En la proa cuelga un farol de hierro, apagado y negro de hollín rojizo, y mar adentro la niebla es tan espesa que no se ve la punta de un remo. Al volveros, veis un hilo de humo rojizo que sale del tejado del almacén sin que el viento lo tuerza. Ahí dentro arde un fuego que esta niebla no apaga."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-deshielo-despues.mp3",
    "id": "el-aliento-helado-1-escena-barca-deshielo-despues",
-   "texto": "Cuando el último acorde se apaga, el sátiro cae de rodillas sobre las tablas y el lobo huye aullando hacia las rocas. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul. A vuestra espalda, el farol de proa sigue ardiendo rojo entre la niebla: con esa luz, la barca de Tormund puede cruzar hasta el faro."
+   "texto": "Cuando el último acorde se apaga, el sátiro cae de rodillas sobre las tablas y el lobo huye aullando hacia las rocas. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. A vuestra espalda, el farol de proa sigue ardiendo rojo entre la niebla: con esa luz, la barca de Tormund puede cruzar hasta el faro."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-deshielo.mp3",
@@ -68,7 +73,7 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-libre.mp3",
    "id": "el-aliento-helado-1-escena-barca-libre",
-   "texto": "Bajáis el brasero del diablillo por la pasarela, envuelto en redes para no quemaros, y metéis unas brasas en el farol de proa de la barca. Prende una llama roja, quieta, que la niebla no consigue apagar. Su luz se abre paso entre la bruma y os deja ver las rocas a varios largos de remo. La barca de Tormund está lista para cruzar la niebla."
+   "texto": "Envolvéis el brasero del diablillo en redes para no quemaros, bajáis la rampa y cruzáis la pasarela ancha del oeste hasta la barca. Metéis unas brasas en el farol de proa y prende una llama roja, quieta, que la niebla no consigue apagar. Su luz se abre paso entre la bruma y os deja ver las rocas a varios largos de remo. La barca de Tormund está lista para cruzar la niebla."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-tras-lobos.mp3",
@@ -78,7 +83,7 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-brasas-fallidas.mp3",
    "id": "el-aliento-helado-1-escena-brasas-fallidas",
-   "texto": "Avivais la chimenea de Tormund y llenáis de brasas un caldero de hierro. Salís con él envuelto en mantas, cruzáis el puente y corréis por la playa hasta la barca. Pero en cuanto acercáis las brasas al farol de proa, la niebla que sube del agua las envuelve y se apagan, una tras otra, hasta quedar en ceniza gris y fría. Esta niebla no es natural: se come el fuego. Al volveros, veis un hilo de humo rojizo que sale del tejado del almacén sin que el viento lo tuerza. Ese fuego sí aguanta."
+   "texto": "Aviváis la chimenea de Tormund y llenáis de brasas un caldero de hierro. Salís con él envuelto en mantas, cruzáis el puente y corréis por la playa hasta la barca. Pero en cuanto acercáis las brasas al farol de proa, la niebla que sube del agua las envuelve y se apagan, una tras otra, hasta quedar en ceniza gris y fría. Esta niebla no es natural: se come el fuego. Solo hay en la cala un fuego que no se apaga: el que humea, rojo y quieto, en el tejado del almacén."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-candado-golpes.mp3",
@@ -93,12 +98,12 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-emboscada-despues.mp3",
    "id": "el-aliento-helado-1-escena-emboscada-despues",
-   "texto": "El sátiro cae sobre sus propios toneles y la flauta rueda por el suelo. El lobo huye aullando rampa abajo. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul. En su rincón, el brasero del diablillo sigue ardiendo, esperando."
+   "texto": "El sátiro cae sobre sus propios toneles y la flauta rueda por el suelo. El lobo huye aullando rampa abajo. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. Bajo el caldero, el brasero del diablillo sigue ardiendo, esperando."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-emboscada.mp3",
    "id": "el-aliento-helado-1-escena-emboscada",
-   "texto": "Apagáis la lucecita, os escondéis entre las cajas y los toneles y esperáis con las armas en la mano. La niebla entra por las rendijas como leche derramada. Entonces llegan unas notas de flauta, cada vez más cerca, y unos cascos sobre las tablas de la rampa. Un sátiro con un amuleto de hueso al cuello asoma por la puerta, con un lobo espinoso pegado a las piernas, canturreando sobre una señora de piedra que le prometió una corona de escarcha. No mira a los lados. Viene a por su aceite, para cargarlo en la barca del viejo como cada noche."
+   "texto": "Tapáis el brasero con un caldero volcado para que su resplandor no os delate, os escondéis entre las cajas y los toneles y esperáis con las armas en la mano. La niebla entra por las rendijas como leche derramada. Entonces llegan unas notas de flauta, cada vez más cerca, y unos cascos sobre las tablas de la rampa. Un sátiro con un amuleto de hueso al cuello asoma por la gran puerta, con un lobo espinoso pegado a las piernas, canturreando sobre una señora de piedra que le prometió una corona de escarcha. No mira a los lados: viene a por su aceite, para cargarlo en la barca del viejo como cada noche."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-espiar.mp3",
@@ -109,6 +114,11 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-fin.mp3",
    "id": "el-aliento-helado-1-escena-fin",
    "texto": "Amarráis la barca de Tormund con doble nudo, con el farol de proa ardiendo rojo entre la niebla, y os quedáis un momento mirando al norte. Sobre el acantilado del cabo, una luz azulada parpadea entre la niebla, donde debería arder fuego amarillo. El amuleto del sátiro tiembla en la bolsa cada vez que la luz late. Tormund fue hacia allí. Volvéis a la taberna a calentaros los huesos y comprar lo necesario, porque mañana remaréis hacia el faro."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-llave-silencio.mp3",
+   "id": "el-aliento-helado-1-escena-llave-silencio",
+   "texto": "Leéis la nota de Tormund: «Los de hueso guardan aceite para el faro en mi almacén. Escondí la llave en la chimenea; que no la encuentren». Os acercáis a la chimenea apagada, metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado, el mismo del candado. Al cerrar el cuaderno se desliza de entre sus hojas una moneda helada, tan fría que quema, con una gárgola alada grabada. Fuera solo se oye el mar: nadie os ha oído."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-llave-tras-destrozo.mp3",
@@ -143,7 +153,7 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-rodear-almacen.mp3",
    "id": "el-aliento-helado-1-escena-rodear-almacen",
-   "texto": "Rodeáis el almacén por la orilla oeste de la lengua de arena, pasando bajo el cobertizo de los barriles. Allí abajo, amarrada en la orilla, la barca de Tormund se mece amarrada, con un farol apagado en la proa. Subís al muelle de tablas de la parte de atrás, donde la grúa se alza cubierta de carámbanos entre rollos de cuerda. La puerta trasera está atrancada por dentro: empujáis y el tablón ni se mueve, y al otro lado la risita aguda se ríe de vosotros. Al volver por la orilla, unas sombras flacas os esperan sobre la arena, junto a la pasarela. Los lobos han seguido vuestro rastro."
+   "texto": "Rodeáis el almacén por la orilla oeste de la lengua de arena, pasando bajo el cobertizo de los barriles. Allí abajo, amarrada en la orilla, se mece la barca de Tormund, con un farol apagado en la proa. Subís al muelle de tablas de la parte de atrás, donde la grúa se alza cubierta de carámbanos entre rollos de cuerda. La puerta trasera está atrancada por dentro: empujáis y el tablón ni se mueve, y al otro lado la risita aguda se ríe de vosotros. Al volver por la orilla, unas sombras flacas os esperan sobre la arena, junto a la pasarela. Los lobos han seguido vuestro rastro."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-romper-hielo.mp3",
@@ -164,6 +174,16 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca.mp3",
    "id": "el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca",
    "texto": "Bajar el brasero a la barca."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cerrar-sin-ruido-y-rodear-hasta-la-puerta-trasera.mp3",
+   "id": "el-aliento-helado-1-opcion-cerrar-sin-ruido-y-rodear-hasta-la-puerta-trasera",
+   "texto": "Cerrar sin ruido y rodear hasta la puerta trasera."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cerrar-y-rodear-hasta-la-puerta-trasera.mp3",
+   "id": "el-aliento-helado-1-opcion-cerrar-y-rodear-hasta-la-puerta-trasera",
+   "texto": "Cerrar y rodear hasta la puerta trasera."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cruzar-el-puente-hacia-la-casa-de-tormund.mp3",
@@ -199,6 +219,11 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-encender-la-chimenea-y-descansar.mp3",
    "id": "el-aliento-helado-1-opcion-encender-la-chimenea-y-descansar",
    "texto": "Encender la chimenea y descansar."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ensenarle-comida-al-diablillo.mp3",
+   "id": "el-aliento-helado-1-opcion-ensenarle-comida-al-diablillo",
+   "texto": "Enseñarle comida al diablillo."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-entrar-de-frente-por-la-puerta.mp3",
@@ -286,11 +311,6 @@
    "texto": "No: solo queda una ofrenda de sangre."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-probar-la-llave-en-la-barca.mp3",
-   "id": "el-aliento-helado-1-opcion-probar-la-llave-en-la-barca",
-   "texto": "Probar la llave en la barca."
-  },
-  {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-registrar-al-satiro-antes-de-iros.mp3",
    "id": "el-aliento-helado-1-opcion-registrar-al-satiro-antes-de-iros",
    "texto": "Registrar al sátiro antes de iros."
@@ -363,12 +383,7 @@
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-paso-4-op-3.mp3",
    "id": "el-aliento-helado-1-paso-4-op-3",
-   "texto": "Os dejáis ver con las manos abiertas y le tendéis pan al diablillo. Os mira con desconfianza, pero el hambre puede más: lo devora a dentelladas, soltando migas y chispas. Con la boca llena os cuenta que el músico de las pezuñas viene cada noche al caer la niebla, desde que el viejo no está: carga el aceite en la barca del viejo, enciende el farol con las brasas que él le cuida y cruza la niebla hasta el faro, cantando canciones sobre una señora de piedra. Abrís la boca para preguntar más, pero un chasquido seco os corta: desde lo alto de las cajas, la rana ha tensado su ballesta."
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-como-entrais-en-el-almacen.mp3",
-   "id": "el-aliento-helado-1-pregunta-como-entrais-en-el-almacen",
-   "texto": "¿Cómo entráis en el almacén?"
+   "texto": "Os dejáis ver con las manos abiertas y le tendéis pan al diablillo. Os mira con desconfianza, pero el hambre puede más: salta de las cajas y lo devora a dentelladas, soltando migas y chispas. Con la boca llena os cuenta que él solo cuida el fuego, que el músico de las pezuñas viene cada noche al caer la niebla, desde que el viejo no está: carga el aceite en la barca del viejo, enciende el farol con sus brasas y cruza la niebla hasta el faro, cantando canciones sobre una señora de piedra. Abrís la boca para preguntar más, pero un chasquido seco os corta: desde lo alto de las cajas, la rana ha tensado su ballesta."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-con-el-calor-en-el-cuerpo-que-haceis.mp3",
@@ -384,11 +399,6 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-con-la-playa-despejada-adonde-vais.mp3",
    "id": "el-aliento-helado-1-pregunta-con-la-playa-despejada-adonde-vais",
    "texto": "Con la playa despejada, ¿adónde vais?"
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-el-aceite-se-hunde-en-el-mar-que-haceis-ahora.mp3",
-   "id": "el-aliento-helado-1-pregunta-el-aceite-se-hunde-en-el-mar-que-haceis-ahora",
-   "texto": "El aceite se hunde en el mar. ¿Qué hacéis ahora?"
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-el-almacen-esta-cerrado-que-haceis.mp3",
@@ -426,6 +436,11 @@
    "texto": "La barca no se moverá sin fuego. ¿Qué hacéis?"
   },
   {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-corriente-se-lleva-el-aceite-que-haceis-ahora.mp3",
+   "id": "el-aliento-helado-1-pregunta-la-corriente-se-lleva-el-aceite-que-haceis-ahora",
+   "texto": "La corriente se lleva el aceite. ¿Qué hacéis ahora?"
+  },
+  {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-niebla-sube-que-haceis.mp3",
    "id": "el-aliento-helado-1-pregunta-la-niebla-sube-que-haceis",
    "texto": "La niebla sube. ¿Qué hacéis?"
@@ -439,6 +454,11 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis.mp3",
    "id": "el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis",
    "texto": "La puerta trasera ha quedado sin atrancar. ¿Qué hacéis?"
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-las-cajas-que-haceis.mp3",
+   "id": "el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-las-cajas-que-haceis",
+   "texto": "La rana os apunta desde las cajas. ¿Qué hacéis?"
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-lo-alto-de-las-cajas-que-haceis.mp3",
@@ -479,6 +499,11 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-teneis-el-fuego-y-sabeis-que-el-trovador-viene-que-haceis.mp3",
    "id": "el-aliento-helado-1-pregunta-teneis-el-fuego-y-sabeis-que-el-trovador-viene-que-haceis",
    "texto": "Tenéis el fuego y sabéis que el trovador viene. ¿Qué hacéis?"
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-todavia-no-os-han-visto-como-entrais.mp3",
+   "id": "el-aliento-helado-1-pregunta-todavia-no-os-han-visto-como-entrais",
+   "texto": "Todavía no os han visto. ¿Cómo entráis?"
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-tormund-no-se-fue-por-su-pie-adonde-vais-ahora.mp3",
