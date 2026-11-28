@@ -3,7 +3,7 @@
 // Las cartas reutilizan el diseño de personajes/app/cartas.css y el volteo de catalogo.css; el corazón con − / +, el de catalogo.css.
 import { esc } from '../personajes/app/util.js';
 import { MEDALLON } from '../personajes/app/cartas.js';
-import { atenderNarracion } from '../personajes/app/narracion.js';
+import { atenderNarracion } from '../personajes/app/narracion.js?v=2';
 import { groups as TIENDA } from '../tienda/js/datos/tienda.js';
 
 const RAIZ = new URL('./', import.meta.url);

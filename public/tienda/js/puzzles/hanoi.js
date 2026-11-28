@@ -1,9 +1,39 @@
 import { setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado, fallarHistoria } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado, fallarHistoria, datosHistoria } from "./historia.js?v=2";
 
 const ID = "hanoi";
-// Modo historia: movimientos permitidos = mínimo + 30 %, redondeando hacia arriba
-const limiteHistoria = () => Math.ceil((2 ** anillos - 1) * 1.3);
+// Modo historia: movimientos permitidos = mínimo + 25 %, redondeando hacia arriba.
+// Regla «circular» (campo `regla` del enigma, por defecto en el libro): una pieza solo puede ir al soporte de su
+// derecha (1→2, 2→3, 3→1). El truco clásico ya no sirve y hay que razonar de nuevo; el mínimo se calcula con BFS.
+const limiteHistoria = () => Math.ceil(minimo() * 1.25);
+let circular = false;
+const permitido = (de, a) => !circular || a === (de + 1) % 3;
+
+// Mínimo de movimientos de la torre 1 a la 3 con la regla actual (búsqueda en anchura, 3^n estados)
+export function minimoHanoi(n, esCircular) {
+  const inicio = "0".repeat(n), meta = "2".repeat(n);
+  const dist = new Map([[inicio, 0]]);
+  const cola = [inicio];
+  while (cola.length) {
+    const e = cola.shift();
+    if (e === meta) return dist.get(e);
+    // e[i] = torre del anillo i (0 = el más pequeño); el de arriba de cada torre es el menor índice
+    const arriba = [-1, -1, -1];
+    for (let i = n - 1; i >= 0; i--) arriba[Number(e[i])] = i;
+    for (let de = 0; de < 3; de++) {
+      const a1 = arriba[de];
+      if (a1 < 0) continue;
+      for (let a = 0; a < 3; a++) {
+        if (a === de || (esCircular && a !== (de + 1) % 3)) continue;
+        if (arriba[a] >= 0 && arriba[a] < a1) continue;
+        const sig = e.slice(0, a1) + a + e.slice(a1 + 1);
+        if (!dist.has(sig)) { dist.set(sig, dist.get(e) + 1); cola.push(sig); }
+      }
+    }
+  }
+  return Infinity;
+}
+const minimo = () => (circular ? minimoHanoi(anillos, true) : 2 ** anillos - 1);
 
 const colores = ["#e74c3c", "#e67e22", "#f1c40f", "#2ecc71", "#1abc9c", "#3498db", "#9b59b6", "#e84393"];
 let anillos = 5;
@@ -39,8 +69,11 @@ function render() {
     torre.style.minHeight = `${anillos * 28 + 36}px`;
   }
   document.getElementById("hanoiCheck").style.display = enHistoria(ID) ? "" : "none";
-  if (enHistoria(ID)) document.getElementById("hanoiInfo").innerHTML = `Movimientos: <strong>${gastados} de ${limiteHistoria()}</strong> · Mínimo posible: <strong>${2 ** anillos - 1}</strong>`;
-  else document.getElementById("hanoiInfo").innerHTML = `Movimientos: <strong>${historial.length}</strong> · Mínimo posible: <strong>${2 ** anillos - 1}</strong>`;
+  const regla = document.getElementById("hanoiRegla");
+  regla.hidden = !circular;
+  regla.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Regla del giro: cada pieza solo puede ir al soporte de su derecha (1→2, 2→3 y 3→1).';
+  if (enHistoria(ID)) document.getElementById("hanoiInfo").innerHTML = `Movimientos: <strong>${gastados} de ${limiteHistoria()}</strong> · Mínimo posible: <strong>${minimo()}</strong>`;
+  else document.getElementById("hanoiInfo").innerHTML = `Movimientos: <strong>${historial.length}</strong> · Mínimo posible: <strong>${minimo()}</strong>`;
   document.querySelectorAll("[data-hanoi-anillos]").forEach(b => b.classList.toggle("activo", Number(b.dataset.hanoiAnillos) === anillos));
 }
 
@@ -56,6 +89,12 @@ function alTocarTorre(t) {
   if (seleccionada === t) { seleccionada = null; render(); return; }
   const origen = torres[seleccionada];
   const anillo = origen[origen.length - 1];
+  if (!permitido(seleccionada, t)) {
+    setPuzzleMsg("hanoiMessage", `Por la regla del giro, desde la torre ${seleccionada + 1} solo se puede ir a la torre ${(seleccionada + 1) % 3 + 1}.`);
+    seleccionada = null;
+    render();
+    return;
+  }
   if (pila.length && anillo > pila[pila.length - 1]) {
     setPuzzleMsg("hanoiMessage", "No puedes poner un anillo grande sobre uno más pequeño.");
     seleccionada = null;
@@ -76,7 +115,7 @@ function alTocarTorre(t) {
     return;
   }
   if (torres[2].length === anillos) {
-    const min = 2 ** anillos - 1;
+    const min = minimo();
     setPuzzleMsg("hanoiMessage", historial.length === min ? `¡Perfecto! Resuelto en ${min} movimientos, el mínimo.` : `¡Resuelto en ${historial.length} movimientos! El mínimo es ${min}.`, true);
   }
 }
@@ -93,6 +132,11 @@ export function initHanoi() {
     anillos = Number(b.dataset.hanoiAnillos);
     empezar();
   }));
+  document.getElementById("hanoiCircular").addEventListener("change", e => {
+    if (enHistoria(ID)) return;
+    circular = e.target.checked;
+    empezar();
+  });
   document.getElementById("hanoiUndo").addEventListener("click", () => {
     if (bloqueado(ID)) return;
     const ultimo = historial.pop();
@@ -116,7 +160,13 @@ export function initHanoi() {
   let enLibro = false;
   new MutationObserver(() => {
     const ahora = vista.classList.contains("modo-historia");
-    if (ahora !== enLibro) { enLibro = ahora; if (ahora) anillos = 5; empezar(); }
+    if (ahora !== enLibro) {
+      enLibro = ahora;
+      const d = ahora ? datosHistoria(ID) : {};
+      circular = ahora ? (d.regla ?? "circular") === "circular" : document.getElementById("hanoiCircular").checked;
+      if (ahora) anillos = Number(d.anillos) || (circular ? 3 : 5);
+      empezar();
+    }
   }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   empezar();
 }

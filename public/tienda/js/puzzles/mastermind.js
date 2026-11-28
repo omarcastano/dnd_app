@@ -1,5 +1,5 @@
 import { entero, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado, intentosRestantes } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado, intentosRestantes } from "./historia.js?v=2";
 
 const ID = "mastermind";
 
@@ -23,6 +23,9 @@ let actual = [];
 let color = 0;
 let terminado = false;
 let maximo = MAX_INTENTOS; // en modo historia, nunca más que los intentos que da la historia
+// Modo historia: 6 colores y sin repetir (720 combinaciones): con 8 intentos se gana deduciendo, no probando.
+let paleta = colores;
+let sinRepetir = false;
 
 export function evaluar(intento, clave) {
   const negras = intento.filter((c, i) => c === clave[i]).length;
@@ -38,7 +41,12 @@ export function evaluar(intento, clave) {
 }
 
 function nuevaPartida() {
-  secreto = Array.from({ length: HUECOS }, () => colores[entero(colores.length)].id);
+  sinRepetir = enHistoria(ID);
+  paleta = sinRepetir ? colores.slice(0, 6) : colores;
+  if (sinRepetir) {
+    const bolsa = paleta.map(c => c.id);
+    secreto = Array.from({ length: HUECOS }, () => bolsa.splice(entero(bolsa.length), 1)[0]);
+  } else secreto = Array.from({ length: HUECOS }, () => colores[entero(colores.length)].id);
   intentos = [];
   actual = Array(HUECOS).fill(null);
   color = 0;
@@ -72,14 +80,15 @@ function render() {
     html += `<div class="mastermind-guess secreto"><span class="mastermind-num"><i class="fa-solid fa-lock-open"></i></span><div class="mastermind-row">${secreto.map(c => ficha(c)).join("")}</div></div>`;
   }
   document.getElementById("mastermindBoard").innerHTML = html;
-  document.getElementById("mastermindPaleta").innerHTML = colores.map((c, i) =>
+  document.getElementById("mastermindPaleta").innerHTML = paleta.map((c, i) =>
     `<button type="button" class="mastermind-color${i === color ? " elegido" : ""}" data-color="${i}" title="${c.nombre}">${ficha(c.id)}</button>`).join("");
-  document.getElementById("mastermindInfo").textContent = terminado ? "" : `Intento ${intentos.length + 1} de ${maximo}`;
+  document.getElementById("mastermindInfo").textContent = terminado ? "" : `Intento ${intentos.length + 1} de ${maximo}${sinRepetir ? ` · ${paleta.length} colores, ninguno se repite` : ""}`;
 }
 
 function comprobar() {
   if (terminado || bloqueado(ID)) return;
   if (actual.includes(null)) { setPuzzleMsg("mastermindMessage", `Completa los ${HUECOS} huecos primero.`); return; }
+  if (sinRepetir && new Set(actual).size < HUECOS) { setPuzzleMsg("mastermindMessage", "En esta cerradura ningún color se repite: cambia los repetidos."); return; }
   const res = evaluar(actual, secreto);
   intentos.push({ colores: actual.slice(), res });
   if (enHistoria(ID)) {
@@ -110,14 +119,14 @@ export function initMastermind() {
     color = Number(b.dataset.color);
     // si hay un hueco vacío, el color se coloca directamente en el primero libre
     const libre = actual.indexOf(null);
-    if (libre >= 0 && !terminado) actual[libre] = colores[color].id;
+    if (libre >= 0 && !terminado) actual[libre] = paleta[color].id;
     render();
   });
   document.getElementById("mastermindBoard").addEventListener("click", e => {
     const h = e.target.closest("[data-hueco]");
     if (!h || terminado || bloqueado(ID)) return;
     const i = Number(h.dataset.hueco);
-    actual[i] = actual[i] === colores[color].id ? null : colores[color].id;
+    actual[i] = actual[i] === paleta[color].id ? null : paleta[color].id;
     render();
   });
   document.getElementById("mastermindCheck").addEventListener("click", comprobar);

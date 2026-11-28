@@ -1,5 +1,5 @@
 import { arrastrar, directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js?v=2";
 
 // Galaxias: reparte la cuadrícula en regiones conexas con simetría de giro de 180° alrededor de su punto.
 // Los centros usan coordenadas dobles: [2r, 2c] = centro de celda, impar = arista o vértice.
@@ -185,5 +185,13 @@ export function initGalaxias() {
     render();
   });
   document.getElementById("galaxyNew").addEventListener("click", () => { if (!enHistoria("galaxies")) nuevo(); });
+
+  // Al entrar o salir del modo historia: tablero nuevo (no vale traerlo resuelto desde el modo normal)
+  const vista = document.getElementById("view-galaxies");
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

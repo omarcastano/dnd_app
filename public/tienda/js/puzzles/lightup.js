@@ -1,5 +1,5 @@
 import { directions, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js?v=2";
 
 const ID = "lightup";
 
@@ -140,12 +140,12 @@ function render() {
       if (v !== "W") {
         const num = v === "B" ? "" : v;
         const libres = directions.filter(([dr, dc]) => diseno[r + dr]?.[c + dc] === "W").length;
-        const estado = num === "" ? "" : cuentaMuro(r, c) === Number(num) ? " cumplido" : cuentaMuro(r, c) > Number(num) || Number(num) > libres ? " error" : "";
+        const estado = num === "" || enHistoria(ID) ? "" : cuentaMuro(r, c) === Number(num) ? " cumplido" : cuentaMuro(r, c) > Number(num) || Number(num) > libres ? " error" : "";
         html += `<td class="puzzle-cell wall${estado}">${num}</td>`;
       } else {
         const b = bombillas[r][c];
         const icono = b === 1 ? '<i class="fa-solid fa-lightbulb"></i>' : b === 2 ? '<i class="fa-solid fa-xmark"></i>' : "";
-        html += `<td class="puzzle-cell${ilum[r][c] ? " lit" : ""}${b === 1 ? " bombilla" : ""}${b === 2 ? " marca" : ""}${conflicto[r][c] ? " error" : ""}" data-r="${r}" data-c="${c}">${icono}</td>`;
+        html += `<td class="puzzle-cell${ilum[r][c] ? " lit" : ""}${b === 1 ? " bombilla" : ""}${b === 2 ? " marca" : ""}${conflicto[r][c] && !enHistoria(ID) ? " error" : ""}" data-r="${r}" data-c="${c}">${icono}</td>`;
       }
     }
     html += "</tr>";

@@ -1,4 +1,4 @@
-import { cerrarEnigma } from "../puzzles/api.js";
+import { cerrarEnigma } from "../puzzles/api.js?v=2";
 
 function switchTab(tab, btn) {
   document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));

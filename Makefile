@@ -2,7 +2,7 @@ PORT ?= 8080
 UV ?= uv
 PY := .venv/bin/python
 
-.PHONY: run setup audio-setup audio check cartas catalogo simular probar check-css
+.PHONY: run setup audio-setup audio audio-borrador audio-final check cartas catalogo simular probar probar-enigmas check-css
 
 run:
 	python3 -m http.server $(PORT) -d public
@@ -15,6 +15,14 @@ audio-setup: setup
 
 audio:
 	$(PY) narracion/generar_audio.py $(ARGS)
+
+# Voz rápida de prueba (edge-tts) mientras se revisa; anota cada audio en narracion/pendientes-voz-final.json
+audio-borrador:
+	$(PY) narracion/generar_audio.py --borrador $(ARGS)
+
+# Cuando el usuario da el visto bueno: pasa todos los borradores pendientes a la narradora (Qwen3-TTS)
+audio-final:
+	$(PY) narracion/generar_audio.py --final
 
 # Valida las clases de personajes: esquema, referencias entre cartas y selección, imágenes (make check CLASE=druida para una sola)
 check:
@@ -35,6 +43,10 @@ simular:
 # Red de seguridad visual (Playwright + Chrome del sistema): make probar ACTUALIZAR=1 guarda nuevas referencias
 probar:
 	ACTUALIZAR=$(ACTUALIZAR) $(PY) pruebas/probar.py
+
+# Juega cada enigma del libro en modo historia: no se resuelve solo ni a lo bruto, la solución se acepta y los intentos se gastan
+probar-enigmas:
+	$(PY) pruebas/probar_enigmas.py
 
 # Avisa si una clase CSS se define en secciones distintas sin estar dentro del contenedor de su sección
 check-css:

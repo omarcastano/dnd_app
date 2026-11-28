@@ -396,3 +396,14 @@
   .puzzle-table.lightup .puzzle-cell.wall.cumplido { color: var(--esmeralda); }
   .puzzle-table.lightup .puzzle-cell.wall.error { color: var(--rubi); }
 }
+/* Cifrado César sin lectura en vivo: pista de la palabra conocida, respuesta escrita y notas.
+   Planes de equipo (Lights Out) y regla circular (Hanoi). */
+:where(#tab-puzzles) {
+  .cipher-pista-clave { max-width: 760px; margin: 10px auto; padding: 8px 12px; border-left: 3px solid var(--oro); background: rgba(0,0,0,.2); color: var(--texto); }
+  .cipher-respuesta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; max-width: 760px; margin: 12px auto; }
+  .cipher-respuesta label { flex-basis: 100%; text-align: center; font-family: var(--fuente-encabezado); color: var(--oro-claro); }
+  .cipher-respuesta input { width: min(100%, 360px); padding: 8px 10px; font-family: 'Courier New', monospace; font-size: 1.1rem; text-transform: uppercase; background: var(--madera); color: var(--texto); border: 1px solid var(--oro-oscuro); border-radius: 6px; }
+  .cipher-notas { width: 100%; box-sizing: border-box; min-height: 110px; resize: vertical; font-family: 'Courier New', monospace; font-size: 1rem; text-transform: uppercase; background: transparent; color: inherit; border: 1px dashed rgba(90,60,20,.5); border-radius: 4px; padding: 6px; }
+  .puzzle-table.lightsout .puzzle-cell.luz.plan { box-shadow: inset 0 0 0 3px #6fc3ff; }
+  .hanoi-regla { max-width: 620px; margin: 0 auto 10px; text-align: center; color: var(--oro-claro); font-family: var(--fuente-encabezado); }
+}

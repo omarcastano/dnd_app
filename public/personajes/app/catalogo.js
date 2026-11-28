@@ -5,7 +5,7 @@ import { mostrarCartas, ajustarEscala } from './carrusel.js?v=9';
 import { iniciarSeleccion } from './seleccion.js?v=7';
 import { registrarEfectos } from './efectos.js';
 import { esc } from './util.js';
-import { atenderNarracion } from './narracion.js';
+import { atenderNarracion } from './narracion.js?v=2';
 
 const efectosCargados = new Set();
 async function cargarEfectos(id) {

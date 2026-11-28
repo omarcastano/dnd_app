@@ -1,16 +1,19 @@
 import { copyGrid, directions, entero, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado, fallarHistoria } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado, fallarHistoria } from "./historia.js?v=2";
 
 const ID = "lightsout";
-// Modo historia: pulsaciones permitidas = mínimo + 50 %, redondeando hacia arriba
-const limiteHistoria = () => Math.ceil(par * 1.5);
+// Modo historia: tablero 5×5 y solo 3 pulsaciones de margen sobre el mínimo: tocar al azar no llega.
+// El equipo puede «señalar» runas (marca azul, no gasta) para planear antes de tocar de verdad.
+const limiteHistoria = () => par + 3;
 
-const N = 6;
+let N = 6;
 let estado = gridOf(N, N, false);
 let inicio = gridOf(N, N, false);
 let historial = [];
 let par = 0;
 let resuelto = false;
+let plan = gridOf(N, N, false);
+let modoPlan = false;
 let gastadas = 0; // pulsaciones totales en modo historia (deshacer o reiniciar no las devuelve)
 
 function pulsar(g, r, c) {
@@ -64,17 +67,20 @@ export function minimoPulsaciones(g, n = N) {
 const apagado = g => g.every(f => f.every(v => !v));
 
 function nuevo() {
+  N = enHistoria(ID) ? 5 : 6;
+  const minimo = enHistoria(ID) ? 6 : 9;
   let g, p;
   do {
     g = gridOf(N, N, false);
     const pulsos = 12 + entero(10);
     for (let i = 0; i < pulsos; i++) pulsar(g, entero(N), entero(N));
     p = apagado(g) ? 0 : minimoPulsaciones(g);
-  } while (!p || p < 9);
+  } while (!p || p < minimo);
   inicio = copyGrid(g);
   estado = copyGrid(g);
   par = p;
   historial = [];
+  plan = gridOf(N, N, false);
   gastadas = 0;
   resuelto = false;
   setPuzzleMsg("lightsMessage", "");
@@ -85,7 +91,7 @@ function render() {
   let html = "";
   for (let r = 0; r < N; r++) {
     html += "<tr>";
-    for (let c = 0; c < N; c++) html += `<td class="puzzle-cell luz${estado[r][c] ? " on" : ""}" data-r="${r}" data-c="${c}"><i class="fa-solid fa-lightbulb"></i></td>`;
+    for (let c = 0; c < N; c++) html += `<td class="puzzle-cell luz${estado[r][c] ? " on" : ""}${plan[r][c] ? " plan" : ""}" data-r="${r}" data-c="${c}"><i class="fa-solid fa-lightbulb"></i></td>`;
     html += "</tr>";
   }
   const t = document.getElementById("lightsBoard");
@@ -105,6 +111,7 @@ export function initLightsOut() {
     const cell = e.target.closest("[data-r]");
     if (!cell || resuelto || bloqueado(ID)) return;
     const r = Number(cell.dataset.r), c = Number(cell.dataset.c);
+    if (modoPlan) { plan[r][c] = !plan[r][c]; render(); return; }
     pulsar(estado, r, c);
     historial.push([r, c]);
     render();
@@ -119,6 +126,11 @@ export function initLightsOut() {
       const extra = historial.length === par ? " ¡Con el mínimo de movimientos, perfecto!" : ` Lo hiciste en ${historial.length} (mínimo ${par}).`;
       setPuzzleMsg("lightsMessage", "¡Todas las luces apagadas!" + extra, true);
     } else setPuzzleMsg("lightsMessage", "");
+  });
+  document.getElementById("lightsPlan").addEventListener("click", e => {
+    modoPlan = !modoPlan;
+    e.currentTarget.classList.toggle("activo", modoPlan);
+    e.currentTarget.innerHTML = modoPlan ? '<i class="fa-solid fa-hand-pointer"></i> Modo: señalar (no gasta)' : '<i class="fa-solid fa-hand-pointer"></i> Modo: tocar';
   });
   document.getElementById("lightsUndo").addEventListener("click", () => {
     if (bloqueado(ID)) return;

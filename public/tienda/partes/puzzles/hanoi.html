@@ -6,12 +6,15 @@
     Mueve todos los anillos de la Torre 1 a la Torre 3.<br><br>
     • Mueves un anillo cada vez: toca una torre para coger su anillo de arriba y toca otra torre para soltarlo.<br>
     • Nunca puedes poner un anillo grande sobre uno más pequeño.<br>
-    • Con N anillos el mínimo es 2<sup>N</sup> − 1 movimientos. ¡Intenta lograrlo!
+    • Con N anillos el mínimo es 2<sup>N</sup> − 1 movimientos. ¡Intenta lograrlo!<br>
+    • Reto: activa la «Regla del giro» y cada anillo solo podrá ir a la torre de su derecha (1→2, 2→3, 3→1).
   </div>
   <div class="puzzle-actions hanoi-niveles">
     <span>Anillos:</span>
     <button class="puzzle-btn chico" data-hanoi-anillos="3">3</button><button class="puzzle-btn chico" data-hanoi-anillos="4">4</button><button class="puzzle-btn chico" data-hanoi-anillos="5">5</button><button class="puzzle-btn chico" data-hanoi-anillos="6">6</button><button class="puzzle-btn chico" data-hanoi-anillos="7">7</button><button class="puzzle-btn chico" data-hanoi-anillos="8">8</button>
+    <label class="hanoi-giro"><input type="checkbox" id="hanoiCircular"> Regla del giro</label>
   </div>
+  <p class="hanoi-regla" id="hanoiRegla" hidden></p>
   <div id="hanoiContainer" class="hanoi-container">
     <div class="hanoi-tower"><div id="hanoiTower1" class="hanoi-stack"></div><div class="hanoi-base">Torre 1</div></div>
     <div class="hanoi-tower"><div id="hanoiTower2" class="hanoi-stack"></div><div class="hanoi-base">Torre 2</div></div>

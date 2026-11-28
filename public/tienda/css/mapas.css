@@ -398,7 +398,7 @@
   .plano-opciones b { color: #cfe8f5; }
   .plano-opciones p { margin: 4px 0 0; color: var(--texto-tenue); font-size: .88rem; }
   .plano-letra { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--fuente-encabezado); font-weight: 700; color: #fff; background: #2a6f97; border: 2px dashed #fff; }
-  .plano-destino { display: inline-block; margin: 4px 0 0; font: inherit; font-size: .78rem; padding: 2px 9px; border-radius: 20px; border: 1px solid rgba(120,200,120,.5); background: rgba(46,125,50,.25); color: #bfe6c0; cursor: pointer; }
+  .plano-destino { display: inline-block; margin: 4px 0 0; font: inherit; font-size: .78rem; padding: 2px 9px; border-radius: 20px; border: 1px solid rgba(120,200,120,.5); background: rgba(46,125,50,.25); color: #bfe6c0; cursor: default; }
   .plano-destino.desvio { background: rgba(180,90,20,.25); border-color: rgba(220,140,60,.5); color: #f2c08a; cursor: default; }
   .plano-consejo { font-size: .86rem; color: var(--texto-tenue); }
   .plano-consejo i { color: var(--oro); }
@@ -474,4 +474,166 @@
   .decision-opciones p { margin: 4px 0 0; font-size: .9rem; line-height: 1.4; color: #4b3a28; }
   .decision-opciones .boton-ver-paso { margin-top: 6px; }
   .decision-consejo { margin: 8px 0 0; font-size: .88rem; color: #4b3a28; }
+}
+
+/* ---------- Elegir una opción de decisión (libro y plano) ---------- */
+:where(#tab-mapas, .mapas-zona) {
+  .libro-opcion-elegir, .plano-opcion-elegir { display: inline; padding: 2px 4px; margin: -2px -4px; font: inherit; text-align: left; color: inherit; background: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
+  .libro-opcion-elegir:hover, .libro-opcion-elegir:focus-visible { border-color: #2a6f97; background: rgba(42, 111, 151, .1); }
+  .plano-opcion-elegir:hover, .plano-opcion-elegir:focus-visible { border-color: #8cc4e0; background: rgba(140, 196, 224, .12); }
+  .libro-opcion-elegir:focus-visible, .plano-opcion-elegir:focus-visible { outline: 2px solid #ffe066; outline-offset: 1px; }
+  .decision-opciones li { transition: opacity .2s, background .2s, box-shadow .2s; }
+  .decision-opciones li.libro-opcion-elegida { background: #fff8e2; box-shadow: 0 0 0 2px #8a5a1c inset; }
+  .decision-opciones li.libro-opcion-elegida .decision-letra { background: #8a5a1c; }
+  .decision-opciones li.libro-opcion-descartada, .plano-opciones li.plano-opcion-descartada { opacity: .55; }
+  .decision-opciones li.libro-opcion-descartada:hover, .decision-opciones li.libro-opcion-descartada:focus-within,
+  .plano-opciones li.plano-opcion-descartada:hover, .plano-opciones li.plano-opcion-descartada:focus-within { opacity: .9; }
+  .libro-sello-elegida, .plano-sello-elegida { display: inline-block; margin-left: 6px; font-size: .74rem; font-family: var(--fuente-encabezado); padding: 1px 8px; border-radius: 20px; background: #8a5a1c; color: #fff8e2; }
+  .libro-resultado { margin-top: 6px; }
+  .libro-resultado .lectura { margin: 6px 0; }
+  .libro-nota-master, .libro-nota-desvio { margin: 6px 0 0; font-size: .88rem; line-height: 1.4; color: #4b3a28; }
+  .libro-nota-desvio { color: #8a4412; }
+  .libro-resultado-botones, .plano-resultado-botones { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .libro-continuar { font-family: var(--fuente-encabezado); padding: 6px 12px; border: none; border-radius: 4px; background: #5a2a0c; color: #f3e6c8; cursor: pointer; }
+  .libro-reiniciar { font-size: .78rem; padding: 4px 10px; border: 1px solid rgba(90,60,20,.45); border-radius: 4px; background: transparent; color: #5a2a0c; cursor: pointer; }
+  .libro-continuar:hover, .libro-reiniciar:hover { filter: brightness(1.15); }
+  .libro-paso.libro-paso-resaltado { animation: libro-paso-brillo 2.2s ease-out; border-radius: 6px; }
+
+  .plano-opciones li.plano-opcion-elegida { border-color: #ffe066; background: rgba(255, 224, 102, .12); }
+  .plano-opciones li.plano-opcion-elegida .plano-letra { background: #8a5a1c; }
+  .plano-resultado { margin-top: 6px; }
+  .plano-resultado .lectura { margin: 6px 0; color: #2b1d10; }
+  .plano-resultado .lectura p { font-size: .98rem; }
+  .plano-nota-master, .plano-nota-desvio { margin: 6px 0 0; font-size: .86rem; color: var(--texto-tenue); }
+  .plano-nota-desvio { color: #f0b27a; }
+  .plano-continuar { font-family: var(--fuente-encabezado); padding: 5px 10px; border: 1px solid var(--oro); border-radius: 4px; background: #5a2a0c; color: #f3e6c8; cursor: pointer; }
+  .plano-reiniciar { font-size: .76rem; padding: 4px 9px; border: 1px solid rgba(255,255,255,.3); border-radius: 4px; background: transparent; color: var(--texto-tenue); cursor: pointer; }
+  .plano-marca.marca-opcion.plano-elegida { outline: 3px solid #ffe066; outline-offset: 3px; background: #8a5a1c; z-index: 4; width: 42px; height: 42px; }
+  .plano-marca.marca-opcion.plano-descartada { opacity: .4; }
+  .plano-marca.marca-opcion.plano-descartada:hover { opacity: 1; }
+}
+
+/* ---------- Recorrido de decisiones encadenadas (libro y plano) ---------- */
+:where(#tab-mapas, .mapas-zona) {
+  .libro-camino, .plano-camino { list-style: none; margin: 0 0 10px; padding: 0 0 0 14px; border-left: 3px solid rgba(138, 90, 28, .45); display: grid; gap: 10px; }
+  .libro-tramo, .plano-tramo { position: relative; }
+  .libro-tramo::before, .plano-tramo::before { content: ''; position: absolute; left: -21px; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: #8a5a1c; border: 2px solid #f3e6c8; }
+  .libro-tramo-pregunta, .plano-tramo-pregunta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: .82rem; }
+  .libro-tramo-pregunta { color: #4b6a80; }
+  .plano-tramo-pregunta { color: var(--texto-tenue); }
+  .libro-tramo-eleccion, .plano-tramo-eleccion { display: flex; align-items: center; gap: 8px; margin: 4px 0 0; }
+  .libro-tramo-eleccion b { color: #5a2a0c; font-size: 1.02rem; }
+  .plano-tramo-eleccion b { color: #ffe9a8; }
+  .libro-tramo-letra, .plano-tramo-letra { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-family: var(--fuente-encabezado); font-weight: 700; font-size: .85rem; color: #fff8e2; background: #8a5a1c; }
+  .libro-tramo .lectura { margin: 6px 0 0; }
+  .plano-tramo .lectura { margin: 6px 0 0; color: #2b1d10; }
+  .libro-cambiar, .plano-cambiar { font-size: .72rem; padding: 1px 8px; border-radius: 20px; cursor: pointer; background: transparent; }
+  .libro-cambiar { border: 1px solid rgba(42, 111, 151, .5); color: #1f4f6e; }
+  .plano-cambiar { border: 1px solid rgba(140, 196, 224, .45); color: #cfe8f5; }
+  .libro-cambiar:hover, .plano-cambiar:hover { filter: brightness(1.2); }
+  .libro-abierta, .plano-abierta { padding-top: 2px; }
+  .decision-pregunta small, .plano-pregunta small { font-family: var(--fuente-sabor); font-style: italic; opacity: .8; }
+  .plano-pregunta { font-family: var(--fuente-encabezado); color: #cfe8f5; margin: 0 0 8px; font-size: 1.02rem; }
+  .libro-destino { display: inline-block; margin-left: 8px; font-size: .78rem; padding: 1px 8px; border-radius: 20px; background: rgba(46,125,50,.15); color: #2e5e30; }
+  .libro-destino.desvio { background: rgba(180,90,20,.15); color: #8a4412; }
+  .libro-destino.sigue { background: rgba(42,111,151,.15); color: #1f4f6e; }
+  .plano-destino.sigue { background: rgba(42,111,151,.3); border-color: rgba(140,196,224,.5); color: #cfe8f5; }
+  .libro-ya-hecha, .plano-ya-hecha { display: inline-block; margin-left: 6px; font-size: .72rem; padding: 1px 7px; border-radius: 20px; }
+  .libro-ya-hecha { background: rgba(138, 90, 28, .15); color: #8a5a1c; }
+  .plano-ya-hecha { background: rgba(255, 224, 102, .15); color: #ffe066; }
+  .libro-fin, .plano-fin { margin-top: 4px; }
+  .plano-marca.marca-opcion.plano-recorrida { width: 26px; height: 26px; font-size: 12px; background: #8a5a1c; border-style: solid; opacity: .8; z-index: 2; }
+}
+@keyframes libro-paso-brillo { 0%, 30% { background: rgba(255, 224, 102, .45); } 100% { background: transparent; } }
+@media (prefers-reduced-motion: reduce) {
+  :where(#tab-mapas, .mapas-zona) {
+    .libro-paso.libro-paso-resaltado { animation: none; background: rgba(255, 224, 102, .3); }
+    .decision-opciones li { transition: none; }
+  }
+}
+
+/* ---------- Aventura por escenas: una carta a la vez junto al mapa ---------- */
+:where(#tab-mapas, .mapas-zona) {
+  .aventura { margin: 14px 0; padding: 12px; border-radius: 10px; background: linear-gradient(#2b1d10, #1c130a); box-shadow: 0 6px 18px rgba(0,0,0,.35); color: #f3e6c8; overflow: hidden; }
+  .aventura-barra { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .aventura-boton { flex: none; font-family: var(--fuente-encabezado); padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(232, 196, 120, .5); background: rgba(255,255,255,.06); color: #f3e6c8; cursor: pointer; }
+  .aventura-boton:hover:not([disabled]) { background: rgba(232, 196, 120, .2); }
+  .aventura-boton[disabled] { opacity: .35; cursor: default; }
+  .aventura-migas { flex: 1; min-width: 0; display: flex; gap: 4px; list-style: none; margin: 0; padding: 2px 0; overflow-x: auto; scrollbar-width: thin; }
+  .aventura-migas li { flex: none; display: flex; align-items: center; }
+  .aventura-migas li + li::before { content: '›'; color: rgba(232, 196, 120, .5); margin-right: 4px; }
+  .aventura-migas button { font-size: .76rem; padding: 3px 9px; border-radius: 20px; border: 1px solid transparent; background: rgba(255,255,255,.07); color: #d9c6a0; cursor: pointer; white-space: nowrap; }
+  .aventura-migas button:hover { border-color: rgba(232, 196, 120, .6); }
+  .aventura-migas button[aria-current] { background: #8a5a1c; color: #fff8e2; border-color: #e8c478; }
+  .aventura-contador { flex: none; font-family: var(--fuente-encabezado); font-size: .85rem; padding: 4px 10px; border-radius: 20px; background: rgba(160, 40, 40, .35); color: #ffd9c8; }
+
+  .aventura-escenario { display: grid; gap: 12px; }
+  .aventura-lado { display: grid; justify-items: center; gap: 8px; }
+  .aventura-lado .aventura-mapa { max-width: 700px; }
+  .aventura-mapa { display: block; width: 100%; padding: 0; border: 2px solid rgba(232, 196, 120, .4); border-radius: 8px; overflow: hidden; background: none; cursor: zoom-in; }
+  .aventura-mapa img { display: block; width: 100%; }
+  .aventura-rastro { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .aventura-rastro polyline { fill: none; stroke: #ffe066; stroke-width: 3; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; opacity: .85; }
+  .aventura-huella, .aventura-aqui, .aventura-destino { position: absolute; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center; }
+  .aventura-huella { width: 12px; height: 12px; background: #ffe066; border: 2px solid #5a2a0c; }
+  .aventura-aqui { width: 36px; height: 36px; z-index: 3; background: #8a5a1c; color: #fff8e2; border: 3px solid #ffe066; box-shadow: 0 0 0 0 rgba(255, 224, 102, .7); animation: aventura-latido 1.8s infinite; }
+  .aventura-destino { width: 28px; height: 28px; z-index: 2; font-family: var(--fuente-encabezado); font-weight: 700; color: #fff; background: #2a6f97; border: 2px dashed #fff; transition: transform .15s; }
+  .aventura-destino.aventura-resaltada { transform: translate(-50%, -50%) scale(1.35); background: #1f8fd0; border-style: solid; }
+  .aventura-estados { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; font-size: .8rem; }
+  .aventura-estados li { padding: 4px 10px; border-radius: 20px; background: rgba(255,255,255,.06); color: #e8d9b8; }
+  .aventura-estados i { color: #ffe066; width: 16px; text-align: center; }
+
+  .aventura-carta { position: relative; padding: 14px 16px; border-radius: 8px; background: #f6ecd2; color: #2b1d10; border: 1px solid #c9a86a; box-shadow: inset 0 0 30px rgba(138, 90, 28, .18); }
+  .aventura-cabecera { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .aventura-cabecera h4 { margin: 0; font-family: var(--fuente-titulo); font-size: 1.35rem; color: #5a2a0c; }
+  .aventura-lugar { margin: 0; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; color: #8a5a1c; }
+  .aventura-tipo { flex: none; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 1.05rem; color: #fff8e2; background: #6b5a3c; }
+  .aventura-tipo.combate { background: #9a2a22; }
+  .aventura-tipo.enigma { background: #6a3d9a; }
+  .aventura-tipo.fin { background: #2e6b34; }
+  .aventura-carta .lectura { margin: 0 0 8px; }
+  .aventura-tras { margin: 0 0 6px; font-family: var(--fuente-encabezado); font-size: .85rem; color: #2e6b34; }
+  .aventura-nota { margin: 6px 0; font-size: .86rem; line-height: 1.4; color: #4b3a28; }
+  .aventura-como { padding: 6px 9px; border-radius: 6px; background: rgba(42, 111, 151, .1); color: #1f4f6e; }
+  .aventura-combate, .aventura-enigma { margin: 10px 0; padding: 10px 12px; border-radius: 8px; }
+  .aventura-combate { background: rgba(154, 42, 34, .1); border: 1px solid rgba(154, 42, 34, .4); }
+  .aventura-enigma { background: rgba(106, 61, 154, .1); border: 1px solid rgba(106, 61, 154, .4); }
+  .aventura-combate p, .aventura-enigma p { margin: 3px 0; font-size: .9rem; }
+  .aventura-ganado { display: block; width: 100%; margin-top: 10px; padding: 10px 14px; font-family: var(--fuente-encabezado); font-size: 1rem; border: none; border-radius: 6px; background: #5a2a0c; color: #f3e6c8; cursor: pointer; }
+  .aventura-ganado:hover, .aventura-ganado:focus-visible { background: #7a3a12; }
+  .aventura-pregunta { margin: 12px 0 8px; font-family: var(--fuente-encabezado); font-size: 1.08rem; color: #1f4f6e; }
+  .aventura-lectura-decision { margin: 12px 0 8px; }
+  .aventura-lectura-decision .aventura-pregunta { margin: 2px 0 6px; font-style: normal; }
+  .aventura-lecturas { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-family: var(--fuente-sabor); font-style: italic; font-size: 1.02rem; }
+  .aventura-lecturas b { font-style: normal; color: #2a6f97; margin-right: 4px; }
+  .aventura-opciones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .aventura-opcion { display: flex; align-items: flex-start; gap: 10px; padding: 10px; text-align: left; font: inherit; color: inherit; border-radius: 8px; border: 2px solid rgba(42, 111, 151, .35); background: #fffaf0; cursor: pointer; transition: transform .12s, border-color .12s, background .12s; }
+  .aventura-opcion:hover, .aventura-opcion:focus-visible { border-color: #2a6f97; background: #eef6fb; transform: translateY(-2px); }
+  .aventura-letra { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-family: var(--fuente-encabezado); font-weight: 700; color: #fff; background: #2a6f97; }
+  .aventura-texto b { display: block; color: #1f3b52; line-height: 1.25; }
+  .aventura-texto small { display: block; margin-top: 3px; font-size: .78rem; line-height: 1.3; color: #6b5a3c; }
+  .aventura-fin { margin-top: 8px; }
+  .aventura-entra-adelante { animation: aventura-desde-derecha .35s ease-out; }
+  .aventura-entra-atras { animation: aventura-desde-izquierda .35s ease-out; }
+
+  .aventura-pnj > summary, .aventura-guia > summary { cursor: pointer; font-family: var(--fuente-encabezado); color: #5a2a0c; padding: 6px 0; }
+  .aventura-pnj .pnj-lista { margin-top: 8px; }
+  .aventura-guia { margin: 10px 0; font-size: .88rem; }
+  .aventura-geografia { margin: 6px 0; line-height: 1.45; color: #4b3a28; }
+  .aventura-guia ol { margin: 6px 0 0; padding-left: 22px; display: grid; gap: 6px; }
+  .aventura-guia li small { color: #6b5a3c; }
+  .plano-recorrido-item { display: flex; align-items: center; gap: 8px; }
+}
+@keyframes aventura-desde-derecha { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: none; } }
+@keyframes aventura-desde-izquierda { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: none; } }
+@keyframes aventura-latido { 0% { box-shadow: 0 0 0 0 rgba(255, 224, 102, .7); } 100% { box-shadow: 0 0 0 14px rgba(255, 224, 102, 0); } }
+@media (max-width: 760px) {
+  :where(#tab-mapas, .mapas-zona) {
+    .aventura { padding: 8px; margin: 10px -6px; }
+    .aventura-opciones { grid-template-columns: 1fr; }
+    .aventura-cabecera h4 { font-size: 1.15rem; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(#tab-mapas, .mapas-zona) { .aventura-aqui { animation: none; } .aventura-opcion { transition: none; } }
 }

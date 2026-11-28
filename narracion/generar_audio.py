@@ -159,17 +159,79 @@ async def generar(cartas, voz, estilo, carpeta_salida):
         print(f"Generado: {ruta}")
 
 
+# ---------- Borradores: voz rápida para probar, y lista de lo que falta pasar a la narradora definitiva ----------
+PENDIENTES = Path(__file__).parent / "pendientes-voz-final.json"
+VOZ_BORRADOR = "es-ES-ElviraNeural"  # edge-tts: rápida (≈1 s por audio), solo para revisar; la definitiva es Qwen3-TTS
+
+
+def leer_pendientes():
+    return json.loads(PENDIENTES.read_text(encoding="utf-8"))["pendientes"] if PENDIENTES.exists() else []
+
+
+def escribir_pendientes(lista):
+    lista = sorted(lista, key=lambda p: p["ruta"])
+    PENDIENTES.write_text(json.dumps({"pendientes": lista}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
+def anotar_borradores(cartas, salida, base):
+    """Añade (o actualiza) en la lista de pendientes los audios generados con la voz de borrador."""
+    lista = {p["ruta"]: p for p in leer_pendientes()}
+    for carta in cartas:
+        texto = texto_de(carta)
+        ruta = salida / f"{carta['id']}.mp3"
+        if texto and ruta.exists():
+            p = {"ruta": str(ruta), "id": carta["id"], "texto": texto}
+            if carta.get("sonido"):
+                p["sonido"] = str(base / carta["sonido"])
+            lista[str(ruta)] = p
+    escribir_pendientes(list(lista.values()))
+    print(f"Pendientes de voz final: {len(lista)} (narracion/{PENDIENTES.name})")
+
+
+def quitar_pendientes(rutas):
+    lista = leer_pendientes()
+    quedan = [p for p in lista if p["ruta"] not in {str(r) for r in rutas}]
+    if len(quedan) != len(lista):
+        escribir_pendientes(quedan)
+
+
+def generar_final():
+    """Regenera con Qwen3-TTS (la narradora) todos los borradores pendientes y los quita de la lista."""
+    lista = leer_pendientes()
+    if not lista:
+        print("No hay audios pendientes de voz final.")
+        return
+    from collections import defaultdict
+    por_carpeta = defaultdict(list)
+    for p in lista:
+        carta = {"id": p["id"], "descripcion": p["texto"]}
+        if p.get("sonido"):
+            carta["sonido"] = p["sonido"]
+        por_carpeta[str(Path(p["ruta"]).parent)].append(carta)
+    print(f"Voz final para {len(lista)} audios…")
+    for carpeta, cartas in por_carpeta.items():
+        generar_qwen(cartas, Path(carpeta), Path("."))
+        quitar_pendientes([Path(carpeta) / f"{c['id']}.mp3" for c in cartas])
+    print(f"Quedan pendientes: {len(leer_pendientes())}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Genera narraciones (mp3) de las cartas con Qwen3-TTS (voz clonada de narracion/voz/) o edge-tts.")
-    parser.add_argument("archivo", type=Path, help="JSON con una lista 'cartas' (clases) o 'enemigos' (public/enemigos/enemigos.json)")
+    parser.add_argument("archivo", type=Path, nargs="?", help="JSON con una lista 'cartas' (clases), 'mapas' o 'enemigos' (public/enemigos/enemigos.json)")
     parser.add_argument("--id", help="ID de la carta a narrar (por defecto, todas)")
     parser.add_argument("--motor", choices=["qwen", "edge"], default="qwen", help="qwen (por defecto): voz clonada de la narradora; edge: edge-tts")
     parser.add_argument("--acento", choices=VOCES, default="es-CO", help="Solo motor edge")
     parser.add_argument("--voz", help="Solo motor edge. Voz exacta de edge-tts (sustituye a --acento), p. ej. es-ES-ElviraNeural")
     parser.add_argument("--estilo", choices=ESTILOS, default="epico", help="Solo motor edge")
     parser.add_argument("--salida", type=Path, help="Carpeta de salida (por defecto, narraciones/ junto al JSON)")
+    parser.add_argument("--borrador", action="store_true", help=f"Voz rápida de prueba ({VOZ_BORRADOR}); anota cada audio en narracion/{PENDIENTES.name}")
+    parser.add_argument("--final", action="store_true", help="Regenera con la narradora (Qwen3-TTS) todos los borradores pendientes")
     args = parser.parse_args()
 
+    if args.final:
+        return generar_final()
+    if not args.archivo:
+        parser.error("falta el JSON de entrada")
     crudo = json.loads(args.archivo.read_text(encoding="utf-8"))
     cartas = crudo.get("cartas") or crudo.get("mapas") or crudo["enemigos"]
     if args.id:
@@ -178,8 +240,12 @@ def main():
             raise SystemExit(f"No se encontró la carta '{args.id}'")
 
     salida = args.salida or args.archivo.parent / "narraciones"
-    if args.motor == "qwen":
+    if args.borrador:
+        asyncio.run(generar(cartas, VOZ_BORRADOR, "normal", salida))
+        anotar_borradores(cartas, salida, args.archivo.parent)
+    elif args.motor == "qwen":
         generar_qwen(cartas, salida, args.archivo.parent)
+        quitar_pendientes([salida / f"{c['id']}.mp3" for c in cartas])
     else:
         asyncio.run(generar(cartas, args.voz or VOCES[args.acento], args.estilo, salida))
 

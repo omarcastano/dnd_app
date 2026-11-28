@@ -1,5 +1,5 @@
 // Narración de una carta: el medallón ▶ del frente lleva `data-narracion` con la ruta del audio (viene del JSON de la clase, ver datos.js).
-// Un solo audio a la vez; volver a tocar el botón lo pausa. Se atiende por delegación de eventos.
+// Un solo audio (o lista de audios) a la vez; volver a tocar el botón lo pausa. Se atiende por delegación de eventos.
 let audio = null;
 let boton = null;
 
@@ -23,13 +23,20 @@ export function atenderNarracion(e) {
   e.preventDefault();
   if (b === boton) { parar(); return true; }
   parar();
-  audio = new Audio(b.dataset.narracion);
+  // Varias rutas separadas por «|» se leen seguidas (p. ej. la pregunta y luego cada opción); si una falla, se salta
+  const lista = b.dataset.narracion.split('|').filter(Boolean);
   boton = b;
   marcar(b, true);
-  const este = audio;
-  este.addEventListener('timeupdate', () => { if (audio === este && este.duration) b.style.setProperty('--p', (este.currentTime / este.duration) * 100); });
-  este.addEventListener('ended', () => { if (audio === este) parar(); });
-  este.addEventListener('error', () => { if (audio === este) parar(); });
-  este.play().catch(() => { if (audio === este) parar(); });
+  const tocar = (i) => {
+    if (boton !== b) return;
+    if (i >= lista.length) { parar(); return; }
+    const este = new Audio(lista[i]);
+    audio = este;
+    este.addEventListener('timeupdate', () => { if (audio === este && este.duration) b.style.setProperty('--p', ((i + este.currentTime / este.duration) / lista.length) * 100); });
+    este.addEventListener('ended', () => { if (audio === este) tocar(i + 1); });
+    este.addEventListener('error', () => { if (audio === este) tocar(i + 1); });
+    este.play().catch(() => { if (audio === este) parar(); });
+  };
+  tocar(0);
   return true;
 }

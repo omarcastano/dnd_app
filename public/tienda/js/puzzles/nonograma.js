@@ -1,8 +1,10 @@
 import { arrastrar, gridOf, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado, datosHistoria } from "./historia.js?v=2";
 
 // 0 = vacío, 1 = relleno, 2 = marca «aquí no» (X)
-const N = 10;
+// Modo historia: si el enigma trae `figura` (filas de «#» y «.», 10×10), el dibujo oculto es el símbolo de la historia
+// (comprobado con pruebas/probar_enigmas.py: se resuelve solo con lógica de líneas). Si no, uno al azar.
+let N = 10;
 let solucion = gridOf(N, N, 0);
 let pistasF = [];
 let pistasC = [];
@@ -95,8 +97,18 @@ export function generarNonograma(n = N) {
   return null;
 }
 
+function deFigura(figura) {
+  if (!Array.isArray(figura) || !figura.length) return null;
+  const sol = figura.map(f => [...f].map(ch => (ch === "#" ? 1 : 0)));
+  const pf = sol.map(rachas);
+  const pc = sol[0].map((_, c) => rachas(sol.map(f => f[c])));
+  return { sol, pf, pc };
+}
+
 function nuevo() {
-  const p = generarNonograma(N) || { sol: gridOf(N, N, 1), pf: Array(N).fill([N]), pc: Array(N).fill([N]) };
+  const fig = enHistoria("nonogram") ? deFigura(datosHistoria("nonogram").figura) : null;
+  N = fig ? fig.sol.length : 10;
+  const p = fig || generarNonograma(N) || { sol: gridOf(N, N, 1), pf: Array(N).fill([N]), pc: Array(N).fill([N]) };
   solucion = p.sol; pistasF = p.pf; pistasC = p.pc;
   tablero = gridOf(N, N, 0);
   resuelto = false;
@@ -120,10 +132,10 @@ function pintar() {
 
 function render() {
   let html = "<tr><th></th>";
-  for (let c = 0; c < N; c++) html += `<th class="clue clue-col${c % 5 === 4 && c < N - 1 ? " sep-d" : ""}" data-pc="${c}">${pistasC[c].join("<br>")}</th>`;
+  for (let c = 0; c < N; c++) html += `<th class="clue clue-col${c % 5 === 4 && c < N - 1 ? " sep-d" : ""}" data-pc="${c}">${pistasC[c].join("<br>") || 0}</th>`;
   html += "</tr>";
   for (let r = 0; r < N; r++) {
-    html += `<tr><td class="clue clue-fila${r % 5 === 4 && r < N - 1 ? " sep-b" : ""}" data-pf="${r}">${pistasF[r].join(" ")}</td>`;
+    html += `<tr><td class="clue clue-fila${r % 5 === 4 && r < N - 1 ? " sep-b" : ""}" data-pf="${r}">${pistasF[r].join(" ") || 0}</td>`;
     for (let c = 0; c < N; c++) {
       const v = tablero[r][c];
       const cls = ["puzzle-cell", v === 1 ? "filled" : "", v === 2 ? "marca" : "", c % 5 === 4 && c < N - 1 ? "sep-d" : "", r % 5 === 4 && r < N - 1 ? "sep-b" : ""].join(" ");
@@ -201,5 +213,13 @@ export function initNonograma() {
     render();
   });
   document.getElementById("nonoNew").addEventListener("click", () => { if (!enHistoria("nonogram")) nuevo(); });
+
+  // Al entrar o salir del modo historia: tablero nuevo (no vale traerlo resuelto desde el modo normal)
+  const vista = document.getElementById("view-nonogram");
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

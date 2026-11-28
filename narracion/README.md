@@ -10,6 +10,12 @@ make audio ARGS="public/personajes/clases/druida/druida.json"                   
 
 (Las rutas son relativas a la raíz del repo, desde donde corre `make`.)
 
+## Borradores y voz final
+Mientras se revisa el contenido, los audios se generan con la voz rápida de borrador (edge-tts, `es-ES-ElviraNeural`):
+`make audio-borrador ARGS="narracion/pendiente-aliento-1.json --salida public/mapas/narraciones"`. Cada audio queda anotado en
+`narracion/pendientes-voz-final.json` (ruta, id y texto). Cuando el usuario da el visto bueno, `make audio-final` los regenera
+todos con la narradora (Qwen3-TTS) en su misma ruta y vacía la lista. Generar un audio con Qwen lo quita también de la lista.
+
 ## Estándar de voz
 El motor por defecto es **Qwen3-TTS** (`--motor qwen`), que **clona siempre la misma narradora**: una voz femenina cálida de
 cuento de fantasía, para que todas las narraciones suenen igual. Su referencia está en `narracion/voz/`:

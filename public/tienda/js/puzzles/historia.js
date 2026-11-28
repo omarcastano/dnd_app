@@ -3,14 +3,16 @@
 // Los intentos son limitados y compartidos por todo el equipo; al agotarlos el enigma queda fallado y el tablero bloqueado.
 // Cada puzzle consulta este módulo: enHistoria(id) para no autocomprobar, comprobarHistoria(id, ok) en su botón Comprobar,
 // y bloqueado(id) para ignorar jugadas cuando el enigma ya terminó. Algunos (Hanoi, Lights Out) limitan además los movimientos.
-let estado = null; // { id, intentos, max, terminado, resultado: 'exito' | 'fallo' | null, tema }
+let estado = null; // { id, intentos, max, terminado, resultado: 'exito' | 'fallo' | null, tema, datos }
 
 export const enHistoria = (id) => estado?.id === id;
 export const bloqueado = (id) => enHistoria(id) && estado.terminado;
 export const intentosRestantes = (id) => (enHistoria(id) ? estado.intentos : Infinity);
+// Datos propios del enigma en la campaña (el objeto `enigma` del paso: figura, palabra, desplazamiento…) o {}
+export const datosHistoria = (id) => (enHistoria(id) ? estado.datos : {});
 
-export function iniciarHistoria(id, { intentos = 3, tema = '' } = {}) {
-  estado = { id, intentos, max: intentos, terminado: false, resultado: null, tema };
+export function iniciarHistoria(id, { intentos = 3, tema = '', datos = {} } = {}) {
+  estado = { id, intentos, max: intentos, terminado: false, resultado: null, tema, datos: datos ?? {} };
   const vista = document.getElementById('view-' + id);
   vista?.classList.add('modo-historia');
   if (tema) vista?.setAttribute('data-tema', tema);

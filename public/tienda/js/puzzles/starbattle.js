@@ -1,5 +1,5 @@
 import { directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js?v=2";
 
 // Star Battle: N×N, K estrellas por fila, columna y región; sin tocarse (ni en diagonal).
 const N = 9;
@@ -173,7 +173,7 @@ function render() {
       const exceso = filas[r] > K || cols[c] > K || regs[g] > K;
       const v = estado[r][c];
       const icono = v === 1 ? '<i class="fa-solid fa-star"></i>' : v === 2 ? '<span class="punto"></span>' : "";
-      html += `<td class="puzzle-cell reg-borde-${borde}${toca[r][c] || (v === 1 && exceso) ? " error" : ""}" style="background:${colores[g % colores.length]}" data-r="${r}" data-c="${c}">${icono}</td>`;
+      html += `<td class="puzzle-cell reg-borde-${borde}${!enHistoria("stars") && (toca[r][c] || (v === 1 && exceso)) ? " error" : ""}" style="background:${colores[g % colores.length]}" data-r="${r}" data-c="${c}">${icono}</td>`;
     }
     html += "</tr>";
   }
@@ -181,7 +181,7 @@ function render() {
   t.style.setProperty("--n", N);
   t.innerHTML = html;
   const info = document.getElementById("starInfo");
-  if (info) info.textContent = `Estrellas puestas: ${filas.reduce((a, b) => a + b, 0)} / ${N * K}`;
+  if (info) info.textContent = enHistoria("stars") ? "" : `Estrellas puestas: ${filas.reduce((a, b) => a + b, 0)} / ${N * K}`;
 }
 
 function starError() {
@@ -226,5 +226,13 @@ export function initStarBattle() {
     render();
   });
   document.getElementById("starNew").addEventListener("click", () => { if (!enHistoria("stars")) nuevo(); });
+
+  // Al entrar o salir del modo historia: tablero nuevo (no vale traerlo resuelto desde el modo normal)
+  const vista = document.getElementById("view-stars");
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

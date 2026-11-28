@@ -1,5 +1,5 @@
 import { directions, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js?v=2";
 
 // Carpas: cada árbol (estrella) tiene una carpa (moneda) pegada, sin tocarse entre sí.
 const N = 8;
@@ -103,7 +103,7 @@ function render() {
   const n = puzzle.n;
   const { f, c: cc } = conteos();
   // En modo historia las cifras no se ponen verdes: delatarían que el tablero está resuelto.
-  const cls = (v, meta) => (enHistoria("tents") ? (v > meta ? "excedida" : "") : v === meta ? "cumplida" : v > meta ? "excedida" : "");
+  const cls = (v, meta) => (enHistoria("tents") ? "" : v === meta ? "cumplida" : v > meta ? "excedida" : "");
   let html = "<tr><th></th>";
   for (let c = 0; c < n; c++) html += `<th class="clue ${cls(cc[c], puzzle.colClues[c])}">${puzzle.colClues[c]}</th>`;
   html += "</tr>";
@@ -115,7 +115,7 @@ function render() {
       } else {
         const v = tablero[r][c];
         const icono = v === 1 ? '<i class="fa-solid fa-campground"></i>' : v === 2 ? '<i class="fa-solid fa-leaf"></i>' : "";
-        const choca = v === 1 && puzzle.n && tablero.some((fila, rr) => fila.some((x, k) => x === 1 && (rr !== r || k !== c) && tocan([rr, k], [r, c])));
+        const choca = !enHistoria("tents") && v === 1 && puzzle.n && tablero.some((fila, rr) => fila.some((x, k) => x === 1 && (rr !== r || k !== c) && tocan([rr, k], [r, c])));
         html += `<td class="puzzle-cell${v === 1 ? " carpa" : ""}${v === 2 ? " hierba" : ""}${choca ? " error" : ""}" data-r="${r}" data-c="${c}">${icono}</td>`;
       }
     }
@@ -172,5 +172,13 @@ export function initTents() {
     render();
   });
   document.getElementById("puzzleNew").addEventListener("click", () => { if (!enHistoria("tents")) nuevo(); });
+
+  // Al entrar o salir del modo historia: tablero nuevo (no vale traerlo resuelto desde el modo normal)
+  const vista = document.getElementById("view-tents");
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }

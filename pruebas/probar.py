@@ -108,6 +108,8 @@ def estados():
 
     def enigma_historia(p):
         libro_capitulo(p)
+        p.locator('#mapas-campanas [data-pagina="2"]').first.click()  # el capítulo I es por escenas: su enigma no está a la vista al empezar
+        p.wait_for_timeout(400)
         p.locator("#mapas-campanas .boton-enigma").first.click()
         p.wait_for_timeout(600)
 
@@ -120,6 +122,12 @@ def estados():
         pestana(p, "loot")
         p.locator("#chestSelectRow button, #chestSelectRow .chest-select").first.click()
         p.wait_for_timeout(300)
+
+    def aventura(p):
+        libro_capitulo(p)
+        for letra in ("C", "B"):  # almacén → espiar por las rendijas
+            p.locator(f'#mapas-campanas .aventura-opcion[data-av-ref="{letra}"]').click()
+            p.wait_for_timeout(450)
 
     def plano(p):
         libro_capitulo(p)
@@ -144,6 +152,7 @@ def estados():
         ("bestiario-enemigo", bestiario_enemigo),
         ("mapas-libro-portada", libro_portada),
         ("mapas-libro-capitulo", libro_capitulo),
+        ("mapas-aventura", aventura),
         ("mapas-catalogo", catalogo_mapas),
         ("mapas-visor", visor_mapa),
         ("enigmas-menu", enigmas_menu),

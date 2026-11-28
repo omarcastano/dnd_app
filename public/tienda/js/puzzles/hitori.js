@@ -1,5 +1,5 @@
 import { directions, entero, gridOf, mezclar, setPuzzleMsg } from "../nucleo/utilidades.js";
-import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js";
+import { enHistoria, comprobarHistoria, bloqueado } from "./historia.js?v=2";
 
 const N = 7;
 let valores = [];
@@ -128,13 +128,15 @@ function repeticiones() {
 }
 
 function render() {
-  const mal = duplicadosVisibles();
+  // Modo historia: sin avisos en rojo (repetidos ni sombras pegadas): solo «Comprobar» dice si está bien
+  const ayuda = !enHistoria("hitori");
+  const mal = ayuda ? duplicadosVisibles() : gridOf(N, N, false);
   let html = "";
   for (let r = 0; r < N; r++) {
     html += "<tr>";
     for (let c = 0; c < N; c++) {
       const e = estado[r][c];
-      const vecina = e === 1 && directions.some(([dr, dc]) => estado[r + dr]?.[c + dc] === 1);
+      const vecina = ayuda && e === 1 && directions.some(([dr, dc]) => estado[r + dr]?.[c + dc] === 1);
       const cls = ["puzzle-cell", e === 1 ? "shade" : "", e === 2 ? "circulo" : "", mal[r][c] && e !== 2 ? "repetido" : "", vecina ? "error" : ""].join(" ");
       html += `<td class="${cls}" data-r="${r}" data-c="${c}"><span>${valores[r][c]}</span></td>`;
     }
@@ -192,5 +194,13 @@ export function initHitori() {
     render();
   });
   document.getElementById("hitoriNew").addEventListener("click", () => { if (!enHistoria("hitori")) nuevo(); });
+
+  // Al entrar o salir del modo historia: tablero nuevo (no vale traerlo resuelto desde el modo normal)
+  const vista = document.getElementById("view-hitori");
+  let enLibro = false;
+  new MutationObserver(() => {
+    const ahora = vista.classList.contains("modo-historia");
+    if (ahora !== enLibro) { enLibro = ahora; nuevo(); }
+  }).observe(vista, { attributes: true, attributeFilter: ["class"] });
   nuevo();
 }
