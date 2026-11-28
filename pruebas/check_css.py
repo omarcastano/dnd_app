@@ -24,7 +24,7 @@ SECCIONES = {
     "hurto": ([CSS + "robo.css"], ["#tab-rob"]),
     "heroes": (["personajes/app/catalogo.css", "personajes/clases/*/efectos.css"],
                ["#tab-heroes", ".tab-heroes", ".heroes", ".visor", ".efecto", ".ambiente-*"]),
-    "bestiario": ([CSS + "bestiario.css"], ["#tab-bestiario", ".tab-bestiario"]),
+    "bestiario": ([CSS + "bestiario.css"], ["#tab-bestiario", ".tab-bestiario", "#tab-pnj", ".tab-pnj"]),  # PNJ comparte la vista
     "mapas": ([CSS + "mapas.css"], ["#tab-mapas", ".mapas-zona", ".mapa-visor", ".plano-visor", ".enigma-historia"]),
     "enigmas": ([CSS + "puzzles.css", CSS + "enigmas-historia*.css"], ["#tab-puzzles", ".admin-corner"]),
 }

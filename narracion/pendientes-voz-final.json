@@ -1,514 +1,569 @@
 {
  "pendientes": [
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-aceite.mp3",
-   "id": "el-aliento-helado-1-escena-aceite",
-   "texto": "Sacáis los toneles marcados con el hueso uno por uno, los hacéis rodar rampa abajo y los reventáis contra la orilla del canal. El aceite se extiende sobre el agua azul en una mancha espesa que brilla con un azul enfermizo, más frío que el del mar, aunque no haya luz que lo ilumine. Huele dulce y frío, y la corriente se lo va llevando mar adentro. Al norte, lejos, sobre el acantilado del cabo, la luz azul del faro parpadea, como si algo allí arriba hubiera notado que le falta comida."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-amuleto-engendro.mp3",
+   "id": "el-aliento-helado-2-escena-amuleto-engendro",
+   "texto": "Quien lleva el amuleto del sátiro avanza despacio y lo alza ante el ser dormido. El engendro abre unos ojos sin párpados, alarga el cuello y lo olisquea. Huele el hueso y se aparta, dejándole pasar hacia la escalera. Pero cuando el siguiente de vosotros se acerca, el ser vuelve a olfatear, no encuentra hueso y enseña una boca llena de dientes finos como agujas. El que lleva el amuleto ya está en los peldaños, y el resto se queda abajo, a solas con él."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-cerrado.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-cerrado",
-   "texto": "Subís por la rampa de tablas que trepa desde la arena hasta el costado este del almacén. La gran puerta está cerrada con un candado de hierro del tamaño de un puño, con un pez grabado: el sello de Tormund. Tiráis, empujáis, golpeáis. No cede. Por una rendija veis la lucecita roja parpadear junto a unos barriles y, de golpe, apagarse, como si alguien la hubiera soplado. Dentro, una risita aguda. Quien esté ahí no ha entrado por esta puerta."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-bodega-tras.mp3",
+   "id": "el-aliento-helado-2-escena-bodega-tras",
+   "texto": "Llegáis a la popa del barco partido y bajáis por la escotilla que hay junto al timón. La bodega de la popa huele a salitre y a algo dulce y frío: está llena de toneles marcados con un hueso pintado, el mismo aceite que salía del almacén de Tormund. Entre ellos hay un saco de pescado seco y, clavada en una viga, una nota escrita con letra torpe: «Al subir la carga, tres golpes en la puerta de la cocina y decid: la piedra no duerme. Si no, Grom abre a mazazos». Ya sabéis cómo os recibirán en la casa del faro."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-combate-despues.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-combate-despues",
-   "texto": "El diablillo cae junto a su brasero con un último chisporroteo, y la rana se desploma de las cajas sobre las redes. El brasero sigue ardiendo con unas llamas rojas y quietas que no se tuercen ni con el viento helado que entra por la puerta: fuego de diablo, de ese que no se apaga. Sobre un tonel encontráis una hoja de carga con un hueso pintado: «Cada noche, con la niebla: el trovador carga el aceite en la barca del viejo, enciende el farol con el fuego del brasero y lo lleva al faro». Por las rendijas veis que la niebla del mar ya avanza hacia la cala. El trovador no tardará."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-bodega.mp3",
+   "id": "el-aliento-helado-2-escena-bodega",
+   "texto": "Bajáis la escalera de la escotilla pisando solo los bordes de los peldaños. La bodega de la popa huele a salitre y a algo dulce y frío: está llena de toneles marcados con un hueso pintado, el mismo aceite que salía del almacén de Tormund. Entre ellos hay un saco de pescado seco y, clavada en una viga, una nota escrita con letra torpe: «Al subir la carga, tres golpes en la puerta de la cocina y decid: la piedra no duerme. Si no, Grom abre a mazazos». Desde la otra mitad del barco os llegan las pisadas del gato, que va y viene por la proa. No os ha oído."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-frente.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-frente",
-   "texto": "Decidís entrar de frente, sin rodeos. Abrís la puerta de una patada y avanzáis entre las cajas reventadas con las armas por delante. El olor a pescado podrido y a brasa os llega antes que la luz. En cuanto el primero de vosotros asoma por encima de las cajas, oís el chasquido seco de una ballesta tensándose: la rana enorme está despierta y os apunta. Junto al brasero, el diablillo suelta una risita aguda y agarra las brasas con las manos desnudas. Ya no hay sorpresa posible: el almacén entero despierta a vuestro alrededor."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-caracol.mp3",
+   "id": "el-aliento-helado-2-escena-caracol",
+   "texto": "Subís por la escalera de caracol de uno en uno, pegados al muro. Cuanto más subís, más frío hace, y los peldaños se cubren de escarcha azul. Arriba está la linterna: una sala redonda de cristales con una gran lente en el centro que gira despacio. Dentro de la lente no arde fuego, sino un trozo de hielo azul que palpita. Junto a ella, encadenado, está Tormund, pálido y con la barba helada. Y entre él y vosotros se alza una figura envuelta en una túnica negra raída, con una calavera bajo la capucha y una guadaña enorme. «Mi señora necesita esta luz», dice. «Nadie la apagará.»"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-grua-esperados.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-grua-esperados",
-   "texto": "Rodeáis el almacén por la orilla oeste y subís al muelle de atrás, junto a la grúa. La puerta trasera está entornada. Os asomáis despacio… y una cabeza verde y enorme os sonríe desde lo alto de las cajas, con la ballesta ya tensada. A su lado, el diablillo aplaude dando saltitos: llevan un buen rato esperándoos."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-casa-registro.mp3",
+   "id": "el-aliento-helado-2-escena-casa-registro",
+   "texto": "Cruzáis el hueco que lleva a la sala del norte de la casa. Hay una mesa con dos barriles al lado, un banco y una alfombra parda pisoteada. Sobre la mesa, un cuaderno de cuentas con un hueso pintado en la tapa: cuántos toneles suben cada día a la torre. Al margen, con letra temblorosa: «Cuando la llama flojea, ella baja a por aceite. No estar en la escalera cuando baje». En uno de los barriles hay pescado en salazón y pan."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-grua.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-grua",
-   "texto": "Cruzáis la arena y rodeáis el almacén por la orilla oeste, pegados a la madera del cobertizo de los barriles, mientras el agua helada os lame las botas. Subís al muelle de atrás, donde el esqueleto de la grúa se alza cubierto de carámbanos. Cada tabla cruje bajo el hielo y contenéis el aliento a cada paso. La puerta trasera sigue sin atrancar. La empujáis un dedo y veis, a un palmo, la espalda del diablillo soplando su brasero y, más allá, la rana dormitando sobre las cajas. Ninguno se ha girado. Es ahora o nunca."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-amuleto.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-amuleto",
+   "texto": "Llamáis a la puerta y, cuando asoma un gigante calvo y sin camisa, le enseñáis el amuleto de hueso del sátiro con toda la calma que podéis fingir. Gruñe que llegáis tarde, que la de la guadaña quiere aceite y que no le gusta esperar, y os deja pasar a la cocina caliente. Pero mientras cerráis la puerta, sus ojos vuelven al amuleto y se detienen en una mancha oscura del cordón: sangre seca. «Este es el del músico», dice despacio. En la mesa redonda, un guerrero de armadura negra deja el cuenco y agarra su hacha."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-puerta-esperados.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-puerta-esperados",
-   "texto": "Subís la rampa de tablas hasta la gran puerta del costado este. La llave de Tormund gira en el candado del pez, que cede con un chasquido. Dentro no se oye nada. Empujáis la puerta un palmo: el brasero del fondo está tapado con una tapa de hierro y apenas deja escapar un hilo de luz roja sobre los toneles marcados con un hueso. Entonces, desde lo alto de las cajas, una voz chillona canturrea: «¡Ya están aquí, ya están aquí!». Una rana enorme y verde os apunta a la rendija con la ballesta tensada, y a su lado un diablillo flaco da saltitos de alegría. Os han oído llegar y llevan un buen rato esperándoos."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-combate-despues.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-combate-despues",
+   "texto": "El gigante calvo cae como un árbol talado y el de la armadura negra se desploma con estrépito. Su yelmo rueda por el suelo y deja ver una cara gris de venas azules, helada por dentro. Del cinto le cuelga una llave de hierro con una gárgola grabada. Os la guardáis. En la cocina, el guiso sigue humeando en el hogar. Arriba, en la torre, algo metálico rechina, la luz azul parpadea y una voz como de piedra rota llama desde lo alto: «¿Hermanos?». Nadie contesta."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-puerta.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-puerta",
-   "texto": "Subís la rampa de tablas hasta la gran puerta del costado este. La llave de Tormund gira en el candado del pez, que cede con un chasquido sordo. Empujáis la puerta un palmo y os asomáis. Las cajas del viejo están reventadas y sus redes, apartadas en un rincón para dejar sitio a una hilera de toneles nuevos marcados con un hueso pintado. Al fondo, junto a la puerta trasera, una figurilla roja del tamaño de un gato sopla un brasero mientras mordisquea una raspa de pescado: un diablillo flaco y hambriento. Sobre las cajas del centro, una rana enorme y verde dormita abrazada a una ballesta. Ninguno mira hacia la puerta."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-combate.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-combate",
+   "texto": "El gigante calvo blande su maza con una sola mano, y el de la armadura negra hace girar su hacha de dos hojas, que zumba como un enjambre. Son los hermanos que suben el aceite a la torre, y saben que si caen, nadie más guarda el paso hasta la de la guadaña."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-almacen-tras-lobos.mp3",
-   "id": "el-aliento-helado-1-escena-almacen-tras-lobos",
-   "texto": "Subís por la rampa de tablas hasta la gran puerta del costado este del almacén. Está cerrada con un candado de hierro del tamaño de un puño, con un pez grabado: el sello de Tormund. No cede. Por una rendija veis una lucecita roja junto a unos toneles marcados con un hueso pintado, y en lo alto de las cajas, algo verde y enorme que acaricia una ballesta. Si os ha visto, no lo demuestra. Al fondo, una puerta trasera atrancada con un tablón da al muelle de la grúa."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-contrasena.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-contrasena",
+   "texto": "Dais tres golpes en la puerta. «¿Quién va?», gruñe una voz grave. «La piedra no duerme», contestáis. La puerta se abre y asoma un gigante calvo y sin camisa, con un cuenco de guiso en la mano. Os mira de arriba abajo, frunce el ceño y se rasca la cabeza. «¿Y el gato? Bah, pasad, que se enfría el guiso.» Os da la espalda para volver a la mesa redonda, donde un guerrero de armadura negra sigue comiendo sin quitarse el yelmo. Ninguno de los dos tiene el arma en la mano."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-arbustos.mp3",
-   "id": "el-aliento-helado-1-escena-arbustos",
-   "texto": "Os acercáis despacio a la maraña de arbustos nevados que hay a la izquierda del sendero. Las ramas están cubiertas de escarcha y, entre ellas, la nieve está pisoteada y manchada de sangre seca. Huele a pelo mojado. Un crujido, otro, y las ramas dejan de moverse. Por un instante solo se oye el hielo de la laguna crujiendo bajo el pequeño embarcadero. Entonces asoman, a ras de suelo, unos ojos amarillos que no parpadean."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-emboscada.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-emboscada",
+   "texto": "Os escondéis entre los barriles y bajo la lona azul, junto a los toneles del hueso, y esperáis. El guiso se acaba pronto. La puerta se abre y sale el gigante calvo, sin camisa y bostezando, a por un tonel. Se agacha justo delante de vosotros. Cuando se da cuenta de que la lona respira, ya es tarde. Su grito hace salir de la cocina a un guerrero de armadura negra con un hacha de doble filo en las manos."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-con-llave.mp3",
-   "id": "el-aliento-helado-1-escena-barca-con-llave",
-   "texto": "Cruzáis la playa y la pasarela ancha del oeste hasta su extremo, donde la barca de Tormund está amarrada contra la orilla de la lengua de arena. No tiene candado ni cadena: la llave no sirve aquí. Tiene los remos dentro, huele a aceite y las cuerdas del amarre son nuevas. En la nieve hay huellas de pezuña, no de bota, que van y vienen entre la barca y el almacén: alguien la está usando. En la proa cuelga un farol de hierro, apagado y negro de hollín rojizo, y mar adentro la niebla es tan espesa que no se ve la punta de un remo. Al volveros, veis un hilo de humo rojizo que sale del tejado del almacén sin que el viento lo tuerza. Ahí dentro arde un fuego que esta niebla no apaga."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cocina-irrumpir.mp3",
+   "id": "el-aliento-helado-2-escena-cocina-irrumpir",
+   "texto": "Os acercáis pegados a la pared y empujáis la puerta con el hombro. Se abre de golpe y el calor del hogar os golpea la cara. En la mesa redonda, dos hombres con amuletos de hueso al cuello levantan la vista de sus cuencos: un gigante calvo, sin camisa, que ya alarga la mano hacia su maza, y un guerrero con armadura negra y yelmo de ranura estrecha, que se levanta despacio y desengancha un hacha de doble filo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-deshielo-despues.mp3",
-   "id": "el-aliento-helado-1-escena-barca-deshielo-despues",
-   "texto": "Cuando el último acorde se apaga, el sátiro cae de rodillas sobre las tablas y el lobo huye aullando hacia las rocas. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. A vuestra espalda, el farol de proa sigue ardiendo rojo entre la niebla: con esa luz, la barca de Tormund puede cruzar hasta el faro."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cornisa.mp3",
+   "id": "el-aliento-helado-2-escena-cornisa",
+   "texto": "Bajáis por el palo largo hasta su punta y saltáis de roca en roca hasta la orilla, con la espuma mojándoos las botas. Trepáis por las muescas del acantilado, una mano tras otra, y salís a una cornisa estrecha cubierta de musgo, entre el borde del abismo y la pared de piedra de la casa del faro. La pared no tiene puerta ni ventana. Pero más al sur, a través de ella, os llegan voces apagadas y olor a guiso."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-deshielo.mp3",
-   "id": "el-aliento-helado-1-escena-barca-deshielo",
-   "texto": "Cargáis el brasero del diablillo hasta la barca y metéis unas brasas en el farol de proa. Prende una llama roja, quieta, que la niebla no consigue apagar. Entonces la niebla se espesa de golpe, y por la pasarela ancha llegan unas notas de flauta. Un sátiro avanza sobre las tablas con un lobo espinoso a su lado, como un perro. Lleva al cuello un amuleto de hueso. Se detiene al veros en su barca y sonríe con dientes afilados: canta que cada noche cruza la niebla con ese aceite para la señora de piedra, que ella le prometió una corona de escarcha, y que esa barca y ese fuego son suyos."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-costa-norte.mp3",
+   "id": "el-aliento-helado-2-escena-costa-norte",
+   "texto": "Remáis hacia el norte, pegados al acantilado, hasta quedar bajo el acantilado del norte; el faro se alza más allá, tierra adentro. La pared de roca gris sube lisa y mojada, sin una grieta donde meter los dedos, y las olas revientan contra ella y os salpican la cara. Allá arriba, la luz azul pasa sobre vosotros y el amuleto da un brinco en la bolsa. Desde aquí lo veis claro: la popa del barco partido queda a unos golpes de remo, y desde el barco, el mástil caído y otro palo largo cruzan el agua hasta unas rocas junto a la orilla, como un puente de palos. Más al sur, la roca grande toca el acantilado donde es más bajo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-helada.mp3",
-   "id": "el-aliento-helado-1-escena-barca-helada",
-   "texto": "Cruzáis la pasarela ancha de tablas del oeste, resbalando sobre la escarcha, hasta su extremo, donde la barca de Tormund está amarrada contra la orilla de la lengua de arena. Tiene los remos dentro y huele a aceite; las cuerdas del amarre son nuevas. En la proa cuelga un farol de hierro, apagado y negro de hollín rojizo. Miráis al mar: la niebla que flota sobre el agua es tan espesa que no se ve la punta de un remo, y tan fría que muerde la cara. Nadie cruzaría eso a oscuras sin estrellarse contra las rocas del cabo. Y en la nieve de la orilla hay algo raro: huellas de pezuña, no de bota, que van y vienen entre la barca y el almacén. Alguien está usando la barca del viejo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-cruzar-plataforma.mp3",
+   "id": "el-aliento-helado-2-escena-cruzar-plataforma",
+   "texto": "Cruzáis la plataforma agachados, de barril en barril, sin apartar la vista de la puerta entornada de la cocina. Llegáis a la escalerilla de tablas que sube hacia la torre. El primero pone el pie en ella y la madera, helada, cruje como un latigazo. Dentro de la cocina se hace el silencio. Al instante la puerta se abre de golpe: sale un gigante calvo y sin camisa con su maza, y tras él, un guerrero de armadura negra con un hacha de doble filo. Os han pillado a medio camino."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-libre.mp3",
-   "id": "el-aliento-helado-1-escena-barca-libre",
-   "texto": "Envolvéis el brasero del diablillo en redes para no quemaros, bajáis la rampa y cruzáis la pasarela ancha del oeste hasta la barca. Metéis unas brasas en el farol de proa y prende una llama roja, quieta, que la niebla no consigue apagar. Su luz se abre paso entre la bruma y os deja ver las rocas a varios largos de remo. La barca de Tormund está lista para cruzar la niebla."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-engendro-despues.mp3",
+   "id": "el-aliento-helado-2-escena-engendro-despues",
+   "texto": "El engendro se retuerce una última vez y queda inmóvil entre las rocas. A su alrededor hay huesos roídos de pescado y de algo más grande, y un amuleto de hueso partido: no todos los que subían eran bien recibidos. La escalera de madera ya está libre. Arriba, al final de los peldaños, se oye el crepitar de un fuego y el chocar de cucharas: nadie se asoma, porque el mar ahoga cualquier ruido, y la luz azul de la torre late cada vez más deprisa."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-barca-tras-lobos.mp3",
-   "id": "el-aliento-helado-1-escena-barca-tras-lobos",
-   "texto": "Cruzáis la pasarela ancha de tablas del oeste hasta su extremo, donde la barca de Tormund está amarrada contra la orilla de la lengua de arena. Tiene los remos dentro y huele a aceite; las cuerdas del amarre son nuevas. En la proa cuelga un farol de hierro, apagado y negro de hollín rojizo. Miráis al mar: la niebla que flota sobre el agua es tan espesa que no se ve la punta de un remo, y tan fría que muerde la cara. Nadie cruzaría eso a oscuras sin estrellarse contra las rocas del cabo. Y en la nieve de la orilla hay algo raro: huellas de pezuña, no de bota, que van y vienen entre la barca y el almacén. Alguien está usando la barca del viejo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-engendro-sorpresa.mp3",
+   "id": "el-aliento-helado-2-escena-engendro-sorpresa",
+   "texto": "Avanzáis por el camino pisando solo la piedra, lejos de las tablas sueltas. El silbido de su respiración se oye cada vez más cerca. Huele a carne podrida y a agua de pozo. Estáis a un paso cuando una de sus orejas, pequeña y sin pelo, tiembla. Antes de que abra los ojos, ya tenéis las armas en alto."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-brasas-fallidas.mp3",
-   "id": "el-aliento-helado-1-escena-brasas-fallidas",
-   "texto": "Aviváis la chimenea de Tormund y llenáis de brasas un caldero de hierro. Salís con él envuelto en mantas, cruzáis el puente y corréis por la playa hasta la barca. Pero en cuanto acercáis las brasas al farol de proa, la niebla que sube del agua las envuelve y se apagan, una tras otra, hasta quedar en ceniza gris y fría. Esta niebla no es natural: se come el fuego. Solo hay en la cala un fuego que no se apaga: el que humea, rojo y quieto, en el tejado del almacén."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-engendro.mp3",
+   "id": "el-aliento-helado-2-escena-engendro",
+   "texto": "El engendro se mueve a cuatro patas, encorvado, con la cresta de espinas erizada y la cabeza lisa ladeada, como si escuchara vuestros corazones. Es el perro guardián de la de la guadaña: nadie sube a la plataforma sin pasar por encima de él."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-candado-golpes.mp3",
-   "id": "el-aliento-helado-1-escena-candado-golpes",
-   "texto": "Uno sujeta la cadena y otro descarga el pomo de la espada sobre el candado, una vez, otra, otra más. Saltan chispas, pero el hierro ni se mella. El estruendo rueda por toda la cala como un trueno. Dentro, la risita se convierte en carcajada. Y desde abajo, desde la arena, os responde otra cosa: un gruñido largo. Al pie de la rampa os esperan unos ojos amarillos y unos lomos erizados de hielo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-escalera-cruje.mp3",
+   "id": "el-aliento-helado-2-escena-escalera-cruje",
+   "texto": "Os pegáis a la pared de roca y empezáis a subir la escalera de madera de puntillas, uno detrás de otro. Un peldaño, dos, tres. El cuarto está podrido de salitre y cruje como un hueso partido. Abajo, el ser abre unos ojos sin párpados y se despliega de golpe, mucho más largo de lo que parecía, y trepa por las tablas hacia vuestros talones."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-casa.mp3",
-   "id": "el-aliento-helado-1-escena-casa",
-   "texto": "Cruzáis el puente de tablas, subís al rellano de madera y entráis en la casa. La chimenea de la sala lleva días apagada. En la encimera, junto a ella, hay cuencos con sopa hecha hielo, y junto a la mesa redonda, un taburete volcado, como si Tormund se hubiera levantado de golpe para mirar algo por la ventana. En el dormitorio del fondo, la cama de la manta azul está deshecha. Unas marcas finas y largas suben por la pared de piedra hasta las vigas, donde algo tensa despacio los hilos de una telaraña cubierta de escarcha."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-espera-parca.mp3",
+   "id": "el-aliento-helado-2-escena-espera-parca",
+   "texto": "Os escondéis tras las cajas y los barriles de la sala redonda, junto a la escalera de caracol, y esperáis en silencio. Arriba, la llama tiembla: sin los hermanos, nadie sube aceite. Al fin, unos pasos lentos bajan por los peldaños, y con ellos un frío que escarcha el suelo de ladrillo. Una figura de túnica negra, con una calavera bajo la capucha y una guadaña enorme, sale de la escalera y va hacia los barriles. No mira a los lados."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-emboscada-despues.mp3",
-   "id": "el-aliento-helado-1-escena-emboscada-despues",
-   "texto": "El sátiro cae sobre sus propios toneles y la flauta rueda por el suelo. El lobo huye aullando rampa abajo. Al cuello del trovador cuelga un amuleto de hueso tallado con la forma de un faro y una llama azul; está helado y late débilmente, como un corazón. Os lo guardáis. Bajo el caldero, el brasero del diablillo sigue ardiendo, esperando."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-fin.mp3",
+   "id": "el-aliento-helado-2-escena-fin",
+   "texto": "Bajáis de la torre con Tormund apoyado en vuestros hombros y el trozo de hielo envuelto en su manta. Cruzáis la plataforma, bajáis la escalera de madera y volvéis a la barca por el mismo camino por el que subisteis. La barca os espera con el farol rojo todavía encendido. Remáis de vuelta sin niebla: el mar está gris y tranquilo, y a vuestra espalda el faro se queda a oscuras por primera vez en muchas noches. Lleváis al viejo a la taberna, donde le dan sopa caliente y a vosotros vino. Mañana seguiréis el mapa de la Hermandad hacia las estribaciones."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-emboscada.mp3",
-   "id": "el-aliento-helado-1-escena-emboscada",
-   "texto": "Tapáis el brasero con un caldero volcado para que su resplandor no os delate, os escondéis entre las cajas y los toneles y esperáis con las armas en la mano. La niebla entra por las rendijas como leche derramada. Entonces llegan unas notas de flauta, cada vez más cerca, y unos cascos sobre las tablas de la rampa. Un sátiro con un amuleto de hueso al cuello asoma por la gran puerta, con un lobo espinoso pegado a las piernas, canturreando sobre una señora de piedra que le prometió una corona de escarcha. No mira a los lados: viene a por su aceite, para cargarlo en la barca del viejo como cada noche."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-gato-charla.mp3",
+   "id": "el-aliento-helado-2-escena-gato-charla",
+   "texto": "Uno de vosotros carraspea y contesta con la cantinela burlona del sátiro. El gato se ríe y suelta la lengua mientras amarráis y subís a la cubierta: el aceite sube por las cuerdas del mástil hasta los hermanos de la casa, el calvo grandullón y el de la armadura negra, que lo llevan a la torre; el calvo, en cuanto acaba de comer, sale a la plataforma a por los toneles. Allí arriba, la de la guadaña obliga al viejo pescador a dar de comer a la llama azul, porque es el único que sabe mover la lente. Y a la bestia de la escalera, dice, mejor no darle la espalda. Entonces la calavera baja a miraros de cerca y su fuego os ilumina la cara. Chilla. El gato deja de reír y alza las hachas."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-espiar.mp3",
-   "id": "el-aliento-helado-1-escena-espiar",
-   "texto": "Bajáis a la pared sur del almacén, donde se amontonan redes azules, y pegáis la cara a las tablas heladas. Dentro hay toneles nuevos, marcados con un hueso pintado, que no son de Tormund. Al fondo, una figurilla roja del tamaño de un gato sopla un brasero, y sobre las cajas, algo grande, verde y húmedo acaricia una ballesta. Ninguno os ha visto. En la pared del fondo hay una puerta trasera, atrancada con un tablón: da al muelle de la grúa, al otro lado del almacén. Por ahí entran y salen."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-grabado.mp3",
+   "id": "el-aliento-helado-2-escena-grabado",
+   "texto": "Os agacháis junto a la base de la lente, ahora apagada. En el hierro hay un grabado reciente, hecho a zarpazos: una gárgola con alas y cuernos que sostiene una alabarda en una mano y, en la otra, una cadena atada al cuello de un dragón. Debajo, alguien ha tallado una nave con costillas de hueso. Es la misma gárgola de la llave de hierro que llevaba el de la armadura negra. El viejo la mira y escupe al suelo: «Esa. Esa es la que me trajo»."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-fin.mp3",
-   "id": "el-aliento-helado-1-escena-fin",
-   "texto": "Amarráis la barca de Tormund con doble nudo, con el farol de proa ardiendo rojo entre la niebla, y os quedáis un momento mirando al norte. Sobre el acantilado del cabo, una luz azulada parpadea entre la niebla, donde debería arder fuego amarillo. El amuleto del sátiro tiembla en la bolsa cada vez que la luz late. Tormund fue hacia allí. Volvéis a la taberna a calentaros los huesos y comprar lo necesario, porque mañana remaréis hacia el faro."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-guarida.mp3",
+   "id": "el-aliento-helado-2-escena-guarida",
+   "texto": "Os agacháis junto a la grieta donde dormía el engendro, bajo la escalera. Huele tan mal que os lloran los ojos. Entre los huesos roídos encontráis un zurrón de hule rasgado, todavía cerrado: pan duro, queso y una bota de vino aguado, lo que la bestia robaba a los que subían la carga. Junto a él, el amuleto partido tiene un nombre grabado a punta de cuchillo: «Hermano Ulf». Nadie vino a buscarlo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-llave-silencio.mp3",
-   "id": "el-aliento-helado-1-escena-llave-silencio",
-   "texto": "Leéis la nota de Tormund: «Los de hueso guardan aceite para el faro en mi almacén. Escondí la llave en la chimenea; que no la encuentren». Os acercáis a la chimenea apagada, metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado, el mismo del candado. Al cerrar el cuaderno se desliza de entre sus hojas una moneda helada, tan fría que quema, con una gárgola alada grabada. Fuera solo se oye el mar: nadie os ha oído."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-hogar.mp3",
+   "id": "el-aliento-helado-2-escena-hogar",
+   "texto": "Os sentáis a la mesa redonda, junto al hogar de piedra y os servís del guiso de los hermanos: pescado, nabos y mucha pimienta. El calor del fuego os devuelve los dedos y el ánimo, y por primera vez desde que salisteis de la cala dejáis de tiritar. Arriba, la luz azul sigue latiendo. Tarde o temprano habrá que subir."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-llave-tras-destrozo.mp3",
-   "id": "el-aliento-helado-1-escena-llave-tras-destrozo",
-   "texto": "Leéis la nota: los de hueso guardan aceite para el faro en el almacén, y la llave duerme en la chimenea. La chimenea: el único rincón de la casa que no habíais tocado. Metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado. Entre las hojas del cuaderno aparece además una moneda helada con una gárgola alada grabada."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-lente-golpes.mp3",
+   "id": "el-aliento-helado-2-escena-lente-golpes",
+   "texto": "Descargáis las armas contra la gran lente con todas vuestras fuerzas. El cristal no se raja: cada golpe rebota con un tañido de campana y os entumece los brazos hasta el hombro. La llama azul, en cambio, se aviva con cada golpe, y la escarcha trepa por vuestras botas. Tormund os sujeta: «¡Así no! La alimentan las runas del suelo. Yo la vi encenderlas una a una. Hay que apagarlas todas». No queda otra."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-llegada.mp3",
-   "id": "el-aliento-helado-1-escena-llegada",
-   "texto": "Dejáis atrás el pueblo y bajáis por el sendero de arena que serpentea entre las rocas, con la nieve hasta las rodillas. Al caer la tarde se abre ante vosotros la cala de Tormund. A la derecha, al otro lado de un canal de agua azul que rompe en espuma, se alza su casa de piedra; un puente de tablas la une con la playa y la puerta abierta golpea con el viento. Arriba a la izquierda, sobre una lengua de arena, el gran almacén de madera, con su grúa cubierta de carámbanos asomando por detrás. Entre las rendijas de sus tablas parpadea una lucecita roja, aunque Tormund lleva tres días sin volver. Más a la izquierda, al final de la pasarela ancha del oeste, se mece una barca de remos: la única de la cala, y el faro del cabo solo se alcanza por mar. Mar adentro, un muro de niebla blanca y espesa se traga el horizonte. Y a vuestra izquierda, junto a un arcón cubierto de nieve, una maraña de arbustos cruje sin que sople el viento. Nadie responde a vuestras llamadas. ¿Por dónde empezáis: la casa, el almacén, la barca, o echáis un vistazo a esos arbustos?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-llama-apagada.mp3",
+   "id": "el-aliento-helado-2-escena-llama-apagada",
+   "texto": "La última runa se apaga con un chasquido. La luz de la lente vacila, se encoge y muere, y el trozo de hielo azul cae al suelo, tan frío que humea. Lo envolvéis en una manta de las camas de abajo. Sobre la mesa, el hielo que sellaba el mapa se derrite: muestra las estribaciones, un arroyo helado y tres piedras azules que llevan hasta un altar. Tormund se sienta, por fin, y os cuenta que una gárgola de piedra lo arrancó de la playa con sus garras y lo trajo aquí porque, de joven, él cuidó este faro y sabe mover la lente. Desde las montañas llega un rugido, y tras él una carcajada seca, como de piedra que se agrieta."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-ofrenda-sangre.mp3",
-   "id": "el-aliento-helado-1-escena-ofrenda-sangre",
-   "texto": "Los intentos se agotan y la página sigue siendo un galimatías. Alguien cierra el cuaderno con rabia y entonces lo veis: en el reverso de la tapa, junto al dial, hay una inscripción grabada a punta de cuchillo, tan vieja que casi no se lee. «Lo que la cabeza no abre, la sangre lo abre». Este cuaderno es más antiguo que Tormund, y el viejo lo sabía. No queda otro camino: hay que hacer una ofrenda de sangre. Sacáis un cuchillo, lo pasáis por la palma y dejáis caer las gotas sobre la página."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-llama-sangre.mp3",
+   "id": "el-aliento-helado-2-escena-llama-sangre",
+   "texto": "Con la última gota se apaga la última runa. La luz de la lente vacila, se encoge y muere, y el trozo de hielo azul cae al suelo, tan frío que humea. Lo envolvéis en una manta de las camas de abajo. Sobre la mesa, el hielo que sellaba el mapa se derrite: muestra las estribaciones, un arroyo helado y tres piedras azules que llevan hasta un altar. Os escuece la palma, pero lo habéis logrado. Tormund os cuenta que una gárgola de piedra lo arrancó de la playa con sus garras y lo trajo aquí porque, de joven, él cuidó este faro. Desde las montañas llega un rugido, y tras él una carcajada seca, como de piedra que se agrieta."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-pagina-de-sangre.mp3",
-   "id": "el-aliento-helado-1-escena-pagina-de-sangre",
-   "texto": "La sangre no se escurre: se hunde en el papel como en arena seca. Las letras tiemblan, se arrastran por la página y se ordenan solas, hasta que podéis leer la nota de Tormund: los de hueso guardan aceite para el faro en el almacén, y la llave duerme en la chimenea. Metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado. Entre las hojas aparece además una moneda helada con una gárgola alada grabada. Os escuece la palma, pero la tenéis."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-llegada.mp3",
+   "id": "el-aliento-helado-2-escena-llegada",
+   "texto": "Al alba remáis en la barca de Tormund, con el farol de proa ardiendo rojo entre la niebla helada. El amuleto de hueso del sátiro late en la bolsa, cada vez más deprisa. Por fin la niebla se abre y aparece el cabo: un acantilado de roca gris y, arriba, la torre del faro, donde una llama azul gira despacio sobre el mar. A sus pies, encallado contra las rocas, hay un barco grande partido en dos, con el mástil caído sobre el agua azul. En su proa flota una luz anaranjada que la niebla no apaga, y una silueta otea la niebla, como si esperase a alguien. Al sur, una roca grande y redondeada se pega al pie del acantilado."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-puente-casa.mp3",
-   "id": "el-aliento-helado-1-escena-puente-casa",
-   "texto": "Cruzáis la playa hacia la derecha y pisáis el puente de tablas que salva el canal. La madera gime bajo vuestras botas y la espuma blanca rompe contra los pilotes. Ya veis, al otro lado, la puerta abierta de la casa golpeando contra el muro, cuando un aullido os eriza la nuca. No viene de la casa: viene de atrás. Sobre la arena que acabáis de dejar, unas siluetas flacas con el lomo erizado de hielo os cierran el paso. Nadie entra en esa casa con una manada mordiéndole los talones."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-mastil.mp3",
+   "id": "el-aliento-helado-2-escena-mastil",
+   "texto": "Os encaramáis a los palos del barco partido: el mástil nace en la proa y el palo largo en la popa, y los dos se cruzan sobre el agua. Avanzáis a gatas, agarrados a la cuerda de las poleas, con el agua azul revolviéndose debajo, hasta el cruce de los dos palos. El viento silba entre las cuerdas y la madera cruje. Desde aquí, el palo largo baja hacia el oeste hasta unas rocas junto a la orilla, y en la pared del acantilado se ven muescas talladas para las manos. Arriba, sobre el borde, asoma la pared de piedra de una casa."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-registro-en-vano.mp3",
-   "id": "el-aliento-helado-1-escena-registro-en-vano",
-   "texto": "Dejáis el cuaderno sobre la mesa redonda y os lanzáis a por la casa. Volcáis los cajones de la encimera, rajáis el colchón de la cama de la manta azul, levantáis las tablas sueltas del suelo y vaciáis la leñera. Nada. Ni rastro de la llave. El estrépito ha resonado por toda la cala, y al asomaros a la ventana veis que la lucecita roja del almacén se ha apagado. Jadeando entre el destrozo, volvéis la vista al cuaderno, que sigue abierto sobre la mesa. Tormund escondió la llave y solo lo dijo en esa página. No queda otra: hay que descifrarla."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-mirador.mp3",
+   "id": "el-aliento-helado-2-escena-mirador",
+   "texto": "Abrís la puertecilla de la linterna y salís a la galería que rodea la cúpula. El viento helado os empuja contra la barandilla. Sin la luz azul, la niebla del mar empieza a deshacerse en jirones, y por primera vez veis la costa entera, con el humo de las chimeneas del pueblo a lo lejos. Tierra adentro, al pie de las montañas, algo brilla entre los pinos con un resplandor frío y azul, justo donde el mapa marca el altar. Y más arriba, sobre el glaciar, se mueve una forma blanca enorme, con algo pequeño y gris posado en el lomo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-rodear-almacen.mp3",
-   "id": "el-aliento-helado-1-escena-rodear-almacen",
-   "texto": "Rodeáis el almacén por la orilla oeste de la lengua de arena, pasando bajo el cobertizo de los barriles. Allí abajo, amarrada en la orilla, se mece la barca de Tormund, con un farol apagado en la proa. Subís al muelle de tablas de la parte de atrás, donde la grúa se alza cubierta de carámbanos entre rollos de cuerda. La puerta trasera está atrancada por dentro: empujáis y el tablón ni se mueve, y al otro lado la risita aguda se ríe de vosotros. Al volver por la orilla, unas sombras flacas os esperan sobre la arena, junto a la pasarela. Los lobos han seguido vuestro rastro."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-muro-casa.mp3",
+   "id": "el-aliento-helado-2-escena-muro-casa",
+   "texto": "Avanzáis por la cornisa hasta donde las voces suenan más claras, os pegáis a la pared helada y contenéis el aliento. Al otro lado hablan dos voces: una grave y lenta, otra que suena dentro de un yelmo. «El gato se retrasa, Grom. Sal a ver si ha subido algún tonel.» «Cuando acabe el guiso.» Una cuchara rasca un cuenco. «Si la llama flojea, la de la guadaña bajará ella misma a por aceite, y no quiero estar en la torre cuando baje.» «¿Y el viejo?» «Arriba, dándole vueltas a la lente. Mientras la llama arda, la señora de piedra lo quiere vivo.» Luego solo se oyen ruidos de comer."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-romper-hielo.mp3",
-   "id": "el-aliento-helado-1-escena-romper-hielo",
-   "texto": "Sacáis yesca y pedernal y os agacháis junto al farol de proa. Saltan chispas, prende una llamita... y la niebla que sube del agua la apaga como un soplo. Otra vez. Y otra. Este frío no es natural: se come el fuego. Cuando levantáis la vista, ya es tarde: al otro extremo de la pasarela, unas siluetas flacas con espinas de hielo en el lomo os cierran la vuelta a la playa."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-ofrenda-runas.mp3",
+   "id": "el-aliento-helado-2-escena-ofrenda-runas",
+   "texto": "Las runas ya no responden: brillan, frías y burlonas, por mucho que las toquéis. Tormund se pasa la mano por la barba helada. «La vi encenderlas», susurra. «No con fuego: con sangre. La de los pobres que trajo aquí.» No queda otro camino. Pasáis un cuchillo por la palma y apoyáis la mano abierta sobre las runas, una tras otra. El hielo bebe vuestra sangre y os muerde hasta el hueso, pero runa a runa, la luz se va apagando."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-vigilar.mp3",
-   "id": "el-aliento-helado-1-escena-vigilar",
-   "texto": "Salís al rellano y subís por la escalera curva de tablas hasta lo alto del acantilado. Desde allí arriba se ve toda la cala: el canal azul, la playa y, por detrás del almacén, el muelle de la grúa. Os tumbáis en la nieve y esperáis. Pasa un buen rato. Entonces se abre la puerta trasera y sale al muelle una figurilla roja del tamaño de un gato, con un brasero humeante entre las manos. Sacude las cenizas al agua, mira a un lado y a otro, se ríe sola y vuelve a meterse dentro… sin atrancar la puerta. Ahora sabéis por dónde colaros."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-parca-dormitorio-despues.mp3",
+   "id": "el-aliento-helado-2-escena-parca-dormitorio-despues",
+   "texto": "La guadaña cae al suelo con un estruendo de hierro. La túnica se vacía y los huesos de la Parca se deshacen en escarcha. Subís a toda prisa por la escalera de caracol hasta la linterna: una sala de cristales con una gran lente que guarda un trozo de hielo azul palpitante. Encadenado junto a ella está Tormund, pálido y con la barba helada. La llave de la gárgola abre sus grilletes. «La luz… hay que apagarla», jadea. «Guía a la dragona hasta la costa.» Alrededor de la lente brillan runas azules en cuadrícula, y sobre una mesa hay un mapa pegado por una capa de hielo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca-ahora-mismo.mp3",
-   "id": "el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca-ahora-mismo",
-   "texto": "Bajar el brasero a la barca ahora mismo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-parca-dormitorio.mp3",
+   "id": "el-aliento-helado-2-escena-parca-dormitorio",
+   "texto": "La Parca se planta en el centro de la sala redonda, junto a la rueda de hierro, y la guadaña silba a ras de suelo, rozando las camas. Cada vez que la luz azul late allá arriba, su túnica se llena de escarcha. Vórtiga la dejó en el faro para que esa luz no se apagara nunca, y no piensa dejaros subir."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca.mp3",
-   "id": "el-aliento-helado-1-opcion-bajar-el-brasero-a-la-barca",
-   "texto": "Bajar el brasero a la barca."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-parca-linterna-despues.mp3",
+   "id": "el-aliento-helado-2-escena-parca-linterna-despues",
+   "texto": "La guadaña cae al suelo con un estruendo de hierro. La túnica se vacía y los huesos de la Parca se deshacen en escarcha. La llave de la gárgola que llevaba el de la armadura negra abre los grilletes de Tormund, y el viejo os agarra del brazo, temblando: «La luz… hay que apagarla. Guía a la dragona hasta la costa». Alrededor de la lente, en el suelo, brillan runas azules en cuadrícula que alimentan el hielo. Sobre una mesa, un mapa está pegado por una capa de hielo que no se suelta."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cerrar-sin-ruido-y-rodear-hasta-la-puerta-trasera.mp3",
-   "id": "el-aliento-helado-1-opcion-cerrar-sin-ruido-y-rodear-hasta-la-puerta-trasera",
-   "texto": "Cerrar sin ruido y rodear hasta la puerta trasera."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-parca-linterna.mp3",
+   "id": "el-aliento-helado-2-escena-parca-linterna",
+   "texto": "La Parca avanza sin prisa, y la guadaña silba a ras de suelo. Cada vez que la luz azul late, su túnica se llena de escarcha. Detrás, Tormund tira de sus cadenas y os grita que tengáis cuidado con la hoja. Vórtiga la dejó aquí para que esta luz no se apagara nunca."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cerrar-y-rodear-hasta-la-puerta-trasera.mp3",
-   "id": "el-aliento-helado-1-opcion-cerrar-y-rodear-hasta-la-puerta-trasera",
-   "texto": "Cerrar y rodear hasta la puerta trasera."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pecio-asalto.mp3",
+   "id": "el-aliento-helado-2-escena-pecio-asalto",
+   "texto": "No le dais tiempo a mirar dos veces. La barca toca el casco y saltáis a la cubierta inclinada con las armas en la mano, agarrándoos a la borda para no resbalar hacia el agua. El gato abre mucho los ojos amarillos: «¡Tú no eres el músico!». Sobre vuestras cabezas, la calavera suelta un chillido y su fuego se aviva como una antorcha. Ya estáis encima de ellos."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cruzar-el-puente-hacia-la-casa-de-tormund.mp3",
-   "id": "el-aliento-helado-1-opcion-cruzar-el-puente-hacia-la-casa-de-tormund",
-   "texto": "Cruzar el puente hacia la casa de Tormund."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pecio-combate-despues.mp3",
+   "id": "el-aliento-helado-2-escena-pecio-combate-despues",
+   "texto": "El gato cae sobre la cubierta con un último bufido y la calavera se estrella contra el agua, que hierve y se la traga. Junto a la base del mástil caído hay una polea y unas cuerdas nuevas tendidas a lo largo del palo: por ahí pasaban los toneles. El mástil se tiende sobre el agua y se cruza con otro palo largo que llega hasta unas rocas al pie del acantilado, que en ese punto tiene muescas talladas para trepar. Al sur, la roca grande toca el acantilado donde es más bajo. Arriba, la luz azul late."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-cubriros-tras-las-cajas.mp3",
-   "id": "el-aliento-helado-1-opcion-cubriros-tras-las-cajas",
-   "texto": "Cubriros tras las cajas."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pecio-combate.mp3",
+   "id": "el-aliento-helado-2-escena-pecio-combate",
+   "texto": "La calavera gira sobre la cubierta escupiendo chispas y el gato hace molinetes con sus dos hachas, ronroneando como quien se divierte. La madera está inclinada hacia el agua y resbala de escarcha. Este es el muelle de la Hermandad: aquí llegaba el aceite cada noche, y no van a dejar que unos extraños lo pisen."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-darle-mas-comida-al-diablillo-para-que-la-detenga.mp3",
-   "id": "el-aliento-helado-1-opcion-darle-mas-comida-al-diablillo-para-que-la-detenga",
-   "texto": "Darle más comida al diablillo para que la detenga."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pecio-espalda.mp3",
+   "id": "el-aliento-helado-2-escena-pecio-espalda",
+   "texto": "Bajáis de la popa y cruzáis el hueco entre las dos mitades del barco saltando de tabla en tabla. Las tablas se hunden bajo vuestro peso y el agua helada os llega a los tobillos. El gato sigue mirando al sur, moviendo la cola, impaciente. Alcanzáis la proa y trepáis por la madera rota a su espalda. Ya casi podéis tocarlo cuando la calavera se gira en el aire, os ve y suelta un chillido. Demasiado tarde para ellos."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-dejar-el-cuaderno-y-registrar-la-casa-a-fondo.mp3",
-   "id": "el-aliento-helado-1-opcion-dejar-el-cuaderno-y-registrar-la-casa-a-fondo",
-   "texto": "Dejar el cuaderno y registrar la casa a fondo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pecio-vacio.mp3",
+   "id": "el-aliento-helado-2-escena-pecio-vacio",
+   "texto": "Llegáis a la proa del barco partido. La cubierta está vacía: solo quedan huellas de gato en la escarcha y una cuerda tensa que recorre el mástil caído, colgada de poleas, hacia el noroeste. Allí, sobre el agua, el mástil se cruza con otro palo largo que baja hasta unas rocas junto a la orilla. Por ese puente de palos subía la Hermandad los toneles al acantilado. Al otro lado del hueco que parte el barco, la popa tiene una escotilla abierta."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-dejaros-ver-y-ofrecerles-comida.mp3",
-   "id": "el-aliento-helado-1-opcion-dejaros-ver-y-ofrecerles-comida",
-   "texto": "Dejaros ver y ofrecerles comida."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-pie-acantilado.mp3",
+   "id": "el-aliento-helado-2-escena-pie-acantilado",
+   "texto": "Desde la roca grande del sur, donde el acantilado es más bajo, trepáis buscando grietas con los dedos helados, hasta salir a un camino de piedra clara que corre al pie de la casa del faro, entre rocas y tablas sueltas tiradas por el suelo. Arriba huele a guiso. Al oeste, al final del camino, una escalera de madera sube recta hasta una gran plataforma de tablas. Y al pie de la escalera, entre las rocas, algo flaco y gris duerme enroscado: un ser a cuatro patas, con la cabeza lisa y alargada y una cresta de espinas de hueso en el lomo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-echar-al-mar-los-toneles-de-aceite.mp3",
-   "id": "el-aliento-helado-1-opcion-echar-al-mar-los-toneles-de-aceite",
-   "texto": "Echar al mar los toneles de aceite."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-plataforma.mp3",
+   "id": "el-aliento-helado-2-escena-plataforma",
+   "texto": "Subís la escalera de madera y salís a una gran plataforma de tablas pegada a la roca. Hay barriles, cajas y sacos por todas partes, y junto a una lona azul, una pila de toneles marcados con un hueso. Al este, la casa de piedra tiene la puerta entornada: dentro crepita un fuego, huele a guiso y dos voces hablan con la boca llena. Al noroeste, una escalerilla de tablas lleva a una escalera curva de piedra que sube hasta la puerta de la torre redonda. Arriba del todo, la luz azul gira sobre el mar, y el amuleto late en vuestra bolsa como un corazón asustado."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-encender-la-chimenea-y-descansar.mp3",
-   "id": "el-aliento-helado-1-opcion-encender-la-chimenea-y-descansar",
-   "texto": "Encender la chimenea y descansar."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-popa.mp3",
+   "id": "el-aliento-helado-2-escena-popa",
+   "texto": "Tapáis el farol rojo con una manta, remáis en la penumbra hasta la popa del barco partido, lejos de la luz, y amarráis bajo ella. Trepáis por el casco cubierto de algas hasta la cubierta del timón. Aquí la madera está entera y crujiente de escarcha, y junto al timón una escotilla abierta deja ver una escalera que baja a la bodega. Al sur, el barco está roto por la mitad: entre las dos mitades flotan tablas sueltas sobre el agua azul. En la otra mitad, la proa, un gato enorme con un hacha en cada mano os da la espalda, mirando la niebla del sur, y sobre él flota una calavera en llamas, como un farol. Esperan a alguien, y no sois vosotros."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ensenarle-comida-al-diablillo.mp3",
-   "id": "el-aliento-helado-1-opcion-ensenarle-comida-al-diablillo",
-   "texto": "Enseñarle comida al diablillo."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-proa-engano.mp3",
+   "id": "el-aliento-helado-2-escena-proa-engano",
+   "texto": "Remáis despacio hacia la luz. Al acercaros veis lo que es: una calavera envuelta en llamas que flota sobre la proa como un farol, con un fuego que la niebla no consigue apagar. En la cubierta inclinada os espera un gato enorme, de pie como un hombre, con un hacha en cada mano y una armadura de cuero. Solo ve vuestro farol rojo entre la bruma. «¡Llegas tarde, flautista!», maúlla. «Los hermanos llevan toda la noche esperando el aceite, y la de la guadaña está de un humor de perros.» Todavía no os ha visto la cara."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-entrar-de-frente-por-la-puerta.mp3",
-   "id": "el-aliento-helado-1-opcion-entrar-de-frente-por-la-puerta",
-   "texto": "Entrar de frente por la puerta."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-roca-combate-despues.mp3",
+   "id": "el-aliento-helado-2-escena-roca-combate-despues",
+   "texto": "El gato se desploma sobre la roca y la calavera cae al mar con un siseo de brasa apagada. La espuma se lleva sus chispas. Ahora el barco partido está en silencio: en su proa, unas cuerdas con poleas recorren el mástil caído, que se cruza sobre el agua con otro palo largo hasta unas rocas al pie del acantilado, que en ese punto tiene muescas talladas para trepar. Sobre vuestras cabezas, el acantilado es bajo y tiene buenos agarres. Arriba, la luz azul late."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-esconderos-aqui-y-esperar-al-trovador.mp3",
-   "id": "el-aliento-helado-1-opcion-esconderos-aqui-y-esperar-al-trovador",
-   "texto": "Esconderos aquí y esperar al trovador."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-roca-combate.mp3",
+   "id": "el-aliento-helado-2-escena-roca-combate",
+   "texto": "La calavera pasa sobre vuestras cabezas escupiendo chispas, y el gato aterriza en la roca de un salto, con la cola erizada y las dos hachas en alto. «¡Ladrones! ¡Esa es la barca del músico!» La roca está mojada por las olas y cada paso resbala."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-intentar-descifrar-la-ultima-pagina.mp3",
-   "id": "el-aliento-helado-1-opcion-intentar-descifrar-la-ultima-pagina",
-   "texto": "Intentar descifrar la última página."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-roca-sur.mp3",
+   "id": "el-aliento-helado-2-escena-roca-sur",
+   "texto": "Remáis hasta la roca grande del sur y amarráis la barca a un saliente. La roca es ancha y redondeada, y desde ella el acantilado es más bajo: se puede trepar. Pero el farol rojo de vuestra barca brilla en la bruma como un faro pequeño. Desde el barco partido os llega un maullido: «¡Flautista! ¿Qué haces amarrando ahí?». Un silencio. Luego, un chillido. La calavera en llamas cruza el agua volando hacia vosotros, y detrás, saltando de tabla en tabla y de roca en roca, viene un gato enorme con un hacha en cada mano."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-intentar-encender-el-farol-con-vuestra-yesca.mp3",
-   "id": "el-aliento-helado-1-opcion-intentar-encender-el-farol-con-vuestra-yesca",
-   "texto": "Intentar encender el farol con vuestra yesca."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-rueda.mp3",
+   "id": "el-aliento-helado-2-escena-rueda",
+   "texto": "Atrancáis la gran rueda de hierro con una tabla arrancada de una cama. La rueda se clava con un chirrido y, arriba, la lente deja de girar: la luz azul se queda quieta, apuntando a un solo lado del mar. Durante un momento no pasa nada. Luego, unos pasos lentos bajan por la escalera de caracol, y con ellos un frío que escarcha el suelo de ladrillo. Por la curva de la escalera asoma una guadaña enorme, y detrás, una calavera bajo una capucha negra. «¿Quién para la luz de mi señora?»"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-a-la-casa-de-tormund.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-a-la-casa-de-tormund",
-   "texto": "Ir a la casa de Tormund."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-runas.mp3",
+   "id": "el-aliento-helado-2-escena-runas",
+   "texto": "Os arrodilláis alrededor de la lente. Las runas del suelo forman una cuadrícula de cinco por cinco, y muchas brillan con luz azul. Al rozar una, se apaga o se enciende ella, y con ella las que la tocan por arriba, por abajo y por los lados. Tormund, con las manos temblando, os cuenta que la de la guadaña nunca tocaba una sin pensarlo mucho antes. Si todas quedan a oscuras, la llama morirá."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-a-la-puerta-con-la-llave.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-a-la-puerta-con-la-llave",
-   "texto": "Ir a la puerta con la llave."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-senda-sur.mp3",
+   "id": "el-aliento-helado-2-escena-senda-sur",
+   "texto": "Seguís la cornisa de musgo hacia el sur, pegados a la pared de la casa, con el mar rugiendo allá abajo. La cornisa baja poco a poco hasta un camino de piedra clara que corre al pie de la casa, entre rocas y tablas sueltas tiradas por el suelo. Al oeste, al final del camino, una escalera de madera sube recta hasta una gran plataforma de tablas. Y al pie de la escalera, entre las rocas, algo flaco y gris duerme enroscado: un ser a cuatro patas, con la cabeza lisa y alargada y una cresta de espinas de hueso en el lomo."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-a-la-puerta-grande-con-la-llave.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-a-la-puerta-grande-con-la-llave",
-   "texto": "Ir a la puerta grande con la llave."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-escena-torre.mp3",
+   "id": "el-aliento-helado-2-escena-torre",
+   "texto": "Subís la escalerilla de tablas y la escalera curva de piedra hasta la puerta de la torre. Dentro hay una sala redonda con suelo de ladrillo: camas deshechas, una con manta roja, una alfombra oscura, cajas y barriles contra el muro. En el centro del suelo, una gran rueda de hierro con radios gira despacio, chirriando, y de su eje sube una barra hasta el techo: mueve la lente de arriba. Pegada al muro del norte, una escalera de caracol estrecha sube hacia la luz azul. Desde lo alto llega un tintineo de cadenas, una tos de viejo y una voz como de piedra rota: «Más aceite, viejo. Que no se apague»."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-al-almacen-a-abrir-el-candado.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-al-almacen-a-abrir-el-candado",
-   "texto": "Ir al almacén a abrir el candado."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-acercaros-sin-ruido-y-atacarlo-dormido.mp3",
+   "id": "el-aliento-helado-2-opcion-acercaros-sin-ruido-y-atacarlo-dormido",
+   "texto": "Acercaros sin ruido y atacarlo dormido."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-al-almacen-a-por-ese-fuego.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-al-almacen-a-por-ese-fuego",
-   "texto": "Ir al almacén a por ese fuego."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-bajar-a-la-bodega-sin-hacer-ruido.mp3",
+   "id": "el-aliento-helado-2-opcion-bajar-a-la-bodega-sin-hacer-ruido",
+   "texto": "Bajar a la bodega sin hacer ruido."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-al-almacen.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-al-almacen",
-   "texto": "Ir al almacén."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-bajar-con-tormund-a-la-barca-y-volver-a-la-taberna.mp3",
+   "id": "el-aliento-helado-2-opcion-bajar-con-tormund-a-la-barca-y-volver-a-la-taberna",
+   "texto": "Bajar con Tormund a la barca y volver a la taberna."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-directos-a-la-trampilla-de-la-grua.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-directos-a-la-trampilla-de-la-grua",
-   "texto": "Ir directos a la trampilla de la grúa."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-bajar-por-el-palo-largo-hasta-las-rocas-y-trepar.mp3",
+   "id": "el-aliento-helado-2-opcion-bajar-por-el-palo-largo-hasta-las-rocas-y-trepar",
+   "texto": "Bajar por el palo largo hasta las rocas y trepar."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-ir-por-la-orilla-hasta-la-puerta-trasera.mp3",
-   "id": "el-aliento-helado-1-opcion-ir-por-la-orilla-hasta-la-puerta-trasera",
-   "texto": "Ir por la orilla hasta la puerta trasera."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-comer-del-guiso-junto-al-hogar.mp3",
+   "id": "el-aliento-helado-2-opcion-comer-del-guiso-junto-al-hogar",
+   "texto": "Comer del guiso junto al hogar."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-lanzaros-a-por-la-rana.mp3",
-   "id": "el-aliento-helado-1-opcion-lanzaros-a-por-la-rana",
-   "texto": "Lanzaros a por la rana."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-cruzar-a-escondidas-hacia-la-torre.mp3",
+   "id": "el-aliento-helado-2-opcion-cruzar-a-escondidas-hacia-la-torre",
+   "texto": "Cruzar a escondidas hacia la torre."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-llevar-brasas-a-la-barca-para-encender-el-farol.mp3",
-   "id": "el-aliento-helado-1-opcion-llevar-brasas-a-la-barca-para-encender-el-farol",
-   "texto": "Llevar brasas a la barca para encender el farol."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-cruzar-por-el-puente-de-palos-del-barco.mp3",
+   "id": "el-aliento-helado-2-opcion-cruzar-por-el-puente-de-palos-del-barco",
+   "texto": "Cruzar por el puente de palos del barco."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-llevar-brasas-a-la-barca-para-soltarla.mp3",
-   "id": "el-aliento-helado-1-opcion-llevar-brasas-a-la-barca-para-soltarla",
-   "texto": "Llevar brasas a la barca para soltarla."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-cruzar-por-las-tablas-sueltas-y-atacar-por-la-espalda.mp3",
+   "id": "el-aliento-helado-2-opcion-cruzar-por-las-tablas-sueltas-y-atacar-por-la-espalda",
+   "texto": "Cruzar por las tablas sueltas y atacar por la espalda."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-llevar-brasas-de-la-chimenea-a-la-barca.mp3",
-   "id": "el-aliento-helado-1-opcion-llevar-brasas-de-la-chimenea-a-la-barca",
-   "texto": "Llevar brasas de la chimenea a la barca."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-desembarcar-en-la-roca-grande-del-sur.mp3",
+   "id": "el-aliento-helado-2-opcion-desembarcar-en-la-roca-grande-del-sur",
+   "texto": "Desembarcar en la roca grande del sur."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-no-solo-queda-una-ofrenda-de-sangre.mp3",
-   "id": "el-aliento-helado-1-opcion-no-solo-queda-una-ofrenda-de-sangre",
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-ensenarle-el-amuleto-de-hueso.mp3",
+   "id": "el-aliento-helado-2-opcion-ensenarle-el-amuleto-de-hueso",
+   "texto": "Enseñarle el amuleto de hueso."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-esconderos-y-esperar-a-que-baje-a-por-aceite.mp3",
+   "id": "el-aliento-helado-2-opcion-esconderos-y-esperar-a-que-baje-a-por-aceite",
+   "texto": "Esconderos y esperar a que baje a por aceite."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-esperar-escondidos-a-que-el-calvo-salga-a-por-un-tonel.mp3",
+   "id": "el-aliento-helado-2-opcion-esperar-escondidos-a-que-el-calvo-salga-a-por-un-tonel",
+   "texto": "Esperar escondidos a que el calvo salga a por un tonel."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-examinar-la-base-de-la-lente.mp3",
+   "id": "el-aliento-helado-2-opcion-examinar-la-base-de-la-lente",
+   "texto": "Examinar la base de la lente."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-frenar-la-rueda-de-hierro-para-que-baje.mp3",
+   "id": "el-aliento-helado-2-opcion-frenar-la-rueda-de-hierro-para-que-baje",
+   "texto": "Frenar la rueda de hierro para que baje."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-intentar-apagar-las-runas.mp3",
+   "id": "el-aliento-helado-2-opcion-intentar-apagar-las-runas",
+   "texto": "Intentar apagar las runas."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-intentar-subir-la-escalera-sin-despertarlo.mp3",
+   "id": "el-aliento-helado-2-opcion-intentar-subir-la-escalera-sin-despertarlo",
+   "texto": "Intentar subir la escalera sin despertarlo."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3",
+   "id": "el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido",
+   "texto": "Ir a registrar la bodega del barco partido."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-ir-a-ver-la-proa-del-barco.mp3",
+   "id": "el-aliento-helado-2-opcion-ir-a-ver-la-proa-del-barco",
+   "texto": "Ir a ver la proa del barco."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-irrumpir-en-la-cocina.mp3",
+   "id": "el-aliento-helado-2-opcion-irrumpir-en-la-cocina",
+   "texto": "Irrumpir en la cocina."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-llamar-tres-veces-y-decir-la-contrasena.mp3",
+   "id": "el-aliento-helado-2-opcion-llamar-tres-veces-y-decir-la-contrasena",
+   "texto": "Llamar tres veces y decir la contraseña."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-llamar-y-fingir-ser-de-la-hermandad-con-el-amuleto.mp3",
+   "id": "el-aliento-helado-2-opcion-llamar-y-fingir-ser-de-la-hermandad-con-el-amuleto",
+   "texto": "Llamar y fingir ser de la Hermandad con el amuleto."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-no-solo-queda-una-ofrenda-de-sangre.mp3",
+   "id": "el-aliento-helado-2-opcion-no-solo-queda-una-ofrenda-de-sangre",
    "texto": "No: solo queda una ofrenda de sangre."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-registrar-al-satiro-antes-de-iros.mp3",
-   "id": "el-aliento-helado-1-opcion-registrar-al-satiro-antes-de-iros",
-   "texto": "Registrar al sátiro antes de iros."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-pegar-la-oreja-a-la-pared.mp3",
+   "id": "el-aliento-helado-2-opcion-pegar-la-oreja-a-la-pared",
+   "texto": "Pegar la oreja a la pared."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-registrar-al-satiro.mp3",
-   "id": "el-aliento-helado-1-opcion-registrar-al-satiro",
-   "texto": "Registrar al sátiro."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-registrar-la-casa.mp3",
+   "id": "el-aliento-helado-2-opcion-registrar-la-casa",
+   "texto": "Registrar la casa."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-registrar-el-almacen-antes-de-que-llegue.mp3",
-   "id": "el-aliento-helado-1-opcion-registrar-el-almacen-antes-de-que-llegue",
-   "texto": "Registrar el almacén antes de que llegue."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-registrar-la-guarida-del-engendro.mp3",
+   "id": "el-aliento-helado-2-opcion-registrar-la-guarida-del-engendro",
+   "texto": "Registrar la guarida del engendro."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-rodear-el-almacen-hasta-la-puerta-trasera.mp3",
-   "id": "el-aliento-helado-1-opcion-rodear-el-almacen-hasta-la-puerta-trasera",
-   "texto": "Rodear el almacén hasta la puerta trasera."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-remar-hacia-el-norte-bajo-el-faro.mp3",
+   "id": "el-aliento-helado-2-opcion-remar-hacia-el-norte-bajo-el-faro",
+   "texto": "Remar hacia el norte, bajo el faro."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-rodear-el-islote-hasta-la-grua.mp3",
-   "id": "el-aliento-helado-1-opcion-rodear-el-islote-hasta-la-grua",
-   "texto": "Rodear el islote hasta la grúa."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-remar-hacia-la-luz-de-la-proa-como-hacia-el-trovador.mp3",
+   "id": "el-aliento-helado-2-opcion-remar-hacia-la-luz-de-la-proa-como-hacia-el-trovador",
+   "texto": "Remar hacia la luz de la proa, como hacía el trovador."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-seguir-el-rastro-de-los-lobos-hasta-los-arbustos.mp3",
-   "id": "el-aliento-helado-1-opcion-seguir-el-rastro-de-los-lobos-hasta-los-arbustos",
-   "texto": "Seguir el rastro de los lobos hasta los arbustos."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-remar-hasta-la-roca-grande-y-trepar-por-el-acantilado.mp3",
+   "id": "el-aliento-helado-2-opcion-remar-hasta-la-roca-grande-y-trepar-por-el-acantilado",
+   "texto": "Remar hasta la roca grande y trepar por el acantilado."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-si-la-llave-esta-en-la-chimenea.mp3",
-   "id": "el-aliento-helado-1-opcion-si-la-llave-esta-en-la-chimenea",
-   "texto": "Sí: la llave está en la chimenea."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-romper-la-lente-a-golpes.mp3",
+   "id": "el-aliento-helado-2-opcion-romper-la-lente-a-golpes",
+   "texto": "Romper la lente a golpes."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-subir-a-ver-el-almacen.mp3",
-   "id": "el-aliento-helado-1-opcion-subir-a-ver-el-almacen",
-   "texto": "Subir a ver el almacén."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-salir-a-la-galeria-y-mirar-tierra-adentro.mp3",
+   "id": "el-aliento-helado-2-opcion-salir-a-la-galeria-y-mirar-tierra-adentro",
+   "texto": "Salir a la galería y mirar tierra adentro."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-vigilar-el-almacen-desde-la-casa.mp3",
-   "id": "el-aliento-helado-1-opcion-vigilar-el-almacen-desde-la-casa",
-   "texto": "Vigilar el almacén desde la casa."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-saltar-a-cubierta-y-atacar-antes-de-que-os-vea.mp3",
+   "id": "el-aliento-helado-2-opcion-saltar-a-cubierta-y-atacar-antes-de-que-os-vea",
+   "texto": "Saltar a cubierta y atacar antes de que os vea."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-vigilar-el-almacen-desde-la-ventana.mp3",
-   "id": "el-aliento-helado-1-opcion-vigilar-el-almacen-desde-la-ventana",
-   "texto": "Vigilar el almacén desde la ventana."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-seguir-la-cornisa-hacia-el-sur.mp3",
+   "id": "el-aliento-helado-2-opcion-seguir-la-cornisa-hacia-el-sur",
+   "texto": "Seguir la cornisa hacia el sur."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-vigilar-el-almacen-desde-lo-alto-del-acantilado.mp3",
-   "id": "el-aliento-helado-1-opcion-vigilar-el-almacen-desde-lo-alto-del-acantilado",
-   "texto": "Vigilar el almacén desde lo alto del acantilado."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-seguirle-el-juego-y-sacarle-informacion.mp3",
+   "id": "el-aliento-helado-2-opcion-seguirle-el-juego-y-sacarle-informacion",
+   "texto": "Seguirle el juego y sacarle información."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-volver-a-la-casa-a-por-brasas-de-la-chimenea.mp3",
-   "id": "el-aliento-helado-1-opcion-volver-a-la-casa-a-por-brasas-de-la-chimenea",
-   "texto": "Volver a la casa a por brasas de la chimenea."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-si-las-runas-estan-apagadas.mp3",
+   "id": "el-aliento-helado-2-opcion-si-las-runas-estan-apagadas",
+   "texto": "Sí: las runas están apagadas."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-volver-a-la-taberna-y-zarpar-al-alba.mp3",
-   "id": "el-aliento-helado-1-opcion-volver-a-la-taberna-y-zarpar-al-alba",
-   "texto": "Volver a la taberna y zarpar al alba."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-subir-a-la-torre.mp3",
+   "id": "el-aliento-helado-2-opcion-subir-a-la-torre",
+   "texto": "Subir a la torre."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-volver-al-pueblo-y-zarpar-al-alba.mp3",
-   "id": "el-aliento-helado-1-opcion-volver-al-pueblo-y-zarpar-al-alba",
-   "texto": "Volver al pueblo y zarpar al alba."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-subir-la-escalera-de-madera.mp3",
+   "id": "el-aliento-helado-2-opcion-subir-la-escalera-de-madera",
+   "texto": "Subir la escalera de madera."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-paso-4-op-3.mp3",
-   "id": "el-aliento-helado-1-paso-4-op-3",
-   "texto": "Os dejáis ver con las manos abiertas y le tendéis pan al diablillo. Os mira con desconfianza, pero el hambre puede más: salta de las cajas y lo devora a dentelladas, soltando migas y chispas. Con la boca llena os cuenta que él solo cuida el fuego, que el músico de las pezuñas viene cada noche al caer la niebla, desde que el viejo no está: carga el aceite en la barca del viejo, enciende el farol con sus brasas y cruza la niebla hasta el faro, cantando canciones sobre una señora de piedra. Abrís la boca para preguntar más, pero un chasquido seco os corta: desde lo alto de las cajas, la rana ha tensado su ballesta."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-subir-por-la-escalera-de-caracol.mp3",
+   "id": "el-aliento-helado-2-opcion-subir-por-la-escalera-de-caracol",
+   "texto": "Subir por la escalera de caracol."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-con-el-calor-en-el-cuerpo-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-con-el-calor-en-el-cuerpo-que-haceis",
-   "texto": "Con el calor en el cuerpo, ¿qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-tapar-el-farol-y-remar-hasta-la-popa-del-barco.mp3",
+   "id": "el-aliento-helado-2-opcion-tapar-el-farol-y-remar-hasta-la-popa-del-barco",
+   "texto": "Tapar el farol y remar hasta la popa del barco."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-con-la-llave-en-la-mano-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-con-la-llave-en-la-mano-que-haceis",
-   "texto": "Con la llave en la mano, ¿qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-tapar-el-farol-y-rodear-el-barco-hasta-la-popa.mp3",
+   "id": "el-aliento-helado-2-opcion-tapar-el-farol-y-rodear-el-barco-hasta-la-popa",
+   "texto": "Tapar el farol y rodear el barco hasta la popa."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-con-la-playa-despejada-adonde-vais.mp3",
-   "id": "el-aliento-helado-1-pregunta-con-la-playa-despejada-adonde-vais",
-   "texto": "Con la playa despejada, ¿adónde vais?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-trepar-por-el-acantilado-desde-aqui.mp3",
+   "id": "el-aliento-helado-2-opcion-trepar-por-el-acantilado-desde-aqui",
+   "texto": "Trepar por el acantilado desde aquí."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-el-almacen-esta-cerrado-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-el-almacen-esta-cerrado-que-haceis",
-   "texto": "El almacén está cerrado. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-opcion-volver-a-la-barca-y-desembarcar-en-la-roca-grande.mp3",
+   "id": "el-aliento-helado-2-opcion-volver-a-la-barca-y-desembarcar-en-la-roca-grande",
+   "texto": "Volver a la barca y desembarcar en la roca grande."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-el-farol-de-la-barca-arde-en-la-niebla-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-el-farol-de-la-barca-arde-en-la-niebla-que-haceis",
-   "texto": "El farol de la barca arde en la niebla. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-algo-duerme-al-pie-de-la-escalera-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-algo-duerme-al-pie-de-la-escalera-que-haceis",
+   "texto": "Algo duerme al pie de la escalera. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-el-trovador-ha-caido-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-el-trovador-ha-caido-que-haceis",
-   "texto": "El trovador ha caído. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-arriba-os-esperan-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-arriba-os-esperan-que-haceis",
+   "texto": "Arriba os esperan. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-en-el-almacen-hay-fuego-y-es-justo-lo-que-le-falta-a-la-barc.mp3",
-   "id": "el-aliento-helado-1-pregunta-en-el-almacen-hay-fuego-y-es-justo-lo-que-le-falta-a-la-barc",
-   "texto": "En el almacén hay fuego, y es justo lo que le falta a la barca. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-el-gato-os-toma-por-el-trovador-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-el-gato-os-toma-por-el-trovador-que-haceis",
+   "texto": "El gato os toma por el trovador. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-en-el-almacen-hay-fuego-y-es-justo-lo-que-le-falta-al-farol-de-la-barca-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-en-el-almacen-hay-fuego-y-es-justo-lo-que-le-falta-al-farol-de-la-barca-que-haceis",
-   "texto": "En el almacén hay fuego, y es justo lo que le falta al farol de la barca. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-estais-en-la-cornisa-junto-a-la-casa-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-estais-en-la-cornisa-junto-a-la-casa-que-haceis",
+   "texto": "Estáis en la cornisa, junto a la casa. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-barca-esta-libre-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-barca-esta-libre-que-haceis",
-   "texto": "La barca está libre. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-estais-sobre-el-agua-en-el-cruce-de-los-palos-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-estais-sobre-el-agua-en-el-cruce-de-los-palos-que-haceis",
+   "texto": "Estáis sobre el agua, en el cruce de los palos. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-barca-no-se-movera-sin-fuego-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-barca-no-se-movera-sin-fuego-que-haceis",
-   "texto": "La barca no se moverá sin fuego. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-habeis-apagado-todas-las-runas.mp3",
+   "id": "el-aliento-helado-2-pregunta-habeis-apagado-todas-las-runas",
+   "texto": "¿Habéis apagado todas las runas?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-corriente-se-lleva-el-aceite-que-haceis-ahora.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-corriente-se-lleva-el-aceite-que-haceis-ahora",
-   "texto": "La corriente se lleva el aceite. ¿Qué hacéis ahora?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-hacia-donde-remais.mp3",
+   "id": "el-aliento-helado-2-pregunta-hacia-donde-remais",
+   "texto": "¿Hacia dónde remáis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-niebla-sube-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-niebla-sube-que-haceis",
-   "texto": "La niebla sube. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-la-casa-es-vuestra-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-la-casa-es-vuestra-que-haceis",
+   "texto": "La casa es vuestra. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-por-donde-entrais.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-por-donde-entrais",
-   "texto": "La puerta trasera ha quedado sin atrancar. ¿Por dónde entráis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-la-escalera-esta-libre-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-la-escalera-esta-libre-que-haceis",
+   "texto": "La escalera está libre. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis",
-   "texto": "La puerta trasera ha quedado sin atrancar. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-la-llama-azul-se-ha-apagado-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-la-llama-azul-se-ha-apagado-que-haceis",
+   "texto": "La llama azul se ha apagado. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-las-cajas-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-las-cajas-que-haceis",
-   "texto": "La rana os apunta desde las cajas. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-la-luz-sigue-ardiendo-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-la-luz-sigue-ardiendo-que-haceis",
+   "texto": "La luz sigue ardiendo. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-lo-alto-de-las-cajas-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-lo-alto-de-las-cajas-que-haceis",
-   "texto": "La rana os apunta desde lo alto de las cajas. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-los-hermanos-estan-en-la-cocina-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-los-hermanos-estan-en-la-cocina-que-haceis",
+   "texto": "Los hermanos están en la cocina. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-lo-habeis-descifrado.mp3",
-   "id": "el-aliento-helado-1-pregunta-lo-habeis-descifrado",
-   "texto": "¿Lo habéis descifrado?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-no-os-han-visto-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-no-os-han-visto-que-haceis",
+   "texto": "No os han visto. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-por-donde-entrais-en-el-almacen.mp3",
-   "id": "el-aliento-helado-1-pregunta-por-donde-entrais-en-el-almacen",
-   "texto": "¿Por dónde entráis en el almacén?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-por-aqui-no-se-sube-adonde-remais.mp3",
+   "id": "el-aliento-helado-2-pregunta-por-aqui-no-se-sube-adonde-remais",
+   "texto": "Por aquí no se sube. ¿Adónde remáis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-que-haceis-ahora.mp3",
-   "id": "el-aliento-helado-1-pregunta-que-haceis-ahora",
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-que-haceis-ahora.mp3",
+   "id": "el-aliento-helado-2-pregunta-que-haceis-ahora",
    "texto": "¿Qué hacéis ahora?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-sin-luz-la-barca-no-cruzara-la-niebla-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-sin-luz-la-barca-no-cruzara-la-niebla-que-haceis",
-   "texto": "Sin luz, la barca no cruzará la niebla. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-teneis-la-contrasena-y-el-gato-no-sabe-que-estais-aqui-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-teneis-la-contrasena-y-el-gato-no-sabe-que-estais-aqui-que-haceis",
+   "texto": "Tenéis la contraseña y el gato no sabe que estáis aquí. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-solo-el-fuego-del-almacen-aguanta-este-frio-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-solo-el-fuego-del-almacen-aguanta-este-frio-que-haceis",
-   "texto": "Solo el fuego del almacén aguanta este frío. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-tormund-esta-arriba-con-la-de-la-guadana-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-tormund-esta-arriba-con-la-de-la-guadana-que-haceis",
+   "texto": "Tormund está arriba, con la de la guadaña. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-teneis-el-cuaderno-en-clave-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-teneis-el-cuaderno-en-clave-que-haceis",
-   "texto": "Tenéis el cuaderno en clave. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-aliento-helado-2-pregunta-ya-sabeis-quien-hay-dentro-que-haceis.mp3",
+   "id": "el-aliento-helado-2-pregunta-ya-sabeis-quien-hay-dentro-que-haceis",
+   "texto": "Ya sabéis quién hay dentro. ¿Qué hacéis?"
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-teneis-el-fuego-y-sabeis-que-el-trovador-viene-que-haceis.mp3",
-   "id": "el-aliento-helado-1-pregunta-teneis-el-fuego-y-sabeis-que-el-trovador-viene-que-haceis",
-   "texto": "Tenéis el fuego y sabéis que el trovador viene. ¿Qué hacéis?"
+   "ruta": "public/mapas/narraciones/el-estandarte-rojo-2-llegada-op-4.mp3",
+   "id": "el-estandarte-rojo-2-llegada-op-4",
+   "texto": "Decidís acercaros a las cajas abandonadas de la orilla de abajo, las que llevan el sello rojo del mapa. Las tapas están reventadas y dentro solo quedan heno húmedo y astillas, pero al remover el fondo encontráis unas monedas sueltas que alguien dejó caer con las prisas. Las guardáis en la bolsa del equipo. Cuando os incorporáis, una voz áspera os llama desde arriba. El centinela del puente os ha visto rebuscando, os señala con la lanza y os grita que subáis ahora mismo si no queréis problemas. Os miráis, os sacudís el heno de la ropa y subís hacia él, repasando en silencio la contraseña."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-todavia-no-os-han-visto-como-entrais.mp3",
-   "id": "el-aliento-helado-1-pregunta-todavia-no-os-han-visto-como-entrais",
-   "texto": "Todavía no os han visto. ¿Cómo entráis?"
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-tormund-no-se-fue-por-su-pie-adonde-vais-ahora.mp3",
-   "id": "el-aliento-helado-1-pregunta-tormund-no-se-fue-por-su-pie-adonde-vais-ahora",
-   "texto": "Tormund no se fue por su pie. ¿Adónde vais ahora?"
+   "ruta": "public/mapas/narraciones/prision.mp3",
+   "id": "prision",
+   "texto": "Llegáis a la prisión por un pasillo de piedra iluminado por antorchas temblorosas. A ambos lados se abren celdas con camastros vacíos y cadenas que aún se balancean. El aire es frío y huele a óxido y a heno podrido. Más allá, un enorme rastrillo de hierro con sus ruedas de cadena separa las celdas del patio, y en un rincón se esconde el cuarto del alcaide. Una celda está abierta. Al fondo del pasillo, alguien arrastra unas cadenas, y una risa ronca resuena entre los muros."
   }
  ]
 }

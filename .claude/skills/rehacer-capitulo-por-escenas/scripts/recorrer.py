@@ -6,7 +6,9 @@ Uso:
 Cada argumento es un trozo del texto de la opción a pulsar (la primera que lo contenga). Palabras especiales:
   SIGUE   pulsa «Continuar / ¡Al combate!»       GANADO  pulsa «Combate ganado»
   ATRAS   tecla ←                                 AUDIO   reproduce la lectura de la decisión y lista qué .mp3 suenan
-Imprime en cada paso: título de la carta, opciones visibles, estados, contador de combates; al final, errores de
+  ZOOM    abre el plano ampliado (clic en el mapa) y comprueba que muestra las MISMAS marcas que el mapa pequeño
+          (escena actual, huellas, destinos A-D) y que el panel dice «Estáis aquí: <escena>»; luego lo cierra
+Imprime en cada paso: título de la carta, opciones visibles, estados, contador de combates, bestias de la mesa de combate; al final, errores de
 consola. Sirve para repetir exactamente el camino que el usuario cuenta («fui al almacén, volví, peleé…»).
 """
 import functools, http.server, json, shutil, sys, threading
@@ -47,6 +49,8 @@ with sync_playwright() as pw:
         if ops: print("     opciones:", ops)
         if botones: print("     botón:", botones)
         if est: print("     estados:", est)
+        mesa = [x.inner_text().split("\n")[0].strip() for x in av.locator(".mapas-bestia .titulo-enemigo").all()]
+        if av.locator(".mapas-mesa").count(): print("     mesa de combate:", mesa or "SIN FICHAS")
         if capturas: av.screenshot(path=f"{capturas}/paso-{n:02d}.png")
 
     contar(0)
@@ -57,6 +61,19 @@ with sync_playwright() as pw:
         elif paso == "AUDIO":
             mp3.clear(); av.locator(".aventura-lectura-decision [data-narracion]").click(); p.wait_for_timeout(8000)
             print("     sonaron:", mp3); continue
+        elif paso == "ZOOM":
+            marcas = "els => els.map(e => e.className.split(' ')[0] + ':' + e.textContent.trim() + ':' + e.getAttribute('style')).sort()"
+            peq = av.locator(".aventura-mapa .plano-lienzo > span").evaluate_all(marcas)
+            av.locator(".aventura-mapa").click(); p.wait_for_timeout(400)
+            plano = p.locator(".plano-visor[open]")
+            gra = plano.locator(".plano-lienzo > span").evaluate_all(marcas)
+            titulo = av.locator(".aventura-carta h4").inner_text()
+            panel = plano.locator(".plano-leyenda").inner_text()
+            ok = peq == gra and titulo.lower() in panel.lower()
+            print(f"     zoom: {'OK, igual que el mapa pequeño' if ok else 'DISTINTO'}")
+            if not ok: print("       pequeño:", peq, "\n       ampliado:", gra); err.append("el zoom no coincide con el mapa pequeño")
+            if capturas: p.screenshot(path=f"{capturas}/zoom-{n:02d}.png")
+            p.keyboard.press("Escape"); p.wait_for_timeout(200); continue
         else:
             op = av.locator(".aventura-opcion", has_text=paso)
             if not op.count(): print(f"[{n}] NO HAY opción con «{paso}»"); break

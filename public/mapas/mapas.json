@@ -172,7 +172,7 @@
       "id": "prision",
       "nombre": "Prisión",
       "resumen": "Celdas, pasillos y un rastrillo en una fortaleza de piedra.",
-      "descripcion": "Llegáis a la prisión por un pasillo de piedra iluminado por antorchas temblorosas. A ambos lados se abren celdas con camastros vacíos y cadenas que aún se balancean. El aire es frío y huele a óxido y a paja podrida. Más allá, un enorme rastrillo de hierro con sus ruedas de cadena separa las celdas del patio, y en un rincón se esconde el cuarto del alcaide. Una celda está abierta. Al fondo del pasillo, alguien arrastra unas cadenas, y una risa ronca resuena entre los muros.",
+      "descripcion": "Llegáis a la prisión por un pasillo de piedra iluminado por antorchas temblorosas. A ambos lados se abren celdas con camastros vacíos y cadenas que aún se balancean. El aire es frío y huele a óxido y a heno podrido. Más allá, un enorme rastrillo de hierro con sus ruedas de cadena separa las celdas del patio, y en un rincón se esconde el cuarto del alcaide. Una celda está abierta. Al fondo del pasillo, alguien arrastra unas cadenas, y una risa ronca resuena entre los muros.",
       "narracion": "narraciones/prision.mp3",
       "elementos": [
         "Celdas con puertas de barrotes",

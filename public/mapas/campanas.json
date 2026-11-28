@@ -101,312 +101,92 @@
         {
           "mapa": "faro",
           "titulo": "La llama azul",
-          "objetivo": "Subir del embarcadero al faro, rescatar a Tormund y descubrir hacia dónde se llevaron los suministros.",
-          "llegada": "Al alba remáis en la barca de Tormund siguiendo la llama azul que visteis desde los muelles. El cabo aparece entre la niebla: un acantilado de roca gris coronado por el faro, y a sus pies el mar rompe contra piedras afiladas como cuchillos. El amuleto de hueso del sátiro tiembla en vuestra bolsa cada vez que la luz azul late allá arriba, como un corazón dormido. Desde la barca veis cuatro caminos. Podéis abordar el barco grande varado junto a las rocas, donde algo arde en la bodega; el fuego dice que hay alguien dentro, y su mástil caído llega casi hasta el acantilado. O quizá preferís saltar a tierra y trepar directamente por la senda de musgo que sube hacia la casa del faro, de cuya chimenea sale humo; es el camino más corto, pero la roca brilla de humedad. También podríais rodear a pie por las rocas del agua, buscando otra entrada lejos de miradas, aunque la marea está subiendo. Y por último, podéis remar hasta el barco pequeño del norte, medio hundido y en silencio, para mirarlo todo desde lejos. ¿Qué decidís: el barco grande, la senda, las rocas o el barco pequeño?",
-          "pasos": [
-            {
-              "titulo": "Los barcos varados",
-              "lugar": "Barcos varados",
-              "ubicacion": "lado derecho, los dos barcos encallados entre las rocas",
-              "cuando": "Al desembarcar",
-              "narracion": "Saltáis a la cubierta inclinada del barco grande. La madera cruje y el mástil caído cruza el agua hasta las rocas. En la bodega hay cajas con el sello del pueblo: son las cuerdas y el aceite que compraron a Tormund. Algo arde entre los tablones rotos. Una calavera envuelta en llamas sale flotando de la bodega, y tras ella un gato enorme con un hacha al hombro maúlla como quien se ríe de un chiste propio.",
-              "combate": {
-                "enemigos": [
-                  "Calavera Ardiente",
-                  "Gato Hachero"
-                ],
-                "nota": "La cubierta está inclinada; quien caiga al agua pierde su siguiente turno subiendo por las rocas."
-              },
-              "audio": "narraciones/el-aliento-helado-2-paso-1.mp3",
-              "x": 88,
-              "y": 55,
-              "bestias": [
-                {
-                  "nombre": "Calavera Ardiente",
-                  "x": 90,
-                  "y": 28
-                },
-                {
-                  "nombre": "Gato Hachero",
-                  "x": 93,
-                  "y": 72
-                }
-              ],
-              "despliegue": "Calavera en el barco norte, gato en el barco sur; héroes en las rocas del centro."
-            },
-            {
-              "titulo": "La senda del acantilado",
-              "lugar": "Senda del acantilado",
-              "ubicacion": "centro, la roca entre la orilla y el almacén",
-              "cuando": "Tras el primer combate, al trepar hacia el faro",
-              "narracion": "Usáis el mástil caído como puente y trepáis por la roca hasta la senda que sube entre el musgo. A medio camino, el suelo se abre en una grieta de la que sale un vapor negro y frío. Algo húmedo y lleno de ojos repta fuera, atraído por el amuleto. Desde arriba, una voz grita que nadie toque la carga de la Hermandad.",
-              "prueba": "Tirada de d20: con diez o más trepáis sin resbalar; si fallas, empiezas el combate con un punto de vida menos.",
-              "combate": {
-                "enemigos": [
-                  "Engendro del Abismo"
-                ],
-                "nota": "Bloquea la senda estrecha; solo dos héroes pueden alcanzarlo a la vez."
-              },
-              "audio": "narraciones/el-aliento-helado-2-paso-2.mp3",
-              "x": 58,
-              "y": 45,
-              "bestias": [
-                {
-                  "nombre": "Engendro del Abismo",
-                  "x": 55,
-                  "y": 38
-                }
-              ],
-              "despliegue": "El engendro en lo alto de la senda; los héroes suben desde la orilla."
-            },
-            {
-              "titulo": "El almacén del faro",
-              "lugar": "Almacén y cocina",
-              "ubicacion": "centro inferior, la casa de piedra con la mesa redonda y el fogón",
-              "cuando": "Al llegar a la explanada del acantilado",
-              "narracion": "Llegáis a la casa de piedra junto al faro. Por la ventana veis la cocina: el fogón aún humea y dos hombres con amuletos de hueso comen en la mesa redonda. Tienen la piel gris y las venas azules, y uno es enorme y calvo, con un garrote al alcance de la mano. Hay dos entradas, y además lleváis encima algo que quizá os abra la puerta sin luchar. Podéis irrumpir por la puerta de la cocina, rápido y de frente, aunque el calvo está sentado justo al lado. O quizá preferís colaros por el almacén de madera lleno de barriles, al oeste, para atacarlos por la espalda; ganaréis la sorpresa, pero entre tanto barril no todos entraréis a la vez. También podríais llamar a la puerta y fingir que sois hermanos de la Hermandad, enseñando el amuleto de hueso del sátiro, a ver qué se les escapa. ¿Qué hacéis: irrumpir por la cocina, colaros por el almacén o fingir con el amuleto?",
-              "combate": {
-                "enemigos": [
-                  "Humano Corrompido",
-                  "Coloso Calvo"
-                ],
-                "nota": "El coloso protege la puerta; el humano lanza ollas y brasas desde el fogón."
-              },
-              "audio": "narraciones/el-aliento-helado-2-paso-3.mp3",
-              "x": 42,
-              "y": 68,
-              "bestias": [
-                {
-                  "nombre": "Humano Corrompido",
-                  "x": 33,
-                  "y": 70
-                },
-                {
-                  "nombre": "Coloso Calvo",
-                  "x": 37,
-                  "y": 58
-                }
-              ],
-              "despliegue": "Coloso en la puerta, humano junto al fogón; héroes desde la roca del este.",
-              "decision": {
-                "pregunta": "¿Cómo entráis?",
-                "opciones": [
-                  {
-                    "opcion": "Irrumpimos por la puerta de la cocina",
-                    "paso": 2,
-                    "que_pasa": "Combate normal en la cocina.",
-                    "x": 48,
-                    "y": 52,
-                    "narracion": "Decidís irrumpir por la puerta de la cocina, rápido y de frente. Os acercáis pegados al muro de piedra, contáis en silencio y empujáis la puerta con el hombro. Se abre de golpe con un estruendo que hace saltar los cuencos de la mesa redonda. El calor del fogón os golpea la cara después de tanto frío, junto con el olor a guiso y a ceniza. Los dos hombres de piel gris levantan la cabeza a la vez, con las cucharas a medio camino de la boca. El calvo, sentado justo al lado de la puerta, ya ha cerrado la mano sobre el garrote.",
-                    "audio": "narraciones/el-aliento-helado-2-paso-3-op-1.mp3"
-                  },
-                  {
-                    "opcion": "Nos colamos por el almacén de barriles",
-                    "paso": 2,
-                    "que_pasa": "Los sorprenden por la espalda y atacan primero, pero los barriles estorban el paso de quien entre el último.",
-                    "x": 25,
-                    "y": 68,
-                    "narracion": "Decidís colaros por el almacén de madera lleno de barriles, al oeste. Rodeáis la casa por la roca, pegados al acantilado, y os deslizáis por la puerta trasera sin hacer ruido. Dentro huele a salazón y a aceite de lámpara. Avanzáis entre barriles apilados hasta el techo, tan juntos que tenéis que pasar de uno en uno, de lado, conteniendo el aliento. Por una rendija veis las nucas de los dos hombres de piel gris, inclinados sobre su comida, ajenos a todo. El fogón crepita. Uno de vosotros todavía está atascado entre los barriles del fondo cuando el primero levanta el arma.",
-                    "audio": "narraciones/el-aliento-helado-2-paso-3-op-2.mp3"
-                  },
-                  {
-                    "opcion": "Fingimos ser de la Hermandad con el amuleto",
-                    "paso": null,
-                    "que_pasa": "Desvío: el calvo duda y deja caer que su señora espera en la torre; luego ve que el amuleto es robado y el combate empieza con los héroes ya dentro, sin ventaja para nadie.",
-                    "x": 50,
-                    "y": 72,
-                    "narracion": "Decidís llamar a la puerta y fingir que sois hermanos de la Hermandad. Golpeáis tres veces y, cuando el calvo abre, le enseñáis el amuleto de hueso del sátiro con toda la calma que podéis fingir. El gigante lo mira, os mira, y gruñe que llegáis tarde, que la señora espera arriba en la torre y que no le gusta esperar. Os deja pasar a la cocina caliente. Pero mientras cerráis la puerta, sus ojos vuelven al amuleto y se detienen en una mancha de sangre seca en el cordón. Su cara cambia de golpe. Ruge que ese amuleto es robado, y el otro hombre ya se levanta de la mesa.",
-                    "audio": "narraciones/el-aliento-helado-2-paso-3-op-3.mp3"
-                  }
-                ],
-                "consejo": "El engaño puede darles una pista, pero el combate llega siempre antes de subir a la torre."
-              }
-            },
-            {
-              "titulo": "La linterna azul",
-              "lugar": "Torre del faro",
-              "ubicacion": "esquina superior izquierda, la torre redonda",
-              "cuando": "Tras vencer en el almacén, al subir a la torre",
-              "narracion": "Subís por la escalera de madera hasta la sala redonda de la torre. Allí, atado junto a la gran lente, está Tormund, pálido pero vivo. La lente no da luz: guarda un fragmento de hielo azul que palpita. Detrás aparece una figura encapuchada con una guadaña y una voz como de piedra rota. Dice que su señora Vórtiga necesita un faro para traer a la dragona hasta la costa, y que nadie apagará su guía.",
-              "combate": {
-                "enemigos": [
-                  "La Parca"
-                ],
-                "nota": "Se coloca entre los héroes y Tormund; si alguien libera al pescador, la Parca lo persigue."
-              },
-              "pista": "En la base de la gran lente hay grabada la silueta de una gárgola que sostiene una cadena atada al cuello de un dragón.",
-              "audio": "narraciones/el-aliento-helado-2-paso-4.mp3",
-              "x": 12,
-              "y": 28,
-              "bestias": [
-                {
-                  "nombre": "La Parca",
-                  "x": 9,
-                  "y": 24
-                }
-              ],
-              "despliegue": "La Parca junto a Tormund en la torre; héroes por la escalera de la torre."
-            },
-            {
-              "titulo": "Apagar la llama",
-              "lugar": "Torre del faro",
-              "ubicacion": "esquina superior izquierda, junto a la lente",
-              "cuando": "Al terminar el combate en la torre",
-              "narracion": "Arrancáis el fragmento de hielo azul de la lente, pero la llama no se apaga: alrededor de la gran lente brillan runas azules talladas en cuadrícula, y siguen alimentando la luz. Al tocar una, se apagan o se encienden ella y las que la rodean en cruz. Tormund, temblando, señala la mesa de la torre, donde un mapa sellado con hielo no se suelta mientras la luz arda. Si queréis apagar la guía de Vórtiga, tendréis que dejar a oscuras todas las runas.",
-              "pista": "El mapa de la torre marca el arroyo helado y tres piedras azules que señalan el camino al altar.",
-              "audio": "narraciones/el-aliento-helado-2-paso-5.mp3",
-              "x": 9,
-              "y": 30,
-              "enigma": {
-                "id": "lightsout",
-                "titulo": "Las runas de la lente",
-                "contexto": "La gran lente está rodeada por una cuadrícula de runas encendidas con hielo azul. Al tocar una runa, cambian ella y sus cuatro vecinas de arriba, abajo y los lados: las encendidas se apagan y las apagadas se encienden. Dejadlas todas a oscuras para extinguir la llama. Podéis señalar casillas sin tocarlas («Modo: señalar») para planear, pero solo hay tres toques de margen sobre el mínimo: si tocáis al azar, se acaban.",
-                "recompensa": "La llama azul se extingue, el hielo del mapa se derrite y Tormund os cuenta lo que sabe de Vórtiga, del altar y de la nave de hueso.",
-                "fallo": "Tenéis que romper la lente a golpes: la llama se apaga, pero cada héroe pierde un punto de vida por la explosión de escarcha."
-              },
-              "prueba": "Enigma: Lights Out. Si lo resolvéis, la llama azul se extingue, el hielo del mapa se derrite y Tormund os cuenta lo que sabe de Vórtiga, del altar y de la nave de hueso. Si no, tenéis que romper la lente a golpes: la llama se apaga, pero cada héroe pierde un punto de vida por la explosión de escarcha."
-            }
-          ],
-          "cierre": "Bajáis del faro con Tormund apoyado en vuestros hombros y el fragmento de hielo envuelto en una manta. Cuando la llama azul se apaga, desde las montañas responde un rugido lejano, y tras él una carcajada seca, como de piedra que se agrieta. Vórtiga sabe ya quiénes sois. Lleváis al pescador a la taberna, donde le dan sopa caliente y a vosotros vino. Mañana seguiréis el mapa de la Hermandad hacia las estribaciones.",
-          "audio_llegada": "narraciones/el-aliento-helado-2-llegada.mp3",
-          "audio_cierre": "narraciones/el-aliento-helado-2-cierre.mp3",
+          "guion": "guiones/el-aliento-helado-2.json",
           "plano": {
             "entrada": {
-              "x": 88,
-              "y": 55,
-              "texto": "Desembarcan junto a los barcos varados"
+              "x": 78,
+              "y": 97,
+              "texto": "En la barca de Tormund, desde el sur"
             },
             "salida": {
-              "x": 5,
-              "y": 78,
-              "texto": "Bajan por la escalera de madera hacia las laderas"
+              "x": 72,
+              "y": 97,
+              "texto": "De vuelta en la barca, con Tormund, hacia la taberna"
             },
             "ruta": [
               [
+                78,
+                97
+              ],
+              [
                 88,
-                55
+                78
               ],
               [
-                70,
-                45
+                90,
+                66
               ],
               [
-                58,
-                45
+                80,
+                32
               ],
               [
-                50,
-                55
+                66,
+                42
               ],
               [
-                42,
-                68
+                53,
+                62
               ],
               [
-                25,
-                68
+                51,
+                87
               ],
               [
-                14,
-                52
-              ],
-              [
-                12,
-                28
-              ],
-              [
-                9,
-                30
-              ],
-              [
-                12,
-                55
+                10,
+                88
               ],
               [
                 5,
                 78
+              ],
+              [
+                18,
+                72
+              ],
+              [
+                38,
+                70
+              ],
+              [
+                18,
+                72
+              ],
+              [
+                16,
+                58
+              ],
+              [
+                13,
+                42
+              ],
+              [
+                5,
+                24
+              ],
+              [
+                10,
+                88
+              ],
+              [
+                56,
+                93
+              ],
+              [
+                72,
+                97
               ]
             ]
-          },
-          "personajes": [
-            {
-              "nombre": "Tormund",
-              "rol": "aliado",
-              "quien": "Viejo pescador de la costa norte, atado junto a la gran lente del faro",
-              "como_interpretarlo": "Voz ronca y temblorosa por el frío, agarra a los héroes del brazo y habla atropellado",
-              "que_sabe": "Revela que los encapuchados obedecen a la gárgola Vórtiga, que encadenó a Velgrima con hielo azul, y que hablaban de un altar en las estribaciones y de una nave de hueso.",
-              "paso": 3,
-              "x": 7,
-              "y": 28
-            },
-            {
-              "nombre": "La Parca",
-              "rol": "villano",
-              "quien": "Figura encapuchada con guadaña que custodia la llama azul del faro para Vórtiga",
-              "como_interpretarlo": "Voz como de piedra rota, lenta y solemne, sin moverse de entre los héroes y Tormund",
-              "que_sabe": "Proclama que su señora Vórtiga necesita el faro para traer a la dragona hasta la costa.",
-              "paso": 3,
-              "x": 9,
-              "y": 24
-            },
-            {
-              "nombre": "Vórtiga",
-              "rol": "villano",
-              "quien": "Gárgola de roca agrietada con alas y cuernos que encadenó a la dragona Velgrima y manda la Hermandad del Hueso",
-              "como_interpretarlo": "No se la ve: al apagarse la llama solo se oye su carcajada seca, como piedra que se agrieta",
-              "que_sabe": "Tras el faro ya sabe quiénes son los héroes.",
-              "paso": 4
-            },
-            {
-              "nombre": "Velgrima",
-              "rol": "víctima",
-              "quien": "Dragona blanca de los glaciares, encadenada con hielo azul a la voluntad de Vórtiga",
-              "como_interpretarlo": "Solo se oye su rugido lejano desde las montañas cuando se apaga la llama",
-              "que_sabe": "La lente grabada muestra que una gárgola la sujeta con una cadena al cuello.",
-              "paso": 4
-            }
-          ],
-          "decision_llegada": {
-            "pregunta": "¿Qué hacéis?",
-            "opciones": [
-              {
-                "opcion": "Abordamos el barco grande",
-                "paso": 0,
-                "que_pasa": "Encuentran las cajas del pueblo y salen la calavera en llamas y el gato del hacha: primer combate.",
-                "x": 88,
-                "y": 55,
-                "narracion": "Decidís abordar el barco grande varado junto a las rocas. Remáis hasta su costado, atáis la barca a un cabo podrido y trepáis por el casco cubierto de algas y escarcha. La cubierta está tan inclinada que tenéis que agarraros a la borda para no resbalar hacia el agua. Por los tablones rotos sube un resplandor anaranjado y el olor a madera quemada se os mete en la garganta. Desde la bodega llega un chisporroteo y, por encima de él, algo que parece un maullido divertido. Quien sea que encendió ese fuego sigue ahí abajo, y acaba de oír vuestras botas sobre su cubierta.",
-                "audio": "narraciones/el-aliento-helado-2-llegada-op-1.mp3"
-              },
-              {
-                "opcion": "Trepamos directos por la senda de musgo",
-                "paso": null,
-                "que_pasa": "Desvío: la roca está mojada y resbalan; quien falle pierde un punto de vida y caen de nuevo junto al barco grande, donde el fuego de la bodega ya los ha visto.",
-                "x": 58,
-                "y": 45,
-                "narracion": "Decidís saltar a tierra y trepar directamente por la senda de musgo. La roca brilla de humedad y el musgo se despega bajo los dedos como piel mojada. Subís unos metros, buscando apoyo en grietas cada vez más estrechas, hasta que una piedra cede y alguien resbala de golpe. Caéis rodando por la pendiente, arañándoos con la roca, y acabáis otra vez abajo, entre las piedras de la orilla, magullados y empapados de espuma. Al levantar la vista veis que estáis justo junto al barco grande varado. Por los tablones rotos de su bodega asoma un resplandor de fuego, y algo dentro ya os ha visto caer.",
-                "audio": "narraciones/el-aliento-helado-2-llegada-op-2.mp3"
-              },
-              {
-                "opcion": "Rodeamos por las rocas del agua",
-                "paso": null,
-                "que_pasa": "Desvío: entre las rocas encuentran una tabla con el sello del pueblo, un objeto menor, pero la marea los empuja contra el casco del barco varado y deben subir a bordo.",
-                "x": 68,
-                "y": 82,
-                "narracion": "Decidís rodear a pie por las rocas del agua, buscando otra entrada lejos de miradas. Saltáis de piedra en piedra con el mar rugiendo a vuestros pies y la espuma helada mojándoos las botas. Entre dos rocas encontráis una tabla rota con el sello del pueblo, restos de alguna carga, y la guardáis. Pero la marea sube más rápido de lo que pensabais. Cada ola os empuja un poco más, hasta que os veis acorralados contra el casco del barco grande varado. No queda otra salida que trepar por él. Subís chorreando a la cubierta inclinada y, desde la bodega, os llega un chisporroteo de fuego y un maullido que suena a risa.",
-                "audio": "narraciones/el-aliento-helado-2-llegada-op-3.mp3"
-              },
-              {
-                "opcion": "Remamos hasta el barco pequeño del norte",
-                "paso": null,
-                "que_pasa": "Desvío: está vacío y medio hundido; desde él ven el mástil caído del barco grande, el único puente posible hacia la senda, y vuelven a él.",
-                "x": 92,
-                "y": 20,
-                "narracion": "Decidís remar hasta el barco pequeño del norte, medio hundido y en silencio. El agua golpea su casco y las tablas sueltas flotan a su alrededor como huesos de un animal muerto. Subís a bordo con cuidado: no hay nadie, solo un cañón oxidado, cabos podridos y el eco de las olas. Desde allí, sin embargo, lo veis todo con claridad. El acantilado se alza liso y resbaladizo, y la única forma de llegar a la senda es el mástil caído del barco grande, que cruza el agua hasta las rocas. Volvéis a la barca y remáis hacia él. Al acercaros, un resplandor de fuego asoma entre sus tablones rotos.",
-                "audio": "narraciones/el-aliento-helado-2-llegada-op-4.mp3"
-              }
-            ],
-            "consejo": "Recordad que el mástil caído del barco grande es el único puente hacia el acantilado: todo camino pasa por allí."
           }
         },
         {
@@ -2883,7 +2663,7 @@
                 "que_pasa": "Entre las cajas del fondo hay unas monedas sueltas, una para el equipo, y desde allí el centinela los ve y les llama al puente.",
                 "x": 20,
                 "y": 80,
-                "narracion": "Decidís acercaros a las cajas abandonadas de la orilla de abajo, las que llevan el sello rojo del mapa. Las tapas están reventadas y dentro solo quedan paja húmeda y astillas, pero al remover el fondo encontráis unas monedas sueltas que alguien dejó caer con las prisas. Las guardáis en la bolsa del equipo. Cuando os incorporáis, una voz áspera os llama desde arriba. El centinela del puente os ha visto rebuscando, os señala con la lanza y os grita que subáis ahora mismo si no queréis problemas. Os miráis, os sacudís la paja de la ropa y subís hacia él, repasando en silencio la contraseña.",
+                "narracion": "Decidís acercaros a las cajas abandonadas de la orilla de abajo, las que llevan el sello rojo del mapa. Las tapas están reventadas y dentro solo quedan heno húmedo y astillas, pero al remover el fondo encontráis unas monedas sueltas que alguien dejó caer con las prisas. Las guardáis en la bolsa del equipo. Cuando os incorporáis, una voz áspera os llama desde arriba. El centinela del puente os ha visto rebuscando, os señala con la lanza y os grita que subáis ahora mismo si no queréis problemas. Os miráis, os sacudís el heno de la ropa y subís hacia él, repasando en silencio la contraseña.",
                 "audio": "narraciones/el-estandarte-rojo-2-llegada-op-4.mp3"
               }
             ],

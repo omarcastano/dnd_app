@@ -599,6 +599,51 @@
   .aventura-combate { background: rgba(154, 42, 34, .1); border: 1px solid rgba(154, 42, 34, .4); }
   .aventura-enigma { background: rgba(106, 61, 154, .1); border: 1px solid rgba(106, 61, 154, .4); }
   .aventura-combate p, .aventura-enigma p { margin: 3px 0; font-size: .9rem; }
+  .aventura-mesa-aviso { font-style: italic; opacity: .85; }
+  /* Mesa de combate: una ficha del Bestiario por bestia (panel de vida, botín, robo y carta que se voltea), debajo del mapa y la carta */
+  .mapas-mesa { margin-top: 14px; padding: 12px 12px 18px; border-radius: 10px; font-family: Georgia, serif; line-height: normal; color: #fff;
+    background: radial-gradient(120% 80% at 50% 0%, #3a2a1c 0%, #17110c 80%); border: 1px solid #d4af5a66; }
+  .mapas-mesa * { box-sizing: border-box; }
+  .mapas-mesa-cabecera { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 18px; margin-bottom: 10px; }
+  .mapas-mesa .mapas-mesa-titulo { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: #f2dc9b; }
+  .mapas-mesa-cuenta { font-size: 13px; color: #d4af5a; }
+  /* Un solo selector de jugadores para toda la mesa (las fichas no muestran el suyo) */
+  .mapas-mesa-jugadores { display: flex; align-items: center; gap: 6px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #d4af5a; }
+  .mapas-mesa-jugadores span { margin-right: 2px; }
+  .mapas-mesa-jugadores button { all: unset; cursor: pointer; box-sizing: border-box; min-width: 34px; height: 30px; padding: 0 10px; display: inline-grid; place-items: center;
+    border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 14px; -webkit-tap-highlight-color: transparent; }
+  .mapas-mesa-jugadores button.activo { background: linear-gradient(#f2dc9b, #d4af5a); color: #2a1d0e; font-weight: 700; }
+  .mapas-mesa-ayuda { flex-basis: 100%; margin: 0; text-align: center; font-size: 12px; color: #d4af5a; }
+  .mapas-mesa-deslizar { display: none; }
+  .mapas-mesa-fichas { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 18px 28px; }
+  .mapas-bestia { display: flex; flex-direction: column; align-items: center; width: min(340px, 100%); }
+  .mapas-bestia .jugadores { display: none; }
+  .mapas-bestia .titulo-enemigo { margin-top: 4px; }
+  .mapas-bestia .panel-vida { margin-bottom: 10px; }
+  .mapas-bestia .carta-sel { zoom: var(--escala-bestiario, 1); }
+  .mapas-bestia.derrotado .carta-p.personaje .retrato-p img { filter: grayscale(1) brightness(.6); }
+  .mapas-mesa-paso { display: none; }
+  /* Móvil: carrusel, una bestia por pantalla; se pasa deslizando con el dedo (o con las flechas) */
+  @media (max-width: 699px) {
+    .mapas-mesa { padding: 10px 0 12px; }
+    .mapas-mesa-deslizar { display: inline; }
+    .mapas-mesa-fichas { flex-wrap: nowrap; justify-content: flex-start; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+    .mapas-mesa-fichas::-webkit-scrollbar { display: none; }
+    .mapas-bestia { flex: 0 0 100%; width: 100%; padding: 0 12px; scroll-snap-align: center; scroll-snap-stop: always; }
+    /* Ficha compacta: vida y «Reiniciar» en una fila, para que la carta entera quepa en la misma pantalla */
+    .mapas-bestia .titulo-enemigo { margin: 0 0 4px; font-size: 19px; }
+    .mapas-bestia .panel-vida { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px 12px; padding: 8px 12px; max-width: 100%; margin-bottom: 8px; }
+    .mapas-bestia .panel-vida > :is(.estado-derrota, .botin, .robo, .cabezas) { flex-basis: 100%; }
+    .mapas-bestia .robo { padding: 6px 10px; }
+    .mapas-bestia .robo-texto { font-size: 12px; margin-bottom: 4px; }
+    .mapas-mesa-paso { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 8px; color: #f2dc9b; font-size: 13px; }
+    .mapas-mesa-paso button { all: unset; cursor: pointer; width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid #d4af5a; border-radius: 50%; color: #f2dc9b; -webkit-tap-highlight-color: transparent; }
+    .mapas-mesa-paso button:disabled { opacity: .3; cursor: default; }
+    .mapas-mesa-puntos { display: flex; gap: 6px; }
+    .mapas-mesa-puntos i { width: 8px; height: 8px; border-radius: 50%; background: #d4af5a55; }
+    .mapas-mesa-puntos i.activo { background: #f2dc9b; }
+  }
+  .mapas-bestia-falta { color: #ffd37a; font-style: italic; }
   .aventura-ganado { display: block; width: 100%; margin-top: 10px; padding: 10px 14px; font-family: var(--fuente-encabezado); font-size: 1rem; border: none; border-radius: 6px; background: #5a2a0c; color: #f3e6c8; cursor: pointer; }
   .aventura-ganado:hover, .aventura-ganado:focus-visible { background: #7a3a12; }
   .aventura-pregunta { margin: 12px 0 8px; font-family: var(--fuente-encabezado); font-size: 1.08rem; color: #1f4f6e; }

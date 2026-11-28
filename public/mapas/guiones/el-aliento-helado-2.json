@@ -1,0 +1,1131 @@
+{
+  "_acerca": "Guion del capítulo II de «El Aliento Helado» («La llama azul»). FUENTE ÚNICA de la historia: la app lo carga (campo `guion` en public/mapas/campanas.json) y lo mezcla con la ficha (mapa, título, plano). Esquema, reglas y flujo de trabajo: guiones/LEEME.md. Vista legible generada (no editar): guiones/el-aliento-helado-2.md (make guiones).",
+  "objetivo": "Llegar en la barca de Tormund al cabo del faro, tomar el muelle de la Hermandad en el barco partido, subir el acantilado hasta la casa del faro, rescatar a Tormund de la Parca y apagar la llama azul que guía a la dragona hasta la costa.",
+  "geografia": "Cabo del faro visto desde arriba. Al este, el mar azul con rocas y, encallado contra ellas, un barco grande partido en dos: la popa al norte (cubierta entera con el timón y una escotilla con escalera que baja a la bodega) y la proa al sur, acabada en punta, con la cubierta agujereada; entre las dos mitades flotan tablas rotas. Desde la cubierta de la proa, el mástil caído se tiende en diagonal hacia el noroeste y acaba en el agua; se cruza con otro palo largo que va desde la popa hasta unas rocas pequeñas junto a la orilla: es el puente de palos por el que la Hermandad pasaba los toneles. En el agua azul: una roca grande al norte, una roca alargada en el centro, rocas sueltas, tablas flotando y, al sur, la roca grande, ancha y redondeada, pegada al pie del acantilado, donde este es más bajo. La orilla oeste del agua es un acantilado de roca gris en capas, liso al norte (por ahí no se sube). Arriba, entre el borde del acantilado y la pared este de la casa de piedra (ciega: sin puertas ni ventanas, solo se oye lo de dentro), corre una cornisa estrecha cubierta de musgo verde que baja hacia el sur. Al pie de la casa, al sur, un camino de piedra clara corre de este a oeste entre rocas y tablas sueltas, hasta la escalera de madera recta del suroeste, que sube a la plataforma. Plataforma de madera (oeste): barriles, cajas, sacos y una lona azul; al noroeste, una escalerilla de tablas lleva a una escalera curva de piedra que sube a la puerta de la torre. Casa de piedra (centro): al sur, la cocina, con el hogar redondo de piedra en la esquina noroeste, leña partida y la mesa redonda con tres sillas y platos; se entra desde la plataforma por la puerta del oeste; al norte, por un hueco, una sala con una mesa, dos barriles, un banco, una alfombra parda y una roca. Torre redonda (noroeste): planta baja con suelo de ladrillo, camas (una con manta roja), alfombra oscura, cajas y barriles contra el muro y, en el centro, una gran rueda de hierro con radios, el mecanismo que hace girar la lente; pegada al muro norte, la escalera de caracol que sube a la linterna, que no se ve en el mapa porque está encima. Pegado a la torre por el este, un cobertizo de tablas con una carretilla. Al norte, roca y matorrales. Qué se ve: desde el mar, la torre con la luz azul, el barco partido y el acantilado; desde la popa, la proa al otro lado del hueco; desde la cornisa de musgo no se ve la cocina (muro ciego).",
+  "personajes": [
+    {
+      "nombre": "Tormund",
+      "rol": "víctima",
+      "quien": "Viejo pescador de la costa norte; de joven cuidó este faro. Vórtiga se lo llevó volando de la cala y lo tiene encadenado junto a la lente para que la haga girar.",
+      "como_interpretarlo": "Voz ronca y tiritona; agarra a los héroes del brazo y habla atropellado. En cuanto entra en calor le vuelve el humor de viejo marino.",
+      "que_sabe": "La gárgola es Vórtiga, señora de la Hermandad del Hueso: encadenó a la dragona Velgrima con hielo azul y usa la luz del faro para guiarla hasta la costa. En las estribaciones forjan sus cadenas junto a un altar, señalado con tres piedras azules; los encapuchados marcan su camino con losas numeradas (donde un número se repite en la misma hilera, la losa está rota por debajo). Les oyó hablar de una nave de hueso."
+    },
+    {
+      "nombre": "El gato",
+      "rol": "enemigo",
+      "quien": "Gato Hachero, cargador de la Hermandad del Hueso en el barco partido: descargaba el aceite que traía el trovador y lo subía por el mástil hasta el acantilado.",
+      "como_interpretarlo": "Maúlla y ronronea, charlatán y fanfarrón; toma el farol rojo de la barca por el del trovador y suelta la lengua con quien crea de los suyos.",
+      "que_sabe": "Cómo funciona el faro: los dos hermanos de la cocina suben el aceite a la torre, la de la guadaña obliga al viejo pescador a alimentar la llama, y una bestia guarda la escalera."
+    },
+    {
+      "nombre": "La calavera",
+      "rol": "enemigo",
+      "quien": "Calavera Ardiente que hace de farol del muelle de la Hermandad: su fuego de muerto es de los pocos que la niebla helada no apaga, y guiaba al trovador hasta el barco partido.",
+      "como_interpretarlo": "No habla: chilla y chisporrotea.",
+      "que_sabe": "Nada que cuente."
+    },
+    {
+      "nombre": "El engendro",
+      "rol": "enemigo",
+      "quien": "Engendro del Abismo, perro guardián de la Parca al pie de la escalera de madera.",
+      "como_interpretarlo": "No habla: silba al respirar y olfatea. Deja pasar a quien huela a hueso (los amuletos de la Hermandad).",
+      "que_sabe": "Nada que cuente."
+    },
+    {
+      "nombre": "Grom",
+      "rol": "enemigo",
+      "quien": "Coloso Calvo, hermano de la Hermandad del Hueso: sube el aceite a la torre y guarda la puerta de la cocina.",
+      "como_interpretarlo": "Grave, lento y glotón; desconfiado, pero se fía de quien dice la contraseña.",
+      "que_sabe": "La contraseña de la cocina («La piedra no duerme») y que la de la guadaña quiere aceite porque la llama flojea."
+    },
+    {
+      "nombre": "El hermano de la armadura negra",
+      "rol": "enemigo",
+      "quien": "Humano Corrompido, el que manda en la casa del faro. Lleva la llave de los grilletes de Tormund; bajo el yelmo tiene la cara gris de venas azules.",
+      "como_interpretarlo": "Habla poco, con la voz hueca dentro del yelmo.",
+      "que_sabe": "Que la señora de piedra quiere vivo al viejo mientras la llama arda."
+    },
+    {
+      "nombre": "La Parca",
+      "rol": "enemigo",
+      "quien": "Guardiana de la llama azul que Vórtiga dejó en el faro.",
+      "como_interpretarlo": "Voz como de piedra rota, lenta y solemne; no se aparta de la lente si no la obligan.",
+      "que_sabe": "Que su señora necesita la luz para traer a la dragona hasta la costa."
+    },
+    {
+      "nombre": "Vórtiga",
+      "rol": "villano",
+      "quien": "Gárgola de roca agrietada con alas y cuernos que encadenó a la dragona Velgrima y manda la Hermandad del Hueso.",
+      "como_interpretarlo": "No se la ve: al apagarse la llama solo se oye su carcajada seca, como piedra que se agrieta.",
+      "que_sabe": "Desde que se apaga el faro, sabe quiénes son los héroes."
+    },
+    {
+      "nombre": "Velgrima",
+      "rol": "víctima",
+      "quien": "Dragona blanca de los glaciares, encadenada con hielo azul a la voluntad de Vórtiga.",
+      "como_interpretarlo": "Solo se oye su rugido lejano cuando se apaga la llama (y se la ve a lo lejos desde la galería).",
+      "que_sabe": "El grabado de la lente muestra a una gárgola que la sujeta con una cadena al cuello."
+    }
+  ],
+  "inicio": "llegada",
+  "estados": {
+    "sabe-casa": {
+      "texto": "Saben quién hay en la casa del faro: pueden emboscar al calvo cuando salga a por aceite",
+      "icono": "ear-listen"
+    },
+    "contrasena": {
+      "texto": "Tienen la contraseña de la cocina: «La piedra no duerme»",
+      "icono": "key"
+    },
+    "sabe-parca": {
+      "texto": "Saben que la Parca baja a por aceite cuando la llama flojea",
+      "icono": "hourglass-half"
+    },
+    "llama": {
+      "texto": "La llama azul está apagada",
+      "icono": "fire-flame-simple"
+    }
+  },
+  "opciones_comunes": {
+    "subir": {
+      "pregunta": "¿Qué hacéis ahora?",
+      "opciones": [
+        {
+          "opcion": "Cruzamos por el puente de palos del barco",
+          "lectura": "Cruzar por el puente de palos del barco.",
+          "va_a": "mastil",
+          "nota": "El camino de los toneles: mástil y palo largo hasta las rocas de la orilla y, trepando, la cornisa de musgo junto a la casa. Si están en la roca, reman antes hasta el barco.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-cruzar-por-el-puente-de-palos-del-barco.mp3"
+        },
+        {
+          "opcion": "Remamos hasta la roca grande y trepamos por el acantilado",
+          "lectura": "Remar hasta la roca grande y trepar por el acantilado.",
+          "va_a": "pie-acantilado",
+          "nota": "Llegan al camino del pie de la casa, donde duerme el guardián de la escalera.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-remar-hasta-la-roca-grande-y-trepar-por-el-acantilado.mp3"
+        },
+        {
+          "opcion": "Vamos a ver la proa del barco",
+          "lectura": "Ir a ver la proa del barco.",
+          "va_a": "pecio-vacio",
+          "salvo": [
+            "visto-proa"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-ver-la-proa-del-barco.mp3"
+        },
+        {
+          "opcion": "Vamos a registrar la bodega del barco partido",
+          "lectura": "Ir a registrar la bodega del barco partido.",
+          "va_a": "bodega-tras",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3"
+        }
+      ],
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-que-haceis-ahora.mp3"
+    },
+    "ante-engendro": {
+      "pregunta": "Algo duerme al pie de la escalera. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Nos acercamos sin ruido y lo atacamos dormido",
+          "lectura": "Acercaros sin ruido y atacarlo dormido.",
+          "va_a": "engendro-sorpresa",
+          "nota": "Atacan primero.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-acercaros-sin-ruido-y-atacarlo-dormido.mp3"
+        },
+        {
+          "opcion": "Intentamos subir la escalera sin despertarlo",
+          "lectura": "Intentar subir la escalera sin despertarlo.",
+          "va_a": "escalera-cruje",
+          "nota": "Un peldaño cruje: el engendro ataca primero.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-intentar-subir-la-escalera-sin-despertarlo.mp3"
+        },
+        {
+          "opcion": "Le enseñamos el amuleto de hueso",
+          "lectura": "Enseñarle el amuleto de hueso.",
+          "va_a": "amuleto-engendro",
+          "nota": "Deja pasar al que lleva el amuleto, pero no a los demás: el grupo empieza separado.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-ensenarle-el-amuleto-de-hueso.mp3"
+        },
+        {
+          "opcion": "Vamos a registrar la bodega del barco partido",
+          "lectura": "Ir a registrar la bodega del barco partido.",
+          "va_a": "bodega-tras",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3"
+        }
+      ],
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-algo-duerme-al-pie-de-la-escalera-que-haceis.mp3"
+    },
+    "tras-cocina": {
+      "pregunta": "La casa es vuestra. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Subimos a la torre",
+          "lectura": "Subir a la torre.",
+          "va_a": "torre",
+          "nota": "Tormund y la Parca están arriba, en la linterna.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-subir-a-la-torre.mp3"
+        },
+        {
+          "opcion": "Registramos la casa",
+          "lectura": "Registrar la casa.",
+          "va_a": "casa-registro",
+          "nota": "Comida y una pista de las costumbres de la Parca.",
+          "salvo": [
+            "casa-registro"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-registrar-la-casa.mp3"
+        },
+        {
+          "opcion": "Comemos del guiso junto al hogar",
+          "lectura": "Comer del guiso junto al hogar.",
+          "va_a": "hogar",
+          "nota": "+1 de vida cada uno.",
+          "salvo": [
+            "hogar"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-comer-del-guiso-junto-al-hogar.mp3"
+        }
+      ],
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-la-casa-es-vuestra-que-haceis.mp3"
+    },
+    "ante-runas": {
+      "pregunta": "La luz sigue ardiendo. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Intentamos apagar las runas",
+          "lectura": "Intentar apagar las runas.",
+          "va_a": "runas",
+          "nota": "Enigma: si lo resuelven, la llama se apaga sin más daño.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-intentar-apagar-las-runas.mp3"
+        },
+        {
+          "opcion": "Rompemos la lente a golpes",
+          "lectura": "Romper la lente a golpes.",
+          "va_a": "lente-golpes",
+          "nota": "No sirve de nada: al final tendrán que apagar las runas.",
+          "salvo": [
+            "lente-golpes"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-romper-la-lente-a-golpes.mp3"
+        }
+      ],
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-la-luz-sigue-ardiendo-que-haceis.mp3"
+    },
+    "final": {
+      "pregunta": "La llama azul se ha apagado. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Bajamos con Tormund a la barca y volvemos a la taberna",
+          "lectura": "Bajar con Tormund a la barca y volver a la taberna.",
+          "va_a": "fin",
+          "audio": "narraciones/el-aliento-helado-2-opcion-bajar-con-tormund-a-la-barca-y-volver-a-la-taberna.mp3"
+        },
+        {
+          "opcion": "Examinamos la base de la lente",
+          "lectura": "Examinar la base de la lente.",
+          "va_a": "grabado",
+          "nota": "Pista del villano.",
+          "salvo": [
+            "grabado"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-examinar-la-base-de-la-lente.mp3"
+        },
+        {
+          "opcion": "Salimos a la galería y miramos tierra adentro",
+          "lectura": "Salir a la galería y mirar tierra adentro.",
+          "va_a": "mirador",
+          "nota": "Ven el altar de las estribaciones y una sombra sobre el glaciar.",
+          "salvo": [
+            "mirador"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-salir-a-la-galeria-y-mirar-tierra-adentro.mp3"
+        }
+      ],
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-la-llama-azul-se-ha-apagado-que-haceis.mp3"
+    }
+  },
+  "escenas": {
+    "llegada": {
+      "titulo": "El cabo del faro",
+      "lugar": "En la barca de Tormund, frente al cabo",
+      "x": 78,
+      "y": 90,
+      "narracion": "Al alba remáis en la barca de Tormund, con el farol de proa ardiendo rojo entre la niebla helada. El amuleto de hueso del sátiro late en la bolsa, cada vez más deprisa. Por fin la niebla se abre y aparece el cabo: un acantilado de roca gris y, arriba, la torre del faro, donde una llama azul gira despacio sobre el mar. A sus pies, encallado contra las rocas, hay un barco grande partido en dos, con el mástil caído sobre el agua azul. En su proa flota una luz anaranjada que la niebla no apaga, y una silueta otea la niebla, como si esperase a alguien. Al sur, una roca grande y redondeada se pega al pie del acantilado.",
+      "master": "La silueta es el Gato Hachero, el cargador de la Hermandad: espera al trovador, que llegaba cada noche en esta barca con el farol rojo, para descargar el aceite. La luz es una Calavera Ardiente que hace de faro del muelle. Si en el capítulo I echaron el aceite al mar, la llama azul late débil y el gato está impaciente: a la Hermandad le falta aceite.",
+      "pregunta": "¿Hacia dónde remáis?",
+      "opciones": [
+        {
+          "opcion": "Remamos hacia la luz de la proa, como hacía el trovador",
+          "lectura": "Remar hacia la luz de la proa, como hacía el trovador.",
+          "va_a": "proa-engano",
+          "nota": "El gato los toma por el trovador hasta que los ve de cerca.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-remar-hacia-la-luz-de-la-proa-como-hacia-el-trovador.mp3"
+        },
+        {
+          "opcion": "Tapamos el farol y rodeamos el barco hasta la popa",
+          "lectura": "Tapar el farol y rodear el barco hasta la popa.",
+          "va_a": "popa",
+          "nota": "Llegan sin ser vistos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-tapar-el-farol-y-rodear-el-barco-hasta-la-popa.mp3"
+        },
+        {
+          "opcion": "Desembarcamos en la roca grande del sur",
+          "lectura": "Desembarcar en la roca grande del sur.",
+          "va_a": "roca-sur",
+          "nota": "Desde el barco ven el farol rojo amarrado donde no toca: el gato y la calavera van a por ellos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-desembarcar-en-la-roca-grande-del-sur.mp3"
+        },
+        {
+          "opcion": "Remamos hacia el norte, bajo el faro",
+          "lectura": "Remar hacia el norte, bajo el faro.",
+          "va_a": "costa-norte",
+          "nota": "El acantilado es liso: por ahí no se sube.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-remar-hacia-el-norte-bajo-el-faro.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-llegada.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-hacia-donde-remais.mp3"
+    },
+    "costa-norte": {
+      "titulo": "Bajo el faro",
+      "lugar": "Al pie del acantilado del norte",
+      "x": 62,
+      "y": 14,
+      "narracion": "Remáis hacia el norte, pegados al acantilado, hasta quedar bajo el acantilado del norte; el faro se alza más allá, tierra adentro. La pared de roca gris sube lisa y mojada, sin una grieta donde meter los dedos, y las olas revientan contra ella y os salpican la cara. Allá arriba, la luz azul pasa sobre vosotros y el amuleto da un brinco en la bolsa. Desde aquí lo veis claro: la popa del barco partido queda a unos golpes de remo, y desde el barco, el mástil caído y otro palo largo cruzan el agua hasta unas rocas junto a la orilla, como un puente de palos. Más al sur, la roca grande toca el acantilado donde es más bajo.",
+      "master": "Por el norte no se sube. Hay dos caminos al acantilado: el puente de palos del barco (mástil y palo largo) o la roca grande del sur.",
+      "pregunta": "Por aquí no se sube. ¿Adónde remáis?",
+      "opciones": [
+        {
+          "opcion": "Tapamos el farol y remamos hasta la popa del barco",
+          "lectura": "Tapar el farol y remar hasta la popa del barco.",
+          "va_a": "popa",
+          "nota": "Llegan sin ser vistos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-tapar-el-farol-y-remar-hasta-la-popa-del-barco.mp3"
+        },
+        {
+          "opcion": "Remamos hacia la luz de la proa, como hacía el trovador",
+          "lectura": "Remar hacia la luz de la proa, como hacía el trovador.",
+          "va_a": "proa-engano",
+          "nota": "El gato los toma por el trovador hasta que los ve de cerca.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-remar-hacia-la-luz-de-la-proa-como-hacia-el-trovador.mp3"
+        },
+        {
+          "opcion": "Desembarcamos en la roca grande del sur",
+          "lectura": "Desembarcar en la roca grande del sur.",
+          "va_a": "roca-sur",
+          "nota": "Desde el barco ven el farol rojo amarrado donde no toca: el gato y la calavera van a por ellos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-desembarcar-en-la-roca-grande-del-sur.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-costa-norte.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-por-aqui-no-se-sube-adonde-remais.mp3"
+    },
+    "proa-engano": {
+      "titulo": "¡Llegas tarde, flautista!",
+      "lugar": "Proa del barco partido",
+      "x": 88,
+      "y": 80,
+      "marca": [
+        "visto-proa"
+      ],
+      "narracion": "Remáis despacio hacia la luz. Al acercaros veis lo que es: una calavera envuelta en llamas que flota sobre la proa como un farol, con un fuego que la niebla no consigue apagar. En la cubierta inclinada os espera un gato enorme, de pie como un hombre, con un hacha en cada mano y una armadura de cuero. Solo ve vuestro farol rojo entre la bruma. «¡Llegas tarde, flautista!», maúlla. «Los hermanos llevan toda la noche esperando el aceite, y la de la guadaña está de un humor de perros.» Todavía no os ha visto la cara.",
+      "master": "El Gato Hachero cree que llega el trovador. Ni él ni la calavera los han reconocido todavía.",
+      "pregunta": "El gato os toma por el trovador. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Le seguimos el juego y le sacamos información",
+          "lectura": "Seguirle el juego y sacarle información.",
+          "va_a": "gato-charla",
+          "nota": "Les cuenta cómo funciona el faro hasta que la calavera les ilumina la cara.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-seguirle-el-juego-y-sacarle-informacion.mp3"
+        },
+        {
+          "opcion": "Saltamos a cubierta y atacamos antes de que nos vea",
+          "lectura": "Saltar a cubierta y atacar antes de que os vea.",
+          "va_a": "pecio-asalto",
+          "nota": "Atacan primero.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-saltar-a-cubierta-y-atacar-antes-de-que-os-vea.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-proa-engano.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-el-gato-os-toma-por-el-trovador-que-haceis.mp3"
+    },
+    "gato-charla": {
+      "titulo": "Lengua de gato",
+      "lugar": "Proa del barco partido",
+      "x": 90,
+      "y": 74,
+      "marca": [
+        "sabe-casa"
+      ],
+      "narracion": "Uno de vosotros carraspea y contesta con la cantinela burlona del sátiro. El gato se ríe y suelta la lengua mientras amarráis y subís a la cubierta: el aceite sube por las cuerdas del mástil hasta los hermanos de la casa, el calvo grandullón y el de la armadura negra, que lo llevan a la torre; el calvo, en cuanto acaba de comer, sale a la plataforma a por los toneles. Allí arriba, la de la guadaña obliga al viejo pescador a dar de comer a la llama azul, porque es el único que sabe mover la lente. Y a la bestia de la escalera, dice, mejor no darle la espalda. Entonces la calavera baja a miraros de cerca y su fuego os ilumina la cara. Chilla. El gato deja de reír y alza las hachas.",
+      "master": "Ya saben que Tormund está vivo, en la torre, con la Parca; que en la casa hay dos hermanos (el Coloso Calvo y el Humano Corrompido) y que un engendro guarda la escalera. El combate empieza sin ventaja: los héroes ya están en la cubierta.",
+      "sigue": "pecio-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-gato-charla.mp3"
+    },
+    "pecio-asalto": {
+      "titulo": "Al abordaje",
+      "lugar": "Proa del barco partido",
+      "x": 90,
+      "y": 76,
+      "narracion": "No le dais tiempo a mirar dos veces. La barca toca el casco y saltáis a la cubierta inclinada con las armas en la mano, agarrándoos a la borda para no resbalar hacia el agua. El gato abre mucho los ojos amarillos: «¡Tú no eres el músico!». Sobre vuestras cabezas, la calavera suelta un chillido y su fuego se aviva como una antorcha. Ya estáis encima de ellos.",
+      "master": "Atacan primero.",
+      "sigue": "pecio-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-pecio-asalto.mp3"
+    },
+    "popa": {
+      "titulo": "La popa del timón",
+      "lugar": "Popa del barco partido",
+      "x": 92,
+      "y": 20,
+      "narracion": "Tapáis el farol rojo con una manta, remáis en la penumbra hasta la popa del barco partido, lejos de la luz, y amarráis bajo ella. Trepáis por el casco cubierto de algas hasta la cubierta del timón. Aquí la madera está entera y crujiente de escarcha, y junto al timón una escotilla abierta deja ver una escalera que baja a la bodega. Al sur, el barco está roto por la mitad: entre las dos mitades flotan tablas sueltas sobre el agua azul. En la otra mitad, la proa, un gato enorme con un hacha en cada mano os da la espalda, mirando la niebla del sur, y sobre él flota una calavera en llamas, como un farol. Esperan a alguien, y no sois vosotros.",
+      "master": "No los han visto. El gato espera al trovador mirando al sur.",
+      "pregunta": "No os han visto. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Cruzamos por las tablas sueltas y atacamos por la espalda",
+          "lectura": "Cruzar por las tablas sueltas y atacar por la espalda.",
+          "va_a": "pecio-espalda",
+          "nota": "Atacan por sorpresa, pero las tablas flotan: quien falle una tirada cae al agua.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-cruzar-por-las-tablas-sueltas-y-atacar-por-la-espalda.mp3"
+        },
+        {
+          "opcion": "Bajamos a la bodega sin hacer ruido",
+          "lectura": "Bajar a la bodega sin hacer ruido.",
+          "va_a": "bodega",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-bajar-a-la-bodega-sin-hacer-ruido.mp3"
+        },
+        {
+          "opcion": "Volvemos a la barca y desembarcamos en la roca grande",
+          "lectura": "Volver a la barca y desembarcar en la roca grande.",
+          "va_a": "roca-sur",
+          "nota": "El gato ve el farol rojo amarrado donde no toca y van a por ellos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-volver-a-la-barca-y-desembarcar-en-la-roca-grande.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-popa.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-no-os-han-visto-que-haceis.mp3"
+    },
+    "bodega": {
+      "titulo": "La bodega del aceite",
+      "lugar": "Bodega de la popa",
+      "x": 92,
+      "y": 30,
+      "marca": [
+        "bodega",
+        "contrasena"
+      ],
+      "narracion": "Bajáis la escalera de la escotilla pisando solo los bordes de los peldaños. La bodega de la popa huele a salitre y a algo dulce y frío: está llena de toneles marcados con un hueso pintado, el mismo aceite que salía del almacén de Tormund. Entre ellos hay un saco de pescado seco y, clavada en una viga, una nota escrita con letra torpe: «Al subir la carga, tres golpes en la puerta de la cocina y decid: la piedra no duerme. Si no, Grom abre a mazazos». Desde la otra mitad del barco os llegan las pisadas del gato, que va y viene por la proa. No os ha oído.",
+      "master": "Ganan 1 comida. Tienen la contraseña de la cocina del faro: «La piedra no duerme» (Grom es el Coloso Calvo).",
+      "pregunta": "Tenéis la contraseña y el gato no sabe que estáis aquí. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Cruzamos por las tablas sueltas y atacamos por la espalda",
+          "lectura": "Cruzar por las tablas sueltas y atacar por la espalda.",
+          "va_a": "pecio-espalda",
+          "nota": "Atacan por sorpresa, pero las tablas flotan: quien falle una tirada cae al agua.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-cruzar-por-las-tablas-sueltas-y-atacar-por-la-espalda.mp3"
+        },
+        {
+          "opcion": "Volvemos a la barca y desembarcamos en la roca grande",
+          "lectura": "Volver a la barca y desembarcar en la roca grande.",
+          "va_a": "roca-sur",
+          "nota": "El gato ve el farol rojo amarrado donde no toca y van a por ellos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-volver-a-la-barca-y-desembarcar-en-la-roca-grande.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-bodega.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-teneis-la-contrasena-y-el-gato-no-sabe-que-estais-aqui-que-haceis.mp3"
+    },
+    "pecio-espalda": {
+      "titulo": "Por la espalda",
+      "lugar": "Entre las dos mitades del barco",
+      "x": 90,
+      "y": 47,
+      "narracion": "Bajáis de la popa y cruzáis el hueco entre las dos mitades del barco saltando de tabla en tabla. Las tablas se hunden bajo vuestro peso y el agua helada os llega a los tobillos. El gato sigue mirando al sur, moviendo la cola, impaciente. Alcanzáis la proa y trepáis por la madera rota a su espalda. Ya casi podéis tocarlo cuando la calavera se gira en el aire, os ve y suelta un chillido. Demasiado tarde para ellos.",
+      "master": "Atacan primero. Quien falle una tirada al cruzar las tablas cae al agua, pierde 1 de vida y empieza el combate tumbado.",
+      "sigue": "pecio-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-pecio-espalda.mp3"
+    },
+    "roca-sur": {
+      "titulo": "El farol que no toca",
+      "lugar": "Roca grande del sur",
+      "x": 68,
+      "y": 84,
+      "narracion": "Remáis hasta la roca grande del sur y amarráis la barca a un saliente. La roca es ancha y redondeada, y desde ella el acantilado es más bajo: se puede trepar. Pero el farol rojo de vuestra barca brilla en la bruma como un faro pequeño. Desde el barco partido os llega un maullido: «¡Flautista! ¿Qué haces amarrando ahí?». Un silencio. Luego, un chillido. La calavera en llamas cruza el agua volando hacia vosotros, y detrás, saltando de tabla en tabla y de roca en roca, viene un gato enorme con un hacha en cada mano.",
+      "master": "El gato esperaba al trovador en la proa; al ver la barca amarrada en otro sitio, sospecha. Combate en la roca, sin ventaja para nadie.",
+      "sigue": "roca-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-roca-sur.mp3"
+    },
+    "pecio-combate": {
+      "titulo": "El muelle de la Hermandad",
+      "lugar": "Proa del barco partido",
+      "x": 90,
+      "y": 66,
+      "marca": [
+        "visto-proa"
+      ],
+      "narracion": "La calavera gira sobre la cubierta escupiendo chispas y el gato hace molinetes con sus dos hachas, ronroneando como quien se divierte. La madera está inclinada hacia el agua y resbala de escarcha. Este es el muelle de la Hermandad: aquí llegaba el aceite cada noche, y no van a dejar que unos extraños lo pisen.",
+      "combate": {
+        "enemigos": [
+          "Calavera Ardiente",
+          "Gato Hachero"
+        ],
+        "nota": "La calavera vuela alrededor del mástil; el gato intenta tirar al agua al héroe más cercano a la borda: quien falle una tirada al recibir un golpe cae al agua y pierde 1 de vida.",
+        "despliegue": "Gato junto a la base del mástil caído, en la proa; calavera sobre él. Los héroes, por donde llegaron: la borda o las tablas que vienen de la popa."
+      },
+      "despues": "El gato cae sobre la cubierta con un último bufido y la calavera se estrella contra el agua, que hierve y se la traga. Junto a la base del mástil caído hay una polea y unas cuerdas nuevas tendidas a lo largo del palo: por ahí pasaban los toneles. El mástil se tiende sobre el agua y se cruza con otro palo largo que llega hasta unas rocas al pie del acantilado, que en ese punto tiene muescas talladas para trepar. Al sur, la roca grande toca el acantilado donde es más bajo. Arriba, la luz azul late.",
+      "master_despues": "Dos caminos al faro: el puente de palos (mástil y palo largo) hasta la cornisa de musgo (junto a la casa), o trepar desde la roca grande. Si no han bajado a la bodega de la popa, allí hay comida y la contraseña de la cocina.",
+      "opciones": "subir",
+      "audio": "narraciones/el-aliento-helado-2-escena-pecio-combate.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-pecio-combate-despues.mp3"
+    },
+    "roca-combate": {
+      "titulo": "Pelea en la roca",
+      "lugar": "Roca grande del sur",
+      "x": 68,
+      "y": 88,
+      "narracion": "La calavera pasa sobre vuestras cabezas escupiendo chispas, y el gato aterriza en la roca de un salto, con la cola erizada y las dos hachas en alto. «¡Ladrones! ¡Esa es la barca del músico!» La roca está mojada por las olas y cada paso resbala.",
+      "combate": {
+        "enemigos": [
+          "Calavera Ardiente",
+          "Gato Hachero"
+        ],
+        "nota": "Pelean sobre la roca mojada: quien falle una tirada al recibir un golpe cae al agua y pierde 1 de vida. La calavera ataca desde el aire.",
+        "despliegue": "Héroes junto a la barca amarrada; el gato llegando por el norte de la roca y la calavera sobre el agua."
+      },
+      "despues": "El gato se desploma sobre la roca y la calavera cae al mar con un siseo de brasa apagada. La espuma se lleva sus chispas. Ahora el barco partido está en silencio: en su proa, unas cuerdas con poleas recorren el mástil caído, que se cruza sobre el agua con otro palo largo hasta unas rocas al pie del acantilado, que en ese punto tiene muescas talladas para trepar. Sobre vuestras cabezas, el acantilado es bajo y tiene buenos agarres. Arriba, la luz azul late.",
+      "master_despues": "Dos caminos al faro: trepar desde aquí o el puente de palos del barco. En la bodega de la popa hay comida y la contraseña de la cocina.",
+      "pregunta": "¿Qué hacéis ahora?",
+      "opciones": [
+        {
+          "opcion": "Trepamos por el acantilado desde aquí",
+          "lectura": "Trepar por el acantilado desde aquí.",
+          "va_a": "pie-acantilado",
+          "nota": "Llegan al camino del pie de la casa, donde duerme el guardián de la escalera.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-trepar-por-el-acantilado-desde-aqui.mp3"
+        },
+        {
+          "comunes": "subir"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-roca-combate.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-roca-combate-despues.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-que-haceis-ahora.mp3"
+    },
+    "pecio-vacio": {
+      "titulo": "El puente de palos",
+      "lugar": "Proa del barco partido",
+      "x": 90,
+      "y": 70,
+      "marca": [
+        "visto-proa"
+      ],
+      "narracion": "Llegáis a la proa del barco partido. La cubierta está vacía: solo quedan huellas de gato en la escarcha y una cuerda tensa que recorre el mástil caído, colgada de poleas, hacia el noroeste. Allí, sobre el agua, el mástil se cruza con otro palo largo que baja hasta unas rocas junto a la orilla. Por ese puente de palos subía la Hermandad los toneles al acantilado. Al otro lado del hueco que parte el barco, la popa tiene una escotilla abierta.",
+      "opciones": "subir",
+      "audio": "narraciones/el-aliento-helado-2-escena-pecio-vacio.mp3"
+    },
+    "bodega-tras": {
+      "titulo": "La bodega del aceite",
+      "lugar": "Bodega de la popa",
+      "x": 92,
+      "y": 30,
+      "marca": [
+        "bodega",
+        "contrasena"
+      ],
+      "narracion": "Llegáis a la popa del barco partido y bajáis por la escotilla que hay junto al timón. La bodega de la popa huele a salitre y a algo dulce y frío: está llena de toneles marcados con un hueso pintado, el mismo aceite que salía del almacén de Tormund. Entre ellos hay un saco de pescado seco y, clavada en una viga, una nota escrita con letra torpe: «Al subir la carga, tres golpes en la puerta de la cocina y decid: la piedra no duerme. Si no, Grom abre a mazazos». Ya sabéis cómo os recibirán en la casa del faro.",
+      "master": "Ganan 1 comida. Tienen la contraseña de la cocina del faro: «La piedra no duerme» (Grom es el Coloso Calvo). Si venían de la roca o del acantilado, bajan y reman antes hasta la popa.",
+      "opciones": "subir",
+      "audio": "narraciones/el-aliento-helado-2-escena-bodega-tras.mp3"
+    },
+    "mastil": {
+      "titulo": "El puente de palos",
+      "lugar": "Cruce de los dos palos, sobre el agua",
+      "x": 78,
+      "y": 32,
+      "narracion": "Os encaramáis a los palos del barco partido: el mástil nace en la proa y el palo largo en la popa, y los dos se cruzan sobre el agua. Avanzáis a gatas, agarrados a la cuerda de las poleas, con el agua azul revolviéndose debajo, hasta el cruce de los dos palos. El viento silba entre las cuerdas y la madera cruje. Desde aquí, el palo largo baja hacia el oeste hasta unas rocas junto a la orilla, y en la pared del acantilado se ven muescas talladas para las manos. Arriba, sobre el borde, asoma la pared de piedra de una casa.",
+      "master": "Tirada al cruzar: quien falle cae al agua, pierde 1 de vida y vuelve a subir. Si venían de la roca, han remado antes hasta el barco.",
+      "pregunta": "Estáis sobre el agua, en el cruce de los palos. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Bajamos por el palo largo hasta las rocas y trepamos",
+          "lectura": "Bajar por el palo largo hasta las rocas y trepar.",
+          "va_a": "cornisa",
+          "nota": "Las muescas llevan a la cornisa de musgo, junto a la pared de la casa.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-bajar-por-el-palo-largo-hasta-las-rocas-y-trepar.mp3"
+        },
+        {
+          "opcion": "Vamos a registrar la bodega del barco partido",
+          "lectura": "Ir a registrar la bodega del barco partido.",
+          "va_a": "bodega-tras",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-mastil.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-estais-sobre-el-agua-en-el-cruce-de-los-palos-que-haceis.mp3"
+    },
+    "cornisa": {
+      "titulo": "La cornisa de musgo",
+      "lugar": "Cornisa de musgo, junto a la casa",
+      "x": 53,
+      "y": 46,
+      "narracion": "Bajáis por el palo largo hasta su punta y saltáis de roca en roca hasta la orilla, con la espuma mojándoos las botas. Trepáis por las muescas del acantilado, una mano tras otra, y salís a una cornisa estrecha cubierta de musgo, entre el borde del abismo y la pared de piedra de la casa del faro. La pared no tiene puerta ni ventana. Pero más al sur, a través de ella, os llegan voces apagadas y olor a guiso.",
+      "master": "La cornisa baja hacia el sur hasta el camino del pie de la casa, donde duerme el engendro.",
+      "pregunta": "Estáis en la cornisa, junto a la casa. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Pegamos la oreja a la pared",
+          "lectura": "Pegar la oreja a la pared.",
+          "va_a": "muro-casa",
+          "nota": "Oyen a los dos hermanos de la cocina.",
+          "salvo": [
+            "muro-casa"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-pegar-la-oreja-a-la-pared.mp3"
+        },
+        {
+          "opcion": "Seguimos la cornisa hacia el sur",
+          "lectura": "Seguir la cornisa hacia el sur.",
+          "va_a": "senda-sur",
+          "nota": "Baja al camino del pie de la casa, junto a la escalera de madera.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-seguir-la-cornisa-hacia-el-sur.mp3"
+        },
+        {
+          "opcion": "Vamos a registrar la bodega del barco partido",
+          "lectura": "Ir a registrar la bodega del barco partido.",
+          "va_a": "bodega-tras",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-cornisa.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-estais-en-la-cornisa-junto-a-la-casa-que-haceis.mp3"
+    },
+    "muro-casa": {
+      "titulo": "Voces tras la pared",
+      "lugar": "Cornisa de musgo, junto a la casa",
+      "x": 53,
+      "y": 64,
+      "marca": [
+        "sabe-casa",
+        "sabe-parca"
+      ],
+      "narracion": "Avanzáis por la cornisa hasta donde las voces suenan más claras, os pegáis a la pared helada y contenéis el aliento. Al otro lado hablan dos voces: una grave y lenta, otra que suena dentro de un yelmo. «El gato se retrasa, Grom. Sal a ver si ha subido algún tonel.» «Cuando acabe el guiso.» Una cuchara rasca un cuenco. «Si la llama flojea, la de la guadaña bajará ella misma a por aceite, y no quiero estar en la torre cuando baje.» «¿Y el viejo?» «Arriba, dándole vueltas a la lente. Mientras la llama arda, la señora de piedra lo quiere vivo.» Luego solo se oyen ruidos de comer.",
+      "master": "Ya saben que Tormund vive y está en la torre; que en la cocina comen Grom (el Coloso Calvo) y el de la armadura negra (Humano Corrompido); que Grom saldrá a por un tonel; y que la Parca baja a por aceite cuando la llama flojea.",
+      "pregunta": "Ya sabéis quién hay dentro. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Seguimos la cornisa hacia el sur",
+          "lectura": "Seguir la cornisa hacia el sur.",
+          "va_a": "senda-sur",
+          "nota": "Baja al camino del pie de la casa, junto a la escalera de madera.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-seguir-la-cornisa-hacia-el-sur.mp3"
+        },
+        {
+          "opcion": "Vamos a registrar la bodega del barco partido",
+          "lectura": "Ir a registrar la bodega del barco partido.",
+          "va_a": "bodega-tras",
+          "nota": "Comida y la contraseña de la cocina del faro.",
+          "salvo": [
+            "bodega"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-ir-a-registrar-la-bodega-del-barco-partido.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-muro-casa.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-ya-sabeis-quien-hay-dentro-que-haceis.mp3"
+    },
+    "senda-sur": {
+      "titulo": "El camino del pie de la casa",
+      "lugar": "Camino del pie de la casa",
+      "x": 51,
+      "y": 87,
+      "narracion": "Seguís la cornisa de musgo hacia el sur, pegados a la pared de la casa, con el mar rugiendo allá abajo. La cornisa baja poco a poco hasta un camino de piedra clara que corre al pie de la casa, entre rocas y tablas sueltas tiradas por el suelo. Al oeste, al final del camino, una escalera de madera sube recta hasta una gran plataforma de tablas. Y al pie de la escalera, entre las rocas, algo flaco y gris duerme enroscado: un ser a cuatro patas, con la cabeza lisa y alargada y una cresta de espinas de hueso en el lomo.",
+      "master": "El Engendro del Abismo guarda la escalera para la Parca: deja pasar a quien huela a hueso (los amuletos de la Hermandad) y ataca a los demás. Está dormido.",
+      "opciones": "ante-engendro",
+      "audio": "narraciones/el-aliento-helado-2-escena-senda-sur.mp3"
+    },
+    "pie-acantilado": {
+      "titulo": "Al pie de la casa",
+      "lugar": "Camino del pie de la casa",
+      "x": 47,
+      "y": 93,
+      "narracion": "Desde la roca grande del sur, donde el acantilado es más bajo, trepáis buscando grietas con los dedos helados, hasta salir a un camino de piedra clara que corre al pie de la casa del faro, entre rocas y tablas sueltas tiradas por el suelo. Arriba huele a guiso. Al oeste, al final del camino, una escalera de madera sube recta hasta una gran plataforma de tablas. Y al pie de la escalera, entre las rocas, algo flaco y gris duerme enroscado: un ser a cuatro patas, con la cabeza lisa y alargada y una cresta de espinas de hueso en el lomo.",
+      "master": "El Engendro del Abismo guarda la escalera para la Parca: deja pasar a quien huela a hueso (los amuletos de la Hermandad) y ataca a los demás. Está dormido.",
+      "opciones": "ante-engendro",
+      "audio": "narraciones/el-aliento-helado-2-escena-pie-acantilado.mp3"
+    },
+    "engendro-sorpresa": {
+      "titulo": "Sin hacer ruido",
+      "lugar": "Camino del pie de la casa",
+      "x": 16,
+      "y": 90,
+      "narracion": "Avanzáis por el camino pisando solo la piedra, lejos de las tablas sueltas. El silbido de su respiración se oye cada vez más cerca. Huele a carne podrida y a agua de pozo. Estáis a un paso cuando una de sus orejas, pequeña y sin pelo, tiembla. Antes de que abra los ojos, ya tenéis las armas en alto.",
+      "master": "Atacan primero.",
+      "sigue": "engendro",
+      "audio": "narraciones/el-aliento-helado-2-escena-engendro-sorpresa.mp3"
+    },
+    "escalera-cruje": {
+      "titulo": "El cuarto peldaño",
+      "lugar": "Escalera de madera",
+      "x": 5,
+      "y": 80,
+      "narracion": "Os pegáis a la pared de roca y empezáis a subir la escalera de madera de puntillas, uno detrás de otro. Un peldaño, dos, tres. El cuarto está podrido de salitre y cruje como un hueso partido. Abajo, el ser abre unos ojos sin párpados y se despliega de golpe, mucho más largo de lo que parecía, y trepa por las tablas hacia vuestros talones.",
+      "master": "El engendro ataca primero; los héroes pelean en la escalera estrecha, de uno en uno.",
+      "sigue": "engendro",
+      "audio": "narraciones/el-aliento-helado-2-escena-escalera-cruje.mp3"
+    },
+    "amuleto-engendro": {
+      "titulo": "Huele a hueso",
+      "lugar": "Pie de la escalera de madera",
+      "x": 8,
+      "y": 86,
+      "narracion": "Quien lleva el amuleto del sátiro avanza despacio y lo alza ante el ser dormido. El engendro abre unos ojos sin párpados, alarga el cuello y lo olisquea. Huele el hueso y se aparta, dejándole pasar hacia la escalera. Pero cuando el siguiente de vosotros se acerca, el ser vuelve a olfatear, no encuentra hueso y enseña una boca llena de dientes finos como agujas. El que lleva el amuleto ya está en los peldaños, y el resto se queda abajo, a solas con él.",
+      "master": "El que lleva el amuleto empieza el combate en la escalera, separado del grupo; nadie tiene ventaja.",
+      "sigue": "engendro",
+      "audio": "narraciones/el-aliento-helado-2-escena-amuleto-engendro.mp3"
+    },
+    "engendro": {
+      "titulo": "El guardián de la escalera",
+      "lugar": "Pie de la escalera de madera",
+      "x": 10,
+      "y": 88,
+      "narracion": "El engendro se mueve a cuatro patas, encorvado, con la cresta de espinas erizada y la cabeza lisa ladeada, como si escuchara vuestros corazones. Es el perro guardián de la de la guadaña: nadie sube a la plataforma sin pasar por encima de él.",
+      "combate": {
+        "enemigos": [
+          "Engendro del Abismo"
+        ],
+        "nota": "Pelea al pie de la escalera, entre las rocas: en la escalera solo cabe uno de frente y solo dos héroes pueden alcanzarlo a la vez.",
+        "despliegue": "Engendro al pie de la escalera de madera; los héroes en el camino de piedra (o en la escalera, según cómo empezó)."
+      },
+      "despues": "El engendro se retuerce una última vez y queda inmóvil entre las rocas. A su alrededor hay huesos roídos de pescado y de algo más grande, y un amuleto de hueso partido: no todos los que subían eran bien recibidos. La escalera de madera ya está libre. Arriba, al final de los peldaños, se oye el crepitar de un fuego y el chocar de cucharas: nadie se asoma, porque el mar ahoga cualquier ruido, y la luz azul de la torre late cada vez más deprisa.",
+      "pregunta": "La escalera está libre. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Subimos la escalera de madera",
+          "lectura": "Subir la escalera de madera.",
+          "va_a": "plataforma",
+          "nota": "Arriba, la plataforma y la cocina de los hermanos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-subir-la-escalera-de-madera.mp3"
+        },
+        {
+          "opcion": "Registramos la guarida del engendro",
+          "lectura": "Registrar la guarida del engendro.",
+          "va_a": "guarida",
+          "nota": "+1 comida.",
+          "salvo": [
+            "guarida"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-registrar-la-guarida-del-engendro.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-engendro.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-engendro-despues.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-la-escalera-esta-libre-que-haceis.mp3"
+    },
+    "guarida": {
+      "titulo": "La guarida",
+      "lugar": "Bajo la escalera de madera",
+      "x": 6,
+      "y": 92,
+      "narracion": "Os agacháis junto a la grieta donde dormía el engendro, bajo la escalera. Huele tan mal que os lloran los ojos. Entre los huesos roídos encontráis un zurrón de hule rasgado, todavía cerrado: pan duro, queso y una bota de vino aguado, lo que la bestia robaba a los que subían la carga. Junto a él, el amuleto partido tiene un nombre grabado a punta de cuchillo: «Hermano Ulf». Nadie vino a buscarlo.",
+      "master": "Ganan 1 comida.",
+      "pregunta": "Arriba os esperan. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Subimos la escalera de madera",
+          "lectura": "Subir la escalera de madera.",
+          "va_a": "plataforma",
+          "nota": "Arriba, la plataforma y la cocina de los hermanos.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-subir-la-escalera-de-madera.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-guarida.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-arriba-os-esperan-que-haceis.mp3"
+    },
+    "plataforma": {
+      "titulo": "La plataforma de los toneles",
+      "lugar": "Plataforma de madera",
+      "x": 18,
+      "y": 72,
+      "narracion": "Subís la escalera de madera y salís a una gran plataforma de tablas pegada a la roca. Hay barriles, cajas y sacos por todas partes, y junto a una lona azul, una pila de toneles marcados con un hueso. Al este, la casa de piedra tiene la puerta entornada: dentro crepita un fuego, huele a guiso y dos voces hablan con la boca llena. Al noroeste, una escalerilla de tablas lleva a una escalera curva de piedra que sube hasta la puerta de la torre redonda. Arriba del todo, la luz azul gira sobre el mar, y el amuleto late en vuestra bolsa como un corazón asustado.",
+      "master": "En la cocina comen Grom (Coloso Calvo) y el hermano de la armadura negra (Humano Corrompido). Para llegar a la torre hay que cruzar la plataforma delante de su puerta.",
+      "pregunta": "Los hermanos están en la cocina. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Irrumpimos en la cocina",
+          "lectura": "Irrumpir en la cocina.",
+          "va_a": "cocina-irrumpir",
+          "nota": "Combate sin ventaja: el calvo está junto a la puerta.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-irrumpir-en-la-cocina.mp3"
+        },
+        {
+          "opcion": "Llamamos tres veces y decimos la contraseña",
+          "lectura": "Llamar tres veces y decir la contraseña.",
+          "va_a": "cocina-contrasena",
+          "nota": "Los dejan entrar: atacan por sorpresa.",
+          "si": [
+            "contrasena"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-llamar-tres-veces-y-decir-la-contrasena.mp3"
+        },
+        {
+          "opcion": "Llamamos y fingimos ser de la Hermandad con el amuleto",
+          "lectura": "Llamar y fingir ser de la Hermandad con el amuleto.",
+          "va_a": "cocina-amuleto",
+          "nota": "El calvo ve la sangre del sátiro en el cordón: combate sin ventaja, ya dentro.",
+          "salvo": [
+            "contrasena"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-llamar-y-fingir-ser-de-la-hermandad-con-el-amuleto.mp3"
+        },
+        {
+          "opcion": "Esperamos escondidos a que el calvo salga a por un tonel",
+          "lectura": "Esperar escondidos a que el calvo salga a por un tonel.",
+          "va_a": "cocina-emboscada",
+          "nota": "Lo pillan solo en la plataforma: atacan primero.",
+          "si": [
+            "sabe-casa"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-esperar-escondidos-a-que-el-calvo-salga-a-por-un-tonel.mp3"
+        },
+        {
+          "opcion": "Cruzamos a escondidas hacia la torre",
+          "lectura": "Cruzar a escondidas hacia la torre.",
+          "va_a": "cruzar-plataforma",
+          "nota": "La escalerilla cruje: los hermanos salen y los pillan en la plataforma.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-cruzar-a-escondidas-hacia-la-torre.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-plataforma.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-los-hermanos-estan-en-la-cocina-que-haceis.mp3"
+    },
+    "cocina-irrumpir": {
+      "titulo": "A la fuerza",
+      "lugar": "Puerta de la cocina",
+      "x": 31,
+      "y": 71,
+      "narracion": "Os acercáis pegados a la pared y empujáis la puerta con el hombro. Se abre de golpe y el calor del hogar os golpea la cara. En la mesa redonda, dos hombres con amuletos de hueso al cuello levantan la vista de sus cuencos: un gigante calvo, sin camisa, que ya alarga la mano hacia su maza, y un guerrero con armadura negra y yelmo de ranura estrecha, que se levanta despacio y desengancha un hacha de doble filo.",
+      "master": "Nadie tiene ventaja. El calvo es el más cercano a la puerta.",
+      "sigue": "cocina-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-cocina-irrumpir.mp3"
+    },
+    "cocina-contrasena": {
+      "titulo": "La piedra no duerme",
+      "lugar": "Puerta de la cocina",
+      "x": 31,
+      "y": 73,
+      "narracion": "Dais tres golpes en la puerta. «¿Quién va?», gruñe una voz grave. «La piedra no duerme», contestáis. La puerta se abre y asoma un gigante calvo y sin camisa, con un cuenco de guiso en la mano. Os mira de arriba abajo, frunce el ceño y se rasca la cabeza. «¿Y el gato? Bah, pasad, que se enfría el guiso.» Os da la espalda para volver a la mesa redonda, donde un guerrero de armadura negra sigue comiendo sin quitarse el yelmo. Ninguno de los dos tiene el arma en la mano.",
+      "master": "Atacan primero, ya dentro de la cocina.",
+      "sigue": "cocina-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-cocina-contrasena.mp3"
+    },
+    "cocina-amuleto": {
+      "titulo": "Sangre en el cordón",
+      "lugar": "Puerta de la cocina",
+      "x": 31,
+      "y": 73,
+      "narracion": "Llamáis a la puerta y, cuando asoma un gigante calvo y sin camisa, le enseñáis el amuleto de hueso del sátiro con toda la calma que podéis fingir. Gruñe que llegáis tarde, que la de la guadaña quiere aceite y que no le gusta esperar, y os deja pasar a la cocina caliente. Pero mientras cerráis la puerta, sus ojos vuelven al amuleto y se detienen en una mancha oscura del cordón: sangre seca. «Este es el del músico», dice despacio. En la mesa redonda, un guerrero de armadura negra deja el cuenco y agarra su hacha.",
+      "master": "Combate sin ventaja, ya dentro de la cocina. Antes de descubrirlos, el calvo ha dejado caer que la Parca quiere aceite: la llama flojea.",
+      "sigue": "cocina-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-cocina-amuleto.mp3"
+    },
+    "cocina-emboscada": {
+      "titulo": "Bajo la lona",
+      "lugar": "Plataforma, junto a los toneles",
+      "x": 22,
+      "y": 76,
+      "narracion": "Os escondéis entre los barriles y bajo la lona azul, junto a los toneles del hueso, y esperáis. El guiso se acaba pronto. La puerta se abre y sale el gigante calvo, sin camisa y bostezando, a por un tonel. Se agacha justo delante de vosotros. Cuando se da cuenta de que la lona respira, ya es tarde. Su grito hace salir de la cocina a un guerrero de armadura negra con un hacha de doble filo en las manos.",
+      "master": "Atacan primero al calvo, que está solo en la plataforma; el de la armadura negra llega desde la puerta.",
+      "sigue": "cocina-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-cocina-emboscada.mp3"
+    },
+    "cruzar-plataforma": {
+      "titulo": "La escalerilla cruje",
+      "lugar": "Plataforma, al pie de la escalerilla",
+      "x": 14,
+      "y": 66,
+      "narracion": "Cruzáis la plataforma agachados, de barril en barril, sin apartar la vista de la puerta entornada de la cocina. Llegáis a la escalerilla de tablas que sube hacia la torre. El primero pone el pie en ella y la madera, helada, cruje como un latigazo. Dentro de la cocina se hace el silencio. Al instante la puerta se abre de golpe: sale un gigante calvo y sin camisa con su maza, y tras él, un guerrero de armadura negra con un hacha de doble filo. Os han pillado a medio camino.",
+      "master": "Sin ventaja: pelean en la plataforma, entre barriles, con los héroes repartidos entre la escalerilla y los barriles.",
+      "sigue": "cocina-combate",
+      "audio": "narraciones/el-aliento-helado-2-escena-cruzar-plataforma.mp3"
+    },
+    "cocina-combate": {
+      "titulo": "Maza y hacha",
+      "lugar": "Cocina de la casa del faro",
+      "x": 40,
+      "y": 70,
+      "narracion": "El gigante calvo blande su maza con una sola mano, y el de la armadura negra hace girar su hacha de dos hojas, que zumba como un enjambre. Son los hermanos que suben el aceite a la torre, y saben que si caen, nadie más guarda el paso hasta la de la guadaña.",
+      "combate": {
+        "enemigos": [
+          "Humano Corrompido",
+          "Coloso Calvo"
+        ],
+        "nota": "El calvo protege la puerta y golpea al que tenga más cerca; el de la armadura negra gira el hacha en mitad del grupo.",
+        "despliegue": "Según cómo empezó: en la cocina (el calvo junto a la puerta, el de la armadura junto a la mesa redonda) o en la plataforma, entre los barriles."
+      },
+      "despues": "El gigante calvo cae como un árbol talado y el de la armadura negra se desploma con estrépito. Su yelmo rueda por el suelo y deja ver una cara gris de venas azules, helada por dentro. Del cinto le cuelga una llave de hierro con una gárgola grabada. Os la guardáis. En la cocina, el guiso sigue humeando en el hogar. Arriba, en la torre, algo metálico rechina, la luz azul parpadea y una voz como de piedra rota llama desde lo alto: «¿Hermanos?». Nadie contesta.",
+      "master_despues": "La llave abre los grilletes de Tormund (todavía no lo saben). La Parca nota que pasa algo, pero no deja la lente.",
+      "opciones": "tras-cocina",
+      "audio": "narraciones/el-aliento-helado-2-escena-cocina-combate.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-cocina-combate-despues.mp3"
+    },
+    "casa-registro": {
+      "titulo": "Las cuentas del aceite",
+      "lugar": "Sala del norte de la casa",
+      "x": 43,
+      "y": 50,
+      "marca": [
+        "sabe-parca"
+      ],
+      "narracion": "Cruzáis el hueco que lleva a la sala del norte de la casa. Hay una mesa con dos barriles al lado, un banco y una alfombra parda pisoteada. Sobre la mesa, un cuaderno de cuentas con un hueso pintado en la tapa: cuántos toneles suben cada día a la torre. Al margen, con letra temblorosa: «Cuando la llama flojea, ella baja a por aceite. No estar en la escalera cuando baje». En uno de los barriles hay pescado en salazón y pan.",
+      "master": "Ganan 1 comida. Saben que la Parca baja de la linterna a por aceite cuando la llama flojea: pueden esperarla abajo.",
+      "opciones": "tras-cocina",
+      "audio": "narraciones/el-aliento-helado-2-escena-casa-registro.mp3"
+    },
+    "hogar": {
+      "titulo": "Guiso de los hermanos",
+      "lugar": "Hogar de la cocina",
+      "x": 36,
+      "y": 62,
+      "narracion": "Os sentáis a la mesa redonda, junto al hogar de piedra y os servís del guiso de los hermanos: pescado, nabos y mucha pimienta. El calor del fuego os devuelve los dedos y el ánimo, y por primera vez desde que salisteis de la cala dejáis de tiritar. Arriba, la luz azul sigue latiendo. Tarde o temprano habrá que subir.",
+      "master": "+1 de vida cada uno.",
+      "opciones": "tras-cocina",
+      "audio": "narraciones/el-aliento-helado-2-escena-hogar.mp3"
+    },
+    "torre": {
+      "titulo": "La rueda de la lente",
+      "lugar": "Planta baja de la torre",
+      "x": 13,
+      "y": 42,
+      "narracion": "Subís la escalerilla de tablas y la escalera curva de piedra hasta la puerta de la torre. Dentro hay una sala redonda con suelo de ladrillo: camas deshechas, una con manta roja, una alfombra oscura, cajas y barriles contra el muro. En el centro del suelo, una gran rueda de hierro con radios gira despacio, chirriando, y de su eje sube una barra hasta el techo: mueve la lente de arriba. Pegada al muro del norte, una escalera de caracol estrecha sube hacia la luz azul. Desde lo alto llega un tintineo de cadenas, una tos de viejo y una voz como de piedra rota: «Más aceite, viejo. Que no se apague».",
+      "master": "Tormund está arriba, en la linterna, encadenado junto a la lente; la Parca lo vigila. La escalera de caracol es estrecha: solo cabe un héroe de frente.",
+      "pregunta": "Tormund está arriba, con la de la guadaña. ¿Qué hacéis?",
+      "opciones": [
+        {
+          "opcion": "Subimos por la escalera de caracol",
+          "lectura": "Subir por la escalera de caracol.",
+          "va_a": "caracol",
+          "nota": "Llegan de uno en uno: la Parca ataca primero al que asome.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-subir-por-la-escalera-de-caracol.mp3"
+        },
+        {
+          "opcion": "Frenamos la rueda de hierro para que baje",
+          "lectura": "Frenar la rueda de hierro para que baje.",
+          "va_a": "rueda",
+          "nota": "La lente se para y la Parca baja a ver qué pasa: pelean abajo, sin ventaja para nadie.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-frenar-la-rueda-de-hierro-para-que-baje.mp3"
+        },
+        {
+          "opcion": "Nos escondemos y esperamos a que baje a por aceite",
+          "lectura": "Esconderos y esperar a que baje a por aceite.",
+          "va_a": "espera-parca",
+          "nota": "Atacan primero.",
+          "si": [
+            "sabe-parca"
+          ],
+          "audio": "narraciones/el-aliento-helado-2-opcion-esconderos-y-esperar-a-que-baje-a-por-aceite.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-torre.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-tormund-esta-arriba-con-la-de-la-guadana-que-haceis.mp3"
+    },
+    "caracol": {
+      "titulo": "La linterna",
+      "lugar": "Escalera de caracol de la torre",
+      "x": 4,
+      "y": 24,
+      "narracion": "Subís por la escalera de caracol de uno en uno, pegados al muro. Cuanto más subís, más frío hace, y los peldaños se cubren de escarcha azul. Arriba está la linterna: una sala redonda de cristales con una gran lente en el centro que gira despacio. Dentro de la lente no arde fuego, sino un trozo de hielo azul que palpita. Junto a ella, encadenado, está Tormund, pálido y con la barba helada. Y entre él y vosotros se alza una figura envuelta en una túnica negra raída, con una calavera bajo la capucha y una guadaña enorme. «Mi señora necesita esta luz», dice. «Nadie la apagará.»",
+      "master": "La Parca ataca primero al que asome por la escalera.",
+      "sigue": "parca-linterna",
+      "audio": "narraciones/el-aliento-helado-2-escena-caracol.mp3"
+    },
+    "rueda": {
+      "titulo": "La rueda se para",
+      "lugar": "Rueda de hierro de la torre",
+      "x": 9,
+      "y": 37,
+      "narracion": "Atrancáis la gran rueda de hierro con una tabla arrancada de una cama. La rueda se clava con un chirrido y, arriba, la lente deja de girar: la luz azul se queda quieta, apuntando a un solo lado del mar. Durante un momento no pasa nada. Luego, unos pasos lentos bajan por la escalera de caracol, y con ellos un frío que escarcha el suelo de ladrillo. Por la curva de la escalera asoma una guadaña enorme, y detrás, una calavera bajo una capucha negra. «¿Quién para la luz de mi señora?»",
+      "master": "Pelean en la sala de abajo, sin ventaja para nadie, pero los héroes han elegido dónde colocarse.",
+      "sigue": "parca-dormitorio",
+      "audio": "narraciones/el-aliento-helado-2-escena-rueda.mp3"
+    },
+    "espera-parca": {
+      "titulo": "Escondidos entre los barriles",
+      "lugar": "Planta baja de la torre",
+      "x": 10,
+      "y": 24,
+      "narracion": "Os escondéis tras las cajas y los barriles de la sala redonda, junto a la escalera de caracol, y esperáis en silencio. Arriba, la llama tiembla: sin los hermanos, nadie sube aceite. Al fin, unos pasos lentos bajan por los peldaños, y con ellos un frío que escarcha el suelo de ladrillo. Una figura de túnica negra, con una calavera bajo la capucha y una guadaña enorme, sale de la escalera y va hacia los barriles. No mira a los lados.",
+      "master": "Atacan primero.",
+      "sigue": "parca-dormitorio",
+      "audio": "narraciones/el-aliento-helado-2-escena-espera-parca.mp3"
+    },
+    "parca-linterna": {
+      "titulo": "La guardiana de la llama",
+      "lugar": "Linterna del faro, en lo alto de la torre",
+      "x": 6,
+      "y": 22,
+      "narracion": "La Parca avanza sin prisa, y la guadaña silba a ras de suelo. Cada vez que la luz azul late, su túnica se llena de escarcha. Detrás, Tormund tira de sus cadenas y os grita que tengáis cuidado con la hoja. Vórtiga la dejó aquí para que esta luz no se apagara nunca.",
+      "combate": {
+        "enemigos": [
+          "La Parca"
+        ],
+        "nota": "Se queda entre los héroes y Tormund; si alguien intenta liberar al pescador, la Parca va a por él.",
+        "despliegue": "La Parca junto a la lente, delante de Tormund; los héroes asomando por la escalera de caracol."
+      },
+      "despues": "La guadaña cae al suelo con un estruendo de hierro. La túnica se vacía y los huesos de la Parca se deshacen en escarcha. La llave de la gárgola que llevaba el de la armadura negra abre los grilletes de Tormund, y el viejo os agarra del brazo, temblando: «La luz… hay que apagarla. Guía a la dragona hasta la costa». Alrededor de la lente, en el suelo, brillan runas azules en cuadrícula que alimentan el hielo. Sobre una mesa, un mapa está pegado por una capa de hielo que no se suelta.",
+      "master_despues": "Tormund está libre. Para apagar la llama hay que apagar las runas (enigma). Romper la lente a golpes no sirve.",
+      "opciones": "ante-runas",
+      "audio": "narraciones/el-aliento-helado-2-escena-parca-linterna.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-parca-linterna-despues.mp3"
+    },
+    "parca-dormitorio": {
+      "titulo": "La guadaña en la sala",
+      "lugar": "Planta baja de la torre",
+      "x": 10,
+      "y": 40,
+      "narracion": "La Parca se planta en el centro de la sala redonda, junto a la rueda de hierro, y la guadaña silba a ras de suelo, rozando las camas. Cada vez que la luz azul late allá arriba, su túnica se llena de escarcha. Vórtiga la dejó en el faro para que esa luz no se apagara nunca, y no piensa dejaros subir.",
+      "combate": {
+        "enemigos": [
+          "La Parca"
+        ],
+        "nota": "Siega en círculo: golpea primero a quien esté más cerca de la escalera de caracol.",
+        "despliegue": "La Parca al pie de la escalera de caracol (o junto a los barriles, si la esperaban escondidos); los héroes repartidos por la sala."
+      },
+      "despues": "La guadaña cae al suelo con un estruendo de hierro. La túnica se vacía y los huesos de la Parca se deshacen en escarcha. Subís a toda prisa por la escalera de caracol hasta la linterna: una sala de cristales con una gran lente que guarda un trozo de hielo azul palpitante. Encadenado junto a ella está Tormund, pálido y con la barba helada. La llave de la gárgola abre sus grilletes. «La luz… hay que apagarla», jadea. «Guía a la dragona hasta la costa.» Alrededor de la lente brillan runas azules en cuadrícula, y sobre una mesa hay un mapa pegado por una capa de hielo.",
+      "master_despues": "Tormund está libre. Para apagar la llama hay que apagar las runas (enigma). Romper la lente a golpes no sirve.",
+      "opciones": "ante-runas",
+      "audio": "narraciones/el-aliento-helado-2-escena-parca-dormitorio.mp3",
+      "audio_despues": "narraciones/el-aliento-helado-2-escena-parca-dormitorio-despues.mp3"
+    },
+    "lente-golpes": {
+      "titulo": "El cristal no se raja",
+      "lugar": "Linterna del faro",
+      "x": 8,
+      "y": 26,
+      "narracion": "Descargáis las armas contra la gran lente con todas vuestras fuerzas. El cristal no se raja: cada golpe rebota con un tañido de campana y os entumece los brazos hasta el hombro. La llama azul, en cambio, se aviva con cada golpe, y la escarcha trepa por vuestras botas. Tormund os sujeta: «¡Así no! La alimentan las runas del suelo. Yo la vi encenderlas una a una. Hay que apagarlas todas». No queda otra.",
+      "master": "Romper la lente no sirve: tienen que resolver el enigma de las runas.",
+      "sigue": "runas",
+      "audio": "narraciones/el-aliento-helado-2-escena-lente-golpes.mp3"
+    },
+    "runas": {
+      "titulo": "Las runas de la lente",
+      "lugar": "Linterna del faro",
+      "x": 7,
+      "y": 27,
+      "narracion": "Os arrodilláis alrededor de la lente. Las runas del suelo forman una cuadrícula de cinco por cinco, y muchas brillan con luz azul. Al rozar una, se apaga o se enciende ella, y con ella las que la tocan por arriba, por abajo y por los lados. Tormund, con las manos temblando, os cuenta que la de la guadaña nunca tocaba una sin pensarlo mucho antes. Si todas quedan a oscuras, la llama morirá.",
+      "master": "Abrid el enigma (Lights Out): solo hay tres toques de margen sobre el mínimo, y pueden señalar casillas sin tocarlas para planear. Volved a esta carta cuando lo resuelvan o se queden sin toques. Si fallan, no hay atajo: las runas solo se apagan con una ofrenda de sangre.",
+      "enigma": {
+        "id": "lightsout",
+        "titulo": "Las runas de la lente",
+        "contexto": "La gran lente está rodeada por una cuadrícula de runas encendidas con hielo azul. Al tocar una runa, cambian ella y sus cuatro vecinas de arriba, abajo y los lados: las encendidas se apagan y las apagadas se encienden. Dejadlas todas a oscuras para extinguir la llama. Podéis señalar casillas sin tocarlas («Modo: señalar») para planear, pero solo hay tres toques de margen sobre el mínimo: si tocáis al azar, se acaban.",
+        "recompensa": "Las runas se apagan una a una, la llama azul muere, el trozo de hielo cae de la lente y el hielo que sellaba el mapa se derrite. Tormund os cuenta lo que sabe de Vórtiga, del altar y de la nave de hueso.",
+        "fallo": "Las runas se quedan encendidas y ya no responden al roce. Tormund recuerda que la de la guadaña las encendió con sangre. Solo queda una ofrenda de sangre sobre las runas."
+      },
+      "pregunta": "¿Habéis apagado todas las runas?",
+      "opciones": [
+        {
+          "opcion": "Sí: las runas están apagadas",
+          "lectura": "Sí: las runas están apagadas.",
+          "va_a": "llama-apagada",
+          "nota": "La llama muere sin más daño.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-si-las-runas-estan-apagadas.mp3"
+        },
+        {
+          "opcion": "No: solo queda una ofrenda de sangre",
+          "lectura": "No: solo queda una ofrenda de sangre.",
+          "va_a": "ofrenda-runas",
+          "nota": "Cada héroe pierde la vida que decida el máster, y las runas se apagan.",
+          "audio": "narraciones/el-aliento-helado-2-opcion-no-solo-queda-una-ofrenda-de-sangre.mp3"
+        }
+      ],
+      "audio": "narraciones/el-aliento-helado-2-escena-runas.mp3",
+      "audio_pregunta": "narraciones/el-aliento-helado-2-pregunta-habeis-apagado-todas-las-runas.mp3"
+    },
+    "ofrenda-runas": {
+      "titulo": "Sangre sobre el hielo",
+      "lugar": "Linterna del faro",
+      "x": 7,
+      "y": 29,
+      "narracion": "Las runas ya no responden: brillan, frías y burlonas, por mucho que las toquéis. Tormund se pasa la mano por la barba helada. «La vi encenderlas», susurra. «No con fuego: con sangre. La de los pobres que trajo aquí.» No queda otro camino. Pasáis un cuchillo por la palma y apoyáis la mano abierta sobre las runas, una tras otra. El hielo bebe vuestra sangre y os muerde hasta el hueso, pero runa a runa, la luz se va apagando.",
+      "master": "Ofrenda de sangre: el máster decide cuánta vida pierde cada héroe que pone la mano sobre las runas. Sin ella, la llama no se apaga.",
+      "sigue": "llama-sangre",
+      "audio": "narraciones/el-aliento-helado-2-escena-ofrenda-runas.mp3"
+    },
+    "llama-apagada": {
+      "titulo": "La llama se apaga",
+      "lugar": "Linterna del faro",
+      "x": 6,
+      "y": 25,
+      "marca": [
+        "llama"
+      ],
+      "narracion": "La última runa se apaga con un chasquido. La luz de la lente vacila, se encoge y muere, y el trozo de hielo azul cae al suelo, tan frío que humea. Lo envolvéis en una manta de las camas de abajo. Sobre la mesa, el hielo que sellaba el mapa se derrite: muestra las estribaciones, un arroyo helado y tres piedras azules que llevan hasta un altar. Tormund se sienta, por fin, y os cuenta que una gárgola de piedra lo arrancó de la playa con sus garras y lo trajo aquí porque, de joven, él cuidó este faro y sabe mover la lente. Desde las montañas llega un rugido, y tras él una carcajada seca, como de piedra que se agrieta.",
+      "master": "Tormund cuenta lo que sabe: la gárgola es Vórtiga, señora de la Hermandad del Hueso; encadenó a la dragona Velgrima con hielo azul y usaba la luz del faro para guiarla hasta la costa; en las estribaciones, junto a un altar, forjan sus cadenas; los encapuchados marcan su camino con losas numeradas (donde un número se repite en la misma hilera, la losa está rota por debajo), y hablaban de una nave de hueso. Vórtiga ya sabe quiénes son.",
+      "opciones": "final",
+      "audio": "narraciones/el-aliento-helado-2-escena-llama-apagada.mp3"
+    },
+    "llama-sangre": {
+      "titulo": "La llama se apaga",
+      "lugar": "Linterna del faro",
+      "x": 6,
+      "y": 25,
+      "marca": [
+        "llama"
+      ],
+      "narracion": "Con la última gota se apaga la última runa. La luz de la lente vacila, se encoge y muere, y el trozo de hielo azul cae al suelo, tan frío que humea. Lo envolvéis en una manta de las camas de abajo. Sobre la mesa, el hielo que sellaba el mapa se derrite: muestra las estribaciones, un arroyo helado y tres piedras azules que llevan hasta un altar. Os escuece la palma, pero lo habéis logrado. Tormund os cuenta que una gárgola de piedra lo arrancó de la playa con sus garras y lo trajo aquí porque, de joven, él cuidó este faro. Desde las montañas llega un rugido, y tras él una carcajada seca, como de piedra que se agrieta.",
+      "master": "Tormund cuenta lo que sabe: la gárgola es Vórtiga, señora de la Hermandad del Hueso; encadenó a la dragona Velgrima con hielo azul y usaba la luz del faro para guiarla hasta la costa; en las estribaciones, junto a un altar, forjan sus cadenas; los encapuchados marcan su camino con losas numeradas (donde un número se repite en la misma hilera, la losa está rota por debajo), y hablaban de una nave de hueso. Vórtiga ya sabe quiénes son.",
+      "opciones": "final",
+      "audio": "narraciones/el-aliento-helado-2-escena-llama-sangre.mp3"
+    },
+    "grabado": {
+      "titulo": "La gárgola y la cadena",
+      "lugar": "Base de la lente",
+      "x": 9,
+      "y": 29,
+      "narracion": "Os agacháis junto a la base de la lente, ahora apagada. En el hierro hay un grabado reciente, hecho a zarpazos: una gárgola con alas y cuernos que sostiene una alabarda en una mano y, en la otra, una cadena atada al cuello de un dragón. Debajo, alguien ha tallado una nave con costillas de hueso. Es la misma gárgola de la llave de hierro que llevaba el de la armadura negra. El viejo la mira y escupe al suelo: «Esa. Esa es la que me trajo».",
+      "master": "Si en el capítulo I encontraron la moneda helada, es la misma gárgola. Pista del villano: Vórtiga sujeta a Velgrima con una cadena de hielo y viaja en una nave de hueso (capítulos III y IV).",
+      "opciones": "final",
+      "audio": "narraciones/el-aliento-helado-2-escena-grabado.mp3"
+    },
+    "mirador": {
+      "titulo": "Tierra adentro",
+      "lugar": "Galería de la linterna",
+      "x": 3,
+      "y": 18,
+      "narracion": "Abrís la puertecilla de la linterna y salís a la galería que rodea la cúpula. El viento helado os empuja contra la barandilla. Sin la luz azul, la niebla del mar empieza a deshacerse en jirones, y por primera vez veis la costa entera, con el humo de las chimeneas del pueblo a lo lejos. Tierra adentro, al pie de las montañas, algo brilla entre los pinos con un resplandor frío y azul, justo donde el mapa marca el altar. Y más arriba, sobre el glaciar, se mueve una forma blanca enorme, con algo pequeño y gris posado en el lomo.",
+      "master": "Ven el altar de las estribaciones (capítulo III) y, a lo lejos, a Velgrima con Vórtiga encima.",
+      "opciones": "final",
+      "audio": "narraciones/el-aliento-helado-2-escena-mirador.mp3"
+    },
+    "fin": {
+      "titulo": "Un faro a oscuras",
+      "lugar": "De vuelta a la barca",
+      "x": 72,
+      "y": 95,
+      "narracion": "Bajáis de la torre con Tormund apoyado en vuestros hombros y el trozo de hielo envuelto en su manta. Cruzáis la plataforma, bajáis la escalera de madera y volvéis a la barca por el mismo camino por el que subisteis. La barca os espera con el farol rojo todavía encendido. Remáis de vuelta sin niebla: el mar está gris y tranquilo, y a vuestra espalda el faro se queda a oscuras por primera vez en muchas noches. Lleváis al viejo a la taberna, donde le dan sopa caliente y a vosotros vino. Mañana seguiréis el mapa de la Hermandad hacia las estribaciones.",
+      "fin": true,
+      "audio": "narraciones/el-aliento-helado-2-escena-fin.mp3"
+    }
+  }
+}

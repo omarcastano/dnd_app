@@ -1,0 +1,90 @@
+{
+  "reglas": {
+    "niveles": "Vida, daño, botín y robo del Pícaro salen de la tabla `niveles` de ../enemigos/enemigos.json: un PNJ de nivel N pelea como una bestia de nivel N.",
+    "d20": "Si pelea, el PNJ tira un d20 en su turno como las bestias: 1-4 falla; 5-15 golpe básico; 16+ golpe fuerte. Su golpe fuerte no tiene habilidad: lo especial es su reacción.",
+    "reaccion": "Una vez por combate, cuando ocurre lo que dice su reacción (algo que hace el grupo), el PNJ reacciona al momento, fuera de su turno.",
+    "trato": "Antes o durante el combate un jugador puede intentar el trato de la carta. Si pide tirada, tira un d20 y lo consigue con la cifra de su nivel o más; si no (contar un chiste, invitarle a una ronda…), decide el máster según lo bien que lo haga el grupo. Si falla, ese PNJ no acepta más tratos en este encuentro. El trato da algo concreto (comida, bebida, un descuento, dejar de pelear), nunca rumores ni secretos.",
+    "trato_cd": {
+      "1": 10,
+      "2": 11,
+      "3": 12,
+      "4": 13,
+      "5": 14,
+      "6": 16,
+      "7": 18
+    }
+  },
+  "pnj": [
+    {
+      "id": "zorvan-el-cantinero",
+      "nombre": "Zorvan el Cantinero",
+      "nivel": 2,
+      "oficio": "Cantinero",
+      "descripcion": "Tiefling de piel roja, cuernos de cabra y cola inquieta, con peto de cantinero. Limpia siempre la misma copa y vigila quién paga.",
+      "narracion": "narraciones/zorvan-el-cantinero.mp3",
+      "saludo": "Bienvenidos, viajeros… ¿Una copa de vino? ¿Un plato caliente? Aquí se paga antes de beber, y el que no compra no es bienvenido.",
+      "ultimas_palabras": "¡Aaargh! ¡Mi barra… nadie… toca… mi barra!",
+      "reaccion": {
+        "nombre": "Reprensión infernal",
+        "descripcion": "Al primer golpe que recibe, quien se lo dio sufre 2 de daño de fuego que la armadura no reduce (dracónidos inmunes)."
+      },
+      "trato": {
+        "via": "Persuasión o 2 monedas",
+        "descripcion": "Si se le convence o se le paga una ronda, deja de pelear y saca vino de la casa: cada jugador recupera 1 de vida."
+      },
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Copazo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Latigazo de cola",
+          "subtitulo": "Ataque fuerte"
+        }
+      ],
+      "robo": {
+        "texto": "Del bolsillo del peto asoma la bolsa con la caja del día."
+      },
+      "sonido": "sonidos/zorvan-el-cantinero-voz.wav",
+      "sonido_muerte": "sonidos/zorvan-el-cantinero-muerte.mp3"
+    },
+    {
+      "id": "bartolo-el-tabernero",
+      "nombre": "Bartolo el Tabernero",
+      "nivel": 2,
+      "oficio": "Tabernero",
+      "encuadre": "15% 20%",
+      "descripcion": "Humano calvo y barrigón, con camisa remangada y el rodillo de amasar siempre a mano. Hornea su propio pan y no tolera a quien no paga.",
+      "narracion": "narraciones/bartolo-el-tabernero.mp3",
+      "saludo": "¡Bienvenidos a mi taberna, forasteros! Pan recién horneado y cerveza bien fría. Pero aquí se compra o se vuelve uno por donde vino.",
+      "ultimas_palabras": "¡Ay, mi pan… mi taberna… quién va a hornear mañana!",
+      "reaccion": {
+        "nombre": "Puñado de harina",
+        "descripcion": "La primera vez que un jugador se le acerca para atacarle cuerpo a cuerpo, le lanza harina a los ojos: ese jugador tiene −2 en su siguiente tirada."
+      },
+      "trato": {
+        "via": "Persuasión: alabar su pan",
+        "descripcion": "Si se le gana el orgullo, baja el rodillo y sirve pan caliente recién salido del horno: cada jugador recupera 1 de vida."
+      },
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Golpe de rodillo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Rodillo a dos manos",
+          "subtitulo": "Ataque fuerte"
+        }
+      ],
+      "robo": {
+        "texto": "Del cinturón le cuelga la bolsa con lo que han pagado las mesas esta noche."
+      },
+      "sonido": "sonidos/bartolo-el-tabernero-voz.wav",
+      "sonido_muerte": "sonidos/bartolo-el-tabernero-muerte.mp3"
+    }
+  ]
+}

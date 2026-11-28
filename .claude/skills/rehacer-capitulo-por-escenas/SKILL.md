@@ -21,6 +21,27 @@ Lee también `CLAUDE.md` (formato de datos, reglas del juego, convenciones, prue
 8. **Pistas que empujan al siguiente capítulo.** Las pistas, objetos y amenazas apuntan al lugar del capítulo siguiente (en el capítulo I: el faro, la llama azul, la moneda con la gárgola de Vórtiga, el gorro y las huellas de garra de Tormund). Las opciones opcionales dan pistas o recursos (comida, información, debilitar al enemigo del capítulo siguiente: «echar el aceite al mar»), pero nunca son obligatorias.
 9. **Marcas coherentes.** Las escenas visitadas y sus `marca` (llave, ruido, chimenea, trasera-abierta…) deciden qué opciones se ven y cómo empieza un combate. Por ejemplo, con `ruido` los esperan y no hay sorpresa: es otra escena distinta (`almacen-grua` frente a `almacen-grua-esperados`). Las marcas que importan al máster van en `estados`, con texto y un icono de Font Awesome. Una marca que esconde un lugar solo la pone la escena que lo explora.
 
+10. **Eventos con recompensa o coste pequeño (al usuario le encantan: dan interacción).** Repartidos por la red, nunca obligatorios. El grupo gana o pierde algo concreto por lo que eligió:
+    - Recompensas:
+      - comer en un hogar: +1 de vida cada uno;
+      - registrar una bodega o una guarida: +1 comida;
+      - una bolsa olvidada: +1 moneda;
+      - información o una ventaja para el combate siguiente.
+    - Costes:
+      - quien falle una tirada al cruzar cae al agua y pierde 1 de vida;
+      - darle pan al diablillo: gastan 1 comida.
+
+    Pon **al menos 3 o 4 por capítulo** y que aparezcan en distintos caminos, no todos en el mismo. Cada uno lleva:
+    - una narración que lo justifique (de dónde sale la comida, por qué alguien se cae);
+    - la cifra en el `master` de la escena y en la `nota` de la opción que lleva a él, para que el máster la vea antes de elegir;
+    - un `salvo` con su propia escena, para que no se pueda repetir y ganar dos veces.
+
+    Las **monedas, con moderación**: 1 suelta y como mucho una o dos por capítulo, porque el balance del reparto entre mapas (`MONEDAS_EVENTOS`) ya cuenta con 5 / 10 / 15 / 30. Ejemplos de los capítulos I y II de «El Aliento Helado»:
+    - la chimenea y el guiso de los hermanos (+1 de vida);
+    - la bodega del aceite, la guarida del engendro y las cuentas del aceite (+1 comida);
+    - el pan al diablillo (−1 comida);
+    - las tablas sueltas y el mástil (caer al agua: −1 de vida).
+
 ## Reglas del mapa (comprobar siempre contra la imagen)
 
 El usuario detectó errores que salían de no mirar la imagen:
@@ -67,6 +88,19 @@ Después:
 ## Reglas de juego que el capítulo debe cumplir
 
 - **4 combates obligatorios** en cada camino posible, de 1 o 2 bestias, con nombres exactos de `public/enemigos/enemigos.json`.
+- **Mesa de combate (automática).** En cada escena con `combate`, mientras no se ha pulsado «Combate ganado», debajo del mapa y de la carta aparece una ficha del Bestiario **por cada nombre** de `combate.enemigos`: si hay dos bestias, dos fichas; si hay tres, tres. Con ella el máster puede:
+  - voltear la carta para ver habilidades y ataques;
+  - bajar o subir la vida con − y + (según 4/5/6 jugadores: un solo selector en la cabecera de la mesa, compartido con el Bestiario);
+  - ver el botín al llegar a 0;
+  - ver qué lleva cada bestia para el robo del Pícaro.
+
+  En el celular (menos de 700 px) la mesa es un **carrusel**: una bestia entera por pantalla (la carta se escala al hueco que queda) y se pasa deslizando el dedo o con las flechas, con contador «1 / 2» y puntos. En el PC salen todas, una al lado de otra.
+
+  Los héroes no salen, porque cada jugador tiene su carta en la mano. La vida, el botín y el robo se guardan por escena (`taberna:mapas:<campaña>:<n>:combate:<escena>:<i>`) y se borran al reiniciar el capítulo.
+
+  Por eso los nombres tienen que coincidir **exactamente** con `enemigos.json`; si no, la ficha avisa «no está en el Bestiario». Si dos bestias son iguales (dos lobos), repite el nombre en la lista y saldrán dos fichas independientes.
+
+  Código: `montarMesa` en `mapas.js`, que usa `montarFicha` de `personajes/app/combate.js` y `cartaEnemigo` de `enemigos/carta.js` (el mismo motor y la misma carta que el Bestiario). No hay que tocarlo al rehacer un capítulo; compruébalo en el paso 9: `recorrer.py` imprime «mesa de combate: […]» en cada combate.
 - Nivel de las bestias según el mapa: Mapa 1 = 1-2, Mapa 2 = 2-3, Mapa 3 = 3-4, Mapa 4 = 4-5. Reutiliza las bestias que ya tenía el capítulo en `pasos[].combate` siempre que cuadren.
 - **Capítulo IV:** después de los 4 combates va el **jefe final**: el villano de la campaña (`villano.bestia`; la Hidra Quíntuple, de nivel 7, en «La Guarida de la Hidra»). El formato por escenas **todavía no tiene jefe**, así que hay que añadirlo en el código:
   - marcar `"jefe": true` dentro del `combate` de la escena;
@@ -74,6 +108,18 @@ Después:
   - que el icono y el tipo de la escena sean `jefe` (como `tipoPaso`);
   - el validador ya espera exactamente 1 jefe en el capítulo 4.
 - **Un enigma por capítulo**: el `enigma` que ya tenía el capítulo (id de `tienda/js/datos/puzzles.js` con `titulo`, `contexto`, `recompensa`, `fallo` y los campos propios del puzzle; ver CLAUDE.md, «Modo historia»). Va en la escena del enigma, y su `recompensa` y su `fallo` deben coincidir con las escenas a las que llevan «Sí» y «No».
+  - **El enigma tiene que encajar con la historia; si no, se rehace.** No basta con reutilizar el que ya había. Comprueba cuatro cosas:
+    - **Objeto real.** Representa algo que está en la escena: las runas de la lente, el cuaderno con el cierre, un candado.
+    - **Motivo.** Resolverlo es lo que la historia necesita en ese momento: abrir, apagar, descifrar.
+    - **Recompensa.** Es justo lo que el grupo busca.
+    - **Precio del fallo.** Sale de la propia historia, como la ofrenda de sangre.
+
+    Si el enigma antiguo no encaja (otro tema, otro objeto, un mensaje que habla de cosas que ya no pasan, una recompensa que ya no tiene sentido), **rehazlo**:
+    - adapta su `titulo`, `contexto`, `recompensa`, `fallo` y sus datos (el `mensaje` del cifrado, la `figura` del nonograma, la `regla` de Hanoi…);
+    - o cámbialo por otro puzzle de `tienda/js/datos/puzzles.js` que case mejor;
+    - o, si ninguno sirve, crea uno nuevo (con su tema visual y su entrada en `make probar-enigmas`).
+
+    Da igual que haya que rehacerlo entero o hacer uno nuevo: lo que no vale es un enigma pegado que no tiene que ver con lo que se está contando. Sigue cumpliendo las reglas del modo historia de CLAUDE.md: no se resuelve solo ni a lo bruto, y no chiva la solución. Prueba con `make probar-enigmas`. En la entrega, di si el enigma se reutilizó, se adaptó o es nuevo, y por qué.
 - Cofres, monedas de eventos y compra en la taberna los muestra solos la carta `fin` («De vuelta en la taberna»). No los repitas en el texto.
 - Mecánicas en las notas del máster (`master`, `nota`, `combate.nota`, `combate.despliegue`): «quien falle una tirada cae al agua y pierde 1 de vida», «empiezan tumbados», «gastan/ganan 1 comida», «+1 de vida cada uno». Nada de mecánicas inventadas fuera de las reglas del juego.
 
@@ -99,6 +145,13 @@ Los scripts de la skill (`scripts/capitulo.py`) leen y escriben a través de ese
   - `audio`, `va_a` y, si hacen falta, `nota` (para el máster), `si` y `salvo`.
 - **`opciones` como texto** (`"opciones": "con-la-llave"`): la escena usa entera la lista común. **Como lista**: las opciones propias van primero y luego `{ "comunes": id }`. Una opción común que va al mismo destino que otra ya visible no se repite.
 - **Voz de los textos:** español de España, segunda persona del plural (vosotros) y presente: «Cruzáis el puente…». Narraciones de 60 a 130 palabras, sensoriales y concretas, y la de combate termina con la amenaza delante.
+- **Palabras: épicas y claras, sin groserías ni dobles sentidos.** La mesa es de varios países de habla hispana: una palabra normal en España puede ser una grosería en Latinoamérica, y eso rompe la epicidad.
+  - Caso real: «verga», la pieza del barco, es grosera en Latinoamérica. Se cambió por «el palo largo».
+  - Evita también «bicho» (usa «bestia» o «criatura»), «paja» (usa «heno»), «concha», «polla», «pija», «culo», «correrse», «chingar», «mamar» y cualquier palabra que dé risa por un doble sentido.
+  - Nada de tecnicismos ni palabras rebuscadas que no se entienden al oírlas: «verga», «estibador», «pecio», «botavara», «cabestrante». Describe la cosa con palabras corrientes: «el palo largo», «el cargador», «el barco hundido».
+  - Un tono algo antiguo está bien, siempre que se entienda a la primera.
+  - El humor está permitido: personajes bromistas, pullas, el gato fanfarrón. Pero que la gracia salga del personaje, nunca de una palabra grosera.
+  - Los ids internos (como `pecio-vacio`) no se leen en voz alta, así que no importan. Todo lo que se muestra o se narra, sí.
 - **Ids** en kebab-case sin tildes.
 - **Escritura del JSON:** con un script de Python. Lo más cómodo es `from capitulo import cargar` (está en `scripts/`): `cap = cargar(campaña, n)`, modificar `cap.e[...]` y `cap.guardar()`. Si no, `json.dumps(…, ensure_ascii=False, indent=2)`: el guion lleva salto de línea final y `campanas.json` no. Nunca a mano con `sed`.
 
@@ -133,7 +186,7 @@ La interfaz (una carta por escena que entra deslizando, el mapa arriba y el text
    - hubs desde los que se exploran los lugares pendientes;
    - el lugar clave cerrado (llave, contraseña…) que obliga a pasar por el enigma;
    - variantes según las marcas (sorpresa o avisados);
-   - opcionales con recompensa;
+   - opcionales con recompensa, y eventos de +1/−1 (vida, comida, alguna moneda) repartidos por los caminos (regla 10);
    - el combate final del capítulo con al menos 2 formas de afrontarlo (ir de cara o tender una emboscada) y escenas finales que se pueden hacer en cualquier orden antes del `fin`.
    - Haz una tabla de escenas: id, lugar, x/y, combate, marca y destinos.
 4. **Escribir** el guion en `public/mapas/guiones/<campaña>-<n>.json` con un script de Python (guárdalo en el scratchpad para poder rehacerlo). Deja en `campanas.json` solo la ficha con el enlace `guion`.
@@ -153,13 +206,13 @@ La interfaz (una carta por escena que entra deslizando, el mapa arriba y el text
    - las preguntas encajan con todas sus opciones visibles: si un hub mezcla «entrar» con «ir a otro sitio», la pregunta debe ser genérica, del tipo «¿Qué hacéis?».
 8. **Audios de borrador** (`audios_capitulo.py` y luego `make audio-borrador`). Comprueba que todos los enlazados existen: el script no debe listar nada pendiente. Borra los .mp3 y las entradas de `narracion/pendientes-voz-final.json` de los textos que ya no existen.
 8b. **Generar la vista legible** con `make guiones` y repasar `guiones/<campaña>-<n>.md`: el diagrama y las tablas ayudan a ver huecos, opciones raras o escenas a las que se llega sin motivo. Regenérala **cada vez** que cambie el guion; si no, el .md queda desfasado.
-9. **Probar en el navegador** varios caminos, entre ellos los raros: volver atrás, hacer los opcionales y saltarse cosas.
+9. **Probar en el navegador** varios caminos, entre ellos los raros: volver atrás, hacer los opcionales y saltarse cosas. En cada escena de combate, `recorrer.py` debe mostrar «mesa de combate:» con todas sus bestias (ni «SIN FICHAS» ni «no está en el Bestiario»).
 
    ```
    .venv/bin/python .claude/skills/rehacer-capitulo-por-escenas/scripts/recorrer.py <campaña> <n> "opción" SIGUE GANADO AUDIO ...
    ```
 
-   Sin errores de consola.
+   Sin errores de consola. Mete `ZOOM` en varios puntos del camino (tras elegir, tras un combate, tras ATRAS): **el plano ampliado debe mostrar el mismo estado que el mapa pequeño** (escena actual, huellas, destinos A-D de las opciones visibles) y su panel «Estáis aquí», las opciones y los estados. En `mapas.js` ambos salen de `vistaAventura(e)`: si tocas las marcas o las opciones, cámbialo ahí y no dibujes el plano por separado.
 10. **Versiones** (CLAUDE.md): sube
     - `const V = '?v=N'` de `mapas.js`, porque el JSON se pide con ese `?v=`;
     - `mapas.js?v=` en `main.js`;
@@ -171,11 +224,28 @@ La interfaz (una carta por escena que entra deslizando, el mapa arriba y el text
     - `make check-css`.
     - `make probar`. Si cambian solo capturas de Mapas por el texto nuevo, míralas y copia **solo esas** de `pruebas/actuales/` a `pruebas/referencias/`. No uses `ACTUALIZAR=1` a ciegas, porque pisaría fallos ajenos.
     - `make probar-enigmas`. El Lights Out del capítulo II a veces falla al azar en «tocar al azar»: repítelo antes de dar nada por roto.
-12. **Entregar** en español:
+12. **Revisión con un subagente de contexto nuevo (obligatoria, tras terminar todo lo anterior).** Quien escribió el capítulo no ve sus propios saltos. Lanza un subagente (`general-purpose`) que **solo revise y reporte, sin editar**. Pásale:
+    - las rutas del guion, de su vista legible y de `guiones/LEEME.md`;
+    - la orden de generar la rejilla con `mapa_rejilla.py` y mirar con Read todos los recortes y `escenas.png`.
+
+    Que compruebe, **recorriendo la red camino a camino**:
+    - **Posición.** La narración deja al grupo donde dicen su `lugar` y su x/y, y no describe lo que desde ahí no se ve, ni se oye, ni se huele.
+    - **Procedencia.** La narración encaja viniendo desde **cada** opción (incluidas las comunes) que lleva a la escena.
+    - **Opciones.** Cada opción visible es físicamente posible desde allí.
+    - **Mapa.** Ningún elemento está inventado o al revés respecto a la imagen.
+    - **Continuidad.** Vivos, objetos y lo que el grupo sabe.
+    - **Palabras.** Ninguna grosería ni doble sentido en ningún país hispanohablante (p. ej. «verga», «bicho», «paja») y ninguna palabra rebuscada que no se entienda al oírla.
+    - **Enigma.** Encaja con la historia: es un objeto real de la escena, se resuelve por un motivo claro, y la recompensa y el precio del fallo salen del propio relato.
+
+    Le pides un informe por gravedad con escena, cita exacta, motivo y propuesta. Corrige lo que encuentre y repite los pasos 5, 8, 8b y 9. Si el informe trae muchos fallos, lanza otra revisión.
+
+    Error real que motivó esta regla: desde la roca del sur se podía «ir al mástil», y la escena del mástil narraba que ya veían la ventana de la casa y olían la cocina. Desde el mástil, en medio del canal, eso aún no se percibe.
+13. **Entregar** en español:
     - cómo es el mapa;
     - el resumen de la historia y de los caminos;
     - qué se aprovechó del capítulo antiguo;
     - las incoherencias detectadas en otros capítulos (sin tocarlos);
+    - el enigma: si se reutilizó, se adaptó o es nuevo, y por qué encaja con la historia;
     - el resultado del validador y de las pruebas;
     - la versión;
     - cuántos audios quedan pendientes de la voz final;
@@ -193,3 +263,6 @@ La interfaz (una carta por escena que entra deslizando, el mapa arriba y el text
 - Registrar la casa daba la llave sin pasar por el enigma, y fallar el enigma se resolvía «buscando» gratis (ahora: ofrenda de sangre).
 - No se entendía por qué hacía falta fuego, ni qué hacía allí el trovador.
 - Se decía «volver al pueblo» en vez de «volver a la taberna».
+- Se usó «verga» (pieza del barco), que en Latinoamérica es una grosería y rompió la epicidad, además de «bicho», «paja» y «estibador». («Coger» sí se puede usar: al usuario no le molesta.) Revisa el vocabulario de cada texto.
+- La narración de una escena daba por hecho dónde estaba el grupo según UN origen y no según todos (mástil que «ya ve la casa» llegando desde la roca). Al escribir cada narración, mira de nuevo el recorte del mapa y repasa cada `va_a` que llega a ella; y siempre pasa la revisión del subagente (paso 12).
+- Al ampliar el mapa (clic), el plano dibujaba su propia vista (ruta fija del capítulo) y no el estado actual: no salían los destinos de las opciones ni los estados. Ahora carta, mapa pequeño y plano usan `vistaAventura()`; compruébalo con `ZOOM` en `recorrer.py`.

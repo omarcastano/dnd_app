@@ -1,6 +1,8 @@
 /* Pestaña «Bestiario»: lista de enemigos y vista de combate con contador de vida. Las cartas usan el diseño de personajes/app/cartas.css (variables añadidas a .bestiario) y el volteo de catalogo.css. */
-.tab-bestiario { max-width: none; padding: 0; }
-:where(#tab-bestiario) {
+.tab-bestiario, .tab-pnj { max-width: none; padding: 0; }
+/* La pestaña PNJ reutiliza esta vista (raíz .bestiario.pnj); lo suyo propio lleva prefijo pnj-.
+   La mesa de combate del libro de campañas (Mapas, .mapas-mesa) monta las mismas fichas: panel de vida, botín, robo y dorso. */
+:where(#tab-bestiario, #tab-pnj, .mapas-mesa) {
   .bestiario { position: relative; font-family: Georgia, serif; font-size: 16px; line-height: normal; color: #fff; min-height: 100dvh; padding: 8px 16px 80px;
     background: radial-gradient(120% 60% at 50% 0%, #3a2a1c 0%, #17110c 70%) fixed; }
   .bestiario * { box-sizing: border-box; }
@@ -27,7 +29,7 @@
   /* Contador de vida (el corazón y los botones − / + son los de catalogo.css) */
   .panel-vida { display: flex; flex-direction: column; align-items: center; gap: 10px; width: fit-content; max-width: min(100%, calc(306px * var(--escala-bestiario, 1))); margin: 0 auto 16px; padding: 12px 18px; border: 1px solid #d4af5a88; border-radius: 12px; background: #0006; }
   .jugadores { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; font-size: 13px; color: #d4af5a; }
-  .jugadores span { margin-right: 4px; letter-spacing: .1em; text-transform: uppercase; }
+  .jugadores span { flex-basis: 100%; text-align: center; letter-spacing: .1em; text-transform: uppercase; } /* «Jugadores» arriba y 4 5 6 en una fila debajo */
   .jugadores button, .reiniciar { all: unset; cursor: pointer; min-width: 40px; height: 36px; padding: 0 12px; box-sizing: border-box; display: inline-grid; place-items: center; border: 1px solid #d4af5a; border-radius: 999px; color: #f2dc9b; font-size: 15px; -webkit-tap-highlight-color: transparent; }
   .reiniciar { font-size: 13px; }
   .reiniciar:active { background: #d4af5a44; }
@@ -88,4 +90,10 @@
   .cabeza .vida-btn { flex: none; }
   .cabeza .vida-valor { line-height: 1; }
   .cabeza { align-items: center; } .cabeza .vida-valor { height: 38px; align-items: center; }
+}
+
+/* PNJ: trato en el dorso */
+:where(#tab-pnj) {
+  .pnj-trato b { color: #2a5a7a; }
+  .pnj-trato strong { font-family: var(--titulo); color: #2a5a7a; }
 }

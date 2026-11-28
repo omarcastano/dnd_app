@@ -71,6 +71,10 @@ def texto_de(carta):
     if not texto:
         return None
     habilidades = " ".join(f"Habilidad, {h['nombre']}. {h['descripcion']}" for h in carta.get("habilidades", []))
+    if carta.get("reaccion"):  # PNJ: reacción y trato en vez de habilidades
+        habilidades += f" Reacción, {carta['reaccion']['nombre']}. {carta['reaccion']['descripcion']}"
+    if carta.get("trato"):
+        habilidades += f" Trato, {carta['trato']['via']}. {carta['trato']['descripcion']}"
     return para_voz(f"{texto} {habilidades}".strip())
 
 
@@ -217,7 +221,7 @@ def generar_final():
 
 def main():
     parser = argparse.ArgumentParser(description="Genera narraciones (mp3) de las cartas con Qwen3-TTS (voz clonada de narracion/voz/) o edge-tts.")
-    parser.add_argument("archivo", type=Path, nargs="?", help="JSON con una lista 'cartas' (clases), 'mapas' o 'enemigos' (public/enemigos/enemigos.json)")
+    parser.add_argument("archivo", type=Path, nargs="?", help="JSON con una lista 'cartas' (clases), 'mapas' o 'enemigos' (public/enemigos/enemigos.json) o 'pnj' (public/pnj/pnj.json)")
     parser.add_argument("--id", help="ID de la carta a narrar (por defecto, todas)")
     parser.add_argument("--motor", choices=["qwen", "edge"], default="qwen", help="qwen (por defecto): voz clonada de la narradora; edge: edge-tts")
     parser.add_argument("--acento", choices=VOCES, default="es-CO", help="Solo motor edge")
@@ -233,7 +237,7 @@ def main():
     if not args.archivo:
         parser.error("falta el JSON de entrada")
     crudo = json.loads(args.archivo.read_text(encoding="utf-8"))
-    cartas = crudo.get("cartas") or crudo.get("mapas") or crudo["enemigos"]
+    cartas = crudo.get("cartas") or crudo.get("mapas") or crudo.get("pnj") or crudo["enemigos"]
     if args.id:
         cartas = [c for c in cartas if c["id"] == args.id]
         if not cartas:

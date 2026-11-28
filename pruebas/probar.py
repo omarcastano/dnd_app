@@ -108,7 +108,9 @@ def estados():
 
     def enigma_historia(p):
         libro_capitulo(p)
-        p.locator('#mapas-campanas [data-pagina="2"]').first.click()  # el capítulo I es por escenas: su enigma no está a la vista al empezar
+        # Los capítulos I y II son por escenas: el enigma solo se ve en su escena, así que se deja el recorrido del II en «runas»
+        p.evaluate("""() => localStorage.setItem('taberna:mapas:el-aliento-helado:2:aventura', JSON.stringify({pasos: [{e: 'runas', o: null}], fase: 0}))""")
+        p.locator('#mapas-campanas [data-pagina="2"]').first.click()
         p.wait_for_timeout(400)
         p.locator("#mapas-campanas .boton-enigma").first.click()
         p.wait_for_timeout(600)
@@ -150,6 +152,7 @@ def estados():
         ("heroes-clase", heroes_clase),
         ("bestiario", lambda p: pestana(p, "bestiario")),
         ("bestiario-enemigo", bestiario_enemigo),
+        ("pnj", lambda p: pestana(p, "pnj")),
         ("mapas-libro-portada", libro_portada),
         ("mapas-libro-capitulo", libro_capitulo),
         ("mapas-aventura", aventura),

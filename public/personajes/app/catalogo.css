@@ -14,7 +14,7 @@
   .clase { padding: 16px 0 8px; scroll-margin-top: 80px; /* deja libres las pestañas fijas del sitio */ }
   .clase h2 { font-family: "Cinzel", Georgia, serif; text-transform: capitalize; font-size: 22px; letter-spacing: .1em; color: #f2dc9b; padding: 0 16px; }
 }
-:where(#tab-heroes, #tab-bestiario) {
+:where(#tab-heroes, #tab-bestiario, #tab-pnj) {
   .estado { font-weight: 400; font-size: 12px; opacity: .7; margin: 2px 16px 0; }
   .estado.alerta { color: #ffd37a; opacity: 1; }
 }
@@ -59,7 +59,7 @@
   .resumen { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .resumen .btn-sec { margin-top: 0; padding: 8px 14px; font-size: 13px; white-space: nowrap; }
 }
-:where(#tab-heroes, #tab-bestiario) {
+:where(#tab-heroes, #tab-bestiario, #tab-pnj, .mapas-mesa) {
   .vida { display: inline-flex; align-items: center; gap: 4px; padding: 3px; border: 1px solid #d4af5a; border-radius: 999px; background: #d4af5a14; }
   .vida-btn { all: unset; cursor: pointer; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; line-height: 1; color: #f2dc9b; user-select: none; -webkit-tap-highlight-color: transparent; }
   .vida-btn:active { background: #d4af5a44; }
@@ -72,7 +72,7 @@
 @keyframes latido { 50% { transform: scale(1.18); } }
 @media (prefers-reduced-motion: reduce) {
 
-  :where(#tab-heroes, #tab-bestiario) {
+  :where(#tab-heroes, #tab-bestiario, #tab-pnj, .mapas-mesa) {
     .vida.baja .vida-valor { animation: none; }
   } 
 }
@@ -99,7 +99,7 @@
       .paso .contador, .contenido > .contador { display: flex; }
   }
 }
-:where(#tab-heroes, #tab-bestiario) {
+:where(#tab-heroes, #tab-bestiario, #tab-pnj, .mapas-mesa) {
   .carta-sel { zoom: var(--escala-sel, 1); text-align: left; }
   /* Volteo 3D: frente y dorso de la misma opción */
   .volteo { width: 306px; height: 572px; perspective: 1400px; }
@@ -118,7 +118,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
 
-  :where(#tab-heroes, #tab-bestiario) {
+  :where(#tab-heroes, #tab-bestiario, #tab-pnj, .mapas-mesa) {
     .volteo-in { transition: none; }
   } 
 }

@@ -4,6 +4,8 @@
 import { MEDALLON } from '../../../personajes/app/cartas.js';
 import { atenderNarracion } from '../../../personajes/app/narracion.js?v=2';
 import { abrirEnigmaDeHistoria, cerrarEnigmaDeHistoria, nombreEnigma } from '../puzzles/api.js?v=2';
+import { montarFicha, JUGADORES, CLAVE_JUGADORES } from '../../../personajes/app/combate.js?v=3';
+import { RAIZ_ENEMIGOS, cartaEnemigo, subtituloEnemigo } from '../../../enemigos/carta.js?v=2';
 
 // Modo historia: intentos del equipo por enigma y aspecto (tema) del tablero según lo que representa
 const INTENTOS = { mastermind: 8 };
@@ -11,7 +13,7 @@ const TEMAS = { cipher: 'libro', lightsout: 'runas', lightup: 'velas', hanoi: 'p
   nonogram: 'tapiz', hitori: 'losas', tents: 'campamento', stars: 'cielo', galaxies: 'remolinos' };
 
 const RAIZ = new URL('../../../mapas/', import.meta.url);
-const V = '?v=35';
+const V = '?v=39';
 const ROMANOS = ['I', 'II', 'III', 'IV'];
 const MONEDAS_EVENTOS = [5, 10, 15, 30];
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -332,6 +334,93 @@ export async function initMapas() {
     return ok ? { pasos: g.pasos, fase: g.fase === 1 ? 1 : 0 } : { pasos: [{ e: e.inicio, o: null }], fase: 0 };
   };
   const guardarAventura = (st) => guardar(claveAventura(), st);
+
+  // Mesa de combate: en cada escena con combate, una ficha por bestia (la misma carta y el mismo motor que el Bestiario:
+  // vida según 4/5/6 jugadores, voltear la carta, botín al llegar a 0 y robo del Pícaro). Vida y botín se guardan por escena.
+  // Usa el mismo enemigos.json que ya se cargó al arrancar (`bestiario`).
+  const prefijoMesa = () => `taberna:mapas:${campanas[campana]?.id ?? campana}:${pagina}:combate`;
+  const olvidarMesa = () => { try { Object.keys(localStorage).filter((k) => k.startsWith(prefijoMesa() + ':')).forEach((k) => localStorage.removeItem(k)); } catch {} };
+  const MOVIL_MESA = 700; // por debajo, la mesa es un carrusel: una bestia por pantalla y se pasa deslizando
+  const mesaHtml = (s) => {
+    const varias = s.combate.enemigos.length > 1;
+    return `<section class="mapas-mesa" aria-label="Bestias del combate">
+      <header class="mapas-mesa-cabecera">
+        <h4 class="mapas-mesa-titulo"><i class="fa-solid fa-${s.combate.jefe ? 'crown' : 'skull'}"></i> ${varias ? `Las bestias <span class="mapas-mesa-cuenta">(${s.combate.enemigos.length})</span>` : 'La bestia'}</h4>
+        <div class="mapas-mesa-jugadores" role="group" aria-label="Número de jugadores"><span>Jugadores</span>${JUGADORES.map((j) => `<button type="button" data-mesa-jugadores="${j}">${j}</button>`).join('')}</div>
+        <p class="mapas-mesa-ayuda">Toca la carta para voltearla · baja su vida con − y +${varias ? '<span class="mapas-mesa-deslizar"> · desliza para pasar de bestia</span>' : ''}</p>
+      </header>
+      <div class="mapas-mesa-fichas">${s.combate.enemigos.map((_, i) => `<div class="mapas-bestia" data-mesa-bestia="${i}"></div>`).join('')}</div>
+      ${varias ? `<nav class="mapas-mesa-paso" aria-label="Pasar de bestia"><button type="button" data-mesa-paso="-1" aria-label="Bestia anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <span class="mapas-mesa-n"></span><span class="mapas-mesa-puntos">${s.combate.enemigos.map(() => '<i></i>').join('')}</span>
+        <button type="button" data-mesa-paso="1" aria-label="Bestia siguiente"><i class="fa-solid fa-chevron-right"></i></button></nav>` : ''}
+    </section>`;
+  };
+  const montarMesa = (caja, sid, s) => {
+    const mesa = caja.querySelector('.mapas-mesa');
+    if (!mesa) return;
+    const fichas = mesa.querySelector('.mapas-mesa-fichas');
+    if (!bestiario.niveles) { fichas.innerHTML = '<p class="mapas-bestia-falta">No se pudo cargar el Bestiario.</p>'; return; }
+    const d = { niveles: bestiario.niveles, fichas: bestiario.enemigos };
+    // En el móvil la bestia entera (ficha y carta) cabe en una pantalla: tras montar se mide lo que ocupa todo lo demás
+    // (pestañas fijas, cabecera de la mesa, título y panel de la ficha, flechas) y la carta se escala al hueco que queda
+    let escalaMovil = null;
+    const escala = () => (innerWidth < MOVIL_MESA ? escalaMovil ?? Math.min(1, (innerWidth - 48) / 306) : 0.72).toFixed(3);
+    const ajustarMovil = () => {
+      if (innerWidth >= MOVIL_MESA) return;
+      const z = fichas.firstElementChild; const carta = z?.querySelector('.carta-sel');
+      if (!carta) return;
+      const pestanas = document.querySelector('.tab-btn')?.closest('nav')?.offsetHeight ?? 0;
+      const resto = mesa.querySelector('.mapas-mesa-cabecera').offsetHeight + (z.offsetHeight - carta.getBoundingClientRect().height) + (mesa.querySelector('.mapas-mesa-paso')?.offsetHeight ?? 0) + 40;
+      escalaMovil = Math.max(0.45, Math.min(1, (innerWidth - 48) / 306, (innerHeight - pestanas - resto) / 572));
+      mesa.style.setProperty('--escala-bestiario', escalaMovil.toFixed(3));
+    };
+    const montar = () => {
+      const guardados = Number(leerGuardado(CLAVE_JUGADORES));
+      const jugadores = JUGADORES.includes(guardados) ? guardados : 4;
+      mesa.querySelectorAll('[data-mesa-jugadores]').forEach((b) => b.classList.toggle('activo', Number(b.dataset.mesaJugadores) === jugadores));
+      s.combate.enemigos.forEach((nombre, i) => {
+        const zona = mesa.querySelector(`[data-mesa-bestia="${i}"]`);
+        const bestia = bestiario.enemigos.find((x) => x.nombre === nombre);
+        if (!bestia) { zona.innerHTML = `<p class="mapas-bestia-falta">${esc(nombre)}: no está en el Bestiario.</p>`; return; }
+        montarFicha(mesa, zona, d, bestia, { carta: cartaEnemigo, subtitulo: subtituloEnemigo, raizUrl: RAIZ_ENEMIGOS, prefijo: `${prefijoMesa()}:${sid}:${i}`, escala: escala() });
+      });
+    };
+    montar();
+    ajustarMovil();
+    // Carrusel (móvil): contador «1 / 2», puntos y flechas según la bestia que quede centrada
+    const zonas = [...fichas.children];
+    const actual = () => { const c = fichas.scrollLeft + fichas.clientWidth / 2; return zonas.reduce((m, z, i) => (Math.abs(z.offsetLeft + z.offsetWidth / 2 - c) < Math.abs(zonas[m].offsetLeft + zonas[m].offsetWidth / 2 - c) ? i : m), 0); };
+    const irA = (i) => { const z = zonas[Math.max(0, Math.min(zonas.length - 1, i))]; fichas.scrollTo({ left: z.offsetLeft - fichas.offsetLeft - (fichas.clientWidth - z.offsetWidth) / 2, behavior: sinMovimiento() ? 'auto' : 'smooth' }); };
+    const pintarPaso = () => {
+      const i = actual();
+      const n = mesa.querySelector('.mapas-mesa-n');
+      if (n) n.textContent = `${i + 1} / ${zonas.length}`;
+      mesa.querySelectorAll('.mapas-mesa-puntos i').forEach((p, k) => p.classList.toggle('activo', k === i));
+      mesa.querySelector('[data-mesa-paso="-1"]')?.toggleAttribute('disabled', i === 0);
+      mesa.querySelector('[data-mesa-paso="1"]')?.toggleAttribute('disabled', i === zonas.length - 1);
+    };
+    fichas.addEventListener('scroll', pintarPaso, { passive: true });
+    pintarPaso();
+    // Respaldo del deslizamiento: Chrome móvil a veces no desplaza sobre las cartas que giran (capas 3D); un gesto
+    // horizontal claro pasa a la bestia de al lado (si el navegador ya desplazó, lleva al mismo sitio)
+    let toque = null;
+    fichas.addEventListener('touchstart', (ev) => { const t = ev.touches[0]; toque = { x: t.clientX, y: t.clientY, i: actual() }; }, { passive: true });
+    fichas.addEventListener('touchend', (ev) => {
+      if (!toque || innerWidth >= MOVIL_MESA) return;
+      const t = ev.changedTouches[0]; const dx = t.clientX - toque.x; const dy = t.clientY - toque.y;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) irA(toque.i + (dx < 0 ? 1 : -1));
+      toque = null;
+    }, { passive: true });
+    // Lo que se toca en la mesa es solo de la mesa (la narración de la carta ya la atiende la ficha). El número de
+    // jugadores es uno para toda la mesa (y el mismo que el del Bestiario): al cambiarlo se repintan todas las bestias.
+    mesa.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      const j = ev.target.closest('[data-mesa-jugadores]');
+      const paso = ev.target.closest('[data-mesa-paso]');
+      if (j) { guardar(CLAVE_JUGADORES, Number(j.dataset.mesaJugadores)); montar(); }
+      else if (paso) irA(actual() + Number(paso.dataset.mesaPaso));
+    });
+  };
   const tiposEscena = (s) => (s.combate ? 'combate' : s.enigma ? 'enigma' : s.fin ? 'fin' : 'evento');
   const ICONO_ESCENA = { combate: 'khanda', enigma: 'puzzle-piece', fin: 'flag-checkered', evento: 'feather' };
   const combatesHechos = (e, st) => st.pasos.filter((p, i) => e.escenas[p.e].combate && (i < st.pasos.length - 1 || st.fase === 1)).length;
@@ -357,19 +446,27 @@ export async function initMapas() {
       <ol class="aventura-lecturas">${visibles.map(([o, letra]) => `<li><b>${letra}.</b> ${esc(o.lectura ?? o.opcion)}</li>`).join('')}</ol></div>`;
   };
 
-  const aventuraHtml = (e) => {
+  // Estado que se ve ahora (escena, opciones visibles con su letra, estados activos): lo comparten la carta, el mapa pequeño y el plano ampliado
+  const vistaAventura = (e) => {
     const st = estadoAventura(e);
     const sid = st.pasos.at(-1).e;
     const s = e.escenas[sid];
     const m = marcasDe(e, st.pasos);
-    const prev = st.pasos.at(-2);
-    const sPrev = prev ? e.escenas[prev.e] : null;
-    const opPrev = sPrev && prev.o >= 0 ? opcionesEscena(e, sPrev).lista[prev.o] : null;
     const antesDelCombate = s.combate && st.fase === 0;
     const { pregunta, lista } = opcionesEscena(e, s);
     const destinos = new Set();
     const visibles = lista.map((o, i) => [o, i]).filter(([o]) => opcionVisible(o, m) && !(o.comun && destinos.has(o.va_a)) && destinos.add(o.va_a)).map(([o, i], n) => [o, LETRAS[n], i]);
     const estados = Object.entries(e.estados ?? {}).filter(([k]) => m.has(k));
+    const enMapa = antesDelCombate || s.sigue || s.fin ? [] : visibles;
+    return { st, sid, s, antesDelCombate, pregunta, visibles, estados, marcas: marcasAventura(e, st, enMapa) };
+  };
+  const estadosHtml = (estados) => (estados.length ? `<ul class="aventura-estados">${estados.map(([, v]) => `<li><i class="fa-solid fa-${esc(v.icono ?? 'circle-info')}"></i> ${esc(v.texto)}</li>`).join('')}</ul>` : '');
+
+  const aventuraHtml = (e) => {
+    const { st, sid, s, antesDelCombate, pregunta, visibles, estados, marcas } = vistaAventura(e);
+    const prev = st.pasos.at(-2);
+    const sPrev = prev ? e.escenas[prev.e] : null;
+    const opPrev = sPrev && prev.o >= 0 ? opcionesEscena(e, sPrev).lista[prev.o] : null;
     const nota = (t, clase = '') => (t ? `<p class="aventura-nota ${clase}"><i class="fa-solid fa-hat-wizard"></i> <b>Para el máster:</b> ${esc(t)}</p>` : '');
 
     let cuerpo;
@@ -382,6 +479,7 @@ export async function initMapas() {
           <p><i class="fa-solid fa-khanda"></i> <b>${s.combate.enemigos.map(esc).join(' + ')}</b></p>
           ${s.combate.nota ? `<p>${esc(s.combate.nota)}</p>` : ''}
           ${s.combate.despliegue ? `<p><i class="fa-solid fa-chess-board"></i> <b>Despliegue:</b> ${esc(s.combate.despliegue)}</p>` : ''}
+          <p class="aventura-mesa-aviso"><i class="fa-solid fa-arrow-down"></i> Debajo del mapa tenéis las cartas de ${s.combate.enemigos.length > 1 ? 'las bestias' : 'la bestia'}: vida, botín y lo que se puede robar.</p>
           <button type="button" class="aventura-ganado" data-av-ganado><i class="fa-solid fa-trophy"></i> Combate ganado: ¿qué pasa después?</button>
         </div>`;
     } else {
@@ -408,15 +506,16 @@ export async function initMapas() {
       </div>
       <div class="aventura-escenario">
         <div class="aventura-lado">
-          <button type="button" class="aventura-mapa" data-ver-paso="-1" aria-label="Ampliar el plano"><span class="plano-lienzo"><img src="${img(e.mapa)}" alt="">${marcasAventura(e, st, antesDelCombate || s.sigue || s.fin ? [] : visibles)}</span></button>
-          ${estados.length ? `<ul class="aventura-estados">${estados.map(([, v]) => `<li><i class="fa-solid fa-${esc(v.icono ?? 'circle-info')}"></i> ${esc(v.texto)}</li>`).join('')}</ul>` : ''}
+          <button type="button" class="aventura-mapa" data-ver-paso="-1" aria-label="Ampliar el plano"><span class="plano-lienzo"><img src="${img(e.mapa)}" alt="">${marcas}</span></button>
+          ${estadosHtml(estados)}
         </div>
         <article class="aventura-carta" aria-live="polite">
           <header class="aventura-cabecera"><span class="aventura-tipo ${tiposEscena(s)}"><i class="fa-solid fa-${ICONO_ESCENA[tiposEscena(s)]}"></i></span>
             <div><p class="aventura-lugar"><i class="fa-solid fa-location-dot"></i> ${esc(s.lugar)}</p><h4>${esc(s.titulo)}</h4></div></header>
           ${cuerpo}
         </article>
-      </div>`;
+      </div>
+      ${antesDelCombate ? mesaHtml(s) : ''}`;
   };
 
   // Guía del máster: todas las escenas, para preparar la sesión
@@ -434,6 +533,8 @@ export async function initMapas() {
     const caja = zonaLibro.querySelector('[data-aventura]');
     if (!e?.escenas || !caja) return;
     caja.innerHTML = aventuraHtml(e);
+    const { sid, s } = vistaAventura(e);
+    montarMesa(caja, sid, s);
     const carta = caja.querySelector('.aventura-carta');
     if (!sinMovimiento()) carta.classList.add(`aventura-entra-${direccion}`);
     caja.querySelector('.aventura-migas [aria-current]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
@@ -459,7 +560,7 @@ export async function initMapas() {
       if (i === st.pasos.length - 1) return true;
       st.pasos = st.pasos.slice(0, i + 1); st.pasos.at(-1).o = null; st.fase = e.escenas[st.pasos.at(-1).e].combate ? 1 : 0;
       direccion = 'atras';
-    } else if (d.avReiniciar !== undefined) { olvidar(claveAventura()); direccion = 'atras'; dibujarAventura(); enfocarAventura(); return true; }
+    } else if (d.avReiniciar !== undefined) { olvidar(claveAventura()); olvidarMesa(); direccion = 'atras'; dibujarAventura(); enfocarAventura(); return true; }
     else return false;
     guardarAventura(st);
     dibujarAventura();
@@ -554,8 +655,12 @@ export async function initMapas() {
   const panelGeneral = (e) => {
     const pl = e.plano ?? {};
     if (e.escenas) {
-      const st = estadoAventura(e);
-      return `<ul class="plano-claves">
+      const { st, s, pregunta, visibles, estados, marcas } = vistaAventura(e);
+      const conOpciones = /aventura-destino/.test(marcas);
+      return `<section class="plano-bloque"><h4><i class="fa-solid fa-${ICONO_ESCENA[tiposEscena(s)]}"></i> Estáis aquí: ${esc(s.titulo)}</h4><p><small>${esc(s.lugar)}</small></p>
+        ${conOpciones ? `<p>${esc(pregunta)}</p><ol class="plano-pasos">${visibles.filter(([o]) => enEl(e.escenas[o.va_a])).map(([o, letra]) => `<li><span class="plano-recorrido-item"><span class="leyenda-num">${letra}</span><span><b>${esc(o.opcion)}</b><small>${esc(e.escenas[o.va_a].titulo)}</small></span></span></li>`).join('')}</ol>` : ''}
+        ${estadosHtml(estados)}</section>
+        <ul class="plano-claves">
         <li><span class="marca-mini entrada"><i class="fa-solid fa-flag"></i></span> <b>Entrada</b>${pl.entrada?.texto ? `: ${esc(pl.entrada.texto)}` : ''}</li>
         <li><span class="marca-mini salida"><i class="fa-solid fa-flag-checkered"></i></span> <b>Salida</b>${pl.salida?.texto ? `: ${esc(pl.salida.texto)}` : ''}</li></ul>
         <h4 class="plano-capa-nombre">Recorrido del grupo</h4>
@@ -607,7 +712,7 @@ export async function initMapas() {
             return `<button type="button" data-plano-capa="${k}" class="${p ? `capa-paso ${tipoPaso(p)}` : ''}${k === capaPlano ? ' actual' : ''}"${k === capaPlano ? ' aria-current="true"' : ''} title="${esc(nombreCapa(e, k))}">${p ? k + 1 : k === 'general' ? '<i class="fa-solid fa-map"></i> General' : '<i class="fa-solid fa-signs-post"></i> Llegada'}</button>`;
           }).join('')}</nav>
           <p class="plano-capa-titulo">${esc(nombreCapa(e, capaPlano))} <small>← → para cambiar de capa</small></p>
-          <div class="plano-lienzo grande capa-${typeof capaPlano === 'number' ? 'paso' : capaPlano}"><img src="${img(e.mapa)}" alt="${esc(mapaDe[e.mapa]?.nombre)}">${capasPlano(e, { capa: capaPlano, camino: e.escenas ? null : caminoDe(e, capaPlano), extra: e.escenas ? marcasAventura(e, estadoAventura(e)) : '' })}</div>
+          <div class="plano-lienzo grande capa-${typeof capaPlano === 'number' ? 'paso' : capaPlano}"><img src="${img(e.mapa)}" alt="${esc(mapaDe[e.mapa]?.nombre)}">${e.escenas ? vistaAventura(e).marcas : capasPlano(e, { capa: capaPlano, camino: caminoDe(e, capaPlano) })}</div>
         </div>
         <aside class="plano-leyenda">
           <p class="capitulo-num">${esc(c.nombre)} · ${c.final ? 'Gran final' : `Capítulo ${ROMANOS[pagina - 1]}`}</p><h3>${esc(e.titulo)}</h3>

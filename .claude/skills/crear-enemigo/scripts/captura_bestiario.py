@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Captura de la vista de un enemigo del Bestiario (Chrome headless), para revisarla con Read.
 
-Uso: captura_bestiario.py --enemigo lobo-espinoso --salida frente.png [--dorso] [--derrotar] [--robar] [--alto 1500] [--puerto 8081]
+Uso: captura_bestiario.py --enemigo lobo-espinoso --salida frente.png [--dorso] [--derrotar] [--robar] [--mitad] [--alto 1500] [--puerto 8081]
+     captura_bestiario.py --pnj tabernera-x --salida frente.png …   (pestaña PNJ; --mitad baja la vida a la mitad para ver el aviso de moral)
 Crea una copia temporal de public/index.html con un script que abre la pestaña Bestiario y el enemigo (voltea la carta con --dorso; con --derrotar baja la vida a 0 para ver el botín; con --robar tira lo que lleva el enemigo y marca el primer objeto como robado),
 desactiva transiciones/animaciones para que la captura no salga a mitad de giro, y borra la copia al terminar.
 Si no hay servidor en el puerto, arranca uno sin caché (personajes/servidor.py) y lo cierra al acabar.
@@ -25,7 +26,10 @@ def servidor_activo(puerto):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument('--enemigo', required=True)
+    quien = p.add_mutually_exclusive_group(required=True)
+    quien.add_argument('--enemigo', help='id de enemigos.json (pestaña Bestiario)')
+    quien.add_argument('--pnj', help='id de pnj/pnj.json (pestaña PNJ)')
+    p.add_argument('--mitad', action='store_true', help='Baja la vida a la mitad (aviso de moral de los PNJ)')
     p.add_argument('--salida', type=Path, required=True)
     p.add_argument('--dorso', action='store_true')
     p.add_argument('--derrotar', action='store_true', help='Baja la vida a 0 (aparece el botín)')
@@ -39,13 +43,16 @@ def main():
     if not chrome:
         sys.exit('No encuentro Chrome/Chromium (google-chrome, chromium).')
 
-    voltear = "document.querySelector('.bestiario .volteo.gira').click();" if a.dorso else ''
-    derrotar = "const z=document.getElementById('bestiario-catalogo');for(let i=0;i<200;i++)z.querySelector('[data-vida=\"-1\"]').click();z.querySelectorAll('[data-cabeza$=\":-1\"]').forEach(b=>{for(let k=0;k<40;k++)b.click()});" if a.derrotar else ''
-    robar = "const z2=document.getElementById('bestiario-catalogo');z2.querySelector('[data-ver-robo]').click();z2.querySelector('[data-robar]').click();" if a.robar else ''
+    tab, atributo, ident, zona = ('pnj', 'pnj', a.pnj, 'pnj-catalogo') if a.pnj else ('bestiario', 'enemigo', a.enemigo, 'bestiario-catalogo')
+    voltear = f"document.getElementById('{zona}').querySelector('.volteo.gira').click();" if a.dorso else ''
+    mitad = (f"const z3=document.getElementById('{zona}');const m=Number(z3.querySelector('.vida-valor b').textContent);"
+             "for(let i=0;i<Math.ceil(m/2);i++)z3.querySelector('[data-vida=\"-1\"]').click();") if a.mitad else ''
+    derrotar = f"const z=document.getElementById('{zona}');for(let i=0;i<200;i++)z.querySelector('[data-vida=\"-1\"]').click();z.querySelectorAll('[data-cabeza$=\":-1\"]').forEach(b=>{{for(let k=0;k<40;k++)b.click()}});" if a.derrotar else ''
+    robar = f"const z2=document.getElementById('{zona}');z2.querySelector('[data-ver-robo]').click();z2.querySelector('[data-robar]').click();" if a.robar else ''
     guion = (
         '<style>*{transition:none!important;animation:none!important}</style><script>'
-        "setTimeout(()=>{document.querySelector('[data-tab=\"bestiario\"]').click();"
-        f"setTimeout(()=>{{document.querySelector('[data-enemigo=\"{a.enemigo}\"]').click();{derrotar}{robar}{voltear}}},500);}},1500);</script></body>"
+        f"setTimeout(()=>{{document.querySelector('[data-tab=\"{tab}\"]').click();"
+        f"setTimeout(()=>{{document.querySelector('[data-{atributo}=\"{ident}\"]').click();{mitad}{derrotar}{robar}{voltear}}},500);}},1500);</script></body>"
     )
     temporal = RAIZ / 'public' / '_captura.html'
     temporal.write_text((RAIZ / 'public' / 'index.html').read_text(encoding='utf-8').replace('</body>', guion), encoding='utf-8')
