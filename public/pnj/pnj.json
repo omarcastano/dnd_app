@@ -85,6 +85,43 @@
       },
       "sonido": "sonidos/bartolo-el-tabernero-voz.wav",
       "sonido_muerte": "sonidos/bartolo-el-tabernero-muerte.mp3"
+    },
+    {
+      "id": "isolda-la-mesera",
+      "nombre": "Isolda la Mesera",
+      "nivel": 1,
+      "oficio": "Mesera",
+      "encuadre": "58% 20%",
+      "descripcion": "Humana joven, rubia, de ojos azules y trenzas, con falda y botas de cuero. Sirve las mesas de la taberna con una sonrisa y nadie se le va sin pagar.",
+      "narracion": "narraciones/isolda-la-mesera.mp3",
+      "saludo": "¡Hola, viajeros! Sentaos donde queráis, que enseguida os traigo una jarra bien fría. Y portaos bien, que la bandeja también sirve para otras cosas.",
+      "ultimas_palabras": "¡Ay! ¿Y ahora… quién va a servir las mesas?",
+      "reaccion": {
+        "nombre": "Bandeja por delante",
+        "descripcion": "La primera vez que le aciertan un golpe, se cubre con la bandeja: ese golpe le hace 2 de daño menos."
+      },
+      "trato": {
+        "via": "Contarle un chiste",
+        "tirada": false,
+        "descripcion": "Si el chiste la hace reír (decide el máster), deja de pelear y trae de la cocina un cuenco de estofado: el grupo gana 1 comida que cura 2."
+      },
+      "ataques": [
+        {
+          "golpe": "basico",
+          "nombre": "Jarra al vuelo",
+          "subtitulo": "Ataque básico"
+        },
+        {
+          "golpe": "fuerte",
+          "nombre": "Taconazo de bota",
+          "subtitulo": "Ataque fuerte"
+        }
+      ],
+      "robo": {
+        "texto": "Del delantal le asoma la bolsita con las propinas de la noche."
+      },
+      "sonido": "sonidos/isolda-la-mesera-voz.wav",
+      "sonido_muerte": "sonidos/isolda-la-mesera-muerte.mp3"
     }
   ]
 }

@@ -21,7 +21,6 @@ CSS = "tienda/css/"
 SECCIONES = {
     "taberna": ([CSS + "tienda.css"], ["#tab-shop"]),
     "cofres": ([CSS + "botin.css"], ["#tab-loot"]),
-    "hurto": ([CSS + "robo.css"], ["#tab-rob"]),
     "heroes": (["personajes/app/catalogo.css", "personajes/clases/*/efectos.css"],
                ["#tab-heroes", ".tab-heroes", ".heroes", ".visor", ".efecto", ".ambiente-*"]),
     "bestiario": ([CSS + "bestiario.css"], ["#tab-bestiario", ".tab-bestiario", "#tab-pnj", ".tab-pnj"]),  # PNJ comparte la vista

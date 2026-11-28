@@ -147,7 +147,6 @@ def estados():
         ("cofres-abierto", cofres_abierto),
         ("mapas-plano", plano),
         ("cofres", lambda p: pestana(p, "loot")),
-        ("hurto", lambda p: pestana(p, "rob")),
         ("heroes", lambda p: pestana(p, "heroes")),
         ("heroes-clase", heroes_clase),
         ("bestiario", lambda p: pestana(p, "bestiario")),

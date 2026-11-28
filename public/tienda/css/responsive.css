@@ -20,7 +20,7 @@
   :where(#tab-shop) .card-name { font-size: 1rem; }
   :where(#tab-shop) .card-content { padding: 0 14px 16px; }
 
-  :where(#tab-rob, #tab-puzzles) .rob-description { padding: 16px; }
+  :where(#tab-puzzles) .puzzle-descripcion { padding: 16px; }
 
   :where(#tab-loot, #tab-puzzles) .loot-box { width: 130px; height: 130px; }
 }
