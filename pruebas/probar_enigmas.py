@@ -27,6 +27,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from probar import PUBLICO, Silencioso, navegador  # noqa: E402
 
 CAMPANAS = json.loads((PUBLICO / "mapas" / "campanas.json").read_text(encoding="utf-8"))["campanas"]
+for _c in CAMPANAS:  # los capítulos con guion aparte (mapas/guiones/*.json) se mezclan como hace mapas.js
+    for _e in _c["escenarios"]:
+        if _e.get("guion"):
+            _e.update({k: v for k, v in json.loads((PUBLICO / "mapas" / _e["guion"]).read_text(encoding="utf-8")).items() if k != "_acerca"})
 A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 DIRS = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 fallos = []

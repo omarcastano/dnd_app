@@ -2,7 +2,7 @@ PORT ?= 8080
 UV ?= uv
 PY := .venv/bin/python
 
-.PHONY: run setup audio-setup audio audio-borrador audio-final check cartas catalogo simular probar probar-enigmas check-css
+.PHONY: run setup audio-setup audio audio-borrador audio-final guiones validar-guion check cartas catalogo simular probar probar-enigmas check-css
 
 run:
 	python3 -m http.server $(PORT) -d public
@@ -23,6 +23,15 @@ audio-borrador:
 # Cuando el usuario da el visto bueno: pasa todos los borradores pendientes a la narradora (Qwen3-TTS)
 audio-final:
 	$(PY) narracion/generar_audio.py --final
+
+# Guiones de los capítulos por escenas (fuente: public/mapas/guiones/*.json): regenera la vista legible guiones/*.md
+GUION = .claude/skills/rehacer-capitulo-por-escenas/scripts
+guiones:
+	$(PY) $(GUION)/guion_legible.py --todos
+
+# Recorre todos los caminos de un guion (4 combates, sin callejones, enigma obligatorio): make validar-guion CAMPANA=el-aliento-helado CAPITULO=1
+validar-guion:
+	$(PY) $(GUION)/validar_caminos.py $(CAMPANA) $(CAPITULO)
 
 # Valida las clases de personajes: esquema, referencias entre cartas y selección, imágenes (make check CLASE=druida para una sola)
 check:

@@ -121,6 +121,16 @@
    "texto": "Dejáis atrás el pueblo y bajáis por el sendero de arena que serpentea entre las rocas, con la nieve hasta las rodillas. Al caer la tarde se abre ante vosotros la cala de Tormund. A la derecha, al otro lado de un canal de agua azul que rompe en espuma, se alza su casa de piedra; un puente de tablas la une con la playa y la puerta abierta golpea con el viento. Arriba a la izquierda, sobre una lengua de arena, el gran almacén de madera, con su grúa cubierta de carámbanos asomando por detrás. Entre las rendijas de sus tablas parpadea una lucecita roja, aunque Tormund lleva tres días sin volver. Más a la izquierda, al final de la pasarela ancha del oeste, se mece una barca de remos: la única de la cala, y el faro del cabo solo se alcanza por mar. Mar adentro, un muro de niebla blanca y espesa se traga el horizonte. Y a vuestra izquierda, junto a un arcón cubierto de nieve, una maraña de arbustos cruje sin que sople el viento. Nadie responde a vuestras llamadas. ¿Por dónde empezáis: la casa, el almacén, la barca, o echáis un vistazo a esos arbustos?"
   },
   {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-ofrenda-sangre.mp3",
+   "id": "el-aliento-helado-1-escena-ofrenda-sangre",
+   "texto": "Los intentos se agotan y la página sigue siendo un galimatías. Alguien cierra el cuaderno con rabia y entonces lo veis: en el reverso de la tapa, junto al dial, hay una inscripción grabada a punta de cuchillo, tan vieja que casi no se lee. «Lo que la cabeza no abre, la sangre lo abre». Este cuaderno es más antiguo que Tormund, y el viejo lo sabía. No queda otro camino: hay que hacer una ofrenda de sangre. Sacáis un cuchillo, lo pasáis por la palma y dejáis caer las gotas sobre la página."
+  },
+  {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-pagina-de-sangre.mp3",
+   "id": "el-aliento-helado-1-escena-pagina-de-sangre",
+   "texto": "La sangre no se escurre: se hunde en el papel como en arena seca. Las letras tiemblan, se arrastran por la página y se ordenan solas, hasta que podéis leer la nota de Tormund: los de hueso guardan aceite para el faro en el almacén, y la llave duerme en la chimenea. Metéis la mano entre la ceniza fría y tocáis hierro: una llave grande con un pez grabado. Entre las hojas aparece además una moneda helada con una gárgola alada grabada. Os escuece la palma, pero la tenéis."
+  },
+  {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-puente-casa.mp3",
    "id": "el-aliento-helado-1-escena-puente-casa",
    "texto": "Cruzáis la playa hacia la derecha y pisáis el puente de tablas que salva el canal. La madera gime bajo vuestras botas y la espuma blanca rompe contra los pilotes. Ya veis, al otro lado, la puerta abierta de la casa golpeando contra el muro, cuando un aullido os eriza la nuca. No viene de la casa: viene de atrás. Sobre la arena que acabáis de dejar, unas siluetas flacas con el lomo erizado de hielo os cierran el paso. Nadie entra en esa casa con una manada mordiéndole los talones."
@@ -139,11 +149,6 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-romper-hielo.mp3",
    "id": "el-aliento-helado-1-escena-romper-hielo",
    "texto": "Sacáis yesca y pedernal y os agacháis junto al farol de proa. Saltan chispas, prende una llamita... y la niebla que sube del agua la apaga como un soplo. Otra vez. Y otra. Este frío no es natural: se come el fuego. Cuando levantáis la vista, ya es tarde: al otro extremo de la pasarela, unas siluetas flacas con espinas de hielo en el lomo os cierran la vuelta a la playa."
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-ultimo-rincon.mp3",
-   "id": "el-aliento-helado-1-escena-ultimo-rincon",
-   "texto": "La nota sigue siendo un galimatías. Miráis alrededor: cajones volcados, el colchón rajado, la leñera vacía. Solo queda un rincón que nadie ha tocado: la chimenea fría. Alguien mete la mano entre la ceniza y toca hierro: una llave grande con un pez grabado. La tenéis, aunque sin saber qué más decía la nota de Tormund."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-escena-vigilar.mp3",
@@ -276,14 +281,9 @@
    "texto": "Llevar brasas de la chimenea a la barca."
   },
   {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-no-buscar-en-el-unico-rincon-sin-tocar.mp3",
-   "id": "el-aliento-helado-1-opcion-no-buscar-en-el-unico-rincon-sin-tocar",
-   "texto": "No: buscar en el único rincón sin tocar."
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-no-registrais-la-casa-a-golpes.mp3",
-   "id": "el-aliento-helado-1-opcion-no-registrais-la-casa-a-golpes",
-   "texto": "No: registráis la casa a golpes."
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-no-solo-queda-una-ofrenda-de-sangre.mp3",
+   "id": "el-aliento-helado-1-opcion-no-solo-queda-una-ofrenda-de-sangre",
+   "texto": "No: solo queda una ofrenda de sangre."
   },
   {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-opcion-probar-la-llave-en-la-barca.mp3",
@@ -436,6 +436,11 @@
    "texto": "La puerta trasera ha quedado sin atrancar. ¿Por dónde entráis?"
   },
   {
+   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis.mp3",
+   "id": "el-aliento-helado-1-pregunta-la-puerta-trasera-ha-quedado-sin-atrancar-que-haceis",
+   "texto": "La puerta trasera ha quedado sin atrancar. ¿Qué hacéis?"
+  },
+  {
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-lo-alto-de-las-cajas-que-haceis.mp3",
    "id": "el-aliento-helado-1-pregunta-la-rana-os-apunta-desde-lo-alto-de-las-cajas-que-haceis",
    "texto": "La rana os apunta desde lo alto de las cajas. ¿Qué hacéis?"
@@ -479,11 +484,6 @@
    "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-tormund-no-se-fue-por-su-pie-adonde-vais-ahora.mp3",
    "id": "el-aliento-helado-1-pregunta-tormund-no-se-fue-por-su-pie-adonde-vais-ahora",
    "texto": "Tormund no se fue por su pie. ¿Adónde vais ahora?"
-  },
-  {
-   "ruta": "public/mapas/narraciones/el-aliento-helado-1-pregunta-vigilar.mp3",
-   "id": "el-aliento-helado-1-pregunta-vigilar",
-   "texto": "La puerta trasera ha quedado sin atrancar. ¿Qué hacéis?"
   }
  ]
 }

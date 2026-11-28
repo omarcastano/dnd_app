@@ -11,7 +11,7 @@ const TEMAS = { cipher: 'libro', lightsout: 'runas', lightup: 'velas', hanoi: 'p
   nonogram: 'tapiz', hitori: 'losas', tents: 'campamento', stars: 'cielo', galaxies: 'remolinos' };
 
 const RAIZ = new URL('../../../mapas/', import.meta.url);
-const V = '?v=32';
+const V = '?v=34';
 const ROMANOS = ['I', 'II', 'III', 'IV'];
 const MONEDAS_EVENTOS = [5, 10, 15, 30];
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -153,6 +153,10 @@ export async function initMapas() {
   if (!zonaLibro || !zonaCatalogo) return;
   const [{ mapas, ambientes }, { campanas }, bestiario] = await Promise.all([leer('mapas.json'), leer('campanas.json'),
     fetch(new URL('../enemigos/enemigos.json' + V, RAIZ)).then((r) => r.json()).catch(() => ({ enemigos: [] }))]);
+  // Un capítulo puede tener su guion aparte (`guion`: escenas, opciones, estados… en mapas/guiones/<campaña>-<n>.json):
+  // se carga y se mezcla con la ficha de campanas.json, así el guion es la única fuente de la historia.
+  await Promise.all(campanas.flatMap((c) => c.escenarios.filter((e) => e.guion)
+    .map((e) => leer(e.guion).then((g) => { const { _acerca, ...resto } = g; Object.assign(e, resto); }).catch(() => {}))));
   const mapaDe = Object.fromEntries(mapas.map((m) => [m.id, m]));
   const raiz = zonaLibro.closest('.mapas-zona');
 
